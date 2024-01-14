@@ -2,6 +2,23 @@
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
 </script>
+<script>
+// import TheWelcome from '../components/TheWelcome.vue'
+  const imgUrl = new URL('../src/assets/image/home/hannah-wei-aso6SYJZGps-unsplash.jpg', import.meta.url).href
+  export default {
+    data() {
+      return {
+        rawHtml: '<p>1</p>',
+        imgUrl: imgUrl
+      }
+    },
+    // components:{
+    //   TheWelcome
+    // },
+    mounted() {
+    }
+}
+</script>
 
 <template>
   <header>
@@ -13,6 +30,8 @@ import HelloWorld from './components/HelloWorld.vue'
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
+        <RouterLink to="/product">Product</RouterLink>
+        <RouterLink to="/login">Login</RouterLink>
       </nav>
     </div>
   </header>
