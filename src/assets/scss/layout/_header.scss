@@ -1,0 +1,40 @@
+header {
+    display: flex;
+    background-color: #e2e2e2;
+
+    .logo {
+        width: 120px;
+        height: 80px;
+    }
+
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+
+    nav {
+        ul {
+            list-style: none;
+            display: flex;
+
+            li {
+                min-width: 120px;
+
+                a {
+                    color: $link;
+
+                    &:hover {
+                        color: red
+                    }
+                }
+
+                // a:hover {}
+            }
+        }
+    }
+
+    .btn-default {
+        position: relative;
+        left: 100px
+    }
+
+}

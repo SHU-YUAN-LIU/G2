@@ -1,0 +1,26 @@
+.index {
+  // type.....
+  .container {
+    background-color: #ff9090;
+     h1 {
+     font-size: 50px;
+     @include m(){
+      font-size: 100px;
+      color : red
+     }
+     }
+    .large {
+       width:  500px;
+       @include t(){
+          width: 80%;
+          margin: 0 auto;
+       }
+       @include m(){
+          width: 100%;
+
+       }
+
+    }
+
+  }
+}

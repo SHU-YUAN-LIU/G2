@@ -1,0 +1,119 @@
+//====== mixin 宣告
+
+// layout 
+@mixin layout($w) {
+    @if $w==100 {
+        width: 100%;
+    }
+
+    @else if $w < 100 {
+        width: $w * 1%;
+        margin: auto;
+    }
+
+    @else if $w>100 and $w <=200 {
+        width: $w * 1%;
+    }
+
+    @else {
+        width: $w + px;
+        margin: auto;
+    }
+}
+
+
+@mixin btn($class, $color, $bgc:null) {
+    .btn-#{$class} {
+        display: flex;
+        padding: 10px;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+
+        @if $bgc {
+            background-color: $bgc;
+            color: $color;
+
+            &:hover {
+                background-color: darken($bgc, 20);
+            }
+        }
+
+        @else {
+            border: 2px solid $color;
+            color: $color;
+
+            &:hover {
+                background-color: $color;
+                color: invert($color)
+            }
+        }
+
+        transition: .3s all ease;
+        cursor: pointer;
+        border-radius: 8px;
+    }
+}
+
+// ====   rwd ===== //
+// @media all and (min-width: $t) {
+//   //平版
+// }
+
+// @media all and (min-width: $m) {
+//     //手機
+
+//   }
+
+@mixin t() {
+    @media all and (max-width: $t) {
+        //平版
+        @content;
+    }
+}
+
+
+@mixin m() {
+    @media all and (max-width: $m) {
+        //平版
+        @content;
+    }
+}
+
+
+
+// @mixin btn-default($color, $border , $bgc){
+    
+//    color : $color;
+//    border: $border;
+//    background-color:$bgc;
+//    font-size: 16px;
+//    @include m(){
+//      font-size: 20px;
+//    }
+
+// }
+
+
+// .btn-default {
+//   @include btn-default(#333,1px solid #666 , yellow)
+// }
+
+
+
+@mixin grid($col, $b:null) {
+    @for $i from 1 through $col {
+      @if $b==null {
+        .col-#{$i} {
+          width: ($i / $col) * 100%;
+        }
+      }
+  
+      @else {
+        .col-#{$b}-#{$i} {
+          width: ($i / $col) * 100%;
+        }
+      }
+    }
+  }
+  
