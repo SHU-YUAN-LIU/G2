@@ -1,0 +1,386 @@
+/*var*/
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.btn-default {
+  display: flex;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  background-color: #ee2000;
+  color: #fff;
+  transition: 0.3s all ease;
+  cursor: pointer;
+  border-radius: 8px;
+}
+.btn-default:hover {
+  background-color: #881200;
+}
+
+.btn-large {
+  display: flex;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  border: 2px solid #826500;
+  color: #826500;
+  transition: 0.3s all ease;
+  cursor: pointer;
+  border-radius: 8px;
+}
+.btn-large:hover {
+  background-color: #826500;
+  color: #7d9aff;
+}
+
+body {
+  font-size: 16px;
+  margin: 0px 2px;
+  padding: 0;
+  background-color: #fff;
+}
+
+.wrapper {
+  width: 100%;
+}
+
+.container {
+  --column-gap: 10px;
+  max-width: 1366px;
+  margin: auto;
+  padding-left: var(--column-gap);
+  padding-right: var(--column-gap);
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: calc(var(--column-gap) * -1);
+  margin-right: calc(var(--column-gap) * -1);
+}
+
+[class*=col-],
+[class*=row-cols-] > .col {
+  box-sizing: border-box;
+  padding: 0 var(--column-gap);
+}
+
+.col-1 {
+  width: 8.3333333333%;
+}
+
+.col-2 {
+  width: 16.6666666667%;
+}
+
+.col-3 {
+  width: 25%;
+}
+
+.col-4 {
+  width: 33.3333333333%;
+}
+
+.col-5 {
+  width: 41.6666666667%;
+}
+
+.col-6 {
+  width: 50%;
+}
+
+.col-7 {
+  width: 58.3333333333%;
+}
+
+.col-8 {
+  width: 66.6666666667%;
+}
+
+.col-9 {
+  width: 75%;
+}
+
+.col-10 {
+  width: 83.3333333333%;
+}
+
+.col-11 {
+  width: 91.6666666667%;
+}
+
+.col-12 {
+  width: 100%;
+}
+
+@media all and (max-width: 1024px) {
+  .col-md-1 {
+    width: 8.3333333333%;
+  }
+  .col-md-2 {
+    width: 16.6666666667%;
+  }
+  .col-md-3 {
+    width: 25%;
+  }
+  .col-md-4 {
+    width: 33.3333333333%;
+  }
+  .col-md-5 {
+    width: 41.6666666667%;
+  }
+  .col-md-6 {
+    width: 50%;
+  }
+  .col-md-7 {
+    width: 58.3333333333%;
+  }
+  .col-md-8 {
+    width: 66.6666666667%;
+  }
+  .col-md-9 {
+    width: 75%;
+  }
+  .col-md-10 {
+    width: 83.3333333333%;
+  }
+  .col-md-11 {
+    width: 91.6666666667%;
+  }
+  .col-md-12 {
+    width: 100%;
+  }
+}
+@media all and (max-width: 576px) {
+  .col-sm-1 {
+    width: 8.3333333333%;
+  }
+  .col-sm-2 {
+    width: 16.6666666667%;
+  }
+  .col-sm-3 {
+    width: 25%;
+  }
+  .col-sm-4 {
+    width: 33.3333333333%;
+  }
+  .col-sm-5 {
+    width: 41.6666666667%;
+  }
+  .col-sm-6 {
+    width: 50%;
+  }
+  .col-sm-7 {
+    width: 58.3333333333%;
+  }
+  .col-sm-8 {
+    width: 66.6666666667%;
+  }
+  .col-sm-9 {
+    width: 75%;
+  }
+  .col-sm-10 {
+    width: 83.3333333333%;
+  }
+  .col-sm-11 {
+    width: 91.6666666667%;
+  }
+  .col-sm-12 {
+    width: 100%;
+  }
+}
+.row-cols-1 > .col {
+  width: 100%;
+}
+
+.row-cols-2 > .col {
+  width: 50%;
+}
+
+.row-cols-3 > .col {
+  width: 33.333333%;
+}
+
+.row-cols-4 > .col {
+  width: 25%;
+}
+
+.row-cols-5 > .col {
+  width: 20%;
+}
+
+.row-cols-6 > .col {
+  width: 16.666666%;
+}
+
+@media (width >= 768px) {
+  .row-cols-md-1 > .col {
+    width: 100%;
+  }
+  .row-cols-md-2 > .col {
+    width: 50%;
+  }
+  .row-cols-md-3 > .col {
+    width: 33.333333%;
+  }
+  .row-cols-md-4 > .col {
+    width: 25%;
+  }
+  .row-cols-md-5 > .col {
+    width: 20%;
+  }
+  .row-cols-md-6 > .col {
+    width: 16.666666%;
+  }
+}
+@media (width >= 1024px) {
+  .row-cols-lg-1 > .col {
+    width: 100%;
+  }
+  .row-cols-lg-2 > .col {
+    width: 50%;
+  }
+  .row-cols-lg-3 > .col {
+    width: 33.333333%;
+  }
+  .row-cols-lg-4 > .col {
+    width: 25%;
+  }
+  .row-cols-lg-5 > .col {
+    width: 20%;
+  }
+  .row-cols-lg-6 > .col {
+    width: 16.666666%;
+  }
+}
+@media (width >= 1200px) {
+  .row-cols-xl-1 > .col {
+    width: 100%;
+  }
+  .row-cols-xl-2 > .col {
+    width: 50%;
+  }
+  .row-cols-xl-3 > .col {
+    width: 33.333333%;
+  }
+  .row-cols-xl-4 > .col {
+    width: 25%;
+  }
+  .row-cols-xl-5 > .col {
+    width: 20%;
+  }
+  .row-cols-xl-6 > .col {
+    width: 16.666666%;
+  }
+}
+header {
+  display: flex;
+  background-color: #e2e2e2;
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+}
+header .logo {
+  width: 120px;
+  height: 80px;
+}
+header nav ul {
+  list-style: none;
+  display: flex;
+}
+header nav ul li {
+  min-width: 120px;
+}
+header nav ul li a {
+  color: #1900ff;
+}
+header nav ul li a:hover {
+  color: red;
+}
+header .btn-default {
+  position: relative;
+  left: 100px;
+}
+
+.index .container {
+  background-color: #ff9090;
+}
+.index .container h1 {
+  font-size: 50px;
+}
+@media all and (max-width: 576px) {
+  .index .container h1 {
+    font-size: 100px;
+    color: red;
+  }
+}
+.index .container .large {
+  width: 500px;
+}
+@media all and (max-width: 1024px) {
+  .index .container .large {
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+@media all and (max-width: 576px) {
+  .index .container .large {
+    width: 100%;
+  }
+}
+
+.about .container h1 {
+  font-size: 60px;
+  color: red;
+}/*# sourceMappingURL=style.css.map */

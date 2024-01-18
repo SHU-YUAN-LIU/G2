@@ -22,7 +22,7 @@
 }
 
 
-@mixin btn($class, $color, $bgc:null) {
+@mixin btn($class, $color, $bgc: null) {
     .btn-#{$class} {
         display: flex;
         padding: 10px;
@@ -83,7 +83,7 @@
 
 
 // @mixin btn-default($color, $border , $bgc){
-    
+
 //    color : $color;
 //    border: $border;
 //    background-color:$bgc;
@@ -101,19 +101,18 @@
 
 
 
-@mixin grid($col, $b:null) {
+@mixin grid($col, $b: null) {
     @for $i from 1 through $col {
-      @if $b==null {
-        .col-#{$i} {
-          width: ($i / $col) * 100%;
+        @if $b==null {
+            .col-#{$i} {
+                width: ($i / $col) * 100%;
+            }
         }
-      }
-  
-      @else {
-        .col-#{$b}-#{$i} {
-          width: ($i / $col) * 100%;
+
+        @else {
+            .col-#{$b}-#{$i} {
+                width: ($i / $col) * 100%;
+            }
         }
-      }
     }
-  }
-  
+}
