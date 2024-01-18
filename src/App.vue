@@ -20,9 +20,6 @@
         <RouterLink to="/news">News</RouterLink>
         <RouterLink to="/contact">Contact</RouterLink>
         <RouterLink to="/election">Election</RouterLink>
-
-
-
       </nav>
     </div>
 
