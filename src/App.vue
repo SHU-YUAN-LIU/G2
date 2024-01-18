@@ -17,7 +17,7 @@
 
 
       <nav>
-        <RouterLink to="/">Home</RouterLink>
+        <RouterLink to="/index">Index</RouterLink>
         <RouterLink to="/about">About</RouterLink>
         <RouterLink to="/product">Product</RouterLink>
         <RouterLink to="/login">Login</RouterLink>
@@ -26,7 +26,5 @@
   </header>
 
   <RouterView />
-
-
 </template>
 
