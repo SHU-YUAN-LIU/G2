@@ -10,20 +10,31 @@
     </select>
   </div>
   <div class="product">
-    <div v-for="item in disPro" class="card">
+    <!-- <div v-for="item in disPro" class="card">
       <img width="200px"  :src="defaultSrc+item.prod_pic" >
       <p>品名:{{ item.prod_name }}</p>
       <p>價錢:{{ item.prod_price }}</p>
       <div class="content">
         <p>內容:{{ item.prod_int }}</p>
       </div>
-    </div>
+    </div> -->
+    
+    <Card v-for="item in disPro"
+      :imgSrc="defaultSrc+item.prod_pic"
+      :name="item.prod_name"
+      :price="item.prod_price"
+      :int="item.prod_int"
+    /> <!-- -->
   </div>
 </template>
 
 <script>
   import axios from 'axios';
+  import Card from '../components/Card.vue'
   export default{
+    components:{
+      Card,
+    },
     data() {
       return {
         defaultSrc:'https://tibamef2e.com/chd103/g2/image/ShopImage/',
@@ -31,7 +42,7 @@
         allPro:[],
         disPro:[],
         category:[],
-        currentCategory:'',
+        currentCategory:'ALL',
         max:1000000,
         min:0,
 

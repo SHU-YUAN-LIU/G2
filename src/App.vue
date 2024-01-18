@@ -12,10 +12,17 @@
   <header>
     <div class="wrapper">
       <nav>
-        <RouterLink to="/index">Index</RouterLink>
+        <RouterLink to="/home">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
         <RouterLink to="/product">Product</RouterLink>
         <RouterLink to="/login">Login</RouterLink>
+        <RouterLink to="/donate">Donate</RouterLink>
+        <RouterLink to="/news">News</RouterLink>
+        <RouterLink to="/contact">Contact</RouterLink>
+        <RouterLink to="/election">Election</RouterLink>
+
+
+
       </nav>
     </div>
 
