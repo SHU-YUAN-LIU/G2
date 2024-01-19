@@ -71,6 +71,9 @@ export default {
 </script>
 
 <style>
+ul{
+  list-style: none;
+}
 .banner{
   overflow: hidden;
   width: 1920px;
@@ -78,6 +81,7 @@ export default {
 }
 .banner>ul{
   display: flex;
+  padding: 0;
 }
 
 .banner>button{
@@ -95,11 +99,11 @@ export default {
 }
 
 .banner>button:first-child{
-  left: 60px;
+  left: 20px;
 }
 
 .banner>button:last-child{
-  right: 60px;
+  right: 20px;
 }
 
 .donate_container{
