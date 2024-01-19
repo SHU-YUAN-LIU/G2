@@ -1,0 +1,61 @@
+.title {
+    font-family: Mantou Sans, sans-serif;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.price {
+    @include title_7;
+    font-size: 16px;
+    letter-spacing: 1.5px;
+    font-weight: 800;
+    color: #FF892E;
+}
+
+.content {
+    .title {
+        font-family: Mantou Sans, sans-serif;
+        margin-top: 10px;
+        margin-bottom: 5px;
+    }
+
+    .price {
+        @include title_7;
+        font-size: 16px;
+        letter-spacing: 1.5px;
+        font-weight: 800;
+        color: #FF892E;
+    }
+
+    .content {
+        @include title_7;
+    }
+
+    .card_pic {
+
+        width: 200px;
+        height: 230px;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    ;
+}
+
+.card_pic {
+
+    width: 200px;
+    height: 230px;
+    overflow: hidden;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}

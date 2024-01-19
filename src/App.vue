@@ -10,35 +10,48 @@ import Banner from './components/Banner.vue';
 import Button from './components/Button.vue';
 
 export default {
-  components:{
+  components: {
     RouterView,
     MainHeader,
     MainFooter,
     Banner,
     Button,
   },
-  data(){
-    return{
-      
+  data() {
+    return {
+
     }
   },
-  created(){
+  created() {
 
   },
-  methods:{
-    
+  methods: {
+
   }
-  
+
 }
 
 </script>
 
 <template>
-  <MainHeader />
+  <header>
+    <div class="wrapper">
+      <nav>
+        <RouterLink to="/home">Home</RouterLink>
+        <RouterLink to="/about">About</RouterLink>
+        <RouterLink to="/product">Product</RouterLink>
+        <RouterLink to="/login">Login</RouterLink>
+        <RouterLink to="/donate">Donate</RouterLink>
+        <RouterLink to="/news">News</RouterLink>
+        <RouterLink to="/contact">Contact</RouterLink>
+        <RouterLink to="/election">Election</RouterLink>
+      </nav>
+    </div>
 
 
+    <MainHeader />
 
-  <RouterView />
+    <RouterView />
 
 
   <MainFooter />
@@ -48,11 +61,5 @@ export default {
 </template>
 
 
-<style>
-  header{
-    position: fixed;
-    top: 0;
-    left: 45%;
-  }
-</style>
+<style></style>
 

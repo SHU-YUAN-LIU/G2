@@ -1,27 +1,30 @@
 <template>
-    <div class="card">
-      <img width="200px"  :src="imgSrc" >
-      <p>品名:{{ name }}</p>
-      <p>價錢:{{ price }}</p>
-      <div class="content">
-        <p>內容:{{ int }}</p>
-      </div>
+  <div class="card">
+    <div class="card_pic">
+      <img width="200px" :src="imgSrc">
     </div>
+    <p class="title">{{ name }}</p>
+    <p class="price">價錢:{{ price }}</p>
+
+    <img width="200px" :src="imgSrc">
+    <p class="title">{{ name }}</p>
+    <p class="price">價錢:{{ price }}</p>
+
+  </div>
 </template>
 <script>
-  export default{
-    data(){
-      return{
+export default {
+  data() {
+    return {
 
-      }
-    },
-    props:['imgSrc','name','price','int'],
-    created(){},
-    methods:{
-    
     }
-  }
-</script>
-<style>
+  },
+  props: ['imgSrc', 'name', 'price', 'int'],
+  created() { },
+  methods: {
 
-</style>
+  }
+}
+</script>
+
+<style lang="scss"></style>
