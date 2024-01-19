@@ -1,14 +1,13 @@
 <template>
   <div class="card">
     <img width="200px" :src="imgSrc">
-    <p class="dog">{{ name }}</p>
-    <p class="fish">價錢:{{ price }}</p>
-    <div class="content">
+    <p class="title">{{ name }}</p>
+    <p class="price">價錢:{{ price }}</p>
+    <!-- <div class="content">
       <p>內容:{{ int }}</p>
-    </div>
+    </div> -->
   </div>
 </template>
-
 <script>
 export default {
   data() {
@@ -25,12 +24,13 @@ export default {
 </script>
 
 <style lang="scss">
-.dog {
+.title {
   font-family: Mantou Sans, sans-serif;
-
+  margin-top: 10px;
+  margin-bottom: 5px;
 }
 
-.fish {
+.price {
   font-family: noto sans, sans-serif;
   font-size: 16px;
   letter-spacing: 1.5px;

@@ -1,0 +1,27 @@
+.wrap {
+    width: 1200px;
+    margin: auto;
+    background-color: red;
+
+}
+
+.top {
+    margin-top: 100px;
+    height: 200px;
+}
+
+.content {
+    width: 200px;
+}
+
+.product {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+
+}
+
+.card {
+    width: 200px;
+    border: 1px solid blue;
+}
