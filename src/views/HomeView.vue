@@ -73,6 +73,7 @@ export default {
 <style>
 .banner{
   overflow: hidden;
+  width: 1920px;
   position: relative;
 }
 .banner>ul{
