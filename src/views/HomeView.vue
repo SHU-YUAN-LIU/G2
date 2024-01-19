@@ -1,77 +1,93 @@
 <template>
     <link rel="stylesheet" href="../../css/style.css">
-        <!-- banner -->
-        <div class="banner">
-            <button> &lt </button>
-            <ul>
-                <li v-for="banner in bannerList">
-                    <img :src="getImageUrl(banner)" alt="">
-                </li>
-            </ul>
-            <button>></button>
-        </div>
+    <!-- banner -->
+    <div class="banner">
+        <button> &lt </button>
+        <ul>
+            <li v-for="banner in bannerList">
+                <img :src="getImageUrl(banner)" alt="">
+            </li>
+        </ul>
+        <button>></button>
+    </div>
 
-        <!-- 消息-->
-        <div class="index_news_bg">
-            <div class="container">
-                <div class="row index_news_flex">
-                    <div class="col col-4">
+    <!-- 消息-->
+    <div class="index_news_bg">
+        <div class="container">
+            <div class="row index_news_flex">
+                <div class="col col-12 index_news_title">最新消息</div>
+                <div class="col col-4 index_news_card">
+                    <div>
+                        <img :src="getImageUrl(news_card[0].news_img)">
+                    </div>
+                    <div class="index_news_card_text">
+                        <span>{{ news_card[0].date_time }}</span>
+                        <p class="index_news_card_header">{{ news_card[0].news_title }}</p>
+                        <p>{{ news_card[0].news_script }}</p>
+                    </div>
+                </div>
+                <div class="row col col-6 news_index_inner_flex">
+                    <div v-for="(item, index) in get_for_range(news_card, 1, 2)" :key="index" class="col index_news_card">
                         <div>
-                            <img src="../assets/image/home/index_news_pic1.png" alt="">
+                            <img :src="getImageUrl(item.news_img)">
                         </div>
                         <div class="index_news_card_text">
-                            <span>2023/12/25</span>
-                            <p class="index_news_card_header">這是一場改變政治文化的社會運動</p>
-                            <p>這是一場改變政治文化的社會運動，投給劉緯育，投給自己的未來。躊灣資蚤萌我取要天，枯思揀傳之破裡知？書也等起論都風、看珊妻欒外龍若停</p>
-                        </div>
-                    </div>
-                    <div class="col col-6">
-                        <div class="index_news_card">
-                            <div>
-                                <img src="../assets/image/home/index_news_pic2.png" alt="">
-                            </div>
-                            <div class="index_news_card_text">
-                                <span>2023/12/25</span>
-                                <p class="index_news_card_header">這是一場改變政治文化的社會運動</p>
-                                <p>這是一場改變政治文化的社會運動，投給劉緯育，投給自己的未來。躊灣資蚤萌我取要天，枯思揀傳之破裡知？書也等起論都風、看珊妻欒外龍若停衣不凰性燈啡。瑛感今我您給不空風樣。作，鳩體能、具的矜手描
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="index_news_card">
-                            <div>
-                                <img src="../assets/image/home/index_news_pic3.png" alt="">
-                            </div>
-                            <div class="index_news_card_text">
-                                <span>2023/12/25</span>
-                                <p class="index_news_card_header">這是一場改變政治文化的社會運動</p>
-                                <p>這是一場改變政治文化的社會運動，投給劉緯育，投給自己的未來。躊灣資蚤萌我取要天，枯思揀傳之破裡知？書也等起論都風、看珊妻欒外龍若停衣不凰性燈啡。瑛感今我您給不空風樣。作，鳩體能、具的矜手描
-                                </p>
-                            </div>
+                            <span>{{ item.date_time }}</span>
+                            <p class="index_news_card_header">{{ item.news_title }}</p>
+                            <p>{{ item.news_script }}</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- 捐款 -->
-
-        <div class="donate_container">
-
-            <img v-for="donateImg in donateList" :src="getImageUrl(donateImg)" alt="" class="icon">
-            <div>
-                <h2>小額捐款, 作伙相挺</h2>
-                <div class="donate_content">
-                    <img src="../assets/image/home/donate_img.png" alt="">
-                    <p>2024 總統大選，面對這光榮民主的一戰，我們需要更多社會支持，邀請大家加入 Team Taiwan，一起挺台灣！</p>
+    <!-- 假消息澄清-->
+    <div class="container">
+        <div class="row index_news_flex">
+            <div class="col col-12 index_news_title">假消息澄清</div>
+            <div class="col col-4 index_news_card">
+                <div>
+                    <img :src="getImageUrl(news_card[0].news_img)">
+                </div>
+                <div class="index_news_card_text">
+                    <span>{{ news_card[0].date_time }}</span>
+                    <p class="index_news_card_header">{{ news_card[0].news_title }}</p>
+                    <p>{{ news_card[0].news_script }}</p>
                 </div>
             </div>
+            <div class="row col col-6 news_index_inner_flex">
+                <div v-for="(item, index) in get_for_range(news_card, 1, 2)" :key="index" class="col index_news_card">
+                    <div>
+                        <img :src="getImageUrl(item.news_img)">
+                    </div>
+                    <div class="index_news_card_text">
+                        <span>{{ item.date_time }}</span>
+                        <p class="index_news_card_header">{{ item.news_title }}</p>
+                        <p>{{ item.news_script }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <!-- 捐款 -->
 
-            <!-- 頁面路由route渲染的位置 -->
-            <RouterView />
+    <div class="donate_container">
+
+        <img v-for="donateImg in donateList" :src="getImageUrl(donateImg)" alt="" class="icon">
+        <div>
+            <h2>小額捐款, 作伙相挺</h2>
+            <div class="donate_content">
+                <img src="../assets/image/home/donate_img.png" alt="">
+                <p>2024 總統大選，面對這光榮民主的一戰，我們需要更多社會支持，邀請大家加入 Team Taiwan，一起挺台灣！</p>
+            </div>
         </div>
 
+
+        <!-- 頁面路由route渲染的位置 -->
+        <RouterView />
+    </div>
 </template>
 
 <script>
@@ -88,6 +104,27 @@ export default {
                 'home/donate_icon_2.png',
                 'home/donate_icon_3.png',
             ],
+            news_card: [{
+                id: 1,
+                news_img: "home/index_news_pic1.png",
+                date_time: "2023/12/25",
+                news_title: "這是一場改變政治文化的社會運動",
+                news_script: "這是一場改變政治文化的社會運動，投給劉緯育，投給自己的未來。躊灣資蚤萌我取要天，枯思揀傳之破裡知？書也等起論都風、看珊妻欒外龍若停"
+            },
+            {
+                id: 2,
+                news_img: "home/index_news_pic2.png",
+                date_time: "2023/12/25",
+                news_title: "這是一場改變政治文化的社會運動",
+                news_script: "這是一場改變政治文化的社會運動，投給劉緯育，投給自己的未來。躊灣資蚤萌我取要天，枯思揀傳之破裡知？書也等起論都風、看珊妻欒外龍若停衣不凰性燈啡。瑛感今我您給不空風樣。作，鳩體能、具的矜手描"
+            },
+            {
+                id: 3,
+                news_img: "home/index_news_pic3.png",
+                date_time: "2023/12/25",
+                news_title: "這是一場改變政治文化的社會運動",
+                news_script: "這是一場改變政治文化的社會運動，投給劉緯育，投給自己的未來。躊灣資蚤萌我取要天，枯思揀傳之破裡知？書也等起論都風、看珊妻欒外龍若停衣不凰性燈啡。瑛感今我您給不空風樣。作，鳩體能、具的矜手描"
+            }]
 
         }
     },
@@ -98,7 +135,9 @@ export default {
         getImageUrl(paths) {
             return new URL(`../assets/image/${paths}`, import.meta.url).href
         },
-
+        get_for_range(arraydata, indexmin, indexmax) {
+            return arraydata.filter((item, index) => index >= indexmin && index <= indexmax);
+        }
     },
     mounted() {
 
@@ -201,41 +240,51 @@ export default {
 }
 
 .index_news_bg {
-    background-color: red;
+    background-color: #F3F5F7;
 }
 
 .index_news_flex {
-    gap: 40px;
     justify-content: center;
+    gap: 40px;
 }
 
-.index_news_flex>.col-4 img {
-    width: 100%;
-    vertical-align: middle;
-    /* overflow: hidden; */
+.index_news_flex>.col-4:nth-child(2) {
+    flex-direction: column;
 }
 
-.index_news_flex>.col-4 {
-    background-color: #fff;
-    /* border: 1px solid #F3F5F7; */
-    padding: 0;
-    border-radius: 10px;
-
-}
-
-.index_news_flex>.col-6 {
-    display: flex;
+.news_index_inner_flex {
     flex-direction: column;
     gap: 40px;
 }
 
-.index_news_card {
+.index_news_flex .index_news_card {
     display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
     box-sizing: border-box;
-    background-color: #fff;
-    /* border: 1px solid #F3F5F7; */
     padding: 0;
+    background-color: #fff;
     border-radius: 10px;
+    border: 1px solid #F3F5F7;
+    box-shadow: 0 0 30px 0 #CBCBCB;
+}
+
+.index_news_card img {
+    min-width: 100%;
+    vertical-align: middle;
+}
+
+.index_news_flex>.col-4:nth-child(2) img {
+    width: 100%;
+}
+
+.index_news_title {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    font-size: 65px;
+    margin: 145px 0;
 }
 
 .index_news_card_text {
