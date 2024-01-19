@@ -1,11 +1,12 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 
+// path設定'/'表示將該頁面設置為首頁
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/Home',
+      path: '/',
       name: 'Home',
       component: () => import('../views/HomeView.vue')
     },
