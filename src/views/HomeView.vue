@@ -96,7 +96,7 @@
 </template>
 
 <script>
-import bookmark from '../components/bookmark.vue';
+import bookmark from '../components/BookMark.vue';
 export default {
     data() {
         return {
