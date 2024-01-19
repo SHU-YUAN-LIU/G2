@@ -11,6 +11,7 @@
 <template>
   <header>
     <div class="wrapper">
+      <h1 class="$title_1">你好</h1>
       <nav>
         <RouterLink to="/home">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
@@ -28,10 +29,10 @@
   <RouterView />
 </template>
 <style>
-  header{
-    position: fixed;
-    top: 0;
-    left: 45%;
-  }
+header {
+  position: fixed;
+  top: 0;
+  left: 45%;
+}
 </style>
 
