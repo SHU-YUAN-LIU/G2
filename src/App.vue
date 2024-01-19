@@ -1,32 +1,46 @@
-<script setup>
+<!-- <script setup>
 // import { RouterLink, RouterView } from 'vue-router'
 // import HelloWorld from './components/HelloWorld.vue'
-</script>
+</script> -->
 <script>
-// import TheWelcome from '../components/TheWelcome.vue'
+import { RouterView } from 'vue-router';
+import MainHeader from './components/MainHeader.vue';
+import MainFooter from './components/MainFooter.vue';
 
+export default {
+  components:{
+    RouterView,
+    MainHeader,
+    MainFooter,
+  },
+  data(){
+    return{
+      
+    }
+  },
+  created(){
+
+  },
+  methods:{
+    
+  }
+  
+}
 
 </script>
 
 <template>
-  <header>
-    <div class="wrapper">
-      <nav>
-        <RouterLink to="/home">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-        <RouterLink to="/product">Product</RouterLink>
-        <RouterLink to="/login">Login</RouterLink>
-        <RouterLink to="/donate">Donate</RouterLink>
-        <RouterLink to="/news">News</RouterLink>
-        <RouterLink to="/contact">Contact</RouterLink>
-        <RouterLink to="/election">Election</RouterLink>
-      </nav>
-    </div>
+  <MainHeader />
 
-  </header>
+
 
   <RouterView />
+
+
+  <MainFooter />
 </template>
+
+
 <style>
   header{
     position: fixed;
