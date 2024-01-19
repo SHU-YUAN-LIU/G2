@@ -46,19 +46,16 @@ export default {
         <RouterLink to="/election">Election</RouterLink>
       </nav>
     </div>
-    <MainHeader />
+
 
 
 
     <RouterView />
 
 
-    <MainFooter />
   </header>
 </template>
 
 
-<style>
-
-</style>
+<style></style>
 
