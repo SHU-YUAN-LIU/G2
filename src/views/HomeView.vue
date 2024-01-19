@@ -1,5 +1,5 @@
 <template>
-    <link rel="stylesheet" href="../../css/style.css">
+    <MainHeader />
     <!-- banner -->
     <div class="banner">
         <button> &lt </button>
@@ -11,65 +11,13 @@
         <button>></button>
     </div>
 
-    <!-- 消息-->
-    <div class="index_news_bg">
-        <div class="container">
-            <div class="row index_news_flex">
-                <div class="col col-12 index_news_title">最新消息</div>
-                <div class="col col-4 index_news_card">
-                    <div>
-                        <img :src="getImageUrl(news_card[0].news_img)">
-                    </div>
-                    <div class="index_news_card_text">
-                        <span>{{ news_card[0].date_time }}</span>
-                        <p class="index_news_card_header">{{ news_card[0].news_title }}</p>
-                        <p>{{ news_card[0].news_script }}</p>
-                    </div>
-                </div>
-                <div class="row col col-6 news_index_inner_flex">
-                    <div v-for="(item, index) in get_for_range(news_card, 1, 2)" :key="index" class="col index_news_card">
-                        <div>
-                            <img :src="getImageUrl(item.news_img)">
-                        </div>
-                        <div class="index_news_card_text">
-                            <span>{{ item.date_time }}</span>
-                            <p class="index_news_card_header">{{ item.news_title }}</p>
-                            <p>{{ item.news_script }}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <!-- 假消息澄清-->
-    <div class="container">
-        <div class="row index_news_flex">
-            <div class="col col-12 index_news_title">假消息澄清</div>
-            <div class="col col-4 index_news_card">
-                <div>
-                    <img :src="getImageUrl(news_card[0].news_img)">
-                </div>
-                <div class="index_news_card_text">
-                    <span>{{ news_card[0].date_time }}</span>
-                    <p class="index_news_card_header">{{ news_card[0].news_title }}</p>
-                    <p>{{ news_card[0].news_script }}</p>
-                </div>
-            </div>
-            <div class="row col col-6 news_index_inner_flex">
-                <div v-for="(item, index) in get_for_range(news_card, 1, 2)" :key="index" class="col index_news_card">
-                    <div>
-                        <img :src="getImageUrl(item.news_img)">
-                    </div>
-                    <div class="index_news_card_text">
-                        <span>{{ item.date_time }}</span>
-                        <p class="index_news_card_header">{{ item.news_title }}</p>
-                        <p>{{ item.news_script }}</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
+
+
+
+
+
 
     <!-- 捐款 -->
 
@@ -82,12 +30,86 @@
                 <img src="../assets/image/home/donate_img.png" alt="">
                 <p>2024 總統大選，面對這光榮民主的一戰，我們需要更多社會支持，邀請大家加入 Team Taiwan，一起挺台灣！</p>
             </div>
-        </div>
+
+            <!-- 消息-->
+            <div class="index_news_bg">
+                <div class="container">
+                    <div class="row index_news_flex">
+                        <div class="col col-12 index_news_title">最新消息</div>
+                        <div class="col col-4 index_news_card">
+                            <div>
+                                <img :src="getImageUrl(news_card[0].news_img)">
+                            </div>
+                            <div class="index_news_card_text">
+                                <span>{{ news_card[0].date_time }}</span>
+                                <p class="index_news_card_header">{{ news_card[0].news_title }}</p>
+                                <p>{{ news_card[0].news_script }}</p>
+                            </div>
+                        </div>
+                        <div class="row col col-6 news_index_inner_flex">
+                            <div v-for="(item, index) in get_for_range(news_card, 1, 2)" :key="index"
+                                class="col index_news_card">
+                                <div>
+                                    <img :src="getImageUrl(item.news_img)">
+                                </div>
+                                <div class="index_news_card_text">
+                                    <span>{{ item.date_time }}</span>
+                                    <p class="index_news_card_header">{{ item.news_title }}</p>
+                                    <p>{{ item.news_script }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 假消息澄清-->
+            <div class="container">
+                <div class="row index_news_flex">
+                    <div class="col col-12 index_news_title">假消息澄清</div>
+                    <div class="col col-4 index_news_card">
+                        <div>
+                            <img :src="getImageUrl(news_card[0].news_img)">
+                        </div>
+                        <div class="index_news_card_text">
+                            <span>{{ news_card[0].date_time }}</span>
+                            <p class="index_news_card_header">{{ news_card[0].news_title }}</p>
+                            <p>{{ news_card[0].news_script }}</p>
+                        </div>
+                    </div>
+                    <div class="row col col-6 news_index_inner_flex">
+                        <div v-for="(item, index) in get_for_range(news_card, 1, 2)" :key="index"
+                            class="col index_news_card">
+                            <div>
+                                <img :src="getImageUrl(item.news_img)">
+                            </div>
+                            <div class="index_news_card_text">
+                                <span>{{ item.date_time }}</span>
+                                <p class="index_news_card_header">{{ item.news_title }}</p>
+                                <p>{{ item.news_script }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 捐款 -->
+
+            <div class="donate_container">
+
+                <img v-for="donateImg in donateList" :src="getImageUrl(donateImg)" alt="" class="icon">
+                <div>
+                    <h2>小額捐款, 作伙相挺</h2>
+                    <div class="donate_content">
+                        <img src="../assets/image/home/donate_img.png" alt="">
+                        <p>2024 總統大選，面對這光榮民主的一戰，我們需要更多社會支持，邀請大家加入 Team Taiwan，一起挺台灣！</p>
+                    </div>
+                </div>
 
 
-        <!-- 頁面路由route渲染的位置 -->
-        <RouterView />
-    </div>
+                <!-- 頁面路由route渲染的位置 -->
+                <RouterView />
+            </div>
 </template>
 
 <script>
@@ -146,9 +168,20 @@ export default {
 </script>
 
 <style>
+ul {
+    list-style: none;
+}
+
 .banner {
     overflow: hidden;
+    width: 1920px;
     position: relative;
+    margin-top: 85px;
+}
+
+.banner>ul {
+    display: flex;
+    padding: 0;
 }
 
 .banner>ul {
@@ -169,8 +202,13 @@ export default {
     font-size: 40px;
 }
 
+
 .banner>button:first-child {
-    left: 60px;
+    left: 20px;
+}
+
+.banner>button:last-child {
+    right: 20px;
 }
 
 .banner>button:last-child {
