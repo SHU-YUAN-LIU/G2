@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <div class="procard">
     <div class="card_pic">
       <img width="200px" :src="imgSrc">
     </div>

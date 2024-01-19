@@ -22,7 +22,7 @@
 
       <div class="test">
         <div class="card_group">
-          <Card v-for="item in disPro" :imgSrc="defaultSrc + item.prod_pic" :name="item.prod_name"
+          <ProCard v-for="item in disPro" :imgSrc="defaultSrc + item.prod_pic" :name="item.prod_name"
             :price="item.prod_price" />
 
         </div>
@@ -35,10 +35,10 @@
 
 <script>
 import axios from 'axios';
-import Card from '../components/Card.vue'
+import ProCard from '../components/ProCard.vue'
 export default {
   components: {
-    Card,
+    ProCard,
   },
   data() {
     return {
