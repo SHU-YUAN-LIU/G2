@@ -20,13 +20,7 @@ header {
         display: flex;
         align-items: center;
         justify-content: center;
-        
-        div{
-            display: flex;
-            li{
-                padding: 0 30px;
-            }
-        }
+
         ul {
             list-style: none;
             display: flex;
@@ -45,12 +39,12 @@ header {
                     }
                 }
 
-                // a:hover {}
             }
         }
         .nav_icons{
             width: 280px;
-            border: 1px solid #000; 
+            display: flex;
+            justify-content: space-evenly;
             div{
                 display: flex;
                 flex-direction: column;
@@ -69,6 +63,12 @@ header {
                     color: $orange;
                 }
             }
+        }
+
+        .nav_items{
+            width: 660px;
+            display: flex;
+            justify-content: space-evenly;
         }
 
     }
