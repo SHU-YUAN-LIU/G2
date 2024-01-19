@@ -32,7 +32,7 @@
             </div>
         </div>
     </div>
-    
+
     <!-- 消息-->
     <div class="index_news_bg">
         <div class="container">
