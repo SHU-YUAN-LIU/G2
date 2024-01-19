@@ -1,26 +1,19 @@
 // 有超連結的button
-@include btn_1 {
-    background-color: $orange ;
-    padding: 13px 40px;
-    font-size: 20px;
-    border-radius: $border-radius-1;
-    letter-spacing: $space_letter;
-    color: $white;
-    font-family: $font_family_1 ;
-}
-
-// 沒有超連結的button
-@include btn_2 {
-    background-color: $orange ;
-    padding: 13px 40px;
-    font-size: 20px;
-    border-radius: $border-radius-1;
-    letter-spacing: $space_letter;
-    color: $white;
-    font-family: $font_family_2;
-}
-
-
-//膠囊型按鈕EX首頁按鈕
+// @include btn_1 (background-color:$orange,
+//     padding: 13px 40px,
+//     font-size: 20px,
+//     border-radius: $border-radius-1,
+//     letter-spacing: $space_letter,
+//     color: $white,
+//     font-family: $font_family_1 ,
+// ) // 沒有超連結的button
+// @include btn_2 (background-color: $orange ,
+//     padding: 13px 40px,
+//     font-size: 20px,
+//     border-radius: $border-radius-1,
+//     letter-spacing: $space_letter,
+//     color: $white,
+//     font-family: $font_family_2,
+// ) //膠囊型按鈕EX首頁按鈕
 
 // $btn_2(); //EX購物車按鈕
