@@ -51,9 +51,6 @@ export default {
 
     <MainHeader />
 
-    <RouterView />
-
-
     <MainFooter />
   </header>
 </template>
