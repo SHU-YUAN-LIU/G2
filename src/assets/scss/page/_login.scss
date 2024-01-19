@@ -13,9 +13,9 @@
     flex-direction: column;
     justify-content: center;
 }
-.register form {
+.login_wrap form {
     width: 400px;
-    margin: auto;
+    margin: 30px auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -53,7 +53,7 @@ input {
 .register_read p {
     padding-left: 10px;
 }
-.logo {
+.login_logo {
     padding: 30px 0;
 }
 .btn {
@@ -87,9 +87,9 @@ input {
 .sub_login_container {
     width: 480px;
     text-align: center;
-    /* display: none; */
     font-family: $font_family_2;
     font-size: 55px;
+    // display: none;
 }
 
 
@@ -98,7 +98,7 @@ input {
     height: 900px;
     display: flex;
     border-left: 1px solid #ccc;
-    /* display: none; */
+    // display: none;
 }
 
 
