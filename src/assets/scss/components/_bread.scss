@@ -1,0 +1,14 @@
+.bread {
+    background-color: $orange;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    a {
+
+        @include title_9;
+        cursor: pointer;
+    }
+}

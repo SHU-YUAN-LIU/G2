@@ -1,7 +1,10 @@
 <template>
+  <!-- Banner -->
+  <Banner />
+  <!-- 麵包屑 -->
+  <Bread />
   <div class="pro_wrap">
     <div class="top">
-      <h1>This is an product page</h1>
       <input type="text" width="100px" placeholder="搜尋關鍵字" v-model.trim="search" @input="changeDis">
       <input type="number" width="100px" v-model="min" @input="changeDis">
       <input type="number" width="100px" v-model="max" @input="changeDis">
@@ -11,34 +14,28 @@
       </select>
     </div>
     <div class="product">
-      <!-- <div v-for="item in disPro" class="card">
-        <img width="200px"  :src="defaultSrc+item.prod_pic" >
-        <p>品名:{{ item.prod_name }}</p>
-        <p>價錢:{{ item.prod_price }}</p>
-        <div class="content">
-          <p>內容:{{ item.prod_int }}</p>
-        </div>
-      </div> -->
-
-      <div class="test">
+      <!-- 商品卡片 -->
+      <div class="pro_card_group">
         <div class="card_group">
-          <ProCard v-for="item in disPro" :imgSrc="defaultSrc + item.prod_pic" :name="item.prod_name"
-            :price="item.prod_price" />
-
+          <div v-for="(item, index) in disPro">
+            <ProCard :imgSrc="defaultSrc + item.prod_pic" :name="item.prod_name" :price="item.prod_price" :num="index" />
+          </div>
         </div>
       </div>
-
     </div>
-    <button>加入購物車</button>
   </div>
 </template>
 
 <script>
 import axios from 'axios';
 import ProCard from '../components/ProCard.vue'
+import Banner from '../components/Banner.vue'
+import Bread from '../components/Bread.vue'
 export default {
   components: {
     ProCard,
+    Banner,
+    Bread,
   },
   data() {
     return {

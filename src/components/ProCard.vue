@@ -1,25 +1,30 @@
 <template>
   <div class="procard">
+    <!-- NewIcon -->
+    <div v-if="num < 6" class="newIcon">NEW</div>
+
+    <!-- 圖片 -->
     <div class="card_pic">
-      <img width="200px" :src="imgSrc">
+      <img :src="imgSrc">
     </div>
-    <p class="title">{{ name }}</p>
-    <p class="price">價錢:{{ price }}</p>
-
-    <img width="200px" :src="imgSrc">
-    <p class="title">{{ name }}</p>
-    <p class="price">價錢:{{ price }}</p>
-
+    <!-- 標題/價錢 -->
+    <p class="pro-title">{{ name }}</p>
+    <p class="pro-price">價錢:{{ price }}</p>
+    <Button />
   </div>
 </template>
 <script>
+import Button from '../components/Button.vue'
 export default {
+  components: {
+    Button,
+  },
   data() {
     return {
 
     }
   },
-  props: ['imgSrc', 'name', 'price', 'int'],
+  props: ['imgSrc', 'name', 'price', 'int', 'num'],
   created() { },
   methods: {
 

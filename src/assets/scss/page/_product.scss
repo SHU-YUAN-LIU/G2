@@ -3,36 +3,47 @@
     margin: auto;
 }
 
+//篩選器
 .top {
     margin-top: 100px;
     height: 200px;
 }
 
-.content {
-    width: 200px;
-}
-
+//商品卡片
 .product {
     display: flex;
     justify-content: center;
     gap: 20px;
 
-}
+    .pro_card_group {
+        // display: flex;
+        justify-content: center;
 
+        .card_group {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
 
-.card_group {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-
-    .procard {
-        width: 200px;
-        border: 1px solid $orange;
+            .procard {
+                width: 200px;
+                position: relative;
+            }
+        }
     }
 }
 
-.test {
+//new icon
+.newIcon {
+    width: 80px;
+    height: 80px;
+    background-color: $green;
+    font-family: $font_family_2;
+    font-size: $font_size_8;
+    border-radius: 50%;
     display: flex;
     justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: -25px;
+    left: -25px;
 }
