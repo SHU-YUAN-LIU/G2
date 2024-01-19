@@ -147,7 +147,8 @@ export default {
         }
     },
     mounted() {
-
+        // 設定網站標題(瀏覽器頁籤上的標題)
+        document.title = '青年進補黨 - 首頁';
     },
     components: {
         bookmark,

@@ -22,7 +22,8 @@ export default {
       <nav>
         <ul>
           <li>
-            <RouterLink to="/home"><img src="../assets/image/home/logo.png" alt=""></RouterLink>
+            <!-- 這邊的路由設定要全部和index.js裡面的一致 -->
+            <RouterLink to="/"><img src="../assets/image/home/logo.png" alt=""></RouterLink>
           </li>
           <li>
             <div class="nav_items">
