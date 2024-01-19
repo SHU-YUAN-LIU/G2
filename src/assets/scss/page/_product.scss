@@ -1,8 +1,6 @@
-.wrap {
+.pro_wrap {
     width: 1200px;
     margin: auto;
-    background-color: red;
-
 }
 
 .top {
@@ -21,7 +19,20 @@
 
 }
 
-.card {
-    width: 200px;
-    border: 1px solid blue;
+
+.card_group {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    .card {
+        width: 200px;
+        border: 1px solid $orange;
+    }
+}
+
+.test {
+    display: flex;
+    justify-content: center;
 }
