@@ -1,5 +1,5 @@
 <template>
-  <div class="wrap">
+  <div class="pro_wrap">
     <div class="top">
       <h1>This is an product page</h1>
       <input type="text" width="100px" placeholder="搜尋關鍵字" v-model.trim="search" @input="changeDis">
@@ -20,9 +20,12 @@
         </div>
       </div> -->
 
-      <div class="card">
-        <Card v-for="item in disPro" :imgSrc="defaultSrc + item.prod_pic" :name="item.prod_name"
-          :price="item.prod_price" />
+      <div class="test">
+        <div class="card_group">
+          <Card v-for="item in disPro" :imgSrc="defaultSrc + item.prod_pic" :name="item.prod_name"
+            :price="item.prod_price" />
+
+        </div>
       </div>
 
     </div>
