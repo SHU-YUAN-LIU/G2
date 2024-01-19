@@ -1,5 +1,6 @@
 <template>
     <MainHeader />
+
     <!-- banner -->
     <div class="banner">
         <button> &lt </button>
@@ -14,24 +15,6 @@
 
 
 
-
-
-
-
-
-    <!-- 捐款 -->
-
-    <div class="donate_container">
-
-        <img v-for="donateImg in donateList" :src="getImageUrl(donateImg)" alt="" class="icon">
-        <div>
-            <h2>小額捐款, 作伙相挺</h2>
-            <div class="donate_content">
-                <img src="../assets/image/home/donate_img.png" alt="">
-                <p>2024 總統大選，面對這光榮民主的一戰，我們需要更多社會支持，邀請大家加入 Team Taiwan，一起挺台灣！</p>
-            </div>
-        </div>
-    </div>
     
     <!-- 消息-->
     <div class="index_news_bg">
@@ -177,6 +160,7 @@ ul {
     width: 1920px;
     position: relative;
     margin-top: 85px;
+    z-index: 1;
 }
 
 .banner>ul {

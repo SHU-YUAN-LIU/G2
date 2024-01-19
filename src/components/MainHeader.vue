@@ -25,7 +25,7 @@ export default {
             <RouterLink to="/home"><img src="../assets/image/home/logo.png" alt=""></RouterLink>
           </li>
           <li>
-            <div class="nav_items">
+            <div class="nav_list">
               <li>
                 <RouterLink to="/news">最新消息</RouterLink>
               </li>
