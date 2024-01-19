@@ -1,4 +1,5 @@
 <template>
+  <MainHeader/>
 <!-- banner -->
 <div class="banner">
   <button> &lt </button>
@@ -33,7 +34,7 @@
 
 
 <!-- 頁面路由route渲染的位置 -->
-<RouterView />
+
 </div>
 
 </template>
@@ -78,6 +79,7 @@ ul{
   overflow: hidden;
   width: 1920px;
   position: relative;
+  margin-top: 85px;
 }
 .banner>ul{
   display: flex;
