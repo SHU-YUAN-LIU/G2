@@ -26,10 +26,14 @@
 
 
 //page
-@import "page/index";
 @import "page/about";
+@import "page/donate";
+@import "page/home";
+@import "page/login";
+@import "page/news";
 @import "page/product";
-
+@import "page/election";
+@import "page/contact";
 //套件
 @import "plugin/bootstrap";
 // @import "var";
