@@ -7,6 +7,7 @@ import { RouterView } from 'vue-router';
 import MainHeader from './components/MainHeader.vue';
 import MainFooter from './components/MainFooter.vue';
 import Banner from './components/Banner.vue';
+import Button from './components/Button.vue';
 
 export default {
   components: {
@@ -14,6 +15,7 @@ export default {
     MainHeader,
     MainFooter,
     Banner,
+    Button,
   },
   data() {
     return {
@@ -52,7 +54,10 @@ export default {
     <RouterView />
 
 
-  </header>
+  <MainFooter />
+
+  
+
 </template>
 
 

@@ -21,7 +21,7 @@
         <div class="container">
             <div class="row index_news_flex">
                 <div class="col col-12 index_news_title">最新消息</div>
-                <div class="col col-4 index_news_card">
+                <a class="col col-4 index_news_card" href="#">
                     <div>
                         <img :src="getImageUrl(news_card[0].news_img)">
                     </div>
@@ -30,9 +30,9 @@
                         <p class="index_news_card_header">{{ news_card[0].news_title }}</p>
                         <p>{{ news_card[0].news_script }}</p>
                     </div>
-                </div>
+                </a>
                 <div class="row col col-6 news_index_inner_flex">
-                    <div v-for="(item, index) in get_for_range(news_card, 1, 2)" :key="index" class="col index_news_card">
+                    <a v-for="(item, index) in get_for_range(news_card, 1, 2)" :key="index" class="col index_news_card" href="#">
                         <div>
                             <img :src="getImageUrl(item.news_img)">
                         </div>
@@ -41,7 +41,7 @@
                             <p class="index_news_card_header">{{ item.news_title }}</p>
                             <p>{{ item.news_script }}</p>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -51,7 +51,7 @@
     <div class="container">
         <div class="row index_news_flex">
             <div class="col col-12 index_news_title">假消息澄清</div>
-            <div class="col col-4 index_news_card">
+            <a class="col col-4 index_news_card" href="#">
                 <div>
                     <img :src="getImageUrl(news_card[0].news_img)">
                 </div>
@@ -60,9 +60,9 @@
                     <p class="index_news_card_header">{{ news_card[0].news_title }}</p>
                     <p>{{ news_card[0].news_script }}</p>
                 </div>
-            </div>
+            </a>
             <div class="row col col-6 news_index_inner_flex">
-                <div v-for="(item, index) in get_for_range(news_card, 1, 2)" :key="index" class="col index_news_card">
+                <a v-for="(item, index) in get_for_range(news_card, 1, 2)" :key="index" class="col index_news_card" href="#">
                     <div>
                         <img :src="getImageUrl(item.news_img)">
                     </div>
@@ -71,7 +71,7 @@
                         <p class="index_news_card_header">{{ item.news_title }}</p>
                         <p>{{ item.news_script }}</p>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
     </div>
@@ -291,6 +291,8 @@ ul {
     border-radius: 10px;
     border: 1px solid #F3F5F7;
     box-shadow: 0 0 30px 0 #CBCBCB;
+    text-decoration: none;
+    color: black;
 }
 
 .index_news_card img {
