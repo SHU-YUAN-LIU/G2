@@ -1,11 +1,10 @@
 <template>
   <div class="card">
-    <img width="200px" :src="imgSrc">
-    <p class="dog">{{ name }}</p>
-    <p class="fish">價錢:{{ price }}</p>
-    <div class="content">
-      <p>內容:{{ int }}</p>
+    <div class="card_pic">
+      <img width="200px" :src="imgSrc">
     </div>
+    <p class="title">{{ name }}</p>
+    <p class="price">價錢:{{ price }}</p>
   </div>
 </template>
 <script>
@@ -23,21 +22,4 @@ export default {
 }
 </script>
 
-<style lang="scss">
-.dog {
-  font-family: Mantou Sans, sans-serif;
-
-}
-
-.fish {
-  font-family: noto sans, sans-serif;
-  font-size: 16px;
-  letter-spacing: 1.5px;
-  font-weight: 800;
-  color: #FF892E;
-}
-
-.content {
-  font-family: noto sans, sans-serif;
-}
-</style>
+<style lang="scss"></style>

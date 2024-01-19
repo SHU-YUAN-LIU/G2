@@ -1,0 +1,38 @@
+.pro_wrap {
+    width: 1200px;
+    margin: auto;
+}
+
+.top {
+    margin-top: 100px;
+    height: 200px;
+}
+
+.content {
+    width: 200px;
+}
+
+.product {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+
+}
+
+
+.card_group {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    .card {
+        width: 200px;
+        border: 1px solid $orange;
+    }
+}
+
+.test {
+    display: flex;
+    justify-content: center;
+}
