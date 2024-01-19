@@ -11,27 +11,10 @@
         <button>></button>
     </div>
 
+    <!-- 頁籤 -->
+    <bookmark />
 
 
-
-
-
-
-
-
-    <!-- 捐款 -->
-
-    <div class="donate_container">
-
-        <img v-for="donateImg in donateList" :src="getImageUrl(donateImg)" alt="" class="icon">
-        <div>
-            <h2>小額捐款, 作伙相挺</h2>
-            <div class="donate_content">
-                <img src="../assets/image/home/donate_img.png" alt="">
-                <p>2024 總統大選，面對這光榮民主的一戰，我們需要更多社會支持，邀請大家加入 Team Taiwan，一起挺台灣！</p>
-            </div>
-        </div>
-    </div>
 
     <!-- 消息-->
     <div class="index_news_bg">
@@ -113,7 +96,7 @@
 </template>
 
 <script>
-
+import bookmark from '../components/bookmark.vue';
 export default {
     data() {
         return {
@@ -163,6 +146,9 @@ export default {
     },
     mounted() {
 
+    },
+    components: {
+        bookmark,
     },
 }
 </script>
@@ -332,5 +318,74 @@ ul {
 
 .index_news_card_text .index_news_card_header {
     font-size: 24px;
+}
+
+.container {
+    --column-gap: 10px;
+    max-width: 1366px;
+    margin: auto;
+    padding-left: var(--column-gap);
+    padding-right: var(--column-gap);
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: calc(var(--column-gap) * -1);
+    margin-right: calc(var(--column-gap) * -1);
+}
+
+[class*=col-],
+[class*=row-cols-]>.col {
+    box-sizing: border-box;
+    padding: 0 var(--column-gap);
+}
+
+.col-1 {
+    width: 8.3333333333%;
+}
+
+.col-2 {
+    width: 16.6666666667%;
+}
+
+.col-3 {
+    width: 25%;
+}
+
+.col-4 {
+    width: 33.3333333333%;
+}
+
+.col-5 {
+    width: 41.6666666667%;
+}
+
+.col-6 {
+    width: 50%;
+}
+
+.col-7 {
+    width: 58.3333333333%;
+}
+
+.col-8 {
+    width: 66.6666666667%;
+}
+
+.col-9 {
+    width: 75%;
+}
+
+.col-10 {
+    width: 83.3333333333%;
+}
+
+.col-11 {
+    width: 91.6666666667%;
+}
+
+.col-12 {
+    width: 100%;
 }
 </style>
