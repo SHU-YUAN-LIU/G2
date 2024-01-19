@@ -1,10 +1,33 @@
-<script setup>
+<!-- <script setup>
 // import { RouterLink, RouterView } from 'vue-router'
 // import HelloWorld from './components/HelloWorld.vue'
-</script>
+</script> -->
 <script>
-// import TheWelcome from '../components/TheWelcome.vue'
+import { RouterView } from 'vue-router';
+import MainHeader from './components/MainHeader.vue';
+import MainFooter from './components/MainFooter.vue';
+import Banner from './components/Banner.vue';
 
+export default {
+  components: {
+    RouterView,
+    MainHeader,
+    MainFooter,
+    Banner,
+  },
+  data() {
+    return {
+
+    }
+  },
+  created() {
+
+  },
+  methods: {
+
+  }
+
+}
 
 </script>
 
@@ -23,11 +46,18 @@
         <RouterLink to="/election">Election</RouterLink>
       </nav>
     </div>
+    <MainHeader />
 
+
+
+    <RouterView />
+
+
+    <MainFooter />
   </header>
-
-  <RouterView />
 </template>
+
+
 <style>
 header {
   position: fixed;

@@ -24,6 +24,7 @@ $line_height: 1.5px;
 
 // 標題元件
 //頁面標題(饅頭)93px
+<<<<<<< HEAD
 $title_1: (
     font-family: $font_family_2,
     font-size: $font_size_1
@@ -46,10 +47,35 @@ $title_4: (
     font-family: $font_family_2,
     font-size: $font_size_4
 );
+=======
+@mixin title_1 {
+    font-family: $font_family_2 ;
+    font-size: $font_size_1;
+}
+
+//頁面標題(饅頭)65px
+@mixin title_2 {
+    font-family: $font_family_2 ;
+    font-size: $font_size_2;
+}
+
+//頁面標題(饅頭)36px
+@mixin title_3 {
+    font-family: $font_family_2 ;
+    font-size: $font_size_3;
+}
+
+//頁面標題(饅頭)28px
+@mixin title_4 {
+    font-family: $font_family_2 ;
+    font-size: $font_size_4;
+}
+>>>>>>> dev
 
 //-------------------------------
 
 //內文標題(思源黑體)36px
+<<<<<<< HEAD
 $title_5: (
     font-family: $font_family_1,
     font-size: $font_size_5,
@@ -88,3 +114,43 @@ $title_10: (
     font-family: $font_family_1,
     font-size: $font_basic
 );
+=======
+@mixin title_5 {
+    font-family: $font_family_1 ;
+    font-size: $font_size_5;
+    font-weight: 500;
+}
+
+//內文標題(思源黑體)30px
+@mixin title_6 {
+    font-family: $font_family_1 ;
+    font-size: $font_size_6;
+    font-weight: 500;
+}
+
+//內文標題(思源黑體)24px
+@mixin title_7 {
+    font-family: $font_family_1 ;
+    font-size: $font_size_7;
+    font-weight: 500;
+}
+
+//-------------------------------
+//內文小字(思源黑體)24px
+@mixin title_8 {
+    font-family: $font_family_1 ;
+    font-size: $font_size_7;
+}
+
+//內文小字(思源黑體)20px
+@mixin title_9 {
+    font-family: $font_family_1 ;
+    font-size: $font_size_8;
+}
+
+//內文小字(思源黑體)16px
+@mixin title_10 {
+    font-family: $font_family_1 ;
+    font-size: $font_basic;
+}
+>>>>>>> dev
