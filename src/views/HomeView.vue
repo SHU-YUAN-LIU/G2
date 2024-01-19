@@ -11,10 +11,8 @@
         <button>></button>
     </div>
 
-
-
-
-
+    <!-- 頁籤 -->
+    <bookmark />
 
 
 
@@ -113,7 +111,7 @@
 </template>
 
 <script>
-
+import bookmark from '../components/bookmark.vue';
 export default {
     data() {
         return {
@@ -164,11 +162,14 @@ export default {
     mounted() {
 
     },
+    components: {
+        bookmark,
+    },
 }
 </script>
 
 <style>
- ul {
+ul {
     list-style: none;
 }
 
