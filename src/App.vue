@@ -59,10 +59,6 @@ export default {
 
 
 <style>
-header {
-  position: fixed;
-  top: 0;
-  left: 45%;
-}
+
 </style>
 
