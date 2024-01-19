@@ -168,7 +168,7 @@ export default {
 </script>
 
 <style>
-ul {
+/* ul {
     list-style: none;
 }
 
@@ -332,5 +332,5 @@ ul {
 
 .index_news_card_text .index_news_card_header {
     font-size: 24px;
-}
-</style>
+} */
+</style> 
