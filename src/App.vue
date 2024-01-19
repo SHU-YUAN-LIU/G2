@@ -9,46 +9,56 @@ import MainFooter from './components/MainFooter.vue';
 import Banner from './components/Banner.vue';
 
 export default {
-  components:{
+  components: {
     RouterView,
     MainHeader,
     MainFooter,
     Banner,
   },
-  data(){
-    return{
-      
+  data() {
+    return {
+
     }
   },
-  created(){
+  created() {
 
   },
-  methods:{
-    
+  methods: {
+
   }
-  
+
 }
 
 </script>
 
 <template>
-  <MainHeader />
+  <header>
+    <div class="wrapper">
+      <h1 class="$title_1">你好</h1>
+      <nav>
+        <RouterLink to="/home">Home</RouterLink>
+        <RouterLink to="/about">About</RouterLink>
+        <RouterLink to="/product">Product</RouterLink>
+        <RouterLink to="/login">Login</RouterLink>
+        <RouterLink to="/donate">Donate</RouterLink>
+        <RouterLink to="/news">News</RouterLink>
+        <RouterLink to="/contact">Contact</RouterLink>
+        <RouterLink to="/election">Election</RouterLink>
+      </nav>
+    </div>
+    <MainHeader />
 
 
 
-  <RouterView />
+    <RouterView />
 
 
-  <MainFooter />
-
+    <MainFooter />
+  </header>
 </template>
 
 
 <style>
-  header{
-    position: fixed;
-    top: 0;
-    left: 45%;
-  }
+
 </style>
 
