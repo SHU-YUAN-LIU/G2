@@ -32,7 +32,8 @@
                     </div>
                 </a>
                 <div class="row col col-6 news_index_inner_flex">
-                    <a v-for="(item, index) in get_for_range(news_card, 1, 2)" :key="index" class="col index_news_card" href="#">
+                    <a v-for="(item, index) in get_for_range(news_card, 1, 2)" :key="index" class="col index_news_card"
+                        href="#">
                         <div>
                             <img :src="getImageUrl(item.news_img)">
                         </div>
@@ -62,7 +63,8 @@
                 </div>
             </a>
             <div class="row col col-6 news_index_inner_flex">
-                <a v-for="(item, index) in get_for_range(news_card, 1, 2)" :key="index" class="col index_news_card" href="#">
+                <a v-for="(item, index) in get_for_range(news_card, 1, 2)" :key="index" class="col index_news_card"
+                    href="#">
                     <div>
                         <img :src="getImageUrl(item.news_img)">
                     </div>
@@ -145,7 +147,8 @@ export default {
         }
     },
     mounted() {
-
+        // 設定網站標題(瀏覽器頁籤上的標題)
+        document.title = '青年進補黨 - 首頁';
     },
     components: {
         bookmark,
@@ -160,7 +163,7 @@ ul {
 
 .banner {
     overflow: hidden;
-    width: 1920px;
+    /* width: 1920px; */
     position: relative;
     margin-top: 85px;
 }
