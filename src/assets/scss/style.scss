@@ -1,5 +1,4 @@
 //變數
-@use 'sass:math';
 
 @import "base/color";
 @import "base/font";
@@ -35,7 +34,7 @@
 @import "page/election";
 @import "page/contact";
 //套件
-@import "plugin/bootstrap";
+// @import "plugin/bootstrap";
 // @import "var";
 // @import "var";
 // @import url() 這是css import

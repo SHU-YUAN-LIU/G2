@@ -4,15 +4,15 @@ $font_family_2: 'Mantou Sans';
 
 // 字體大小
 // 基本文字
-$font_basic : 16px;
-$font_size_1 :93px;
-$font_size_2 :65px;
-$font_size_3 :36px;
-$font_size_4 :28px;
-$font_size_5 :36px;
-$font_size_6 :30px;
-$font_size_7 :24px;
-$font_size_8 :20px;
+$font_basic: 16px;
+$font_size_1: 93px;
+$font_size_2: 65px;
+$font_size_3: 36px;
+$font_size_4: 28px;
+$font_size_5: 36px;
+$font_size_6: 30px;
+$font_size_7: 24px;
+$font_size_8: 20px;
 
 
 // 字體間距
@@ -24,25 +24,25 @@ $line_height: 1.5px;
 
 // 標題元件
 //頁面標題(饅頭)93px
-@include title_1 {
+@mixin title_1 {
     font-family: $font_family_2 ;
     font-size: $font_size_1;
 }
 
 //頁面標題(饅頭)65px
-@include title_2 {
+@mixin title_2 {
     font-family: $font_family_2 ;
     font-size: $font_size_2;
 }
 
 //頁面標題(饅頭)36px
-@include title_3 {
+@mixin title_3 {
     font-family: $font_family_2 ;
     font-size: $font_size_3;
 }
 
 //頁面標題(饅頭)28px
-@include title_4 {
+@mixin title_4 {
     font-family: $font_family_2 ;
     font-size: $font_size_4;
 }
@@ -50,21 +50,21 @@ $line_height: 1.5px;
 //-------------------------------
 
 //內文標題(思源黑體)36px
-@include title_5 {
+@mixin title_5 {
     font-family: $font_family_1 ;
     font-size: $font_size_5;
     font-weight: 500;
 }
 
 //內文標題(思源黑體)30px
-@include title_6 {
+@mixin title_6 {
     font-family: $font_family_1 ;
     font-size: $font_size_6;
     font-weight: 500;
 }
 
 //內文標題(思源黑體)24px
-@include title_7 {
+@mixin title_7 {
     font-family: $font_family_1 ;
     font-size: $font_size_7;
     font-weight: 500;
@@ -72,19 +72,19 @@ $line_height: 1.5px;
 
 //-------------------------------
 //內文小字(思源黑體)24px
-@include title_8 {
+@mixin title_8 {
     font-family: $font_family_1 ;
     font-size: $font_size_7;
 }
 
 //內文小字(思源黑體)20px
-@include title_9 {
+@mixin title_9 {
     font-family: $font_family_1 ;
     font-size: $font_size_8;
 }
 
 //內文小字(思源黑體)16px
-@include title_10 {
+@mixin title_10 {
     font-family: $font_family_1 ;
     font-size: $font_basic;
 }
