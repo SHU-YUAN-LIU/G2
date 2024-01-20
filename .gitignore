@@ -10,6 +10,9 @@ lerna-debug.log*
 node_modules
 .DS_Store
 dist
+#部屬目錄
+front
+
 dist-ssr
 front
 
