@@ -1,5 +1,4 @@
 <template>
-    <MainHeader />
     <!-- banner -->
     <div class="banner">
         <button> &lt </button>

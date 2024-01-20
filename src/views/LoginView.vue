@@ -1,5 +1,10 @@
 <template>
     <article class="login_wrap">
+        <!-- 
+            如果這邊想要寫動畫可以看
+            https://www.youtube.com/watch?v=uotY_cx1dvo
+            他音樂非常大聲請小心
+         -->
         <div class="login">
             <div class="sub_login_container" id="subLogin">
                 <p>如果您已經有帳戶，請登入。</p>
@@ -10,6 +15,7 @@
                     <i class="fa-solid fa-user" style="color: #ffffff;"></i>
                 </div>
                 <form action="">
+                    <!-- input不要用v-for直接寫就好了 -->
                     <div v-for=" item in loginList" :class="item.className">
                         <p>{{item.label}}<span>*</span></p>
                         <input :type="item.type" :placeholder="item.placeholder">
@@ -21,6 +27,7 @@
         <div class="register">
             <div class="main_register_container" id="mainRegister">
                 <form action="">
+                    <!-- input不要用v-for直接寫就好了 -->
                     <div v-for="item in registerList" :class="item.className" :key="item.key">
                         <div v-if="item.type !== 'checkbox'">
                             <p>{{item.label}}<span>*</span></p>
@@ -38,7 +45,7 @@
                 <div class="login_logo">
                     <img src="../assets/image/login/Logo.png" alt="">
                 </div>
-                <button class="btn" id="registerBtn">註冊 ➜</button>
+                <button class="btn" id="registerBtn" @click="login = false">註冊 ➜</button>
             </div>
         </div>
     </article>
@@ -48,6 +55,7 @@
         export default{
             data() {
                 return {
+                    login: false,
                     registerList: [
                         { label: '真實姓名', type: 'text', placeholder: '請輸入您的姓名', className: 'register_name', key: 'name' },
                         { label: '生日', type: 'date', className: 'register_birthday', key: 'birthday' },
