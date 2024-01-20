@@ -102,34 +102,34 @@
 
 
 @mixin grid($col, $b: null) {
-    @for $i from 1 through $col {
-        @if $b==null {
-            .col-#{$i} {
-                width: ($i / $col) * 100%;
-            }
-        }
+//     @for $i from 1 through $col {
+//         @if $b==null {
+//             .col-#{$i} {
+//                 width: ($i / $col) * 100%;
+//             }
+//         }
 
-        @else {
-            .col-#{$b}-#{$i} {
-                width: ($i / $col) * 100%;
-            }
-        }
-    }
+//         @else {
+//             .col-#{$b}-#{$i} {
+//                 // width: ($i / $col) * 100%;
+//             }
+//         }
+//     }
 }
 
 //生成.row-cols-md-1>.col等去取代grid.scss的重複內容
 @mixin row_grid($cols, $b: null) {
-    @for $i from 1 through $cols {
-        @if $b==null {
-            .row-cols-#{$i}>.col {
-                width: (1/$i) * 100%;
-            }
-        }
+    // @for $i from 1 through $cols {
+    //     @if $b==null {
+    //         .row-cols-#{$i}>.col {
+    //             // width: (1/$i) * 100%;
+    //         }
+    //     }
 
-        @else {
-            .row-cols-#{$b}-#{$i}>.col {
-                width: (1/$i) * 100%;
-            }
-        }
-    }
+    //     @else {
+    //         .row-cols-#{$b}-#{$i}>.col {
+    //             // width: (1/$i) * 100%;
+    //         }
+    //     }
+    // }
 }
