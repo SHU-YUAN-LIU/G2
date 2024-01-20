@@ -132,7 +132,6 @@ div.donate{
 
   // 主要區塊
   .donate_main{
-    border: 1px solid #000; 
     width: 100%;
     height: 1100px;
     display: flex;
@@ -141,7 +140,8 @@ div.donate{
     // 背景圖片設定
     img.icon{
       position: absolute;
-      z-index: 0;
+      // 設z-index以免背景圖蓋到卡片
+      z-index: 1;
     }
     img.icon:nth-child(1){
       left: -80px;
@@ -158,34 +158,68 @@ div.donate{
       bottom: 200px;
     }
 
-    // 卡片1
-    .donate_card1{
-      width: 550px;
+    // 卡片區塊
+    .donate_cards{
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
       z-index: 2;
+      // 卡片1
+      .donate_card1{
+        width: 550px;
+        z-index: 2;
+        border-radius: $border-radius-1;
+        border: 3px solid $orange;
+        margin-right: 60px;
 
-      // 卡片1上半
-      .donate_card1_top{
-        height: 530px;
-        background-color: $orange;
+        img{
+          width: 240px;
+          height: 195px;
+        }
+
+        // 卡片1上半
+        .donate_card1_top{
+          height: 530px;
+          background-color: $orange;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+
+          h2{
+            @include title_2;
+            color: $white;
+            font-weight: inherit;
+            height: 120px;
+          }
+          p{
+            @include title_8;
+            color: $white;
+            margin-bottom: 70px;
+          }
+        }
+        // 卡片1下半
+        .donate_card1_bottom{
+          height: 170px;
+        }
       }
-      // 卡片1下半
-      .donate_card1_bottom{
 
-      }
-    }
+      // 卡片2
+      .donate_card2{
+        width: 630px;
+        z-index: 2;
+        border-radius: $border-radius-1;
+        border: 3px solid $orange;
 
-    // 卡片2
-    .donate_card2{
-      width: 630px;
-      z-index: 2;
+        // 卡片2上半
+        .donate_card2_top{
 
-      // 卡片2上半
-      .donate_card2_top{
+        }
+        // 卡片2下半
+        .donate_card2_bottom{
 
-      }
-      // 卡片2下半
-      .donate_card2_bottom{
-
+        }
       }
     }
   }
