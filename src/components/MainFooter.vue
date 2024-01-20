@@ -1,4 +1,35 @@
 <script>
+export default {
+  components:{
+    
+  },
+data(){
+    return{
+      info:[
+        {
+            "type": "地址 | ",
+            "value": "桃園市中壢區復興路46號9樓"
+        },
+        {
+            "type": "電話 | ",
+            "value": "03-4251108"
+        },
+        {
+            "type": "傳真 | ",
+            "value": "03-4251108"
+        },
+        {
+            "type": "信箱 | ",
+            "value": "weiiyuuu@gmail.com"
+        }
+        ],
+    }
+},
+  created(){
+
+  },
+
+}
 </script>
 
 <template>
@@ -10,10 +41,9 @@
             <div class="footer_contact">
                 <h4>中央黨部</h4>
                 <ul>
-                    <li>地址 | 桃園市中壢區復興路46號9樓</li>
-                    <li>電話 | 03-4251108</li>
-                    <li>傳真 | 03-4251108</li>
-                    <li>信箱 | weiiyuuu@gmail.com</li>
+                    <li v-for="list in info">
+                        {{ list.type }}{{ list.value }}
+                    </li>
                 </ul>
             </div>
             <div class="footer_media">
