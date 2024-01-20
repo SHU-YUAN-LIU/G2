@@ -1,5 +1,47 @@
-// footer {
-//     width: 100%;
-//     background-color: $gray_1;
-
-// }
+.footer_container {
+    display: flex;
+    max-width: 1200px;
+    width: 100%;
+    justify-content: space-between;
+    margin: auto;
+    padding: 30px;
+    letter-spacing: 1px;
+    box-sizing: border-box;
+    @include title_9;
+}
+.footer_logo, .footer_contact, .footer_media {
+    padding: 30px;
+}
+.footer_logo img {
+    max-width: 200px;
+    width: 100%;
+}
+.footer_container h4 {
+    // text-align: center;
+    @include title_7;
+    padding: 10px 0;
+    font-weight: 700;
+}
+.footer_container ul {
+    padding-left: 0;
+}
+.footer_container li {
+    list-style: none;
+    padding: 8px 0;
+}
+.footer_media img {
+    margin: 5px;
+}
+.footer_declaration {
+    background-color: #3D3D3D;
+    padding: 10px;
+}
+.footer_declaration p {
+    display: block;
+    max-width: 1200px;
+    letter-spacing: 1px;
+    color: white;
+    line-height: 30px;
+    margin: auto;
+    padding: 0 30px;
+}

@@ -43,7 +43,7 @@
             </div>
             <div class="sub_register_container" id="subRegister">
                 <div class="login_logo">
-                    <img src="../assets/image/login/Logo.png" alt="">
+                    <img src="@/assets/image/login/Logo.png" alt="">
                 </div>
                 <button class="btn" id="registerBtn" @click="login = false">註冊 ➜</button>
             </div>
