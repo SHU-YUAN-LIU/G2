@@ -24,6 +24,7 @@
                         <p>密碼<span>*</span></p>
                         <input type="text" placeholder="請輸入您的密碼">
                     </div>
+                    <a href="#">忘記密碼?</a>
                     <button id="loginBtn" class="btn">登入 ➜</button>
                 </form>
             </div>
