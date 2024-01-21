@@ -23,7 +23,12 @@
             <img src="@/assets/image/donate/donate_card1.png" alt="">
           </div>
           <div class="donate_card1_bottom">
-            <button>我要捐款 → </button>
+            <button @click="showLightbox">我要捐款 → </button>
+
+            <!-- 要加上ref屬性, script裡的$refs才能抓到變數 -->
+            <DonateLightbox
+              ref="DonateLightbox"
+             />
           </div>
         </div>
         <div class="donate_card2">
@@ -38,7 +43,7 @@
             <ul>
               <li v-for="info in donateInfo">
                 <span>{{ info.type }}</span>
-                <span>{{info.details}}</span>
+                <span>{{ info.details }}</span>
               </li>
               
             </ul>
@@ -50,9 +55,11 @@
   </div>
 </template>
 <script>
-import {RouterLink} from 'vue-router'
+import DonateLightbox from '../components/DonateLightbox.vue';
+
 export default {
   components:{
+    DonateLightbox,
     
   },
   data(){
@@ -73,12 +80,21 @@ export default {
   created(){
 
   },
+
   methods: {
     getImageUrl(paths) {
-            return new URL(`../assets/image/${paths}`, import.meta.url).href
-        },
+        return new URL(`../assets/image/${paths}`, import.meta.url).href
+    },
+    showLightbox(){
+      // 用$refs指向燈箱元件檔案裡的showLightbox變數並設定為true
+      this.$refs.DonateLightbox.showLightbox = true;
+      console.log(this.$refs.DonateLightbox.showLightbox);
+    }
+    
   },
-
+  mounted() {
+    document.title="青年進補黨 - 捐款";
+  },
 }
 </script>
 
@@ -160,7 +176,7 @@ div.donate{
     img.icon{
       position: absolute;
       // 設z-index以免背景圖蓋到卡片
-      z-index: 1;
+      z-index: -1;
     }
     img.icon:nth-child(1){
       left: -80px;
@@ -183,11 +199,9 @@ div.donate{
       width: 100%;
       justify-content: center;
       align-items: center;
-      z-index: 2;
       // 卡片1
       .donate_card1{
         width: 550px;
-        z-index: 2;
         border-radius: $border-radius-1;
         border: 3px solid $orange;
         margin-right: 30px;
@@ -236,7 +250,6 @@ div.donate{
 
       // 卡片2
       .donate_card2{
-        z-index: 2;
         background-color: $white;
         border-radius: $border-radius-1;
         border: 3px solid $orange;
@@ -246,7 +259,6 @@ div.donate{
           justify-content: center;
           position: relative;
           height: 320px;
-          z-index: 2;
           img{
             width: 636px;
             vertical-align: middle;
