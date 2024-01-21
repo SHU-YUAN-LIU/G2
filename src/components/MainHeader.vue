@@ -1,21 +1,3 @@
-<script>
-import {RouterLink} from 'vue-router'
-export default {
-  components:{
-    
-  },
-  data(){
-    return{
-      
-    }
-  },
-  created(){
-
-  },
-
-}
-</script>
-
 <template>
  <header>
     <div class="wrapper">
@@ -64,6 +46,24 @@ export default {
 
   </header>
 </template>
+
+<script>
+import {RouterLink} from 'vue-router'
+export default {
+  components:{
+    
+  },
+  data(){
+    return{
+      
+    }
+  },
+  created(){
+
+  },
+
+}
+</script>
 
 <style scoped>
 @import "@/assets/scss/layout/_header.scss"
