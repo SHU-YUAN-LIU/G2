@@ -59,6 +59,9 @@ article {
             display: flex;
             flex-direction: column;
             align-items: center;
+            .login_logo {
+                padding: 15px 0;
+            }
         }
     }
 }
@@ -73,7 +76,16 @@ form {
     background: white;
     box-sizing: border-box;
     .profile {
-        margin: 0 auto;
+        width: 210px;
+        height: 210px;
+        border-radius: 50%;
+        background-color: #666666;
+        margin: 10px auto;
+        display: flex;
+        justify-content: center;
+        img {
+            width: 90px;
+        }
     }
     a {
         text-align: right;

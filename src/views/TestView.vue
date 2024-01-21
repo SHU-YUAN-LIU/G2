@@ -54,7 +54,7 @@
             </form>
             <form action="" class="login">
                 <div class="profile">
-                    <i class="fa-solid fa-user" style="color: #ffffff;"></i>
+                    <img src="../assets/image/login/user-solid.svg" alt="">
                 </div>
                 <div class="register_email">
                     <p>電子信箱<span>*</span></p>
