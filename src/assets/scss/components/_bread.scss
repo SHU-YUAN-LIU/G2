@@ -6,9 +6,28 @@
     align-items: center;
     text-align: center;
 
-    a {
+    // 麵包屑文字
+    ul {
+        width: 100%;
+        max-width: 1200px;
+        display: flex;
+        align-items: center;
 
-        @include title_9;
-        cursor: pointer;
+        li {
+            @include title_10;
+            text-decoration: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: $black;
+        }
+
+        // 麵包屑最後一個改成白字
+        li:last-child {
+            color: $white;
+        }
+
     }
+
 }
