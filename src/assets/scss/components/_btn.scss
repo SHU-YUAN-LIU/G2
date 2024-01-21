@@ -1,6 +1,6 @@
 // 有超連結的button
 @mixin btn_1 {
-    background-color:$orange;
+    background-color: $orange;
     padding: 13px 40px;
     font-size: 20px;
     border-radius: $border-radius-1;
@@ -8,6 +8,7 @@
     color: $white;
     font-family: $font_family_1 ;
 }
+
 // } // 沒有超連結的button
 @mixin btn_2 {
     background-color: $orange ;
@@ -17,7 +18,16 @@
     letter-spacing: $space_letter;
     color: $white;
     font-family: $font_family_2;
-} 
+}
+
 //膠囊型按鈕EX首頁按鈕
+@mixin btn_3 {
+    background-color: $orange ;
+    padding: 13px 40px;
+    @include title_9;
+    border-radius: $border-radius-2;
+    letter-spacing: $space_letter;
+    color: $white;
+}
 
 // $btn_2(); //EX購物車按鈕

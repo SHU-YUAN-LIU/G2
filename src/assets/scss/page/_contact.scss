@@ -1,0 +1,127 @@
+.wrap {}
+
+.contect {
+    margin-top: 85px;
+
+    .contect_banner {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        h1 {
+            @include title_1;
+            color: $white;
+            font-weight: initial;
+            letter-spacing: 10px;
+            position: absolute;
+        }
+
+        img {
+            width: 100%;
+            vertical-align: middle;
+        }
+    }
+}
+
+//  內容
+.contect_info {
+    max-width: 1200px;
+    margin: auto;
+
+    h2 {
+        @include title_2;
+        color: $black;
+        font-weight: initial;
+        letter-spacing: 10px;
+        margin-top: 80px;
+        margin-bottom: 80px;
+        text-align: center;
+    }
+
+    //  陳情流程
+    .con_process_group {
+        display: flex;
+        justify-content: center;
+        gap: 95px;
+        position: relative;
+        margin-bottom: 100px;
+
+        .bar {
+            width: 760px;
+            height: 5px;
+            background-color: $orange;
+            position: absolute;
+            top: 65px;
+        }
+
+        .con_process {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            img {
+                width: 130px;
+                height: 130px;
+                z-index: 2;
+            }
+
+            span {
+                @include title_9;
+                font-weight: 800;
+                margin-top: 30px;
+                margin-bottom: 30px;
+            }
+        }
+    }
+
+    .con_process_know {
+        max-width: 1200px;
+        border: 2px solid $orange;
+        border-radius: $border-radius-1 ;
+        padding: 60px 80px;
+
+        h3 {
+            @include title_7;
+            font-weight: 800;
+            margin: 10px 0px;
+            letter-spacing: 2px;
+        }
+
+        ul {
+            display: inline-block
+        }
+
+        li {
+            @include title_10;
+            letter-spacing: $space_letter;
+            line-height: $line_height;
+            margin: 10px 0px;
+        }
+    }
+
+    .con_input_group {
+        max-width: 1200px;
+        border: 2px solid $orange;
+        border-radius: $border-radius-1 ;
+        padding: 60px 80px;
+
+        .con_input {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            input {
+                width: 1040px;
+            }
+
+            .con_text {
+                height: 300px;
+                inset: 10px;
+                line-height: 100px;
+                vertical-align: top;
+            }
+        }
+    }
+}
