@@ -111,7 +111,7 @@ export default {
         border: 3px solid $orange;
         border-radius: $border-radius-1;
         width: 100%;
-        height: 800px;
+        height: 600px;
         max-width: 1200px;
         position: relative;
         padding: 50px;
@@ -120,6 +120,8 @@ export default {
         .donate_lightbox_top{
             display: flex;
             justify-content: center;
+            height: 100%;
+            align-items: center;
             .donate_anonymous{
                 background: $orange;
                 margin-right: 50px;
