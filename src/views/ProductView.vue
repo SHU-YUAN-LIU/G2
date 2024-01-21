@@ -13,12 +13,14 @@
         <option v-for="types in category" :value="types">{{ types }}</option>
       </select>
     </div>
+
     <div class="product">
       <!-- 商品卡片 -->
       <div class="pro_card_group">
         <div class="card_group">
           <div v-for="(item, index) in disPro">
-            <ProCard :imgSrc="defaultSrc + item.prod_pic" :name="item.prod_name" :price="item.prod_price" :num="index" />
+            <ProCard :imgSrc="defaultSrc + item.product_pic1" :name="item.product_name" :price="item.price"
+              :num="index" />
           </div>
         </div>
       </div>
@@ -26,6 +28,7 @@
   </div>
 </template>
 
+<!-- <script src="../stores/cart.js"></script> -->
 <script>
 import axios from 'axios';
 import ProCard from '../components/ProCard.vue'
@@ -39,7 +42,8 @@ export default {
   },
   data() {
     return {
-      defaultSrc: 'https://tibamef2e.com/chd103/g2/image/ShopImage/',
+      // defaultSrc: 'https://tibamef2e.com/chd103/g2/image/ShopImage/',
+      defaultSrc: 'src/assets/image/product/product_data/',
       search: '',
       allPro: [],
       disPro: [],
@@ -57,14 +61,16 @@ export default {
   },
   methods: {
     axiosGetData() {
-      console.log(123);
-      axios.get('https://tibamef2e.com/chd103/g2/api/getProducts.php')
+      axios.get("../../product_data.json")
         .then(res => {
-          console.log(res.data);
-          this.allPro = res.data;
-          this.disPro = res.data;
+          console.log(res.data.products);
+          this.allPro = res.data.products;
+          this.disPro = res.data.products;
           this.addCategory();
         })
+        .catch(error => {
+          console.error('Error fetching data:', error);
+        });
     },
     changeDis() {
       // if(this.currentCategory=='ALL'){
@@ -72,8 +78,12 @@ export default {
       //     return item.prod_name.includes(this.search)&&item.prod_price>this.min&&item.prod_price<this.max;
       //   })
       // }else{
+      // this.disPro = this.allPro.filter((item) => {
+      //   return item.prod_name.includes(this.search) && item.prod_price > this.min && item.prod_price < this.max && (item.prod_type == this.currentCategory || this.currentCategory == "ALL");
+      // })
+
       this.disPro = this.allPro.filter((item) => {
-        return item.prod_name.includes(this.search) && item.prod_price > this.min && item.prod_price < this.max && (item.prod_type == this.currentCategory || this.currentCategory == "ALL");
+        return item.product_name.includes(this.search) && item.price > this.min && item.price < this.max && (item.product_class_no == this.currentCategory || this.currentCategory == "ALL");
       })
       // }
 
@@ -81,8 +91,8 @@ export default {
     },
     addCategory() {
       for (let item of this.allPro) {
-        if (!this.category.includes(item.prod_type)) {
-          this.category.push(item.prod_type);
+        if (!this.category.includes(item.product_class_no)) {
+          this.category.push(item.product_class_no);
         }
       }
     },

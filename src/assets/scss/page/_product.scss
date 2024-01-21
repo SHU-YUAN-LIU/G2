@@ -27,6 +27,10 @@
             .procard {
                 width: 200px;
                 position: relative;
+                display: flex;
+                flex-direction: column;
+                height: 400px;
+                justify-content: space-between;
             }
         }
     }
