@@ -35,8 +35,8 @@ article {
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: space-around;
-        padding: 70px 40px;
+        justify-content: center;
+        padding: 70px 50px;
         width: calc(50% - 80px);
         height: calc(100%);
         transform: translateX($property);
@@ -44,8 +44,12 @@ article {
     }
     .overlay_left{
         @include overlays(-20%);
+        
         p{
-            @include title_2;
+            font-family: 'Mantou Sans';
+            font-size: 50px;
+            text-align: center;
+            padding: 30px;
         }
     }
     .overlay_right{
@@ -63,23 +67,37 @@ form {
     top: 0;
     display: flex;
     flex-direction: column;  
-    align-items: center;
-    justify-content: center;
-    padding: 40px 60px;
-    width: calc(50% - 20px);
+    padding: 40px 100px;
     height: calc(100%);
     transition: all .5s ease-in-out;
     background: white;
+    box-sizing: border-box;
     .profile {
         margin: 0 auto;
     }
+    a {
+        text-align: right;
+        padding: 10px;
+    }
+}
+@mixin btn_4 {
+    background-color: #FF892E;
+    color: white;
+    border-radius: 50px;
+    border: none;
+    height: 78px;
+    font-size: 24px;
+    margin: 20px 0;
+    padding: 0 50px;
 }
 .btn {
     transition: transform .1s ease-in;
     &:active {
         transform: scale(.9);
+        @include btn_4;
     }
 }
+
 .register {
     left: 0;
     z-index: 1;
