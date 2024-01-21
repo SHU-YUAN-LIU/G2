@@ -5,7 +5,7 @@
         <ul>
           <li>
             <!-- 這邊的路由設定要全部和index.js裡面的一致 -->
-            <RouterLink to="/"><img src="../assets/image/home/logo.png" alt=""></RouterLink>
+            <RouterLink to="/"><img src="@/assets/image/home/logo.png" alt=""></RouterLink>
           </li>
           <li>
             <div class="nav_items">
@@ -30,13 +30,13 @@
           <li>
             <div class="nav_icons">
               <li>
-                <RouterLink to="/donate"><div><img src="../assets/image/home/icon_donate.svg" alt=""><p>我要捐款</p></div></RouterLink>
+                <RouterLink to="/donate"><div><img src="@/assets/image/home/icon_donate.svg" alt=""><p>我要捐款</p></div></RouterLink>
               </li>
               <li>
-                <RouterLink to="/cart"><div><img src="../assets/image/home/icon_cart.svg" alt=""><p>購物車</p></div></RouterLink>
+                <RouterLink to="/cart"><div><img src="@/assets/image/home/icon_cart.svg" alt=""><p>購物車</p></div></RouterLink>
               </li>
               <li>
-                <RouterLink to="/login"><div><img src="../assets/image/home/icon_login.png" alt=""><p>登入</p></div></RouterLink>
+                <RouterLink to="/login"><div><img src="@/assets/image/home/icon_login.png" alt=""><p>登入</p></div></RouterLink>
               </li>
             </div>
           </li>

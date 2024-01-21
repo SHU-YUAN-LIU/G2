@@ -1,5 +1,4 @@
 <template>
-    <MainHeader />
     <!-- banner -->
     <div class="banner">
         <button> &lt </button>
@@ -86,7 +85,7 @@
         <div>
             <h2>小額捐款, 作伙相挺</h2>
             <div class="donate_content">
-                <img src="../assets/image/home/donate_img.png" alt="">
+                <img src="@/assets/image/home/donate_img.png" alt="">
                 <p>2024 總統大選，面對這光榮民主的一戰，我們需要更多社會支持，邀請大家加入 Team Taiwan，一起挺台灣！</p>
             </div>
         </div>

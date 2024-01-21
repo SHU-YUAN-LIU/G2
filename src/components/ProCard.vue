@@ -10,14 +10,14 @@
     <!-- 標題/價錢 -->
     <p class="pro-title">{{ name }}</p>
     <p class="pro-price">價錢:{{ price }}</p>
-    <Button />
+    <CartButton />
   </div>
 </template>
 <script>
-import Button from '../components/Button.vue'
+import CartButton from '../components/button/CartButton.vue'
 export default {
   components: {
-    Button,
+    CartButton,
   },
   data() {
     return {
