@@ -13,7 +13,7 @@
       </select>
       <input type="date" name="" id=""> 到 <input type="date">
       <input type="text" name="" id="" placeholder="請輸入關鍵字">
-      <button class="remove">⟳</button>
+      <button type="reset" class="remove">⟳</button>
       <button class="btn">搜尋</button>
 
     </div>

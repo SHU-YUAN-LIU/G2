@@ -34,9 +34,15 @@
     border-radius: 10px;
     @include title_10;
     letter-spacing: 3px;
+    &:focus {
+        outline: none;
+    }
 }
 .news_filter .btn {
-    @include btn_1;
+    @include btn_4;
+    @include title_9;
+    height: 51px;
+
 } 
 .remove {
     background-color: white;

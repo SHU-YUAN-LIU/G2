@@ -19,5 +19,19 @@
     font-family: $font_family_2;
 } 
 //膠囊型按鈕EX首頁按鈕
+@mixin btn_3 {}
+
+//login按鈕
+@mixin btn_4 {
+    background-color: #FF892E;
+    color: white;
+    border-radius: 50px;
+    border: none;
+    height: 78px;
+    font-size: 24px;
+    margin: 20px 0;
+    padding: 0 50px;
+}
+
 
 // $btn_2(); //EX購物車按鈕
