@@ -1,0 +1,84 @@
+<template>
+    <article>
+        <div class="container" :class="{'register-active': registerBtn}">
+            <div class="overlay_container">
+                <div class="overlay">
+                    <div class="overlay_left">
+                        <p>如果您已經有帳戶，請登入。</p>
+                        <button class="btn" id="loginBtn" @click="registerBtn = !registerBtn">登入 ➜</button>
+                    </div>
+                    <div class="overlay_right">
+                        <div class="sub_register">
+                            <div class="login_logo">
+                                <img src="@/assets/image/login/Logo.png" alt="">
+                            </div>
+                            <button class="btn" id="registerBtn" @click="registerBtn = !registerBtn">註冊 ➜</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <form action="" class="register">
+                <div class="register_name">
+                    <p>真實姓名<span>*</span></p>
+                    <input type="text" placeholder="請輸入您的姓名">
+                </div>
+                <div class="register_birthday">
+                    <p>生日<span>*</span></p>
+                    <input type="date">
+                </div>
+                <div class="register_email">
+                    <p>電子信箱<span>*</span></p>
+                    <input type="email" name="" id="" placeholder="請輸入您的電子信箱">
+                </div>
+                <div class="register_phone">
+                    <p>手機<span>*</span></p>
+                    <input type="text" placeholder="請輸入您的手機號碼" maxlength="10">
+                </div>
+                <div class="register_id">
+                    <p>身分證<span>*</span></p>
+                    <input type="text" placeholder="請輸入您的身分證" minlength="10" >
+                </div>
+                <div class="register_psw">
+                    <p>密碼<span>*</span></p>
+                    <input type="text" placeholder="請輸入您的密碼">
+                </div>
+                <div class="register_check_psw">
+                    <p>確認密碼<span>*</span></p>
+                    <input type="text" placeholder="請再次輸入您的密碼">
+                </div>
+                <div class="register_read">
+                    <input type="checkbox" class="box">
+                    <p>我已閱讀並瞭解條款和條件以及隱私權政策。</p>
+                </div>
+                <button class="btn">立刻前往 ➜</button>
+            </form>
+            <form action="" class="login">
+                <div class="profile">
+                    <i class="fa-solid fa-user" style="color: #ffffff;"></i>
+                </div>
+                <div class="register_email">
+                    <p>電子信箱<span>*</span></p>
+                    <input type="email" placeholder="請輸入您的電子信箱">
+                </div>
+                <div class="register_psw">
+                    <p>密碼<span>*</span></p>
+                    <input type="text" placeholder="請輸入您的密碼">
+                </div>
+                <a href="/test">忘記密碼?</a>
+                <button class="btn">登入 ➜</button>
+            </form>
+        </div>
+    </article>
+</template>
+<script>
+    export default{
+                data: () => {
+                    return {
+                        registerBtn: false,
+                    }
+                }
+            }
+</script>
+<style scoped> 
+@import "../assets/scss/page/_test.scss"
+</style>
