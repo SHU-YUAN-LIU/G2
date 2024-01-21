@@ -35,6 +35,9 @@
     @include title_10;
     letter-spacing: 3px;
 }
+.news_filter .btn {
+    @include btn_1;
+} 
 .remove {
     background-color: white;
     border: none;

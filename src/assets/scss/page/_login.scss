@@ -22,14 +22,7 @@
     box-sizing: border-box;
 }
 input {
-    width: 400px;
-    height: 48px; 
-    border-radius: 10px;
-    padding: 0 10px;
-    font-size: 16px;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-
+    @include input_1;
 }
 .register {
     display: flex;
