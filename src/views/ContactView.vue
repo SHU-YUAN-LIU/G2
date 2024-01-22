@@ -1,10 +1,8 @@
 <template>
-  <div class="wrap">
+  <div class="con_wrap">
     <div class="contect">
-      <div class="contect_banner">
-        <img src="@/assets/image/contect/contect_banner.png" alt="">
-        <h1>聯絡我們</h1>
-      </div>
+      <!-- banner -->
+      <banner :bannerTitle="bannerTitle" :bannerPic="bannerPic" />
       <!-- 麵包屑 -->
       <Bread :page="dog" />
     </div>
@@ -67,17 +65,21 @@
 import Bread from '../components/Bread.vue'
 import commitButton from '../components/button/commitButton.vue'
 import successPop from '../components/successPop.vue'
+import Banner from '../components/Banner.vue'
 export default {
   components: {
     Bread,
     commitButton,
     successPop,
+    Banner,
   },
   data() {
     return {
       dog: '聯絡我們',
       commit: '表單送出',
       isModalVisible: false,
+      bannerTitle: '聯絡我們',
+      bannerPic: 'src/assets/image/contect/contect_banner.png'
     }
   },
   methods: {

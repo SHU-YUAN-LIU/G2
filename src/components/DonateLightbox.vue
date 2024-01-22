@@ -1,11 +1,12 @@
 <template>
-    <div  v-if="showLightbox" class="donate_lightbox">
+    <div v-if="showLightbox" class="donate_lightbox">
         <div>
-            <button @click="closeLightbox" class="donate_closelightbox" ><img src="../assets/image/donate/icon_close.png" alt=""></button>
-       
+            <button @click="closeLightbox" class="donate_closelightbox"><img src="../assets/image/donate/icon_close.png"
+                    alt=""></button>
+
             <div class="donate_lightbox_content">
                 <div class="donate_lightbox_top">
-                    
+
                     <div class="donate_anonymous">
                         <a href="">
                             <h2>匿名捐款</h2>
@@ -41,16 +42,16 @@
 
 <script>
 export default {
-    data(){
+    data() {
         return {
             showLightbox: false,
-            amountLimit:[
+            amountLimit: [
                 '．個人名義：30萬元。',
                 '．營利事業(公司)：300萬元。',
                 '．人民團體：200萬元。',
                 '．匿名捐贈：新台幣1萬元以下。',
             ],
-            qualification:[
+            qualification: [
                 '．公營事業或政府持有資本達20%之民營企業。',
                 '．與政府機關(構)有巨額採購或重大公共建設投資契約，且在履約期間之廠商。',
                 '．有累積虧損尚未依規定彌補之營利事業。',
@@ -59,8 +60,8 @@ export default {
             ]
         };
     },
-    methods:{
-        closeLightbox(){
+    methods: {
+        closeLightbox() {
             this.showLightbox = false;
             console.log(this.showLightbox);
         },
@@ -73,14 +74,15 @@ export default {
 @import "../assets/scss/base/font";
 @import "../assets/scss/base/color";
 @import "../assets/scss/base/border";
-@import "../assets/scss/components/btn";
-.donate_lightbox{
+@import "../assets/scss/base/btn";
+
+.donate_lightbox {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100vh;
-    background: rgba(0,0,0,.5);
+    background: rgba(0, 0, 0, .5);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -88,11 +90,12 @@ export default {
     z-index: 1000;
     overflow-y: scroll;
 
-    div{
+    div {
         width: 100%;
         max-width: 1200px;
         position: relative;
-        button{
+
+        button {
             position: absolute;
             top: -35px;
             right: -35px;
@@ -103,10 +106,12 @@ export default {
             z-index: 500;
         }
     }
-    a{
+
+    a {
         color: $white;
     }
-    .donate_lightbox_content{
+
+    .donate_lightbox_content {
         background: $white;
         border: 3px solid $orange;
         border-radius: $border-radius-1;
@@ -117,19 +122,23 @@ export default {
         padding: 50px;
         overflow-y: scroll;
 
-        .donate_lightbox_top{
+        .donate_lightbox_top {
             display: flex;
             justify-content: center;
             height: 100%;
             align-items: center;
-            .donate_anonymous{
+
+            .donate_anonymous {
                 background: $orange;
                 margin-right: 50px;
             }
-            .donate_member{
+
+            .donate_member {
                 background: $gray-3;
             }
-            .donate_anonymous, .donate_member{
+
+            .donate_anonymous,
+            .donate_member {
                 border-radius: $border-radius-1;
                 width: 500px;
                 height: 390px;
@@ -138,22 +147,25 @@ export default {
                 align-items: center;
                 justify-content: center;
 
-                h2{
+                h2 {
                     @include title-2;
                     font-weight: inherit;
                 }
-                img{
+
+                img {
                     margin: 30px 0;
                 }
-                p{
+
+                p {
                     text-align: center;
                 }
             }
         }
 
-        .donate_lightbox_bottom{
+        .donate_lightbox_bottom {
             width: 100%;
-            h3{
+
+            h3 {
                 color: $orange;
                 width: 100%;
                 text-align: center;
@@ -162,34 +174,37 @@ export default {
                 margin-top: 60px;
                 margin-bottom: 20px;
             }
+
             // 
-            p{
+            p {
                 color: red;
                 line-height: 60px;
                 font-weight: bold;
             }
-            div{
+
+            div {
                 border-radius: $border-radius-1;
                 overflow: hidden;
                 border: 1px solid $gray-3;
-                p{
+
+                p {
                     color: $white;
-                    background:$gray-3;
+                    background: $gray-3;
                     text-align: center;
                     @include title-10;
                 }
 
-                ul{
+                ul {
                     padding: 20px;
-                    li{
+
+                    li {
                         color: $black;
-                        line-height: 30px;                    
+                        line-height: 30px;
                     }
                 }
-                
+
             }
         }
     }
-    
-}
-</style>
+
+}</style>

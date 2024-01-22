@@ -1,8 +1,9 @@
 <template>
-  <!-- Banner -->
-  <Banner />
+  <div class="header"></div>
+  <!-- banner -->
+  <banner :bannerTitle="bannerTitle" :bannerPic="bannerPic" />
   <!-- 麵包屑 -->
-  <Bread />
+  <Bread :page="pro" />
   <div class="pro_wrap">
     <div class="top">
       <input type="text" width="100px" placeholder="搜尋關鍵字" v-model.trim="search" @input="changeDis">
@@ -10,7 +11,8 @@
       <input type="number" width="100px" v-model="max" @input="changeDis">
       <select v-model="currentCategory" @change="changeDis">
         <option selected value="ALL">ALL</option>
-        <option v-for="types in product_class_group" :value="types.product_class_no">{{ types.product_class_name }}</option>
+        <option v-for="types in product_class_group" :value="types.product_class_no">{{ types.product_class_name }}
+        </option>
       </select>
     </div>
 
@@ -47,11 +49,14 @@ export default {
       search: '',
       allPro: [],
       disPro: [],
-      product_class_group:[],
+      product_class_group: [],
       category: [],
       currentCategory: 'ALL',
       max: 1000000,
       min: 0,
+      bannerTitle: '官方商城',
+      bannerPic: 'src/assets/image/product/product_banner.png',
+      pro: '官方商城',
     }
   },
   computed: {
