@@ -24,7 +24,7 @@
                         <p>密碼<span>*</span></p>
                         <input type="text" placeholder="請輸入您的密碼">
                     </div>
-                    <a href="#">忘記密碼?</a>
+                    <a href="/test">忘記密碼?</a>
                     <button id="loginBtn" class="btn">登入 ➜</button>
                 </form>
             </div>
@@ -92,10 +92,7 @@
                         confirmPassword: '',
                         agreementCheckbox: false
                     },
-                    loginList: [
-                        { label: '電子信箱', type: 'email', placeholder: '請輸入您的電子信箱', className: 'register_email', key: 'email' },
-                        { label: '密碼', type: 'password', placeholder: '請輸入您的密碼', className: 'register_psw', key: 'password' },
-                    ]
+                    
                 }
             },
         }
