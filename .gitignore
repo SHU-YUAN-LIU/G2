@@ -13,8 +13,6 @@ dist
 #部屬目錄
 front
 dist-ssr
-front
-
 coverage
 *.local
 
