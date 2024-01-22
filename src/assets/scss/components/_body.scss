@@ -7,4 +7,6 @@ body {
 #app{
     background: linear-gradient(-10deg, $green 0% 35%, rgba(255, 255, 255, 0) 35% 100%);
     z-index: 0;
+    // 設margin-top高度 = header高度
+    margin-top: 85px;
 }
