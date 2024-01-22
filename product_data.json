@@ -186,5 +186,23 @@
             "product_pic2": "",
             "product_pic3": ""
         }
+    ],
+    "product_class": [
+        {
+            "product_class_no": "1",
+            "product_class_name": "服飾"
+        },
+        {
+            "product_class_no": "2",
+            "product_class_name": "杯子"
+        },
+        {
+            "product_class_no": "3",
+            "product_class_name": "帽子"
+        },
+        {
+            "product_class_no": "4",
+            "product_class_name": "保溫杯"
+        }
     ]
 }

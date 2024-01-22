@@ -10,7 +10,7 @@
       <input type="number" width="100px" v-model="max" @input="changeDis">
       <select v-model="currentCategory" @change="changeDis">
         <option selected value="ALL">ALL</option>
-        <option v-for="types in category" :value="types">{{ types }}</option>
+        <option v-for="types in product_class_group" :value="types.product_class_no">{{ types.product_class_name }}</option>
       </select>
     </div>
 
@@ -47,6 +47,7 @@ export default {
       search: '',
       allPro: [],
       disPro: [],
+      product_class_group:[],
       category: [],
       currentCategory: 'ALL',
       max: 1000000,
@@ -63,9 +64,10 @@ export default {
     axiosGetData() {
       axios.get("../../product_data.json")
         .then(res => {
-          console.log(res.data.products);
+          console.log(res.data.product_class);
           this.allPro = res.data.products;
           this.disPro = res.data.products;
+          this.product_class_group = res.data.product_class;
           this.addCategory();
         })
         .catch(error => {
