@@ -171,6 +171,7 @@ div.donate{
     height: 1100px;
     display: flex;
     position: relative;
+    margin: 100px 0;
     
     // 背景圖片設定
     img.icon{
@@ -185,12 +186,13 @@ div.donate{
       margin: auto;
     }
     img.icon:nth-child(2){
-      right: 120px;
-      top: 100px;
+      right: 200px;
+      top: 0px;
     }
     img.icon:nth-child(3){
       right: 100px;
-      bottom: 200px;
+      bottom: 0px;
+      z-index: 1;
     }
 
     // 卡片區塊
@@ -238,6 +240,8 @@ div.donate{
           display: flex;
           align-items: center;
           justify-content: center;
+          background-color: $white;
+          border-radius: $border-radius-1;
           button{
             @include btn_1;
             border: none;

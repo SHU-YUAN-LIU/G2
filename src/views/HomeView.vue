@@ -155,7 +155,16 @@ export default {
 }
 </script>
 
-<style>
+<style scoped lang="scss">
+@import '../assets/scss/base/border';
+@import '../assets/scss/base/font';
+@import '../assets/scss/base/color';
+
+#app{
+    background: linear-gradient(-10deg, $green 0% 35%, rgba(255, 255, 255, 0) 35% 50%, $orange 50% 100%) !important;
+    z-index: 0;
+}
+
 ul {
     list-style: none;
 }
@@ -205,11 +214,10 @@ ul {
 
 .donate_container {
     width: 100%;
-    height: 860px;
+    height: 800px;
     padding-top: 280px;
-    background-color: #d4ff1f;
     position: relative;
-    border-radius: 10px;
+    border-radius: $border-radius-1;
 }
 
 .donate_container h2 {
@@ -222,13 +230,14 @@ ul {
     font-size: 24px;
     width: 600px;
     margin: auto;
+    line-height: 50px;
 }
 
 
 .donate_content {
     width: 1200px;
     height: 300px;
-    background-color: #fff;
+    background-color: $white;
     margin: auto;
     border-radius: 10px;
     display: flex;
@@ -257,7 +266,7 @@ ul {
 }
 
 .donate_container>img:nth-child(3) {
-    left: -100px;
+    left: -70px;
     top: 0;
     bottom: 0;
     margin: auto;
