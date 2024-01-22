@@ -75,9 +75,9 @@
       </div>
     </div>
     <!-- 跑馬燈 -->
-    <div class="election_marquee">
-      {{ Marquee }}
-    </div>
+    <vueMarquee
+      :marqueeArray="slogan"
+     />
     <!-- 政策懶人包 -->
     <div></div>
   </div>
@@ -85,15 +85,15 @@
 
 
 <script>
-
-import Marquee from '../components/Marquee.vue';
+import vueMarquee from '../components/Marquee.vue'
 export default {
   data() {
     return {
+      slogan:'這是一場改變政治文化的社會運動，投給劉緯育，投給自己的未來。',
     }
   },
   components: {
-    Marquee,
+    vueMarquee,
   },
 }
 

@@ -5,12 +5,9 @@
       <h1>我要捐款</h1>
     </div>
 
-    <div class="donate_bread">
-      <ul>
-        <li><RouterLink to="/">首頁</RouterLink> / </li>
-        <li>我要捐款</li>
-      </ul>
-    </div>
+    <Bread
+      :page = 'currentPage'
+     />
 
     <div class="donate_main">
       <img v-for="list in imgList" :src="getImageUrl(list)" alt="" class="icon">
@@ -56,11 +53,12 @@
 </template>
 <script>
 import DonateLightbox from '../components/DonateLightbox.vue';
+import Bread from '../components/Bread.vue';
 
 export default {
   components:{
     DonateLightbox,
-    
+    Bread,
   },
   data(){
       return{
@@ -75,6 +73,7 @@ export default {
           { type: "帳號(郵局劃撥)", details: "12345678" },
           { type: "營利事業或人民團體捐款", details: "請逕洽中央黨部財務室" }
         ],
+        currentPage: '我要捐款',
       }
   },
   created(){
@@ -105,6 +104,7 @@ export default {
 @import "../assets/scss/base/border";
 @import "../assets/scss/components/btn";
 
+
 div.donate{
   margin-top: 85px;
   .donate_banner{
@@ -121,47 +121,6 @@ div.donate{
     img{
       width: 100%;
       vertical-align: middle;
-    }
-  }
-
-  // 麵包屑區塊
-  .donate_bread{
-    background-color: $orange;  
-    width: 100%;
-    height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    // 麵包屑文字
-    ul{ 
-      width: 100%;
-      max-width: 1200px;
-      display: flex;
-      align-items: center;
-      li{
-        @include title_7;
-        text-decoration: none;
-      }
-
-      // 麵包屑最後一個改成白字
-      li:last-child{
-        color: $white; 
-        position: relative;
-      }
-
-      // 裝飾線
-      li:last-child:after{
-          content:'';
-          height: 1px;
-          // 寬度不確定要設多少?
-          width: 900%;
-          background-color: $black;
-          position: absolute;
-          top: 50%;
-          margin-left: 20px;
-
-        }
     }
   }
 
