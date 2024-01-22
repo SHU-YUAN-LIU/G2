@@ -1,0 +1,46 @@
+.bread {
+    background-color: $orange;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    // 麵包屑文字
+    ul {
+        width: 100%;
+        max-width: 1200px;
+        display: flex;
+        align-items: center;
+        position: relative;
+
+        li {
+            @include title_10;
+            text-decoration: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: $black;
+        }
+
+        // 麵包屑最後一個改成白字
+        li:last-child {
+            color: $white;
+        }
+
+        li:last-child:after{
+            content:'';
+            height: 1px;
+            // 寬度不確定要設多少?
+            width: 80%;
+            background-color: $black;
+            position: absolute;
+            top: 50%;
+            margin-left: 20px;
+  
+          }
+
+    }
+
+}

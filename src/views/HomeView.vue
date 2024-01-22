@@ -1,5 +1,4 @@
 <template>
-    <MainHeader />
     <!-- banner -->
     <div class="banner">
         <button> &lt </button>
@@ -86,7 +85,7 @@
         <div>
             <h2>小額捐款, 作伙相挺</h2>
             <div class="donate_content">
-                <img src="../assets/image/home/donate_img.png" alt="">
+                <img src="@/assets/image/home/donate_img.png" alt="">
                 <p>2024 總統大選，面對這光榮民主的一戰，我們需要更多社會支持，邀請大家加入 Team Taiwan，一起挺台灣！</p>
             </div>
         </div>
@@ -147,7 +146,8 @@ export default {
         }
     },
     mounted() {
-
+        // 設定網站標題(瀏覽器頁籤上的標題)
+        document.title = '青年進補黨 - 首頁';
     },
     components: {
         bookmark,
@@ -155,7 +155,16 @@ export default {
 }
 </script>
 
-<style>
+<style scoped lang="scss">
+@import '../assets/scss/base/border';
+@import '../assets/scss/base/font';
+@import '../assets/scss/base/color';
+
+#app{
+    background: linear-gradient(-10deg, $green 0% 35%, rgba(255, 255, 255, 0) 35% 50%, $orange 50% 100%) !important;
+    z-index: 0;
+}
+
 ul {
     list-style: none;
 }
@@ -205,11 +214,10 @@ ul {
 
 .donate_container {
     width: 100%;
-    height: 860px;
+    height: 800px;
     padding-top: 280px;
-    background-color: #d4ff1f;
     position: relative;
-    border-radius: 10px;
+    border-radius: $border-radius-1;
 }
 
 .donate_container h2 {
@@ -222,13 +230,14 @@ ul {
     font-size: 24px;
     width: 600px;
     margin: auto;
+    line-height: 50px;
 }
 
 
 .donate_content {
     width: 1200px;
     height: 300px;
-    background-color: #fff;
+    background-color: $white;
     margin: auto;
     border-radius: 10px;
     display: flex;
@@ -257,7 +266,7 @@ ul {
 }
 
 .donate_container>img:nth-child(3) {
-    left: -100px;
+    left: -70px;
     top: 0;
     bottom: 0;
     margin: auto;
@@ -265,131 +274,4 @@ ul {
     height: 250px;
 }
 
-.index_news_bg {
-    background-color: #F3F5F7;
-}
-
-.index_news_flex {
-    justify-content: center;
-    gap: 40px;
-}
-
-.index_news_flex>.col-4:nth-child(2) {
-    flex-direction: column;
-}
-
-.news_index_inner_flex {
-    flex-direction: column;
-    gap: 40px;
-}
-
-.index_news_flex .index_news_card {
-    display: flex;
-    flex-wrap: nowrap;
-    flex-direction: row;
-    box-sizing: border-box;
-    padding: 0;
-    background-color: #fff;
-    border-radius: 10px;
-    border: 1px solid #F3F5F7;
-    box-shadow: 0 0 30px 0 #CBCBCB;
-    text-decoration: none;
-    color: black;
-}
-
-.index_news_card img {
-    min-width: 100%;
-    vertical-align: middle;
-}
-
-.index_news_flex>.col-4:nth-child(2) img {
-    width: 100%;
-}
-
-.index_news_title {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    font-size: 65px;
-    margin: 145px 0;
-}
-
-.index_news_card_text {
-    padding: 16px 35px 0;
-    font-size: 16px;
-}
-
-.index_news_card_text .index_news_card_header {
-    font-size: 24px;
-}
-
-.container {
-    --column-gap: 10px;
-    max-width: 1366px;
-    margin: auto;
-    padding-left: var(--column-gap);
-    padding-right: var(--column-gap);
-}
-
-.row {
-    display: flex;
-    flex-wrap: wrap;
-    margin-left: calc(var(--column-gap) * -1);
-    margin-right: calc(var(--column-gap) * -1);
-}
-
-[class*=col-],
-[class*=row-cols-]>.col {
-    box-sizing: border-box;
-    padding: 0 var(--column-gap);
-}
-
-.col-1 {
-    width: 8.3333333333%;
-}
-
-.col-2 {
-    width: 16.6666666667%;
-}
-
-.col-3 {
-    width: 25%;
-}
-
-.col-4 {
-    width: 33.3333333333%;
-}
-
-.col-5 {
-    width: 41.6666666667%;
-}
-
-.col-6 {
-    width: 50%;
-}
-
-.col-7 {
-    width: 58.3333333333%;
-}
-
-.col-8 {
-    width: 66.6666666667%;
-}
-
-.col-9 {
-    width: 75%;
-}
-
-.col-10 {
-    width: 83.3333333333%;
-}
-
-.col-11 {
-    width: 91.6666666667%;
-}
-
-.col-12 {
-    width: 100%;
-}
 </style>

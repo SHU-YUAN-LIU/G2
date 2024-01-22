@@ -1,51 +1,53 @@
 <template>
+  <!-- Banner -->
+  <Banner />
+  <!-- 麵包屑 -->
+  <Bread />
   <div class="pro_wrap">
     <div class="top">
-      <h1>This is an product page</h1>
       <input type="text" width="100px" placeholder="搜尋關鍵字" v-model.trim="search" @input="changeDis">
       <input type="number" width="100px" v-model="min" @input="changeDis">
       <input type="number" width="100px" v-model="max" @input="changeDis">
       <select v-model="currentCategory" @change="changeDis">
         <option selected value="ALL">ALL</option>
-        <option v-for="types in category" :value="types">{{ types }}</option>
+        <option v-for="types in product_class_group" :value="types.product_class_no">{{ types.product_class_name }}</option>
       </select>
     </div>
+
     <div class="product">
-      <!-- <div v-for="item in disPro" class="card">
-        <img width="200px"  :src="defaultSrc+item.prod_pic" >
-        <p>品名:{{ item.prod_name }}</p>
-        <p>價錢:{{ item.prod_price }}</p>
-        <div class="content">
-          <p>內容:{{ item.prod_int }}</p>
-        </div>
-      </div> -->
-
-      <div class="test">
+      <!-- 商品卡片 -->
+      <div class="pro_card_group">
         <div class="card_group">
-          <Card v-for="item in disPro" :imgSrc="defaultSrc + item.prod_pic" :name="item.prod_name"
-            :price="item.prod_price" />
-
+          <div v-for="(item, index) in disPro">
+            <ProCard :imgSrc="defaultSrc + item.product_pic1" :name="item.product_name" :price="item.price"
+              :num="index" />
+          </div>
         </div>
       </div>
-
     </div>
-    <button>加入購物車</button>
   </div>
 </template>
 
+<!-- <script src="../stores/cart.js"></script> -->
 <script>
 import axios from 'axios';
-import Card from '../components/Card.vue'
+import ProCard from '../components/ProCard.vue'
+import Banner from '../components/Banner.vue'
+import Bread from '../components/Bread.vue'
 export default {
   components: {
-    Card,
+    ProCard,
+    Banner,
+    Bread,
   },
   data() {
     return {
-      defaultSrc: 'https://tibamef2e.com/chd103/g2/image/ShopImage/',
+      // defaultSrc: 'https://tibamef2e.com/chd103/g2/image/ShopImage/',
+      defaultSrc: 'src/assets/image/product/product_data/',
       search: '',
       allPro: [],
       disPro: [],
+      product_class_group:[],
       category: [],
       currentCategory: 'ALL',
       max: 1000000,
@@ -60,14 +62,17 @@ export default {
   },
   methods: {
     axiosGetData() {
-      console.log(123);
-      axios.get('https://tibamef2e.com/chd103/g2/api/getProducts.php')
+      axios.get("../../product_data.json")
         .then(res => {
-          console.log(res.data);
-          this.allPro = res.data;
-          this.disPro = res.data;
+          console.log(res.data.product_class);
+          this.allPro = res.data.products;
+          this.disPro = res.data.products;
+          this.product_class_group = res.data.product_class;
           this.addCategory();
         })
+        .catch(error => {
+          console.error('Error fetching data:', error);
+        });
     },
     changeDis() {
       // if(this.currentCategory=='ALL'){
@@ -75,8 +80,12 @@ export default {
       //     return item.prod_name.includes(this.search)&&item.prod_price>this.min&&item.prod_price<this.max;
       //   })
       // }else{
+      // this.disPro = this.allPro.filter((item) => {
+      //   return item.prod_name.includes(this.search) && item.prod_price > this.min && item.prod_price < this.max && (item.prod_type == this.currentCategory || this.currentCategory == "ALL");
+      // })
+
       this.disPro = this.allPro.filter((item) => {
-        return item.prod_name.includes(this.search) && item.prod_price > this.min && item.prod_price < this.max && (item.prod_type == this.currentCategory || this.currentCategory == "ALL");
+        return item.product_name.includes(this.search) && item.price > this.min && item.price < this.max && (item.product_class_no == this.currentCategory || this.currentCategory == "ALL");
       })
       // }
 
@@ -84,8 +93,8 @@ export default {
     },
     addCategory() {
       for (let item of this.allPro) {
-        if (!this.category.includes(item.prod_type)) {
-          this.category.push(item.prod_type);
+        if (!this.category.includes(item.product_class_no)) {
+          this.category.push(item.product_class_no);
         }
       }
     },

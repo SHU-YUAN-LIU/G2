@@ -18,18 +18,15 @@
     margin: 30px auto;
     display: flex;
     flex-direction: column;
-    align-items: center;
     box-sizing: border-box;
+    a {
+        text-align: right;
+        padding: 5px;
+        color: #666666;
+    }
 }
 input {
-    width: 400px;
-    height: 48px; 
-    border-radius: 10px;
-    padding: 0 10px;
-    font-size: 16px;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-
+    @include input_1;
 }
 .register {
     display: flex;
@@ -46,25 +43,20 @@ input {
 }
 .register_read {
     display: flex;
+    align-items: center;
 }
 .register_read .box {
     width: 20px;
+    margin: 0;
 }
 .register_read p {
     padding-left: 10px;
 }
 .login_logo {
-    padding: 30px 0;
+    padding: 15px 0;
 }
 .btn {
-    background-color: #FF892E;
-    color: white;
-    border-radius: 50px;
-    border: none;
-    height: 78px;
-    font-size: 24px;
-    margin: 30px 0;
-    padding: 0 50px;
+    @include btn_4;
 } 
 .profile {
     width: 210px;
@@ -81,7 +73,7 @@ input {
     display: flex;
     flex-direction: column;
     align-items: center;
-    display: none;
+    // display: none;
 }
 
 .sub_login_container {
@@ -89,7 +81,10 @@ input {
     text-align: center;
     font-family: $font_family_2;
     font-size: 55px;
-    // display: none;
+    display: none;
+    p {
+        margin: 15px;
+    }
 }
 
 
@@ -98,7 +93,7 @@ input {
     height: 900px;
     display: flex;
     border-left: 1px solid #ccc;
-    // display: none;
+    display: none;
 }
 
 
@@ -110,9 +105,6 @@ input {
     align-items: center;
     justify-content: center;
     border-left: 1px solid #ccc;
-    display: none;
+    // display: none;
 }
 
-p {
-    margin: 15px 0;
-}

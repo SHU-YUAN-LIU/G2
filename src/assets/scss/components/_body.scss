@@ -2,3 +2,9 @@ body {
     font-size: $font_basic;
 
 }
+
+// 頁面背景色設定
+#app{
+    background: linear-gradient(-10deg, $green 0% 35%, rgba(255, 255, 255, 0) 35% 100%);
+    z-index: 0;
+}

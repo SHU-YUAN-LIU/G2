@@ -1,11 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
 
+// path設定'/'表示將該頁面設置為首頁
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/Home',
+      path: '/',
       name: 'Home',
       component: () => import('../views/HomeView.vue')
     },
@@ -64,6 +64,21 @@ const router = createRouter({
       // this generates a separate chunk (Login.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/ElectionView.vue')
+    },
+    {
+      path: '/cart',
+      name: 'cart',
+      component: () => import('../views/CartView.vue')
+    },
+    {
+      path: '/member',
+      name: 'member',
+      component: () => import('../views/MemberView.vue')
+    },
+    {
+      path: '/test',
+      name: 'test',
+      component: () => import('../views/TestView.vue')
     }
   ]
 })
