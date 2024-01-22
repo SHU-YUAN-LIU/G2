@@ -1,0 +1,179 @@
+div.donate{
+    margin-top: 85px;
+    .donate_banner{
+      position: relative; 
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      h1{
+        @include title_1;
+        color: $white;
+        font-weight:initial;
+        position: absolute;
+      }
+      img{
+        width: 100%;
+        vertical-align: middle;
+      }
+    }
+  
+    // 主要區塊
+    .donate_main{
+      width: 100%;
+      height: 1100px;
+      display: flex;
+      position: relative;
+      margin: 100px 0;
+      
+      // 背景圖片設定
+      img.icon{
+        position: absolute;
+        // 設z-index以免背景圖蓋到卡片
+        z-index: -1;
+      }
+      img.icon:nth-child(1){
+        left: -80px;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+      }
+      img.icon:nth-child(2){
+        right: 200px;
+        top: 0px;
+      }
+      img.icon:nth-child(3){
+        right: 100px;
+        bottom: 0px;
+        z-index: 1;
+      }
+  
+      // 卡片區塊
+      .donate_cards{
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        // 卡片1
+        .donate_card1{
+          width: 550px;
+          border-radius: $border-radius-1;
+          border: 3px solid $orange;
+          margin-right: 30px;
+  
+          // 卡片1上半
+          .donate_card1_top{
+            height: 530px;
+            background-color: $orange;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            .donate_card1_top>img{
+                width: 240px;
+                height: 195px;
+              }
+  
+            h2{
+              @include title_2;
+              color: $white;
+              font-weight: inherit;
+              height: 120px;
+            }
+            p{
+              @include title_8;
+              color: $white;
+              margin-bottom: 70px;
+            }
+          }
+          // 卡片1下半
+          .donate_card1_bottom{
+            height: 170px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: $white;
+            border-radius: $border-radius-1;
+            button.donate_showLightbox{
+              @include btn_1;
+              border: none;
+              @include title_7;
+              color: $white;
+              border-radius: 50px;
+            }
+          }
+        }
+  
+        // 卡片2
+        .donate_card2{
+          background-color: $white;
+          border-radius: $border-radius-1;
+          border: 3px solid $orange;
+          // 卡片2上半
+          .donate_card2_top{
+            display: flex;
+            justify-content: center;
+            position: relative;
+            height: 320px;
+            img{
+              width: 636px;
+              vertical-align: middle;
+              border-radius: 5px;
+            }
+            div{
+              position: absolute;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              height: 100%;
+              h3{
+                @include title_2;
+                color: $white;
+                font-weight: inherit;
+                line-height: 60px;
+                letter-spacing: 10px;
+              }
+            }
+          }
+          // 卡片2下半
+          .donate_card2_bottom{
+            height: 380px;
+            position: relative;
+            ul{
+              height: 100%;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+            }
+            li{
+              width: 570px;
+              line-height: 55px;
+              display: flex;
+              justify-content: center;
+              border: 1px solid $gray_2;
+              border-radius: $border-radius-1;
+              span{
+                display: inline-block;
+                text-align: center;
+              }
+              span:first-child{
+                width: 270px;
+                border-radius: $border-radius-1;
+                background-color: $green;
+                height: 55px;
+                justify-self: flex-start;
+              }
+              span:last-child{
+                width: 300px;
+              }
+            }
+            li+li{
+              margin-top: 20px;
+            }
+          }
+        }
+      }
+    }
+    
+  }

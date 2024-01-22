@@ -7,17 +7,17 @@
                 <div class="donate_lightbox_top">
                     
                     <div class="donate_anonymous">
-                        <a href="">
+                        <RouterLink to="//donate/anonymous">
                             <h2>匿名捐款</h2>
                             <img src="../assets/image/donate/donate_card1.png" alt="">
                             <p>匿名捐贈：新台幣1萬元以下</p>
-                        </a>
+                        </RouterLink>
                     </div>
                     <div class="donate_member">
-                        <a href="">
+                        <RouterLink to="/donate/member">
                             <h2>會員捐款</h2>
                             <img src="../assets/image/donate/donate_card1.png" alt="">
-                        </a>
+                        </RouterLink>
                     </div>
                 </div>
                 <div class="donate_lightbox_bottom">
@@ -40,17 +40,19 @@
 </template>    
 
 <script>
+import { RouterLink } from 'vue-router';
+
 export default {
-    data(){
+    data() {
         return {
             showLightbox: false,
-            amountLimit:[
+            amountLimit: [
                 '．個人名義：30萬元。',
                 '．營利事業(公司)：300萬元。',
                 '．人民團體：200萬元。',
                 '．匿名捐贈：新台幣1萬元以下。',
             ],
-            qualification:[
+            qualification: [
                 '．公營事業或政府持有資本達20%之民營企業。',
                 '．與政府機關(構)有巨額採購或重大公共建設投資契約，且在履約期間之廠商。',
                 '．有累積虧損尚未依規定彌補之營利事業。',
@@ -59,12 +61,13 @@ export default {
             ]
         };
     },
-    methods:{
-        closeLightbox(){
+    methods: {
+        closeLightbox() {
             this.showLightbox = false;
             console.log(this.showLightbox);
         },
     },
+    components: { RouterLink }
 };
 </script>
 
@@ -73,7 +76,6 @@ export default {
 @import "../assets/scss/base/font";
 @import "../assets/scss/base/color";
 @import "../assets/scss/base/border";
-@import "../assets/scss/components/btn";
 .donate_lightbox{
     position: fixed;
     top: 0;

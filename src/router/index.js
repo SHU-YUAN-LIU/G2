@@ -7,7 +7,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'Home',
-      component: () => import('../views/HomeView.vue')
+      component: () => import('../views/HomeView.vue'),
     },
     {
       path: '/about',
@@ -15,7 +15,7 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AboutView.vue')
+      component: () => import('../views/AboutView.vue'),
     },
     {
       path: '/product',
@@ -39,7 +39,24 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (Login.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/DonateView.vue')
+      component: () => import('../views/DonateView.vue'),
+    },
+    {
+      path: '/donate/anonymous',
+      name: 'donate_anonymous',
+      // route level code-splitting
+      // this generates a separate chunk (Login.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/DonateView_anonymous.vue'),
+      meta: { breadcrumb: '我要捐款' },
+    },
+    {
+      path: '/donate/member',
+      name: 'donate_member',
+      // route level code-splitting
+      // this generates a separate chunk (Login.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/DonateView_member.vue')
     },
     {
       path: '/news',
