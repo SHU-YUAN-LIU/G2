@@ -73,7 +73,6 @@ export default {
 @import "../assets/scss/base/font";
 @import "../assets/scss/base/color";
 @import "../assets/scss/base/border";
-@import "../assets/scss/components/btn";
 .donate_lightbox{
     position: fixed;
     top: 0;
