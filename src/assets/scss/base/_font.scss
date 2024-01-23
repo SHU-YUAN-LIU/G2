@@ -28,24 +28,28 @@ $line_height: 1.5;
 @mixin title_1 {
     font-family: $font_family_2 ;
     font-size: $font_size_1;
+    font-weight: initial;
 }
 
 //頁面標題(饅頭)65px
 @mixin title_2 {
     font-family: $font_family_2 ;
     font-size: $font_size_2;
+    font-weight: initial;
 }
 
 //頁面標題(饅頭)36px
 @mixin title_3 {
     font-family: $font_family_2 ;
     font-size: $font_size_3;
+    font-weight: initial;
 }
 
 //頁面標題(饅頭)28px
 @mixin title_4 {
     font-family: $font_family_2 ;
     font-size: $font_size_4;
+    font-weight: initial;
 }
 
 //-------------------------------
@@ -88,4 +92,10 @@ $line_height: 1.5;
 @mixin title_10 {
     font-family: $font_family_1 ;
     font-size: $font_basic;
+}
+
+
+// box-shadow
+@mixin box-shadow{
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
 }
