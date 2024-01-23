@@ -14,7 +14,7 @@
                         </RouterLink>
                     </div>
                     <div class="donate_member">
-                        <RouterLink to="/donate/member">
+                        <RouterLink to="/donate/page">
                             <h2>會員捐款</h2>
                             <img src="../assets/image/donate/donate_card1.png" alt="">
                         </RouterLink>
