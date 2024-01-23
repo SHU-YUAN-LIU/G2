@@ -63,51 +63,57 @@
           <h4>捐贈金額</h4>
           <ul>
             <li>
+              <p class="donate_point">3<span>點</span></p>
               <div>
-                <p>3<span>點</span></p>
                 <p>開路先鋒</p>
                 <p>展現氣勢,壯大團隊自信態度</p>
               </div>
+              <p>$300</p>
             </li>
             <li>
-                <p>10<span>點</span></p>
+                <p class="donate_point">10<span>點</span></p>
                 <div>
                   <p>快速直球</p>
                   <p>正面對決,任何挑戰都無所畏懼</p>
-              </div>
+                </div>
+                <p>$1,000</p>
             </li>
             <li>
-                <p>50<span>點</span></p>
+                <p class="donate_point">50<span>點</span></p>
                 <div>
                   <p>重砲打者</p>
                   <p>長程火炮,創造大局拉開距離</p>
                 </div>
+                <p>$5,000</p>
             </li>
             <li>
-                <p>100<span>點</span></p>
+                <p class="donate_point">100<span>點</span></p>
                 <div>
                   <p>王牌投手</p>
                   <p>一夫當闊,掌握賽場順利瞬間</p>
-              </div>
+                </div>
+                <p>$10,000</p>
             </li>
             <li>
-                <p>300<span>點</span></p>
+                <p class="donate_point">300<span>點</span></p>
                 <div>
                   <p>冠軍教練</p>
                   <p>運籌帷幄,打造戰力最強陣容</p>
                 </div>
+                <p>$30,000</p>
             </li>
             <li>
-                <p>500<span>點</span></p>
+                <p class="donate_point">500<span>點</span></p>
                 <div>
                   <p>民主MVP</p>
                   <p>攻守俱佳.震懾全場贏得冠軍</p>
-              </div>
+                </div>
+                <p>$50,000</p>
             </li>
           </ul>
         </div>
       </div>
-      
+      <RouterLink to="" >下一步,捐款資料</RouterLink>
     </div>
   </div>
 </template>
@@ -276,6 +282,8 @@ export default {
           display: flex;
           gap: 50px;
           flex-wrap: wrap;
+          justify-content: center;
+          align-items: center;
 
             li{
               border-radius: $border-radius-1;
@@ -284,11 +292,7 @@ export default {
               width: 310px;
               height: 160px;
 
-              div{
-                
-              }
-
-              p:first-child{
+              p.donate_point{
                 border-radius: 50%;
                 background: $yellow_2;
                 width: 100px;
@@ -299,12 +303,18 @@ export default {
                 position: absolute;
                 top: -50px;
                 left: -50px;
-                @include title_3;
+                letter-spacing: 1px;
+                @include title_4;
                 span{
                   @include title_4;
                   font-size: 18px;
-
                 }
+
+              div{
+                
+              }
+
+              
               }
 
 
