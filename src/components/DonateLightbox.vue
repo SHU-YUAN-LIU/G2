@@ -6,7 +6,6 @@
 
             <div class="donate_lightbox_content">
                 <div class="donate_lightbox_top">
-
                     <div class="donate_anonymous">
                         <RouterLink to="//donate/anonymous">
                             <h2>匿名捐款</h2>
@@ -77,13 +76,7 @@ export default {
 @import "../assets/scss/base/font";
 @import "../assets/scss/base/color";
 @import "../assets/scss/base/border";
-<<<<<<< HEAD
 .donate_lightbox{
-=======
-@import "../assets/scss/base/btn";
-
-.donate_lightbox {
->>>>>>> dog
     position: fixed;
     top: 0;
     left: 0;
