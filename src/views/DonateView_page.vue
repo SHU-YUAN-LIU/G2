@@ -113,7 +113,7 @@
           </ul>
         </div>
       </div>
-      <RouterLink to="" >下一步,捐款資料</RouterLink>
+      <RouterLink to="/donate/page/confirm" >下一步,捐款資料</RouterLink>
     </div>
   </div>
 </template>
