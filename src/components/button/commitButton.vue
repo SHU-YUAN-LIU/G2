@@ -17,6 +17,7 @@ export default {
 }
 </script>
 
+<<<<<<< HEAD
 <style lang="scss">
 .commit_btn {
     display: flex;
@@ -55,3 +56,6 @@ export default {
     }
 }
 </style>
+=======
+<style lang="scss"></style>
+>>>>>>> dog

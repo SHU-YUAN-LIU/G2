@@ -1,0 +1,32 @@
+.commit_btn {
+    @include btn_3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 60px;
+    font-family: $font_family_1;
+    font-weight: 800;
+    font-size: 16px;
+    gap: 10px;
+    border: transparent;
+    cursor: pointer;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 80px;
+
+    &:hover {
+        transform: translateX(10px);
+        transition: .5s ease-in-out;
+    }
+
+    img {
+        width: 20px;
+
+        &:hover {
+            transform: translateX(10px);
+            transition: .5s ease-in-out;
+        }
+
+    }
+}
