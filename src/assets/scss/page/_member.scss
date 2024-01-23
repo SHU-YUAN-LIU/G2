@@ -1,0 +1,54 @@
+.member_wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .member_profile {
+        width: 210px;
+        height: 210px;
+        border-radius: 50%;
+        background-color: #ccc;
+        position: relative;
+        .edit_icon {
+            position: absolute;
+            top: 150px;
+            left: 150px;
+        }
+    }
+    .btn_wrap {
+        margin-top: 50px;
+        max-width: 700px;
+        display: flex;
+        .btn {
+            @include btn_3;
+            margin: 0 10px;
+            font-size: 16px;
+            background-color: #ffffff;    
+            color: black;
+            border: 1px solid $orange;  
+            &:focus {
+            background-color: $orange;
+            color: #ffffff;
+            }
+        }
+        
+    }
+    form {
+        width: 750px;
+        display: flex;
+        position: inherit;
+        margin-bottom: 50px;
+        background-color: rgba($color: #ffffff, $alpha: 0);
+        @include title_9;
+        p {
+            margin: 20px 0;
+            span {
+                margin-left: 50px;
+            }
+        }
+        div {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+}

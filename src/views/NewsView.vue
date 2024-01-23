@@ -13,22 +13,24 @@
       </select>
       <input type="date" name="" id=""> 到 <input type="date">
       <input type="text" name="" id="" placeholder="請輸入關鍵字">
-      <button type="reset" class="remove">⟳</button>
+      <button class="remove">⟳</button>
       <button class="btn">搜尋</button>
 
     </div>
-    <div class="news_cards">
-      <div v-for="item in newsCard" class="news_card">
-        <div class="news_pic">
-          <img :src="item.imageUrl">
+    <div v-for="item in newsCard" class="news_cards">
+      <a :href="item.url">
+        <div class="news_card">
+          <div class="news_pic">
+            <img :src="item.imageUrl">
+          </div>
+          <div class="news_content">
+            <div :class="item.typeClass">{{ item.type }}</div>
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.content }}</p>
+            <span>{{ item.date }}</span>
+          </div>
         </div>
-        <div class="news_content">
-          <div :class="item.typeClass">{{ item.type }}</div>
-          <h3>{{ item.title }}</h3>
-          <p>{{ item.content }}</p>
-          <span>{{ item.date }}</span>
-        </div>
-      </div>
+      </a>
     </div>
   </div>
 </template>
@@ -38,7 +40,8 @@ export default {
     return {
       
       newsCard: [
-        {
+        { 
+          url: '/member',
           type: "新聞資訊",
           typeClass: "news_info",
           title: "#120 台灣政治改革之路 - 義無反顧的選擇",
@@ -48,6 +51,7 @@ export default {
 
         },
         {
+          url: '#',
           type: "假消息澄清",
           typeClass: "fake_news",
           title: "傳言：劉緯育高傲自大，對庶民經濟有什麼貢獻？",
@@ -56,6 +60,7 @@ export default {
           imageUrl: "https://picsum.photos/500/450/?random=10"
         },
         {
+          url: '#',
           type: "新聞資訊",
           typeClass: "news_info",
           title: "2024，選擇劉緯育，改變台灣的未來!",
@@ -64,6 +69,7 @@ export default {
           imageUrl: "https://picsum.photos/420/900/?random=10"
         },
         {
+          url: '#',
           type: "演講活動",
           typeClass: "speech",
           title: "2024/2/24 青年之聲 新竹開講",
@@ -72,6 +78,7 @@ export default {
           imageUrl: "https://picsum.photos/300/250/?random=10"
         },
         {
+          url: '#',
           type: "新聞資訊",
           typeClass: "news_info",
           title: "台灣政治迎來新希望 - 青年進補黨宣佈改變政治文化",
