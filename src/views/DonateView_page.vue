@@ -12,7 +12,7 @@
         <img src="../assets/image/donate/icon_info.png">
         <h2>我要捐款</h2>
       </div>
-      
+
       <div class="donate_page_content">
         <div class="donate_page_info">
           <h4>捐款基本資料</h4>
@@ -70,44 +70,44 @@
               </div>
             </li>
             <li>
-                <p>10<span>點</span></p>
-                <div>
-                  <p>快速直球</p>
-                  <p>正面對決,任何挑戰都無所畏懼</p>
+              <p>10<span>點</span></p>
+              <div>
+                <p>快速直球</p>
+                <p>正面對決,任何挑戰都無所畏懼</p>
               </div>
             </li>
             <li>
-                <p>50<span>點</span></p>
-                <div>
-                  <p>重砲打者</p>
-                  <p>長程火炮,創造大局拉開距離</p>
-                </div>
-            </li>
-            <li>
-                <p>100<span>點</span></p>
-                <div>
-                  <p>王牌投手</p>
-                  <p>一夫當闊,掌握賽場順利瞬間</p>
+              <p>50<span>點</span></p>
+              <div>
+                <p>重砲打者</p>
+                <p>長程火炮,創造大局拉開距離</p>
               </div>
             </li>
             <li>
-                <p>300<span>點</span></p>
-                <div>
-                  <p>冠軍教練</p>
-                  <p>運籌帷幄,打造戰力最強陣容</p>
-                </div>
+              <p>100<span>點</span></p>
+              <div>
+                <p>王牌投手</p>
+                <p>一夫當闊,掌握賽場順利瞬間</p>
+              </div>
             </li>
             <li>
-                <p>500<span>點</span></p>
-                <div>
-                  <p>民主MVP</p>
-                  <p>攻守俱佳.震懾全場贏得冠軍</p>
+              <p>300<span>點</span></p>
+              <div>
+                <p>冠軍教練</p>
+                <p>運籌帷幄,打造戰力最強陣容</p>
+              </div>
+            </li>
+            <li>
+              <p>500<span>點</span></p>
+              <div>
+                <p>民主MVP</p>
+                <p>攻守俱佳.震懾全場贏得冠軍</p>
               </div>
             </li>
           </ul>
         </div>
       </div>
-      
+
     </div>
   </div>
 </template>
@@ -118,46 +118,49 @@ import { RouterLink } from 'vue-router';
 import breadCrumbs from '../components/Bread.vue';
 
 export default {
-    data() {
-        return {
-          
-           
-        };
-    },
-    methods: {
-      
-    },
-    components: {
-      breadCrumbs,
-    },
-    mounted() {
-      document.title='我要捐款 - 會員捐款';
-    },
+  data() {
+    return {
+
+    };
+  },
+  methods: {
+
+  },
+  components: {
+    breadCrumbs,
+  },
+  mounted() {
+    document.title = '我要捐款 - 會員捐款';
+  },
 };
 
 </script>
 
 <style scoped lang="scss">
 @import '../assets/scss/style.scss';
-.donate_page{
 
-  h4{
-        margin-bottom: 30px;
-        font-size: $font_size_8;
-        font-family: $font_family_2;
-        font-weight: inherit;
-        color: $orange;
-        }
-  .donate_page_banner{
+.donate_page {
+
+  h4 {
+    margin-bottom: 30px;
+    font-size: $font_size_8;
+    font-family: $font_family_2;
+    font-weight: inherit;
+    color: $orange;
+  }
+
+  .donate_page_banner {
     width: 100%;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    img{
+
+    img {
       width: 100%;
     }
-    h1{
+
+    h1 {
       @include title_1;
       color: $white;
       position: absolute;
@@ -166,89 +169,98 @@ export default {
   }
 
   // 主要內容區塊
-  .donate_page_main{
+  .donate_page_main {
     width: 100%;
     max-width: 1200px;
     margin: auto;
     margin-top: 40px;
 
-    p{
+    p {
       @include title_10;
       margin-top: 30px;
     }
-    .donate_page_title{
+
+    .donate_page_title {
       display: flex;
       align-items: center;
       gap: 20px;
       border-bottom: 1px solid $gray_2;
       height: 80px;
-      h2{
+
+      h2 {
         @include title_3;
         font-weight: inherit;
 
       }
     }
 
-    .donate_page_content{
+    .donate_page_content {
       margin-left: 60px;
       margin-top: 40px;
       display: flex;
       flex-direction: column;
       gap: 40px;
-      .donate_page_info{
-        
-        p{
+
+      .donate_page_info {
+
+        p {
           color: red;
         }
-        li{
+
+        li {
           margin-top: 30px;
         }
       }
 
-      .donate_page_unit{
+      .donate_page_unit {
 
-        p{
+        p {
           @include title_10;
         }
       }
 
-      .donate_page_contact{
+      .donate_page_contact {
 
 
-        input[type="checkbox"]{
+        input[type="checkbox"] {
           width: 15px;
           height: 15px;
           margin-right: 10px;
         }
 
-        .donate_page_email{
+        .donate_page_email {
           margin: 30px 0;
-          span{
+
+          span {
             color: red;
           }
-          input{
+
+          input {
             width: 100%;
             height: 40px;
           }
         }
-        .donate_page_phone{
-          span{
+
+        .donate_page_phone {
+          span {
             color: red;
-          } 
-          input{
+          }
+
+          input {
             width: 100%;
             height: 40px;
           }
         }
       }
 
-      .donate_page_method{
-        ul{
+      .donate_page_method {
+        ul {
           display: flex;
           margin-top: 30px;
           gap: 20px;
         }
-        li{
+
+        li {
           display: flex;
           flex-direction: column;
           gap: 40px;
@@ -260,62 +272,60 @@ export default {
           height: 180px;
           border: 1px solid #000;
 
-          p{
+          p {
             text-align: center;
           }
 
-          img{
+          img {
             width: 70px;
           }
         }
       }
 
-      .donate_page_amount{
+      .donate_page_amount {
         border: 1px solid #000;
-        ul{
+
+        ul {
           display: flex;
           gap: 50px;
           flex-wrap: wrap;
 
-            li{
-              border-radius: $border-radius-1;
-              border: 1px solid $gray_3;
-              position: relative;
-              width: 310px;
-              height: 160px;
+          li {
+            border-radius: $border-radius-1;
+            border: 1px solid $gray_3;
+            position: relative;
+            width: 310px;
+            height: 160px;
 
-              div{
-                
+            div {}
+
+            p:first-child {
+              border-radius: 50%;
+              background: $yellow_2;
+              width: 100px;
+              height: 100px;
+              text-align: center;
+              line-height: 100px;
+              color: $white;
+              position: absolute;
+              top: -50px;
+              left: -50px;
+              @include title_3;
+
+              span {
+                @include title_4;
+                font-size: 18px;
+
               }
-
-              p:first-child{
-                border-radius: 50%;
-                background: $yellow_2;
-                width: 100px;
-                height: 100px;
-                text-align: center;
-                line-height: 100px;
-                color: $white;
-                position: absolute;
-                top: -50px;
-                left: -50px;
-                @include title_3;
-                span{
-                  @include title_4;
-                  font-size: 18px;
-
-                }
-              }
+            }
 
 
           }
-          
+
         }
-        
+
 
       }
     }
   }
-}
-
-</style>
+}</style>

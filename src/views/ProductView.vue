@@ -22,7 +22,7 @@
         <div class="card_group">
           <div v-for="(item, index) in disPro">
             <ProCard :imgSrc="defaultSrc + item.product_pic1" :name="item.product_name" :price="item.price"
-              :num="index" />
+              :num="index"  :id="item.product_no" />
           </div>
         </div>
       </div>
