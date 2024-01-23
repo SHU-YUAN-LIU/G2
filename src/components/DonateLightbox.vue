@@ -149,7 +149,6 @@ export default {
 
                 h2 {
                     @include title-2;
-                    font-weight: inherit;
                 }
 
                 img {
@@ -170,12 +169,10 @@ export default {
                 width: 100%;
                 text-align: center;
                 @include title_3;
-                font-weight: inherit;
                 margin-top: 60px;
                 margin-bottom: 20px;
             }
 
-            // 
             p {
                 color: red;
                 line-height: 60px;
