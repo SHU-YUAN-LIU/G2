@@ -6,16 +6,17 @@
         <!-- 右邊文字區 -->
         <div class="proText_group">
             <p>內刷毛連帽T(鐵灰)-L</p>
+            <div class="proLine"></div>
             <span>
                 單一雙色的灰白定調，鐵灰與純白象徵超然的「意志」與「包容」的氣度。使用台灣獨有的創新環保布料，布料由台灣興采咖啡渣技術製成絲絨，表示永續環保的精神。單一雙色的灰白定調，鐵灰與純白象徵超然的「意志」與「包容」的氣度。使用台灣獨有的創新環保布料，布料由台灣興采咖啡渣技術製成絲絨，表示永續環保的精神。
             </span>
             <span>建議售價</span>
             <span>NT$ 3890</span>
             <span>供貨狀況: 尚有庫存</span>
-            <div class="btn-group">
-                <input type="button" class="btnMinus" value="-">
-                <input type="text" class="qty" size="4" value="0">
-                <input type="button" class="btnPlus" value="+">
+            <div id="num">
+                <button @click="count -= 1"> -</button>
+                <div>{{ count }}</div>
+                <button @click="count += 1"> +</button>
             </div>
             <CartButton />
         </div>
@@ -31,8 +32,29 @@
                 <div><img src="../assets/image/product/proInfo_4.png" alt=""></div>
             </div>
         </div>
-
     </div>
+    <!-- 測試 -->
+    <!-- <div class="test">
+        <span>投票倒數</span>
+        <div class="right">
+            <div>
+                <span>15</span>
+                <span>天</span>
+            </div>
+            <div>
+                <span>02</span>
+                <span>小時</span>
+            </div>
+            <div>
+                <span>17</span>
+                <span>分鐘</span>
+            </div>
+            <div>
+                <span>30</span>
+                <span>秒</span>
+            </div>
+        </div>
+    </div> -->
 </template>
 
 <script>
@@ -49,6 +71,7 @@ export default {
     data() {
         return {
             proInfo: '官方商城',
+            count: 0,
 
         }
     },
