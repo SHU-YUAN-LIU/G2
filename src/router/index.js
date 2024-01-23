@@ -39,8 +39,8 @@ const router = createRouter({
       component: () => import('../views/DonateView.vue'),
     },
     {
-      path: '/donate/12345',
-      name: 'donate_12345',
+      path: '/donate/page',
+      name: 'donate_page',
 
       component: () => import('../views/DonateView_page.vue')
     }, {
