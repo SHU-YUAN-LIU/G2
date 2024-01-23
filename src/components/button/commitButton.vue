@@ -12,7 +12,7 @@ export default {
 
         }
     },
-    props: ['commitButton',],
+    props: ['commitButton','goTo'],
 
 }
 </script>
@@ -35,9 +35,9 @@ export default {
     gap: 10px;
     border: transparent;
     cursor: pointer;
-    margin: auto;
-    margin-top: 50px;
-    margin-bottom: 80px;
+    // margin: auto;
+    // margin-top: 50px;
+    // margin-bottom: 80px;
 
     &:hover {
         transform: translateX(10px);
