@@ -2,6 +2,35 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 800px;
+    margin: auto;
+    .membercontent{
+
+        width: 100%;
+        .contentwrap{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap:20px;
+            margin-top: 10px;
+            margin-bottom: 50px;
+        }
+        .btn{
+            width: 400px;
+            height: 78px;
+            margin: auto;
+            margin-top: 20px;
+        }
+        .searchbar{
+            margin-top: 30px;
+            margin-bottom: 30px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            position: relative;
+        }
+
+    }
     .member_profile {
         width: 210px;
         height: 210px;
@@ -21,14 +50,16 @@
         .btn {
             @include btn_3;
             margin: 0 10px;
-            font-size: 16px;
+            font-size: $font_size_8;
             background-color: #ffffff;    
             color: black;
             border: 1px solid $orange;  
-            &:focus {
-            background-color: $orange;
-            color: #ffffff;
-            }
+            height: 66px;
+            width: 184px;
+        }
+        .focuson{
+            background-color: $orange ;
+            color: $white ;
         }
         
     }
@@ -51,4 +82,118 @@
             align-items: center;
         }
     }
+    .searchbtn {
+        @include btn_5;
+    }
 }
+.startdate{
+    width: 150px;
+}
+.enddate{
+    width: 150px;
+}
+.searchnum{
+    width: 200px;
+    margin: 0;
+    border: none;
+    background-color: white;
+    &:focus {
+        outline: none;
+    }
+}
+.search_icon {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: $border-radius-1;
+    img{
+        margin-right: 10px;
+    }
+}
+
+.memberorder{
+    width: 100%;
+    background-color: $white;
+    position: relative;
+    @include title_10;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border: 1px solid $black;
+    overflow: hidden;
+    letter-spacing: $space_letter;
+    border-radius: $border-radius-1;
+    .ordermore{
+        position: absolute;
+        top: -1px;
+        right: -1px;
+        padding: 10px;
+        color: $white;
+        z-index: 10;
+    }
+    .triangle{
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-top: 50px solid $orange;
+        border-left: 150px solid transparent;
+        top: -1px;
+        right: -1px;
+    }
+    .orderleft{
+        div{
+            margin: 10px;
+        }
+    }
+    .orderright{
+        margin: 10px;
+        img{
+            margin-right: 10px;
+        }
+        display: flex;
+    }
+    .orderstatus{
+        span{
+            background-color: $green;
+            border-radius: $border-radius-1;
+            padding: 4px;
+        }  
+    }
+    
+    line-height: 1.5;
+    .orderTotal{
+        color: $orange;
+    }
+}
+.donateTotal{
+    color: $orange;
+}
+.havepoints{
+    color: $orange;
+    position: absolute;
+    right: 10px;
+}
+.orderdatesearch{
+    display: flex;
+    position: absolute;
+    gap: 20px;
+    align-items: center;
+    right: 0;
+    .searchbtn{
+        margin-right: 0;
+    }
+}
+.member_idno{
+    span{
+        padding-left: 28px;
+    }
+}
+.member_point{
+    span{
+        padding-left: 52px;
+    }
+}
+
+// .orderTotal{
+//     color: $orange;
+// }
