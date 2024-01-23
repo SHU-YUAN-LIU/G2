@@ -1,0 +1,21 @@
+.banner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    h1 {
+        @include title_1;
+        color: $white;
+        font-weight: initial;
+        letter-spacing: 10px;
+        position: absolute;
+        text-shadow: 0 0 30px rgba(92, 92, 92, 0.8);
+
+    }
+
+    img {
+        width: 100%;
+        vertical-align: middle;
+    }
+}

@@ -5,16 +5,14 @@
       <h1>我要捐款</h1>
     </div>
 
-    <breadCrumbs
-      :page="currentPage"
-     />
+    <breadCrumbs :page="currentPage" />
 
     <div class="donate_main">
       <img v-for="list in imgList" :src="getImageUrl(list)" alt="" class="icon">
       <div class="donate_cards">
         <div class="donate_card1">
           <div class="donate_card1_top">
-            
+
             <h2>小額支持</h2>
             <p>您的小筆捐款，是我們未來的大大動力！</p>
             <img src="@/assets/image/donate/donate_card1.png" alt="">
@@ -23,9 +21,7 @@
             <button @click="showLightbox" class="donate_showLightbox">我要捐款 → </button>
 
             <!-- 要加上ref屬性, script裡的$refs才能抓到變數 -->
-            <DonateLightbox
-              ref="DonateLightbox"
-             />
+            <DonateLightbox ref="DonateLightbox" />
 
           </div>
         </div>
@@ -43,7 +39,7 @@
                 <span>{{ info.type }}</span>
                 <span>{{ info.details }}</span>
               </li>
-              
+
             </ul>
           </div>
         </div>
@@ -55,46 +51,46 @@
 <script>
 import DonateLightbox from '../components/DonateLightbox.vue';
 import breadCrumbs from '../components/Bread.vue';
-import {RouterLink} from 'vue-router';
+import { RouterLink } from 'vue-router';
 
 export default {
-  components:{
+  components: {
     DonateLightbox,
     breadCrumbs,
   },
-  data(){
-      return{
-        imgList:[
-          'donate/donate_bgi_1.png',
-          'donate/donate_bgi_2.png',
-          'donate/donate_bgi_3.png'
-        ],
-        donateInfo:[
-          { type: "銀行臨櫃捐款/戶名", details: "青年進補黨政治獻金專戶" },
-          { type: "金融機構代碼", details: "578" },
-          { type: "帳號(郵局劃撥)", details: "12345678" },
-          { type: "營利事業或人民團體捐款", details: "請逕洽中央黨部財務室" }
-        ],
-        currentPage:'我要捐款',
-      }
+  data() {
+    return {
+      imgList: [
+        'donate/donate_bgi_1.png',
+        'donate/donate_bgi_2.png',
+        'donate/donate_bgi_3.png'
+      ],
+      donateInfo: [
+        { type: "銀行臨櫃捐款/戶名", details: "青年進補黨政治獻金專戶" },
+        { type: "金融機構代碼", details: "578" },
+        { type: "帳號(郵局劃撥)", details: "12345678" },
+        { type: "營利事業或人民團體捐款", details: "請逕洽中央黨部財務室" }
+      ],
+      currentPage: '我要捐款',
+    }
   },
-  created(){
+  created() {
 
   },
 
   methods: {
     getImageUrl(paths) {
-        return new URL(`../assets/image/${paths}`, import.meta.url).href
+      return new URL(`../assets/image/${paths}`, import.meta.url).href
     },
-    showLightbox(){
+    showLightbox() {
       // 用$refs指向燈箱元件檔案裡的showLightbox變數並設定為true
       this.$refs.DonateLightbox.showLightbox = true;
       console.log(this.$refs.DonateLightbox.showLightbox);
     }
-    
+
   },
   mounted() {
-    document.title="青年進補黨 - 捐款";
+    document.title = "青年進補黨 - 捐款";
   },
 }
 </script>

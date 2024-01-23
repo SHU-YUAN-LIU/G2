@@ -1,0 +1,40 @@
+.countdown{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    margin: 80px 0;
+    font-family: $font_family_2;
+    color: $black;
+    font-size: $font_size_1;
+    text-align: center;
+    .countdownright{
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            span:first-child{
+                color: $orange;
+                font-size: $font_size_2;
+            }
+            span:last-child{
+                font-size: $font_size_3;
+            }
+        }
+    }
+    .countdownch{
+        letter-spacing: 17px;
+    }
+}
+.countdownline::after{
+    content: "";
+    display: inline-block;
+    width: 186px;
+    border-bottom: 2px solid $black; 
+    margin: 0 60px; 
+    vertical-align: middle;
+
+}
