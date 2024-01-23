@@ -63,51 +63,57 @@
           <h4>捐贈金額</h4>
           <ul>
             <li>
-              <div>
-                <p>3<span>點</span></p>
+              <p class="donate_point">3<span>點</span></p>
+              <div class="donate_amount_item">
                 <p>開路先鋒</p>
                 <p>展現氣勢,壯大團隊自信態度</p>
               </div>
+              <p>$300</p>
             </li>
             <li>
-              <p>10<span>點</span></p>
-              <div>
+              <p class="donate_point">10<span>點</span></p>
+              <div class="donate_amount_item">
                 <p>快速直球</p>
                 <p>正面對決,任何挑戰都無所畏懼</p>
               </div>
+              <p>$1,000</p>
             </li>
             <li>
-              <p>50<span>點</span></p>
-              <div>
+              <p class="donate_point">50<span>點</span></p>
+              <div class="donate_amount_item">
                 <p>重砲打者</p>
                 <p>長程火炮,創造大局拉開距離</p>
               </div>
+              <p>$5,000</p>
             </li>
             <li>
-              <p>100<span>點</span></p>
-              <div>
+              <p class="donate_point">100<span>點</span></p>
+              <div class="donate_amount_item">
                 <p>王牌投手</p>
                 <p>一夫當闊,掌握賽場順利瞬間</p>
               </div>
+              <p>$10,000</p>
             </li>
             <li>
-              <p>300<span>點</span></p>
-              <div>
+              <p class="donate_point">300<span>點</span></p>
+              <div class="donate_amount_item">
                 <p>冠軍教練</p>
                 <p>運籌帷幄,打造戰力最強陣容</p>
               </div>
+              <p>$30,000</p>
             </li>
             <li>
-              <p>500<span>點</span></p>
-              <div>
+              <p class="donate_point">500<span>點</span></p>
+              <div class="donate_amount_item">
                 <p>民主MVP</p>
                 <p>攻守俱佳.震懾全場贏得冠軍</p>
               </div>
+              <p>$50,000</p>
             </li>
           </ul>
         </div>
       </div>
-
+      <RouterLink to="/donate/page/confirm"><button class="donate_page_next">下一步,捐款資料 →</button></RouterLink>
     </div>
   </div>
 </template>
@@ -180,6 +186,7 @@ export default {
       margin-top: 30px;
     }
 
+    // 我要捐款的標題
     .donate_page_title {
       display: flex;
       align-items: center;
@@ -194,6 +201,7 @@ export default {
       }
     }
 
+    // 捐款資料內容
     .donate_page_content {
       margin-left: 60px;
       margin-top: 40px;
@@ -201,6 +209,7 @@ export default {
       flex-direction: column;
       gap: 40px;
 
+      // 捐款資料內容_會員資料
       .donate_page_info {
 
         p {
@@ -212,6 +221,7 @@ export default {
         }
       }
 
+      // 捐款資料內容_捐款單位
       .donate_page_unit {
 
         p {
@@ -219,6 +229,7 @@ export default {
         }
       }
 
+      // 捐款資料內容_聯絡資訊
       .donate_page_contact {
 
 
@@ -253,6 +264,7 @@ export default {
         }
       }
 
+      // 捐款資料內容_付款方式
       .donate_page_method {
         ul {
           display: flex;
@@ -282,6 +294,7 @@ export default {
         }
       }
 
+      // 捐款資料內容_金額選擇
       .donate_page_amount {
         border: 1px solid #000;
 
@@ -289,6 +302,8 @@ export default {
           display: flex;
           gap: 50px;
           flex-wrap: wrap;
+          justify-content: center;
+          align-items: center;
 
           li {
             border-radius: $border-radius-1;
@@ -316,16 +331,43 @@ export default {
                 @include title_4;
                 font-size: 18px;
 
-              }
-            }
+                p.donate_point {
+                  border-radius: 50%;
+                  background: $yellow_2;
+                  width: 100px;
+                  height: 100px;
+                  text-align: center;
+                  line-height: 100px;
+                  color: $white;
+                  position: absolute;
+                  top: -50px;
+                  left: -50px;
+                  letter-spacing: 1px;
+                  @include title_4;
 
+                  span {
+                    @include title_4;
+                    font-size: 18px;
+                  }
+
+                  div {
+                    background: $gray_3;
+                    border: 1px solid #000;
+                  }
+
+
+                }
+              }
+
+
+            }
 
           }
 
+
         }
-
-
       }
     }
   }
-}</style>
+}
+</style>
