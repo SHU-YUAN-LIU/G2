@@ -44,7 +44,7 @@
       </RouterLink>
     </li>
     <li>
-      <RouterLink to="/test">
+      <RouterLink to="/login">
         <div><img src="@/assets/image/home/icon_login.png" alt="">
           <p>登入</p>
         </div>
