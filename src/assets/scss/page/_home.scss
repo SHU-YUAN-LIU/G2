@@ -1,3 +1,10 @@
+.home_container {
+    --column-gap: 10px;
+    max-width: 1200px;
+    margin: auto;
+    padding-left: var(--column-gap);
+    padding-right: var(--column-gap);
+}
 .index_news_bg {
     background-color: $gray_1;
 }
@@ -38,6 +45,10 @@
             @include title_10;
             .index_news_card_header {
                 @include title_7;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 1;
+                overflow: hidden;
             }
         }        
     }
@@ -54,4 +65,25 @@
 .news_index_inner_flex {
     flex-direction: column;
     gap: 40px;
+}
+.home_line_button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 0px;
+    gap: 10px;
+    .home_line{
+        height: 2px;
+        width: 42%;
+        background-color: $orange; 
+    }
+    .dog{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+.homebutton{
+    width: 194px !important;
+
 }

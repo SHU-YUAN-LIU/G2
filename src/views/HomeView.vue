@@ -10,14 +10,30 @@
         <button>></button>
     </div>
 
+    <!-- 倒數 -->
+    <CountDown />
+    <!-- 跑馬燈 -->
+    <vueMarquee :marqueeArray="slogan" />
     <!-- 頁籤 -->
+    <div class="home_container">
+        <div class="row index_news_flex">
+            <div class="col col-12 index_news_title">政策懶人包</div>
+        </div>
+    </div>
     <bookmark />
+    <div class="home_line_button">
+        <div class="home_line"></div>
+        <CommitButton class="homebutton" commitButton="立即前往">
+            <router-link to="/news" class="dog">
+            </router-link>
+        </CommitButton>
+    </div>
 
 
 
     <!-- 消息-->
     <div class="index_news_bg">
-        <div class="container">
+        <div class="home_container">
             <div class="row index_news_flex">
                 <div class="col col-12 index_news_title">最新消息</div>
                 <a class="col col-4 index_news_card" href="#">
@@ -45,10 +61,17 @@
                 </div>
             </div>
         </div>
+        <div class="home_line_button">
+            <div class="home_line"></div>
+            <CommitButton class="homebutton" commitButton="立即前往">
+                <router-link to="/news" class="dog">
+                </router-link>
+            </CommitButton>
+        </div>
     </div>
 
     <!-- 假消息澄清-->
-    <div class="container">
+    <div class="home_container">
         <div class="row index_news_flex">
             <div class="col col-12 index_news_title">假消息澄清</div>
             <a class="col col-4 index_news_card" href="#">
@@ -76,7 +99,13 @@
             </div>
         </div>
     </div>
-
+    <div class="home_line_button">
+        <div class="home_line"></div>
+        <CommitButton class="homebutton" commitButton="立即前往">
+            <router-link to="/news" class="dog">
+            </router-link>
+        </CommitButton>
+    </div>
     <!-- 捐款 -->
 
     <div class="donate_container">
@@ -94,13 +123,24 @@
         <!-- 頁面路由route渲染的位置 -->
         <RouterView />
     </div>
+    <div class="home_line_button">
+        <div class="home_line"></div>
+        <CommitButton class="homebutton" commitButton="立即前往">
+            <router-link to="/news" class="dog">
+            </router-link>
+        </CommitButton>
+    </div>
 </template>
 
 <script>
+import CommitButton from '@/components/button/commitButton.vue';
 import bookmark from '../components/BookMark.vue';
+import CountDown from '../components/CountDown.vue';
+import vueMarquee from '@/components/Marquee.vue';
 export default {
     data() {
         return {
+            slogan: '這是一場改變政治文化的社會運動，投給劉緯育，投給自己的未來。',
             bannerList: [
                 'home/banner_1.png',
                 'home/banner_2.png',
@@ -151,6 +191,9 @@ export default {
     },
     components: {
         bookmark,
+        CommitButton,
+        CountDown,
+        vueMarquee,
     },
 }
 </script>
@@ -160,7 +203,7 @@ export default {
 @import '../assets/scss/base/font';
 @import '../assets/scss/base/color';
 
-#app{
+#app {
     background: linear-gradient(-10deg, $green 0% 35%, rgba(255, 255, 255, 0) 35% 50%, $orange 50% 100%) !important;
     z-index: 0;
 }
@@ -273,5 +316,4 @@ ul {
     width: 250px;
     height: 250px;
 }
-
 </style>

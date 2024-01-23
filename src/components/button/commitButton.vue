@@ -12,11 +12,12 @@ export default {
 
         }
     },
-    props: ['commitButton',],
+    props: ['commitButton','goTo'],
 
 }
 </script>
 
+<<<<<<< HEAD
 <style lang="scss">
 .commit_btn {
     display: flex;
@@ -35,9 +36,9 @@ export default {
     gap: 10px;
     border: transparent;
     cursor: pointer;
-    margin: auto;
-    margin-top: 50px;
-    margin-bottom: 80px;
+    // margin: auto;
+    // margin-top: 50px;
+    // margin-bottom: 80px;
 
     &:hover {
         transform: translateX(10px);
@@ -55,3 +56,6 @@ export default {
     }
 }
 </style>
+=======
+<style lang="scss"></style>
+>>>>>>> dog
