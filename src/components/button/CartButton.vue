@@ -14,6 +14,7 @@
     display: flex;
     padding: 5px 10px;
     gap: 10px;
+    cursor: pointer;
 }
 
 .span:hover {

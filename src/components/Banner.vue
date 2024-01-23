@@ -1,19 +1,25 @@
 <template>
-    <img srcSet="/src/assets/image/product/2.jpg" class="img" loading="lazy" />
+    <div class="banner">
+        <img :src="bannerPic">
+        <h1>{{ bannerTitle }}</h1>
+    </div>
+    <!-- <img srcSet="/src/assets/image/product/2.jpg" class="img" loading="lazy" /> -->
     <!-- loading="lazy" 是一個優化網頁性能的方式，特別適用於圖片較多或長頁面的情況，可以選擇要不要放。 -->
 </template>    
+<script>
+export default {
+    data() {
+        return {
 
+        }
+    },
+    props: ['bannerTitle', 'bannerPic']
+
+}
+</script>
 
 <style scoped>
 /* scoped 這個屬性的存在使得樣式只作用於當前的 Vue 元件，而不會影響到全局樣式。 */
-.img {
-    aspect-ratio: 3.32;
-    /* 設置圖片的寬高比 */
-    object-fit: contain;
-    object-position: center;
-    width: 100%;
-    overflow: hidden;
-}
 
 @media (max-width: 768px) {
     .img {

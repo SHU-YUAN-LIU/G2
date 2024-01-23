@@ -1,33 +1,12 @@
-.wrap {}
-
 .contect {
     margin-top: 85px;
-
-    .contect_banner {
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        h1 {
-            @include title_1;
-            color: $white;
-            font-weight: initial;
-            letter-spacing: 10px;
-            position: absolute;
-        }
-
-        img {
-            width: 100%;
-            vertical-align: middle;
-        }
-    }
 }
 
 //  內容
 .contect_info {
     max-width: 1200px;
     margin: auto;
+    position: relative;
 
     h2 {
         @include title_2;
@@ -79,6 +58,7 @@
     .con_process_know {
         max-width: 1200px;
         border: 2px solid $orange;
+        background-color: $white;
         border-radius: $border-radius-1 ;
         padding: 60px 80px;
 
@@ -104,6 +84,7 @@
     .con_input_group {
         max-width: 1200px;
         border: 2px solid $orange;
+        background-color: $white;
         border-radius: $border-radius-1 ;
         padding: 60px 80px;
 
