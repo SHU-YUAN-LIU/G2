@@ -23,7 +23,7 @@
     <bookmark />
     <div class="home_line_button">
         <div class="home_line"></div>
-        <CommitButton commitButton="立即前往">
+        <CommitButton class="homebutton" commitButton="立即前往">
             <router-link to="/news" class="dog">
             </router-link>
         </CommitButton>
@@ -63,7 +63,7 @@
         </div>
         <div class="home_line_button">
             <div class="home_line"></div>
-            <CommitButton commitButton="立即前往">
+            <CommitButton class="homebutton" commitButton="立即前往">
                 <router-link to="/news" class="dog">
                 </router-link>
             </CommitButton>
@@ -101,7 +101,7 @@
     </div>
     <div class="home_line_button">
         <div class="home_line"></div>
-        <CommitButton commitButton="立即前往">
+        <CommitButton class="homebutton" commitButton="立即前往">
             <router-link to="/news" class="dog">
             </router-link>
         </CommitButton>
@@ -125,7 +125,7 @@
     </div>
     <div class="home_line_button">
         <div class="home_line"></div>
-        <CommitButton commitButton="立即前往">
+        <CommitButton class="homebutton" commitButton="立即前往">
             <router-link to="/news" class="dog">
             </router-link>
         </CommitButton>
