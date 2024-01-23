@@ -12,9 +12,6 @@ const router = createRouter({
     {
       path: '/about',
       name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
       component: () => import('../views/AboutView.vue'),
     },
     {
@@ -41,42 +38,37 @@ const router = createRouter({
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/DonateView.vue'),
     },
-  
     {
       path: '/donate/page',
       name: 'donate_page',
-      // route level code-splitting
-      // this generates a separate chunk (Login.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
+
       component: () => import('../views/DonateView_page.vue')
+    }, {
+      path: '/donate/page/confirm',
+      name: 'donate_page_confirm',
+      component: () => import('../views/DonateView_page_confirm.vue')
     },
     {
       path: '/news',
       name: 'news',
-      // route level code-splitting
-      // this generates a separate chunk (Login.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
+
       component: () => import('../views/NewsView.vue')
     },
     {
       path: '/contact',
       name: 'contact',
-      // route level code-splitting
-      // this generates a separate chunk (Login.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
+
       component: () => import('../views/ContactView.vue')
     },
     {
       path: '/election',
       name: 'election',
-      // route level code-splitting
-      // this generates a separate chunk (Login.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
+
       component: () => import('../views/ElectionView.vue')
     },
     {
-      path: '/cart',
-      name: 'cart',
+      path: '/product/:productId',
+      name: 'productinfoview',
       component: () => import('../views/ProductInfoView.vue')
     },
     {
@@ -85,9 +77,14 @@ const router = createRouter({
       component: () => import('../views/MemberView.vue')
     },
     {
-      path: '/test',
-      name: 'test',
-      component: () => import('../views/TestView.vue')
+      path: '/forgotpsw',
+      name: 'forgotpsw',
+      component: () => import('../views/ForgotpswView.vue')
+    },
+    {
+      path: '/newpsw',
+      name: 'newpsw',
+      component: () => import('../views/NewpswView.vue')
     }
   ]
 })
