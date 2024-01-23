@@ -1981,6 +1981,9 @@ form .register_read p {
   align-items: center;
   position: relative;
 }
+.member_wrap .membercontent input {
+  height: 30px;
+}
 .member_wrap .member_profile {
   width: 210px;
   height: 210px;
@@ -2075,6 +2078,7 @@ form .register_read p {
   display: flex;
   align-items: center;
   border: 1px solid #ccc;
+  padding: 3px;
   border-radius: 10px;
 }
 .search_icon img {
@@ -2148,6 +2152,7 @@ form .register_read p {
   gap: 20px;
   align-items: center;
   right: 0;
+  border-radius: 10px;
 }
 .orderdatesearch .searchbtn {
   margin-right: 0;
