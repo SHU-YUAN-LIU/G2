@@ -4,13 +4,13 @@
 @import "base/color";
 @import "base/font";
 @import "base/reset";
+@import "base/btn";
 
 //函式
 @import "mixin/mixin";
 
 
 //組件
-@import "components/btn";
 @import "components/body";
 @import "components/card";
 @import "components/form";
@@ -18,11 +18,13 @@
 @import "components/table";
 @import "components/grid";
 @import "components/bread";
+@import "components/banner";
 @import "components/input";
 @import "components/countdown";
 
 
 @import "components/successPop";
+@import "components/commitButton";
 
 
 //layout
@@ -38,6 +40,8 @@
 @import "page/login";
 @import "page/news";
 @import "page/product";
+@import "page/productPay";
+@import "page/ProductInfo";
 @import "page/election";
 @import "page/contact";
 @import "page/member";
