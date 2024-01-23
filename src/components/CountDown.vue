@@ -1,5 +1,5 @@
 <template>
-    <div class="countdown">{{ countDownHTML }}</div>
+    <!-- <div class="countdown">{{ countDownHTML }}</div> -->
     <div class="countdown">
         <span class="countdownch">投票倒數</span><span class="countdownline"></span>
         <div class="countdownright">

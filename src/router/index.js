@@ -67,8 +67,8 @@ const router = createRouter({
       component: () => import('../views/ElectionView.vue')
     },
     {
-      path: '/product_info',
-      name: 'product_info',
+      path: '/product/:productId',
+      name: 'productinfoview',
       component: () => import('../views/ProductInfoView.vue')
     },
     {
@@ -76,11 +76,16 @@ const router = createRouter({
       name: 'member',
       component: () => import('../views/MemberView.vue')
     },
-    // {
-    //   path: '/test',
-    //   name: 'test',
-    //   component: () => import('../views/TestView.vue')
-    // }
+    {
+      path: '/forgotpsw',
+      name: 'forgotpsw',
+      component: () => import('../views/ForgotpswView.vue')
+    },
+    {
+      path: '/newpsw',
+      name: 'newpsw',
+      component: () => import('../views/NewpswView.vue')
+    }
   ]
 })
 

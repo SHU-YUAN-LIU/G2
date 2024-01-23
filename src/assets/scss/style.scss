@@ -22,6 +22,7 @@
 @import "components/input";
 @import "components/countdown";
 @import "components/bookmark";
+@import "components/marquee";
 
 
 @import "components/successPop";
@@ -31,7 +32,7 @@
 //layout
 @import "layout/header";
 @import "layout/footer";
-@import "layout/login";
+@import "layout/forgotPsw";
 
 
 //page
@@ -46,6 +47,9 @@
 @import "page/election";
 @import "page/contact";
 @import "page/member";
+@import "page/forgotpsw";
+@import "page/newpsw";
+
 
 //套件
 // @import "plugin/bootstrap";

@@ -78,6 +78,7 @@ form {
     background: white;
     box-sizing: border-box;
     justify-content: center;
+    @include title_10;
     .profile {
         width: 200px;
         height: 200px;
@@ -94,10 +95,13 @@ form {
         text-align: right;
         padding: 10px;
     }
+    span {
+        color: red;
+        padding-left: 5px
+    }
     input {
         @include input_1;
     }
-    
     .register_read {
         display: flex;
         align-items: center;
