@@ -46,7 +46,7 @@ const router = createRouter({
     }, {
       path: '/donate/page/confirm',
       name: 'donate_page_confirm',
-      component: () => import('../views/DonateView_page.vue')
+      component: () => import('../views/DonateView_page_confirm.vue')
     },
     {
       path: '/news',
