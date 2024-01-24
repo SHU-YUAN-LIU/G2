@@ -61,6 +61,22 @@ const router = createRouter({
       component: () => import('../views/ContactView.vue')
     },
     {
+      path: '/contact_search',
+      name: '/contact_search',
+      // route level code-splitting
+      // this generates a separate chunk (Login.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/ContactSearchView.vue')
+    },
+    {
+      path: '/contact_searchFinal',
+      name: '/contact_searchFinal',
+      // route level code-splitting
+      // this generates a separate chunk (Login.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/ContactSearchFinalView.vue')
+    },
+    {
       path: '/election',
       name: 'election',
 

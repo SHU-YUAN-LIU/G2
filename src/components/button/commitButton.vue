@@ -12,7 +12,7 @@ export default {
 
         }
     },
-    props: ['commitButton','goTo'],
+    props: ['commitButton', 'goTo'],
 
 }
 </script>

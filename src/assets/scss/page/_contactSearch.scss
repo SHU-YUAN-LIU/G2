@@ -1,0 +1,23 @@
+.contect_search {
+    width: 1000px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    margin-top: 150px;
+    margin-bottom: 150px;
+
+    .searchInput {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+
+        label {
+            @include title_10;
+        }
+
+    }
+}
