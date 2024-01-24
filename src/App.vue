@@ -1,6 +1,8 @@
 <template>
   <MainHeader />
+  <div id="goToTop-a"></div>
   <RouterView />
+  <goToTop />
   <MainFooter />
 </template>
 
@@ -8,16 +10,15 @@
 import { RouterView } from 'vue-router';
 import MainHeader from './components/MainHeader.vue';
 import MainFooter from './components/MainFooter.vue';
-// import Banner from './components/Banner.vue';
-// import Button from './components/Button.vue';
+import goToTop from './components/goToTop.vue';
+
 
 export default {
   components: {
     RouterView,
     MainHeader,
     MainFooter,
-    // Banner,
-    // Button,
+    goToTop,
   },
   data() {
     return {
@@ -35,5 +36,5 @@ export default {
 
 </script>
 
-<style></style>
+<style scoped></style>
 
