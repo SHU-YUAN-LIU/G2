@@ -1,0 +1,257 @@
+.about {
+  margin-top: 85px;
+
+  .contect_banner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    h1 {
+      @include title_1;
+      color: $white;
+      font-weight: initial;
+      letter-spacing: 10px;
+      position: absolute;
+    }
+
+    img {
+      width: 100%;
+      vertical-align: middle;
+    }
+  }
+}
+.about_content {
+  border-radius: $border-radius-1;
+  border: 3px solid #ff892e;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 60px;
+  margin: 150px;
+  margin-left: 360px;
+  margin-right: 360px;
+}
+@media (max-width: 768px) {
+  .about_content {
+    padding: 0 20px;
+  }
+}
+.about_content-2 {
+  display: flex;
+  width: 100%;
+  max-width: 997px;
+  flex-direction: column;
+  //   margin: 26px 0 24px;
+}
+@media (max-width: 768px) {
+  .about_content-2 {
+    max-width: 100%;
+  }
+}
+.about_content-3 {
+  justify-content: center;
+  color: #000;
+  text-align: justify;
+  letter-spacing: 4.32px;
+  font: 800 24px/112.5% Noto Sans, sans-serif;
+}
+@media (max-width: 768px) {
+  .about_content-3 {
+    max-width: 100%;
+  }
+}
+.about_content-4 {
+  background-color: #000;
+  margin-top: 30px;
+  height: 1px;
+}
+@media (max-width: 768px) {
+  .about_content-4 {
+    max-width: 100%;
+  }
+}
+.about_content-5 {
+  justify-content: center;
+  color: #000;
+  text-align: justify;
+  letter-spacing: 2px;
+  margin-top: 28px;
+  font: 600 20px/37px Noto Sans, sans-serif;
+}
+@media (max-width: 768px) {
+  .about_content-5 {
+    max-width: 100%;
+  }
+}
+// 黨會規範樣式
+.rule {
+  background-color: #f3f5f7;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 60px;
+}
+@media (max-width: 991px) {
+  .rule {
+    padding: 0 20px;
+  }
+}
+.rule-2 {
+  width: 1202px;
+  max-width: 100%;
+  margin: 80px 0 124px;
+}
+@media (max-width: 991px) {
+  .rule-2 {
+    margin: 40px 0;
+  }
+}
+.rule-3 {
+  gap: 20px;
+  display: flex;
+}
+@media (max-width: 991px) {
+  .rule-3 {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0px;
+  }
+}
+.rule-column {
+  display: flex;
+  flex-direction: column;
+  line-height: normal;
+  width: 35%;
+  margin-left: 0px;
+}
+@media (max-width: 991px) {
+  .rule-column {
+    width: 100%;
+  }
+}
+.rule-4 {
+  justify-content: center;
+  color: #000;
+  text-align: justify;
+  letter-spacing: 1.76px;
+  margin: auto 0;
+  font: 600 18px/25px Noto Sans, sans-serif;
+}
+@media (max-width: 991px) {
+  .rule-4 {
+    margin-top: 40px;
+  }
+}
+.rule-column-2 {
+  display: flex;
+  flex-direction: column;
+  line-height: normal;
+  width: 30%;
+  margin-left: 20px;
+}
+@media (max-width: 991px) {
+  .rule-column-2 {
+    width: 100%;
+  }
+}
+.rule-5 {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+}
+@media (max-width: 991px) {
+  .rule-5 {
+    margin-top: 40px;
+  }
+}
+.rule-6 {
+  color: #000;
+  text-align: center;
+  letter-spacing: 13px;
+  white-space: nowrap;
+  font: 400 65px/97% Mantou Sans, sans-serif;
+}
+@media (max-width: 991px) {
+  .rule-6 {
+    font-size: 40px;
+    white-space: initial;
+  }
+}
+.img {
+  aspect-ratio: 1.13;
+  object-fit: contain;
+  object-position: center;
+  width: 100%;
+  overflow: hidden;
+  margin-top: 151px;
+}
+@media (max-width: 991px) {
+  .img {
+    margin-top: 40px;
+  }
+}
+.rule-column-3 {
+  display: flex;
+  flex-direction: column;
+  line-height: normal;
+  width: 35%;
+  margin-left: 20px;
+}
+@media (max-width: 991px) {
+  .rule-column-3 {
+    width: 100%;
+  }
+}
+.rule-7 {
+  justify-content: center;
+  color: #000;
+  text-align: justify;
+  letter-spacing: 1.76px;
+  margin-top: 353px;
+  font: 600 18px/25px Noto Sans, sans-serif;
+}
+@media (max-width: 991px) {
+  .rule-7 {
+    margin-top: 40px;
+  }
+}
+
+.policy {
+    display: flex;
+    justify-content: center;
+    font-size: 65px;
+    margin-bottom: 60px;
+    // font-weight: bold;
+  }
+.Three {
+    border-radius: $border-radius-1;
+  border: 3px solid #ff892e;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 60px;
+  margin: 150px;
+  margin-left: 360px;
+  margin-right: 360px;
+}
+
+.value_img {
+    aspect-ratio: 0.74;
+    object-fit: contain;
+    object-position: center;
+    width: 100%;
+    overflow: hidden;
+    flex-grow: 1;
+  }
+  @media (max-width: 991px) {
+    .value_img {
+      max-width: 100%;
+      margin-top: 40px;
+    }
+  }

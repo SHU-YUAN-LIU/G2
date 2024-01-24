@@ -3,20 +3,21 @@
     <div class="news_banner">
       <h1>最新消息</h1>
     </div>
-    <div class="news_filter">
-      <select name="" id="">
-        <option value="" disabled selected>類別</option>
-        <option value="">全部消息</option>
-        <option value="">新聞資訊</option>
-        <option value="">假消息澄清</option>
-        <option value="">演講活動</option>
-      </select>
-      <input type="date" name="" id=""> 到 <input type="date">
-      <input type="text" name="" id="" placeholder="請輸入關鍵字">
-      <button class="remove">⟳</button>
-      <button class="btn">搜尋</button>
-
-    </div>
+    <form action="" class="filter_form">
+      <div class="news_filter">
+        <select name="" id="">
+          <option value="" disabled selected>類別</option>
+          <option value="">全部消息</option>
+          <option value="">新聞資訊</option>
+          <option value="">假消息澄清</option>
+          <option value="">演講活動</option>
+        </select>
+        <input type="date" name="" id=""> 到 <input type="date">
+        <input type="text" name="" id="" placeholder="請輸入關鍵字">
+        <button class="remove">⟳</button>
+        <button class="btn">搜尋</button>
+      </div>
+    </form>
     <div v-for="item in newsCard" class="news_cards">
       <a :href="item.url">
         <div class="news_card">

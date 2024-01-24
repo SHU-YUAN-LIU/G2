@@ -94,13 +94,13 @@ div.donate{
             justify-content: center;
             background-color: $white;
             border-radius: $border-radius-1;
-            button.donate_showLightbox{
-              @include btn_1;
-              border: none;
-              @include title_7;
-              color: $white;
-              border-radius: 50px;
-            }
+            // button.donate_showLightbox{
+            //   @include btn_1;
+            //   border: none;
+            //   @include title_7;
+            //   color: $white;
+            //   border-radius: 50px;
+            // }
           }
         }
   

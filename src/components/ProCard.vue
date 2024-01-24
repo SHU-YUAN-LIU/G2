@@ -1,5 +1,5 @@
 <template>
-  <div class="procard">
+  <router-link :to="{ name: 'productinfoview', params: { productId: id }}" class="procard">
     <!-- NewIcon -->
     <div v-if="num < 6" class="newIcon">NEW</div>
 
@@ -11,7 +11,7 @@
     <p class="pro-title">{{ name }}</p>
     <p class="pro-price">價錢:{{ price }}</p>
     <CartButton />
-  </div>
+  </router-link>
 </template>
 <script>
 import CartButton from '../components/button/CartButton.vue'
@@ -24,7 +24,7 @@ export default {
 
     }
   },
-  props: ['imgSrc', 'name', 'price', 'int', 'num'],
+  props: ['imgSrc', 'name', 'price', 'int', 'num', 'id'],
   created() { },
   methods: {
 

@@ -74,13 +74,18 @@
     gap: 10px;
     .home_line{
         height: 2px;
-        width: 40%;
+        width: 42%;
         background-color: $orange; 
     }
     .dog{
         display: flex;
         justify-content: center;
         align-items: center;
+        margin-top: auto;
+        margin-bottom: auto;
     }
 }
+.homebutton{
+    width: 194px !important;
 
+}

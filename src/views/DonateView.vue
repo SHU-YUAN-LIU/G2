@@ -18,8 +18,8 @@
             <img src="@/assets/image/donate/donate_card1.png" alt="">
           </div>
           <div class="donate_card1_bottom">
-            <button @click="showLightbox" class="donate_showLightbox">我要捐款 → </button>
-
+            <!-- <button @click="showLightbox" class="donate_showLightbox">我要捐款 → </button> -->
+            <commitButton :commitButton="commit"   @click="showLightbox"/>
             <!-- 要加上ref屬性, script裡的$refs才能抓到變數 -->
             <DonateLightbox ref="DonateLightbox" />
 
@@ -50,16 +50,19 @@
 </template>
 <script>
 import DonateLightbox from '../components/DonateLightbox.vue';
+import commitButton from '../components/button/commitButton.vue'
 import breadCrumbs from '../components/Bread.vue';
 import { RouterLink } from 'vue-router';
 
 export default {
   components: {
     DonateLightbox,
+    commitButton,
     breadCrumbs,
   },
   data() {
     return {
+      commit: "我要捐款",
       imgList: [
         'donate/donate_bgi_1.png',
         'donate/donate_bgi_2.png',
