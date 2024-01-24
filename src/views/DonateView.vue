@@ -19,7 +19,7 @@
           </div>
           <div class="donate_card1_bottom">
             <!-- <button @click="showLightbox" class="donate_showLightbox">我要捐款 → </button> -->
-            <commitButton :commitButton="commit"   @click="showLightbox"/>
+            <commitButton :commitButton="commit" @click="showLightbox" />
             <!-- 要加上ref屬性, script裡的$refs才能抓到變數 -->
             <DonateLightbox ref="DonateLightbox" />
 

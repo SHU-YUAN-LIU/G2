@@ -102,9 +102,10 @@
         <!-- 按鈕 -->
         <div class="donate_confirm_button">
             <RouterLink to="/donate/page">
-                <button class="donate_confrim_next">←返回上頁 </button>
+                <button class="donate_confirm_button">←返回上頁 </button>
             </RouterLink>
-            <button class="donate_confrim_next">立即付款→</button>
+            <button class="donate_confirm_button" @click="donatePayment">立即付款→</button>
+            <DonateConfirmLightBox ref="DonateConfirmLightBox" />
         </div>
     </div>
 </template>
@@ -112,10 +113,14 @@
 <script>
 import commitButton from '../components/button/commitButton.vue'
 import breadCrumbs from '../components/Bread.vue';
+import DonateConfirmLightBox from '../components/DonateConfirmLightBox.vue';
+
+
 export default {
     components: {
         commitButton,
         breadCrumbs,
+        DonateConfirmLightBox,
     },
     data() {
         return {
@@ -124,9 +129,13 @@ export default {
     created() {
 
     },
-
     methods: {
+        donatePayment() {
+            this.$refs.DonateConfirmLightBox.showLightbox = true;
+        }
 
+    },
+    mounted() {
     },
 }
 </script>

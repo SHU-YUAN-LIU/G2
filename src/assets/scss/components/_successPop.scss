@@ -33,12 +33,12 @@
         .con_success_group {
             width: 700px;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 30px;
 
             .success_top {
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 30px;
                 width: 700px;
                 display: flex;
                 flex-direction: column;
