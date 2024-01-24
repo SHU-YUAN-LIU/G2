@@ -1,0 +1,31 @@
+.newspage_wrap {
+    @include title_9;
+    width: 1200px;
+    margin: auto;
+    h1 {
+        @include title_2;
+        line-height: 4rem;
+        letter-spacing: .5rem;
+    }
+    .type_date {
+        display: flex;
+        align-items: center;
+        margin: 30px 0;
+        span {
+            padding-left: 10px;
+            color: #666;
+        }
+    }
+    .newspage_photo1 {
+        max-width: 1200px;
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .newspage_content {
+        padding: 50px 0 150px 0;
+        line-height: 2rem;
+        letter-spacing: .2rem;
+    }
+}
