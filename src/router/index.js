@@ -83,6 +83,12 @@ const router = createRouter({
       component: () => import('../views/ElectionView.vue')
     },
     {
+      path: '/election_journey',
+      name: 'election_journey',
+
+      component: () => import('../views/ElectionView_journey.vue')
+    },
+    {
       path: '/product/:productId',
       name: 'productinfoview',
       component: () => import('../views/ProductInfoView.vue')

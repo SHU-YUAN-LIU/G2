@@ -106,6 +106,7 @@
             <RouterLink to="/donate/page">
                 <button class="donate_confirm_button">←返回上頁 </button>
             </RouterLink>
+            <!-- 彈窗 -->
             <button class="donate_confirm_button" @click="donatePayment">立即付款→</button>
             <DonateConfirmLightBox ref="DonateConfirmLightBox" />
         </div>

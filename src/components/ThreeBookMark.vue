@@ -69,7 +69,7 @@ export default {
     display: flex;
     justify-content: center;
     font-size: 36px;
-    font-weight:600;
+    font-weight: 600;
 }
 
 .ThreeBookMark_content ul {
@@ -77,7 +77,7 @@ export default {
     display: flex;
     justify-content: center;
     font-size: 20px;
-    font-weight:600;
+    font-weight: 600;
 }
 
 .ThreeBookMark_tab li {
@@ -103,6 +103,6 @@ export default {
 }
 
 .active_tab {
-    font-weight: bold;
+    /* font-weight: bold; */
 }
 </style>

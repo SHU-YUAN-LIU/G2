@@ -144,7 +144,7 @@ body {
 }
 
 #app {
-  background: linear-gradient(-10deg, #D4FF1F 0% 35%, rgba(255, 255, 255, 0) 35% 100%);
+  background: linear-gradient(-10deg, #D4FF1F 0% 45%, rgba(255, 255, 255, 0) 45% 100%);
   z-index: 0;
   margin-top: 85px;
 }
@@ -1725,10 +1725,6 @@ form .register_read p {
   color: #666;
 }
 
-.header {
-  height: 85px;
-}
-
 .pro_wrap {
   width: 1200px;
   margin: auto;
@@ -1774,10 +1770,6 @@ form .register_read p {
   position: absolute;
   top: -25px;
   left: -25px;
-}
-
-.header {
-  height: 85px;
 }
 
 .pro_info_group {
@@ -1947,6 +1939,28 @@ form .register_read p {
   inset: 10px;
   line-height: 100px;
   vertical-align: top;
+}
+
+.contect_search {
+  width: 1000px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  margin-top: 150px;
+  margin-bottom: 150px;
+}
+.contect_search .searchInput {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.contect_search .searchInput label {
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 16px;
 }
 
 .member_wrap {
