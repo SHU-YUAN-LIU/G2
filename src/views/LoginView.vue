@@ -54,7 +54,7 @@
                 </div>
                 <div class="register_read">
                     <input type="checkbox" class="box">
-                    <p>我已閱讀並瞭解條款和條件以及隱私權政策。</p>
+                    <p>我已閱讀並瞭解條款和條件以及隱私權政策。<span>*</span></p>
                 </div>
                 <button class="btn">立刻前往 ➜</button>
             </form>
@@ -70,7 +70,7 @@
                     <p>密碼<span>*</span></p>
                     <input type="text" placeholder="請輸入您的密碼">
                 </div>
-                <a href="/test">忘記密碼?</a>
+                <a href="/forgotpsw">忘記密碼?</a>
                 <button class="btn">登入 ➜</button>
             </form>
         </div>

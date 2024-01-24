@@ -23,11 +23,12 @@
 //膠囊型按鈕EX首頁按鈕
 @mixin btn_3 {
     background-color: $orange ;
-    padding: 13px 40px;
+    padding: 13px 30px;
     @include title_9;
     border-radius: $border-radius-2;
     letter-spacing: $space_letter;
     color: $white;
+    border: none;
 }
 
 //login按鈕
@@ -40,6 +41,20 @@
     margin: 20px 0;
     padding: 0 50px;
     @include title_8;
+}
+//搜尋按鈕
+@mixin btn_5{
+    background-color: $orange ;
+    padding: 0px 30px;
+    @include title_9;
+    border-radius: $border-radius-2;
+    letter-spacing: $space_letter;
+    color: $white;
+    margin: 0 10px;
+    height: 48px;
+    font-size: $font_basic;  
+    border: none;
+
 }
 
 

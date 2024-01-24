@@ -14,44 +14,48 @@
     font-weight: inherit;
     @include title_1;
 }
-.news_filter {
-    display: flex;
-    max-width: 1200px;
-    width: 100%;
-    height: 100px;
-    padding: 0 50px;
-    margin: 50px auto;
-    box-sizing: border-box;
-    align-items: center;
-    background-color: #ffffff;
-}
-.news_filter * {
-    height: 51px;
-    width: 250px;
-    border: 1px solid $orange;
-    margin: 8px;
-    padding: 5px;
-    border-radius: 10px;
-    @include title_10;
-    letter-spacing: 3px;
-    &:focus {
-        outline: none;
+.filter_form {
+    position: inherit;
+    .news_filter {
+        display: flex;
+        max-width: 1200px;
+        width: 100%;
+        height: 100px;
+        padding: 0 50px;
+        margin: 50px auto;
+        box-sizing: border-box;
+        align-items: center;
+        background-color: #ffffff;
+        * {
+            height: 51px;
+            width: 250px;
+            border: 1px solid $orange;
+            margin: 8px;
+            padding: 5px;
+            border-radius: 10px;
+            @include title_10;
+            letter-spacing: 3px;
+            &:focus {
+                outline: none;
+            }
     }
-}
-.news_filter .btn {
-    @include btn_4;
-    @include title_9;
-    height: 51px;
-
-} 
-.remove {
+    }
+    .btn {
+        @include btn_4;
+        @include title_9;
+        height: 51px;
+    } 
+    .remove {
     background-color: white;
     border: none;
     font-size: 30px;
     color: $orange;
     font-weight: 700;
     width: 40px;
+    }
 }
+
+
 .news_cards {
     display: flex;
     flex-direction: column;

@@ -56,7 +56,4 @@ export default {
 }
 </script>
 
-<style>
-/* 頁籤 */
-
-</style>
+<style></style>
