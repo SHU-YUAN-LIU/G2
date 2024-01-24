@@ -1,9 +1,12 @@
-import { products } from './product_data.json';
+// import { products } from './product_data.json';
 
-function show_product(){}
+function show_product() { }
 
 //會有一個func是判斷按鈕增加到購物車的數量
-
+export function changeqty(event, id, qty) {
+    event.preventDefault();// 阻止默認行為，例如超連結
+    alert(id + ' ' + qty);
+}
 //會有一個func是清除這個商品在陣列內
 
 //會有一個func是刷新購物車頁面陣列顯示的部分

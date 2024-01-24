@@ -52,13 +52,12 @@
           <input class="con_text" type="text" placeholder="請輸入100字以內">
         </div>
       </div>
-      <router-link :to="{ path: '/contact_search' }">
-        <commitButton :commitButton="commit" @click="showSuccess" />
-      </router-link>
-
-      <successPop :show="isModalVisible" @close="closeSuccess" />
+      <!-- <router-link :to="{ path: '/contact_search' }"> -->
+      <commitButton :commitButton="commit" @click="showSuccessPop" />
+      <!-- 要加上ref屬性, script裡的$refs才能抓到變數 -->
+      <successPop ref="successPop" />
+      <!-- </router-link> -->
     </div>
-
   </div>
 </template>
 
@@ -86,12 +85,11 @@ export default {
     }
   },
   methods: {
-    showSuccess() {
-      this.isModalVisible = true;
-    },
-    closeSuccess() {
-      this.isModalVisible = false;
-    },
+    showSuccessPop() {
+      // 用$refs(搭配上方的元件的ref屬性)指向燈箱元件檔案裡的showSuccessPop變數並設定為true
+      this.$refs.successPop.showSuccessPop = true;
+      console.log(this.$refs.successPop.showSuccessPop);
+    }
   },
 
 }

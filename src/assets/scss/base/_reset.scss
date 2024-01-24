@@ -2,8 +2,10 @@
    v2.0 | 20110126
    License: none (public domain)
 */
+
 * {
 	box-sizing: border-box;
+	scroll-behavior: smooth;
 }
 
 
@@ -137,6 +139,6 @@ table {
 	border-spacing: 0;
 }
 
-a{
+a {
 	text-decoration: none;
 }

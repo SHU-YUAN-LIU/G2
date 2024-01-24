@@ -1,8 +1,8 @@
 <template>
-    <span class="span">
+    <div class="span" @click="changeqty($event,id,qty)">
         <img loading="lazy" src="/src/assets/image/product/Cart.svg" class="img" />
         <div class="div">加入購物車</div>
-    </span>
+    </div>
 </template>
 
 <style scoped>
@@ -53,3 +53,13 @@
     color: white;
 }
 </style>
+
+<script>
+import { changeqty } from '../../stores/cart.js';
+export default {
+    props: ['id','qty'],
+    methods: {
+        changeqty ,
+    }
+}
+</script>

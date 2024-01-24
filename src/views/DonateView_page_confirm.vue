@@ -140,6 +140,7 @@ export default {
 
     },
     mounted() {
+        this.donate_num = localStorage.getItem('donate_num');
     },
 }
 </script>

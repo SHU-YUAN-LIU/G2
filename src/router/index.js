@@ -63,17 +63,13 @@ const router = createRouter({
     {
       path: '/contact_search',
       name: '/contact_search',
-      // route level code-splitting
-      // this generates a separate chunk (Login.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
+
       component: () => import('../views/ContactSearchView.vue')
     },
     {
       path: '/contact_searchFinal',
       name: '/contact_searchFinal',
-      // route level code-splitting
-      // this generates a separate chunk (Login.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
+
       component: () => import('../views/ContactSearchFinalView.vue')
     },
     {
@@ -107,6 +103,11 @@ const router = createRouter({
       path: '/newpsw',
       name: 'newpsw',
       component: () => import('../views/NewpswView.vue')
+    },
+    {
+      path: '/newspage',
+      name: 'newspage',
+      component: () => import('../views/NewsPageView.vue')
     }
   ]
 })

@@ -52,7 +52,7 @@ export default {
 
         },
         {
-          url: '#',
+          url: '/newspage',
           type: "假消息澄清",
           typeClass: "fake_news",
           title: "傳言：劉緯育高傲自大，對庶民經濟有什麼貢獻？",
