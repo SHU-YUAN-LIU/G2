@@ -15,9 +15,9 @@
           <li>
             <RouterLink to="/about">關於我們</RouterLink>
           </li>
-          <li class="dropdown" @click="toggleDropdown">
-            選舉資訊
-            <div v-show="showDropdown" @click="closeDropdown" class="dropdown-content">
+          <li class="dropdown">
+            <span>選舉資訊</span>
+            <div v-show="showDropdown" class="dropdown-content">
               <router-link to="/election">候選人資訊</router-link>
               <router-link to="/election_journey">活動資訊</router-link>
             </div>
@@ -62,25 +62,27 @@
 </template>
 
 <script>
-import { RouterLink } from 'vue-router'
+import { RouterLink } from 'vue-router';
+import { ref } from 'vue';
+
 export default {
+  setup() {
+    const showDropdown = ref(true);
+
+    return {
+      showDropdown,
+    };
+  },
   components: {
 
   },
   data() {
     return {
-      showDropdown: false,
     }
   },
   created() {
   },
   methods: {
-    toggleDropdown() {
-      this.showDropdown = !this.showDropdown;
-    },
-    closeDropdown() {
-      this.showDropdown = false;
-    },
   },
 }
 </script>
@@ -88,32 +90,44 @@ export default {
 <style scoped lang="scss">
 @import "@/assets/scss/layout/_header.scss";
 
+.nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
 .dropdown {
+  cursor: pointer;
+}
+
+.nav li {
+  padding: 10px;
+  cursor: pointer;
   position: relative;
-  display: inline-block;
+}
 
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-  }
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
 
-  .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-  }
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
 
-  .dropdown-content a:hover {
-    background-color: #ddd;
-  }
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
 
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
+.dropdown:hover .dropdown-content {
+  display: block;
 }
 </style>
