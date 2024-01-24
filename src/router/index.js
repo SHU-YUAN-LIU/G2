@@ -101,6 +101,11 @@ const router = createRouter({
       path: '/newpsw',
       name: 'newpsw',
       component: () => import('../views/NewpswView.vue')
+    },
+    {
+      path: '/newspage',
+      name: 'newspage',
+      component: () => import('../views/NewsPageView.vue')
     }
   ]
 })
