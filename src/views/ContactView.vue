@@ -52,7 +52,10 @@
           <input class="con_text" type="text" placeholder="請輸入100字以內">
         </div>
       </div>
-      <commitButton :commitButton="commit" @click="showSuccess" />
+      <router-link :to="{ path: '/contact_search' }">
+        <commitButton :commitButton="commit" @click="showSuccess" />
+      </router-link>
+
       <successPop :show="isModalVisible" @close="closeSuccess" />
     </div>
 
