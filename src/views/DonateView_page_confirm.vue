@@ -57,8 +57,8 @@
                 </table>
             </div>
             <!-- 捐款方式 -->
-            <h3>捐款方式</h3>
             <div class="donete_payment">
+                <h3>捐款方式</h3>
                 <p>信用卡交易資訊</p>
                 <img src="../assets/image/donate/donate_card_icon.png" alt="信用卡icon">
                 <div class="credit card">
@@ -99,10 +99,36 @@
                 </div>
             </div>
         </div>
+        <!-- 按鈕 -->
+        <div class="donate_confirm_button">
+            <RouterLink to="/donate/page">
+                <button class="donate_confrim_next">←返回上頁 </button>
+            </RouterLink>
+            <button class="donate_confrim_next">立即付款→</button>
+        </div>
     </div>
 </template>
 
 <script>
+import commitButton from '../components/button/commitButton.vue'
+import breadCrumbs from '../components/Bread.vue';
+export default {
+    components: {
+        commitButton,
+        breadCrumbs,
+    },
+    data() {
+        return {
+        }
+    },
+    created() {
+
+    },
+
+    methods: {
+
+    },
+}
 </script>
 
 
@@ -130,7 +156,6 @@
             font-weight: inherit;
         }
     }
-
 
     // 捐款確認資料
     .donate_container {
@@ -280,7 +305,20 @@
                 flex: initial;
             }
         }
+    }
 
+    // 捐款按鈕
+    .donate_confirm_button {
+        max-width: 1200px;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+
+        button {
+            @include btn_3;
+            margin: 90px 0;
+            cursor: pointer;
+        }
     }
 }
 </style>
