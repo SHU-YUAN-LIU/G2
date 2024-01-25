@@ -1,6 +1,6 @@
 <template>
-    <div v-if="showLightbox" class="donate_lightbox_point">
-        <div class="lightbox_point_bg">
+    <div v-if="showLightbox" class="donate_lightbox_point" @click="closeLightbox">
+        <div class="lightbox_point_bg"  @click.stop>
             <button @click="closeLightbox" class="donate_closelightbox"><img src="../assets/image/donate/icon_close.png"
                     alt=""></button>
 
@@ -84,11 +84,7 @@ export default {
 
 
     div.lightbox_point_bg {
-        
         position: relative;
-        
-        
-
         button {
             position: absolute;
             top: -35px;
@@ -107,7 +103,7 @@ export default {
         background: $orange;
         overflow-y: scroll;
         padding: 40px;
-        
+        border-radius: $border-radius-1;        
         h2{
             @include title_2;
             color: $white;
