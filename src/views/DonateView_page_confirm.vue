@@ -136,6 +136,7 @@ export default {
     methods: {
         donatePayment() {
             this.$refs.DonateConfirmLightBox.showLightbox = true;
+            document.body.style.overflow="hidden";
         }
 
     },
