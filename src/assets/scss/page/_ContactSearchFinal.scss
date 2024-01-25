@@ -1,0 +1,98 @@
+.searchFinal-wrap {
+    width: 1000px;
+    margin: auto;
+    margin-top: 150px;
+    margin-bottom: 150px;
+
+    .searchF-title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 70px;
+        padding: 50px;
+
+        .text-group {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+
+            span {
+                @include title_4;
+                letter-spacing: $space_letter;
+            }
+
+            p {
+                @include title_9;
+                letter-spacing: $space_letter;
+                height: 60px;
+                text-align: center;
+
+            }
+
+            .searchF-process {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+
+                position: relative;
+
+                &::after {
+                    content: "";
+                    width: 100px;
+                    height: 5px;
+                    background-color: $orange;
+                    position: absolute;
+                    vertical-align: middle;
+                    z-index: -1;
+                }
+
+                div {
+                    @include title_10;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 50%;
+                    background-color: $orange;
+
+                }
+            }
+        }
+    }
+
+    .searchF-content {
+        padding: 50px;
+
+        p {
+            // padding: 10px;
+            background-color: $orange;
+            @include title_4;
+            color: $white;
+            letter-spacing: $space_letter;
+            width: 150px;
+            // margin-bottom: 30px;
+            text-align: center;
+            height: 48px;
+            line-height: 48px;
+        }
+
+        div {
+            // width: 10px;
+            // height: 10px;
+            border-top: 30px solid #fff;
+            border-bottom: 30px solid #fff;
+            border-left: 30px solid #FF892E;
+        }
+
+        span {
+            @include title_9;
+            letter-spacing: $space_letter;
+            line-height: $line_height;
+            margin: 20px 0px;
+        }
+    }
+}

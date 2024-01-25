@@ -88,13 +88,38 @@
         border-radius: $border-radius-1 ;
         padding: 60px 80px;
 
+
+        p {
+            @include title_10;
+            letter-spacing: $space_letter;
+            margin: 15px 0;
+        }
+
         .con_input {
             display: flex;
             flex-direction: column;
             justify-content: center;
 
             input {
-                width: 1040px;
+                height: 48px;
+                border-radius: $border-radius-1;
+                text-indent: 20px;
+
+                &:focus {
+                    outline: none;
+                    border: 2px solid $orange;
+                }
+            }
+
+            textarea {
+                height: 300px;
+                padding: 20px;
+                border-radius: $border-radius-1;
+
+                &:focus {
+                    outline: none;
+                    border: 2px solid $orange;
+                }
             }
 
             .con_text {

@@ -46,7 +46,7 @@ export default {
     position: fixed;
     z-index: 7;
     right: 50px;
-    bottom: 50px;
+    bottom: 90px;
 
     /* 不知道為何還是沒有平滑得效果 */
     transition: bottom 0.3s ease-in-out;

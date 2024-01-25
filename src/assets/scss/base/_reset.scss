@@ -8,7 +8,6 @@
 	scroll-behavior: smooth;
 }
 
-
 html,
 body,
 div,
@@ -141,4 +140,9 @@ table {
 
 a {
 	text-decoration: none;
+}
+
+input,
+input:focus {
+	border-width: 1px;
 }
