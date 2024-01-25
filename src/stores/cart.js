@@ -1,7 +1,7 @@
 import { products } from '../../product_data.json';
 
 export function show_product() {
-    //因為畫面處理適用陣列去顯示資料,所以這邊用陣列
+    //因為畫面處理用陣列去顯示資料,所以這邊用陣列
     let arrayOfObjects = [];
 
     //確保函數執行時localstorage必定有這個陣列

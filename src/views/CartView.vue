@@ -14,13 +14,18 @@
 <style></style>
 
 <script>
-import { show_product } from '../stores/cart.js';
+import { show_product } from '@/stores/cart.js';
+import dropDown from '@/components/cart/dropDown.vue'
 export default {
   data() {
     return {
       cart_info_show: []
     }
   },
+  components: {
+    dropDown,
+  }
+  ,
   created() {
     // 在 created 鉤子中處理
     this.cartcreate();

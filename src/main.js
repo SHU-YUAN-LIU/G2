@@ -11,8 +11,7 @@ import "./assets/scss/style.scss"
 import './assets/Mantou_font/_Mantou_font.scss'
 
 import Vue3Marquee from 'vue3-marquee'
-import { Carousel, CarouselItem } from 'view-ui-plus'
-// import 'view-ui-plus/dist/styles/viewuiplus.css'
+
 
 
 
@@ -23,6 +22,5 @@ app.use(createPinia())
 app.use(router)
 app.use(Vue3Marquee);
 // 渲染在index.html裡面的div#app
-app.component('Carousel',Carousel)
-app.component('CarouselItem',CarouselItem)
+
 app.mount('#app')

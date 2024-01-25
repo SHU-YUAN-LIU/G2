@@ -1,11 +1,11 @@
 <template>
     <div class="span" @click="changeqty($event, id, qty)">
         <img loading="lazy" src="/src/assets/image/product/Cart.svg" class="img" />
-        <div class="div">加入購物車</div>
+        <div class="add">加入購物車</div>
     </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .span {
     justify-content: center;
     align-items: center;
@@ -15,6 +15,8 @@
     padding: 5px 10px;
     gap: 10px;
     cursor: pointer;
+
+    background-color: white;
 }
 
 .span:hover {
@@ -34,7 +36,7 @@
     /* 加入過渡效果，使顏色變化更平滑 */
 }
 
-.div {
+.add {
     color: var(--, #ff892e);
     text-align: center;
     letter-spacing: 1.5px;
@@ -49,7 +51,7 @@
     /* 透過 filter 屬性反轉顏色 */
 }
 
-.span:hover .div {
+.span:hover .add {
     color: white;
 }
 </style>

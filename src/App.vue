@@ -1,6 +1,6 @@
 <template>
   <MainHeader />
-  <div id="goToTop-a"></div>
+
   <RouterView />
   <goToTop />
   <MainFooter />
