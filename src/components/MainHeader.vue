@@ -33,8 +33,8 @@
           <li class="dropdown">
             <span>聯絡我們</span>
             <div class="dropdown-content">
-              <router-link to="/">我要陳情</router-link>
-              <router-link to="/">陳情進度查詢</router-link>
+              <router-link to="/contact">我要陳情</router-link>
+              <router-link to="/contact_search">陳情進度查詢</router-link>
             </div>
           </li>
     </div>

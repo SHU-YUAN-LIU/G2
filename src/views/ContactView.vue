@@ -57,9 +57,6 @@
       <!-- 要加上ref屬性, script裡的$refs才能抓到變數 -->
       <successPop ref="successPop" />
 
-      <router-link :to="{ path: '/contact_search' }">
-        <commitButton />
-      </router-link>
     </div>
   </div>
 </template>
