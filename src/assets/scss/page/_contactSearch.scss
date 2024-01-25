@@ -1,0 +1,36 @@
+.contect_search {
+    width: 1000px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-top: 150px;
+    margin-bottom: 150px;
+
+    .searchInput {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 10px;
+
+        input {
+            width: 600px;
+            height: 48px;
+            border-radius: $border-radius-1;
+            text-indent: 20px;
+
+            &:focus {
+                outline: none;
+                border: 2px solid $orange;
+            }
+        }
+
+        label {
+            @include title_10;
+        }
+
+    }
+}

@@ -5,14 +5,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    z-index: 5;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
 
     .con_success {
-        width: 800px;
-        height: 800px;
+        width: 600px;
+        // height: 600px;
         margin: auto;
         background-color: $green;
         border-radius: $border-radius-1;
@@ -23,11 +23,15 @@
 
         .cross {
             position: absolute;
-            top: -30px;
-            left: 760px;
+            top: -20px;
+            left: 570px;
             cursor: pointer;
             position: absolute;
             z-index: 3;
+
+            img {
+                width: 55px;
+            }
         }
 
         .con_success_group {
@@ -36,43 +40,42 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            gap: 30px;
+            padding: 30px;
+            gap: 20px;
 
             .success_top {
-                width: 700px;
+                width: 500px;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 background-color: $white;
                 margin: auto;
                 border-radius: $border-radius-1;
-                padding: 30px;
+                padding: 20px;
 
-                hr {
-                    height: 2px;
-                    background-color: $gray_3;
-                }
 
-                h2 {
-                    @include title_2;
+                h3 {
+                    // @include title_3;
+                    font-family: $font_family_2;
+                    font-size: 45px;
                     font-weight: initial;
-                    margin: 20px 0px 50px 0px;
+                    margin: 20px 0px 20px 0px;
                 }
 
                 p {
-                    margin: 8px;
+                    margin: 5px;
                     @include title_10;
-                    font-weight: 800;
+                    font-weight: 700;
                 }
 
                 img {
-                    width: 150px;
+                    width: 80px;
                 }
             }
 
             .success_bottom {
-                height: 220px;
-                padding: 30px;
+                width: 500px;
+                padding: 20px;
                 background-color: $gray_3;
                 border-radius: $border-radius-1;
                 @include title_10;
@@ -85,7 +88,8 @@
                 align-items: center;
 
                 p {
-                    margin: 8px 0px;
+                    margin: 3px 0px;
+
                 }
             }
 

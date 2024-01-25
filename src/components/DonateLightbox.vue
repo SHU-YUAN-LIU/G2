@@ -1,20 +1,20 @@
 <template>
-    <div v-if="showLightbox" class="donate_lightbox">
+    <div v-if="showLightbox" class="donate_lightbox" @click="closeLightbox">
         <div>
             <button @click="closeLightbox" class="donate_closelightbox"><img src="../assets/image/donate/icon_close.png"
                     alt=""></button>
 
-            <div class="donate_lightbox_content">
+            <div class="donate_lightbox_content" @click.stop>
                 <div class="donate_lightbox_top">
                     <div class="donate_anonymous">
-                        <RouterLink to="//donate/anonymous">
+                        <RouterLink to="/donate/page" @click="storeItemId(1), enableBodyScroll">
                             <h2>匿名捐款</h2>
                             <img src="../assets/image/donate/donate_card1.png" alt="">
                             <p>匿名捐贈：新台幣1萬元以下</p>
                         </RouterLink>
                     </div>
                     <div class="donate_member">
-                        <RouterLink to="/donate/page">
+                        <RouterLink to="/donate/page" @click="storeItemId(2)">
                             <h2>會員捐款</h2>
                             <img src="../assets/image/donate/donate_card1.png" alt="">
                         </RouterLink>
@@ -65,7 +65,17 @@ export default {
         closeLightbox() {
             this.showLightbox = false;
             console.log(this.showLightbox);
+            document.body.style.overflow = 'auto';
         },
+        
+        storeItemId(control_num) {
+            localStorage.setItem('donate_num', control_num);
+            this.enableBodyScroll();
+        },
+
+        enableBodyScroll(){
+            document.body.style.overflow = 'auto';
+        }
     },
     components: { RouterLink }
 };
@@ -76,7 +86,8 @@ export default {
 @import "../assets/scss/base/font";
 @import "../assets/scss/base/color";
 @import "../assets/scss/base/border";
-.donate_lightbox{
+
+.donate_lightbox {
     position: fixed;
     top: 0;
     left: 0;
@@ -204,4 +215,5 @@ export default {
         }
     }
 
-}</style>
+}
+</style>

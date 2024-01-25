@@ -4,6 +4,7 @@
 */
 * {
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 html,
@@ -144,7 +145,7 @@ body {
 }
 
 #app {
-  background: linear-gradient(-10deg, #D4FF1F 0% 35%, rgba(255, 255, 255, 0) 35% 100%);
+  background: linear-gradient(-10deg, #D4FF1F 0% 45%, rgba(255, 255, 255, 0) 45% 100%);
   z-index: 0;
   margin-top: 85px;
 }
@@ -594,10 +595,10 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  z-index: 5;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
 }
 .successPop_bg .con_success {
   width: 800px;
@@ -621,12 +622,12 @@ body {
 .successPop_bg .con_success .con_success_group {
   width: 700px;
   display: flex;
+}
+.successPop_bg .con_success .con_success_group .success_top {
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 30px;
-}
-.successPop_bg .con_success .con_success_group .success_top {
   width: 700px;
   display: flex;
   flex-direction: column;
@@ -1725,10 +1726,6 @@ form .register_read p {
   color: #666;
 }
 
-.header {
-  height: 85px;
-}
-
 .pro_wrap {
   width: 1200px;
   margin: auto;
@@ -1774,10 +1771,6 @@ form .register_read p {
   position: absolute;
   top: -25px;
   left: -25px;
-}
-
-.header {
-  height: 85px;
 }
 
 .pro_info_group {
@@ -1947,6 +1940,28 @@ form .register_read p {
   inset: 10px;
   line-height: 100px;
   vertical-align: top;
+}
+
+.contect_search {
+  width: 1000px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  margin-top: 150px;
+  margin-bottom: 150px;
+}
+.contect_search .searchInput {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.contect_search .searchInput label {
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 16px;
 }
 
 .member_wrap {
@@ -2278,4 +2293,39 @@ form .register_read p {
 }
 .new_wrap .new_form .btn {
   margin-top: 30px;
+}
+
+.newspage_wrap {
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 20px;
+  width: 1200px;
+  margin: auto;
+}
+.newspage_wrap h1 {
+  font-family: "Mantou Sans";
+  font-size: 65px;
+  font-weight: initial;
+  line-height: 4rem;
+  letter-spacing: 0.5rem;
+}
+.newspage_wrap .type_date {
+  display: flex;
+  align-items: center;
+  margin: 30px 0;
+}
+.newspage_wrap .type_date span {
+  padding-left: 10px;
+  color: #666;
+}
+.newspage_wrap .newspage_photo1 {
+  max-width: 1200px;
+}
+.newspage_wrap .newspage_photo1 img {
+  width: 100%;
+  height: 100%;
+}
+.newspage_wrap .newspage_content {
+  padding: 50px 0 150px 0;
+  line-height: 2rem;
+  letter-spacing: 0.2rem;
 }/*# sourceMappingURL=style.css.map */

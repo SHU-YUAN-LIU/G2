@@ -18,7 +18,7 @@
                 <div>{{ count }}</div>
                 <button @click="count += 1"> +</button>
             </div>
-            <CartButton />
+            <CartButton :id= iteminfo.product_no :qty= count />
         </div>
         <!-- 左邊圖片區 -->
         <div class="proPic_group">

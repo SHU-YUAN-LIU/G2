@@ -15,7 +15,7 @@
     </div>
     <div class="donate_page_content">
       <!-- 基本資料 -->
-      <div class="donate_page_info">
+      <div v-if="donate_num == 2" class="donate_page_info">
         <h4>捐款基本資料</h4>
         <ul>
           <li>真實姓名: <span>吳聰明</span></li>
@@ -26,13 +26,13 @@
       </div>
 
       <!-- 捐款單位 -->
-      <div class="donate_page_unit">
+      <div v-if="donate_num == 2" class="donate_page_unit">
         <h4>捐款指定單位</h4>
         <p>單位類別：中央黨部</p>
       </div>
 
       <!-- 聯絡資訊 -->
-      <div class="donate_page_contact">
+      <div v-if="donate_num == 2" class="donate_page_contact">
         <h4>聯絡資訊</h4>
         <input type="checkbox" id="donate_pageInfo"><label for="donate_pageInfo">以下自動帶入會員資料</label>
         <div class="donate_page_email">
@@ -50,17 +50,9 @@
         <h4>捐款方式</h4>
         <p>請選擇付款方式</p>
         <ul>
-          <li>
-            <p>線上刷卡</p>
-            <img src="../assets/image/donate/icon_card.png" alt="">
-          </li>
-          <li>
-            <p>行動支付</p>
-            <img src="../assets/image/donate/icon_mobilePay.png" alt="">
-          </li>
-          <li>
-            <p>Web ATM</p>
-            <img src="../assets/image/donate/icon_atm.png" alt="">
+          <li v-for="method in paymentMethods">
+            <p>{{ method.text }}</p>
+            <img :src="getImageUrl(method.imgUrl)" alt="">
           </li>
         </ul>
       </div>
@@ -69,61 +61,21 @@
       <div class="donate_page_amount">
         <h4>捐贈金額</h4>
         <ul>
-          <li>
-            <p class="donate_point">3<span>點</span></p>
+          <li v-for="amount in donateAmount">
+            <p class="donate_point" v-if="donate_num == 2">{{ amount.point }}<span>點</span></p>
             <div class="donate_amount_item">
-              <p>開路先鋒</p>
-              <p>展現氣勢,壯大團隊自信態度</p>
+              <p>{{ amount.title }}</p>
+              <p>{{ amount.description }}</p>
             </div>
-            <p class="donate_amount_text">$300</p>
-          </li>
-          <li>
-            <p class="donate_point">10<span>點</span></p>
-            <div class="donate_amount_item">
-              <p>快速直球</p>
-              <p>正面對決,任何挑戰都無所畏懼</p>
-            </div>
-            <p class="donate_amount_text">$1,000</p>
-          </li>
-          <li>
-            <p class="donate_point">50<span>點</span></p>
-            <div class="donate_amount_item">
-              <p>重砲打者</p>
-              <p>長程火炮,創造大局拉開距離</p>
-            </div>
-            <p class="donate_amount_text">$5,000</p>
-          </li>
-          <li>
-            <p class="donate_point">100<span>點</span></p>
-            <div class="donate_amount_item">
-              <p>王牌投手</p>
-              <p>一夫當闊,掌握賽場順利瞬間</p>
-            </div>
-            <p class="donate_amount_text">$10,000</p>
-          </li>
-          <li>
-            <p class="donate_point">300<span>點</span></p>
-            <div class="donate_amount_item">
-              <p>冠軍教練</p>
-              <p>運籌帷幄,打造戰力最強陣容</p>
-            </div>
-            <p class="donate_amount_text">$30,000</p>
-          </li>
-          <li>
-            <p class="donate_point">500<span>點</span></p>
-            <div class="donate_amount_item">
-              <p>民主MVP</p>
-              <p>攻守俱佳.震懾全場贏得冠軍</p>
-            </div>
-            <p class="donate_amount_text">$50,000</p>
+            <p class="donate_amount_text">$ {{ amount.amount }}</p>
           </li>
         </ul>
-        <button class="donate_detail">了解進補點數</button>
+        <button v-if="donate_num == 2" class="donate_detail" @click="showLightbox">了解進補點數</button>
       </div>
 
       <!-- 自訂金額區塊 -->
       <div class="donate_page_inputAmount">
-        <p>自訂金額 <span>獲得: 20點</span></p>
+        <p v-if="donate_num == 2">自訂金額 <span>獲得: 20點</span></p>
         <div>
           <table>
             <tr>
@@ -134,7 +86,7 @@
           </table>
         </div>
         
-        <p>目前選擇方式可捐款金額為新台幣 <span>300 ~ 300,000</span> 元</p>
+        <p>目前選擇方式可捐款金額為新台幣 <span v-if="donate_num == 2">300 ~ 300,000</span><span v-else-if="donate_num == 1">300 ~ 10,000</span> 元</p>
       </div>
       
       <div class="donate_page_attention">
@@ -147,6 +99,9 @@
 
     <RouterLink to="/donate/page/confirm"><button class="donate_page_next">下一步,捐款資料 →</button></RouterLink>
   </div>
+  <donatePoint
+    ref="donatePoint"
+  />
 </div>
 </template>
 
@@ -154,21 +109,86 @@
 <script>
 import { RouterLink } from 'vue-router';
 import breadCrumbs from '../components/Bread.vue';
+import donatePoint from '../components/DonateLightbox_point.vue'
 
 export default {
   data() {
     return {
+      donate_num: 0,
+      paymentMethods:[
+        {
+          text: '線上刷卡',
+          imgUrl:'donate/icon_card.png',
+        },
+        {
+          text: '行動支付',
+          imgUrl:'donate/icon_mobilePay.png',
+        },
+        {
+          text: 'Web ATM',
+          imgUrl:'donate/icon_atm.png',
+        },
+      ],
 
+      donateAmount:[
+        {
+          point: 3,
+          title: '開路先鋒',
+          description: '展現氣勢，壯大團隊自信態度',
+          amount: 300,
+        },
+        {
+          point: 10,
+          title: '快速直球',
+          description: '正面對決，任何挑戰都無所畏懼',
+          amount: 1000,
+        },
+        {
+          point: 50,
+          title: '重砲打者',
+          description: '長程火炮，創造大局拉開距離',
+          amount: 5000,
+        },
+        {
+          point: 100,
+          title: '王牌投手',
+          description: '一夫當闊，掌握賽場順利瞬間',
+          amount: 10000,
+        },
+        {
+          point: 300,
+          title: '冠軍教練',
+          description: '運籌帷幄，打造戰力最強陣容',
+          amount: 30000,
+        },
+        {
+          point: 500,
+          title: '民主MVP',
+          description: '攻守俱佳，震懾全場贏得冠軍',
+          amount: 50000,
+        },
+      ]
     };
   },
   methods: {
+    getImageUrl(paths) {
+      return new URL(`../assets/image/${paths}`, import.meta.url).href
+    },
 
+    showLightbox() {
+      // 用$refs指向燈箱元件檔案裡的showLightbox變數並設定為true
+      this.$refs.donatePoint.showLightbox = true;
+      console.log(this.$refs.donatePoint.showLightbox);
+      document.body.style.overflow = 'hidden';
+    }
   },
   components: {
     breadCrumbs,
+    donatePoint,
   },
   mounted() {
     document.title = '我要捐款 - 會員捐款';
+    this.donate_num = localStorage.getItem('donate_num');
   },
 };
 

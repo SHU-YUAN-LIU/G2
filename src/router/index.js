@@ -61,10 +61,28 @@ const router = createRouter({
       component: () => import('../views/ContactView.vue')
     },
     {
+      path: '/contact_search',
+      name: '/contact_search',
+
+      component: () => import('../views/ContactSearchView.vue')
+    },
+    {
+      path: '/contact_searchFinal',
+      name: '/contact_searchFinal',
+
+      component: () => import('../views/ContactSearchFinalView.vue')
+    },
+    {
       path: '/election',
       name: 'election',
 
       component: () => import('../views/ElectionView.vue')
+    },
+    {
+      path: '/election_journey',
+      name: 'election_journey',
+
+      component: () => import('../views/ElectionView_journey.vue')
     },
     {
       path: '/product/:productId',
@@ -85,6 +103,16 @@ const router = createRouter({
       path: '/newpsw',
       name: 'newpsw',
       component: () => import('../views/NewpswView.vue')
+    },
+    {
+      path: '/newspage',
+      name: 'newspage',
+      component: () => import('../views/NewsPageView.vue')
+    },
+    {
+      path: '/cart',
+      name: 'cart',
+      component: () => import('../views/CartView.vue')
     }
   ]
 })

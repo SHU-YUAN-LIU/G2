@@ -1,14 +1,12 @@
 <template>
-    <vue3-marquee>
-      <span class="marq">
-        {{ marqueeArray }}
-        <button class="marqbtn">
+  <vue3-marquee>
+    <span class="marq">
+      {{ marqueeArray }}
+      <button class="marqbtn">
         <router-link to="/news">立即前往➜</router-link>
-        </button> 
-      </span>
-      
-
-    </vue3-marquee>
+      </button>
+    </span>
+  </vue3-marquee>
 </template>
 
 <script>
@@ -22,9 +20,7 @@ export default {
   components: {
     commitButton,
   },
-  props:['marqueeArray'],
+  props: ['marqueeArray'],
 }
 </script>
-<style>
-
-</style>
+<style></style>

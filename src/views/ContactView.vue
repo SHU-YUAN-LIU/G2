@@ -49,13 +49,15 @@
           <p>案件宗旨</p>
           <input type="text" placeholder="請輸入案件宗旨">
           <p>案件內容</p>
-          <input class="con_text" type="text" placeholder="請輸入100字以內">
+          <textarea name="" placeholder="請輸入100字以內"></textarea>
         </div>
       </div>
-      <commitButton :commitButton="commit" @click="showSuccess" />
-      <successPop :show="isModalVisible" @close="closeSuccess" />
-    </div>
 
+      <commitButton :commitButton="commit" @click="showSuccessPop" />
+      <!-- 要加上ref屬性, script裡的$refs才能抓到變數 -->
+      <successPop ref="successPop" />
+
+    </div>
   </div>
 </template>
 
@@ -83,12 +85,12 @@ export default {
     }
   },
   methods: {
-    showSuccess() {
-      this.isModalVisible = true;
-    },
-    closeSuccess() {
-      this.isModalVisible = false;
-    },
+    showSuccessPop() {
+      // 用$refs(搭配上方的元件的ref屬性)指向燈箱元件檔案裡的showSuccessPop變數並設定為true
+      this.$refs.successPop.showSuccessPop = true;
+      console.log(this.$refs.successPop.showSuccessPop);
+      document.body.style.overflow = 'hidden';
+    }
   },
 
 }

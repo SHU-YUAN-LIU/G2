@@ -1,24 +1,26 @@
 <template>
-    <div class="successPop_bg">
-        <div class="con_success">
-            <!-- 打叉 -->
-            <div class="cross"><img src="@/assets/image/contect/cross.svg" alt=""></div>
-            <div class="con_success_group">
-                <!-- 送出成功 -->
-                <div class="success_top">
-                    <h2>送出成功</h2>
-                    <img src="@/assets/image/contect/successCheck.svg" alt="">
-                    <hr>
-                    <p>案件編號:ABC12345678</p>
-                    <p>表單送出日期:2024/01/01</p>
-                    <p>相關訊息已送至您的信箱囉!</p>
-                </div>
-                <!-- 親愛的陳情者 -->
-                <div class="success_bottom">
-                    <h3>親愛的陳情者</h3>
-                    <p>
-                        感謝您的關注與參與。我們已經收到了您提交的陳情案件表單，您的意見對我們來說非常重要。我們將會儘快進行審核並處理您所提出的陳情事宜。請耐心等待，我們將盡快回覆，並在解決方案上持續與您保持聯繫。如有任何進一步的資訊或疑問，請隨時與我們聯絡。您的參與是推動本黨持續進步的關鍵，我們感謝您的發聲。再次感謝您的支持與協助。
-                    </p>
+    <div v-if="showSuccessPop" class="showSuccessPop">
+        <div class="successPop_bg"  @click="closeLightbox">
+            <div class="con_success" @click.stop> 
+                <!-- 打叉 -->
+                <button class="cross"  @click="closeLightbox"><img src="@/assets/image/contect/cross.svg" alt=""></button>
+                <div class="con_success_group">
+                    <!-- 送出成功 -->
+                    <div class="success_top">
+                        <h3>送出成功</h3>
+                        <img src="@/assets/image/contect/successCheck.svg" alt="">
+                        <hr>
+                        <p>案件編號:ABC12345678</p>
+                        <p>表單送出日期:2024/01/01</p>
+                        <p>相關訊息已送至您的信箱囉!</p>
+                    </div>
+                    <!-- 親愛的陳情者 -->
+                    <div class="success_bottom">
+                        <p>親愛的陳情者</p>
+                        <p>
+                            感謝您的關注與參與。我們已經收到了您提交的陳情案件表單，您的意見對我們來說非常重要。我們將儘快進行審核並處理您所提出的陳情事宜。請耐心等待，我們將盡快回覆，並在解決方案上持續與您保持聯繫。我們感謝您的發聲。再次感謝您的支持與協助。
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -28,10 +30,16 @@
 export default {
     data() {
         return {
-
+            showSuccessPop: false,
         }
     },
-    props: ['page',],
+    methods: {
+        closeLightbox() {
+            this.showSuccessPop = false;
+            console.log(this.showLightbox);
+            document.body.style.overflow = 'auto';
+        },
+    },
 
 }
 </script>

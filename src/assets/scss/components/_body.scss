@@ -4,8 +4,8 @@ body {
 }
 
 // 頁面背景色設定
-#app{
-    background: linear-gradient(-10deg, $green 0% 35%, rgba(255, 255, 255, 0) 35% 100%);
+#app {
+    background: linear-gradient(-10deg, $green 0% 45%, rgba(255, 255, 255, 0) 45% 100%);
     z-index: 0;
     // 設margin-top高度 = header高度
     margin-top: 85px;
