@@ -1,5 +1,5 @@
 <template>
-    <div class="span" @click="changeqty($event,id,qty)">
+    <div class="span" @click="changeqty($event, id, qty)">
         <img loading="lazy" src="/src/assets/image/product/Cart.svg" class="img" />
         <div class="div">加入購物車</div>
     </div>
@@ -57,9 +57,19 @@
 <script>
 import { changeqty } from '../../stores/cart.js';
 export default {
-    props: ['id','qty'],
+    props: ['id', 'qty'],
+    created() {
+        // 在 created 鉤子中處理
+        this.cartcreate();
+    },
     methods: {
-        changeqty ,
+        changeqty,
+        cartcreate() {
+            // 檢查是否已經存在 cart 變數，如果不存在，則創建一個空值
+            if (!localStorage.getItem('cart')) {
+                localStorage.setItem('cart', JSON.stringify([]));
+            }
+        },
     }
 }
 </script>
