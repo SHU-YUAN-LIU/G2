@@ -5,7 +5,6 @@
     width: 800px;
     margin: auto;
     .membercontent{
-
         width: 100%;
         .contentwrap{
             display: flex;
@@ -20,6 +19,7 @@
             height: 78px;
             margin: auto;
             margin-top: 20px;
+            cursor: pointer;
         }
         .searchbar{
             margin-top: 30px;
@@ -58,6 +58,7 @@
             border: 1px solid $orange;  
             height: 66px;
             width: 184px;
+            cursor: pointer;
         }
         .focuson{
             background-color: $orange ;
@@ -86,6 +87,7 @@
     }
     .searchbtn {
         @include btn_5;
+        cursor: pointer;
     }
 }
 .startdate{
@@ -185,6 +187,7 @@
     border-radius: $border-radius-1;
     .searchbtn{
         margin-right: 0;
+        cursor: pointer;
     }
 }
 .member_idno{
