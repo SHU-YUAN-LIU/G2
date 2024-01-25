@@ -1,9 +1,9 @@
 <template>
     <div v-if="showSuccessPop" class="showSuccessPop">
-        <div class="successPop_bg">
-            <div class="con_success">
+        <div class="successPop_bg"  @click="closeLightbox">
+            <div class="con_success" @click.stop> 
                 <!-- 打叉 -->
-                <div class="cross"><img src="@/assets/image/contect/cross.svg" alt="" @click="closeLightbox"></div>
+                <button class="cross"  @click="closeLightbox"><img src="@/assets/image/contect/cross.svg" alt=""></button>
                 <div class="con_success_group">
                     <!-- 送出成功 -->
                     <div class="success_top">
@@ -37,6 +37,7 @@ export default {
         closeLightbox() {
             this.showSuccessPop = false;
             console.log(this.showLightbox);
+            document.body.style.overflow = 'auto';
         },
     },
 

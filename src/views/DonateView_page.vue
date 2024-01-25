@@ -70,7 +70,7 @@
             <p class="donate_amount_text">$ {{ amount.amount }}</p>
           </li>
         </ul>
-        <button v-if="donate_num == 2" class="donate_detail">了解進補點數</button>
+        <button v-if="donate_num == 2" class="donate_detail" @click="showLightbox">了解進補點數</button>
       </div>
 
       <!-- 自訂金額區塊 -->
@@ -99,6 +99,9 @@
 
     <RouterLink to="/donate/page/confirm"><button class="donate_page_next">下一步,捐款資料 →</button></RouterLink>
   </div>
+  <donatePoint
+    ref="donatePoint"
+  />
 </div>
 </template>
 
@@ -106,6 +109,7 @@
 <script>
 import { RouterLink } from 'vue-router';
 import breadCrumbs from '../components/Bread.vue';
+import donatePoint from '../components/DonateLightbox_point.vue'
 
 export default {
   data() {
@@ -170,9 +174,17 @@ export default {
     getImageUrl(paths) {
       return new URL(`../assets/image/${paths}`, import.meta.url).href
     },
+
+    showLightbox() {
+      // 用$refs指向燈箱元件檔案裡的showLightbox變數並設定為true
+      this.$refs.donatePoint.showLightbox = true;
+      console.log(this.$refs.donatePoint.showLightbox);
+      document.body.style.overflow = 'hidden';
+    }
   },
   components: {
     breadCrumbs,
+    donatePoint,
   },
   mounted() {
     document.title = '我要捐款 - 會員捐款';
