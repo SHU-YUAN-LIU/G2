@@ -1,7 +1,7 @@
 import { products } from '../../product_data.json';
 
 export function show_product() {
-
+    //因為畫面處理適用陣列去顯示資料,所以這邊用陣列
     let arrayOfObjects = [];
 
     //確保函數執行時localstorage必定有這個陣列
@@ -17,6 +17,7 @@ export function show_product() {
 
     cart.forEach(element => {
         // 使用 find 方法用cart的每個productId 去 products json 尋找符合特定 product_no 的商品
+        //shownum類似元件概念
         var shownum = products.find(item => item.product_no == element.productId);
         if (shownum) {
             arrayOfObjects.push({ product_no: shownum.product_no, product_name: shownum.product_name, price: shownum.price, product_pic1: shownum.product_pic1, quantity: element.quantity });
@@ -24,7 +25,7 @@ export function show_product() {
     });
 
     arrayOfObjects.sort((a, b) => {
-        // 重排
+        // 商品編號按照順序排列
         return a.product_no - b.product_no;
     });
 
@@ -34,7 +35,7 @@ export function show_product() {
 //會有一個func是判斷按鈕增加到購物車的數量
 export function changeqty(event, id, qty) {
     event.preventDefault();// 阻止默認行為，例如超連結
-    alert(id + ' ' + qty);
+    // alert(id + ' ' + qty);(測試用)
 
     //確保函數執行時localstorage必定有這個陣列
     if (!localStorage.getItem('cart')) {
@@ -47,7 +48,7 @@ export function changeqty(event, id, qty) {
     // 將 cart 的 JSON 字串轉換為 JavaScript 陣列
     var cart = JSON.parse(cartJSON);
 
-    // 使用 find 方法尋找符合特定 productId 的商品
+    // 使用 find 方法尋找符合特定 productId 的商品(判斷原本就在購物車還是新增的商品)
     var checkproduct = cart.find(item => item.productId == id);
 
     // 如果找到了，checkproduct 將是找到的商品，否則為 undefined
@@ -58,6 +59,7 @@ export function changeqty(event, id, qty) {
         else {
             //要刪除的索引值
             var removeindex = cart.indexOf(checkproduct);
+            //清除購物車的該項商品
             cart.splice(removeindex, 1);
         }
     } else if (qty > 0) {
@@ -66,7 +68,7 @@ export function changeqty(event, id, qty) {
 
 
     cart.sort((a, b) => {
-        // 重排
+        // 讓商品按照順序排列
         return a.productId - b.productId;
     });
 
