@@ -1,6 +1,6 @@
 <template>
-    <div v-if="showLightbox" class="donate_lightbox">
-        <div class="donate_container">
+    <div v-if="showLightbox" class="donate_lightbox" @click="closeLightbox">
+        <div class="donate_container" @click.stop>
             <!-- 打叉icon -->
             <div class="icon" @click="closeLightbox"><img src="@/assets/image/contect/cross.svg" alt="">
             </div>
@@ -25,6 +25,7 @@ export default {
     methods: {
         closeLightbox() {
             this.showLightbox = false;
+            document.body.style.overflow="auto";
         }
     },
 }

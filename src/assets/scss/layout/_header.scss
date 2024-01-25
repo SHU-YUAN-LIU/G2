@@ -12,6 +12,7 @@ header {
     align-items: center;
     justify-content: center;
     z-index: 1000;
+
     .logo {
         width: 120px;
         height: 80px;
@@ -45,31 +46,35 @@ header {
 
             }
         }
-        .nav_icons{
+
+        .nav_icons {
             width: 280px;
             display: flex;
             justify-content: space-evenly;
-            div{
+
+            div {
                 display: flex;
                 flex-direction: column;
                 width: 78px;
                 height: 58px;
                 align-items: center;
-                border: 2px solid $orange; 
+                border: 2px solid $orange;
                 border-radius: $border-radius-1;
-                img{
+
+                img {
                     width: 25px;
                     height: 25px;
                     margin: auto;
                 }
-                p{
+
+                p {
                     margin: 0;
                     color: $orange;
                 }
             }
         }
 
-        .nav_items{
+        .nav_items {
             width: 660px;
             display: flex;
             justify-content: space-evenly;

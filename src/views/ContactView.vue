@@ -89,6 +89,7 @@ export default {
       // 用$refs(搭配上方的元件的ref屬性)指向燈箱元件檔案裡的showSuccessPop變數並設定為true
       this.$refs.successPop.showSuccessPop = true;
       console.log(this.$refs.successPop.showSuccessPop);
+      document.body.style.overflow = 'hidden';
     }
   },
 

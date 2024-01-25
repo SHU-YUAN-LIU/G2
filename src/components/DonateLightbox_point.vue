@@ -1,39 +1,32 @@
 <template>
-    <div v-if="showLightbox" class="donate_lightbox">
-        <div>
+    <div v-if="showLightbox" class="donate_lightbox_point" @click="closeLightbox">
+        <div class="lightbox_point_bg"  @click.stop>
             <button @click="closeLightbox" class="donate_closelightbox"><img src="../assets/image/donate/icon_close.png"
                     alt=""></button>
 
-            <div class="donate_lightbox_content">
-                <div class="donate_lightbox_top">
-                    <div class="donate_anonymous">
-                        <RouterLink to="//donate/anonymous">
-                            <h2>匿名捐款</h2>
-                            <img src="../assets/image/donate/donate_card1.png" alt="">
-                            <p>匿名捐贈：新台幣1萬元以下</p>
-                        </RouterLink>
-                    </div>
-                    <div class="donate_member">
-                        <RouterLink to="/donate/page">
-                            <h2>會員捐款</h2>
-                            <img src="../assets/image/donate/donate_card1.png" alt="">
-                        </RouterLink>
-                    </div>
-                </div>
-                <div class="donate_lightbox_bottom">
-                    <h3>政治獻金法對捐贈者規定</h3>
-                    <p>捐贈者為中華民國籍，滿20歲，具選舉權。(外國籍及陸港澳居民不符)</p>
-                    <div>
-                        <p>金額上限</p>
-                        <ul>
-                            <li v-for="limit in amountLimit">{{ limit }}</li>
-                        </ul>
-                        <p>資格限制(不得捐款)</p>
-                        <ul>
-                            <li v-for="qual in qualification ">{{ qual }}</li>
-                        </ul>
-                    </div>
-                </div>
+            <div class="point_lightbox_content">
+                <h2>您的支持</h2>
+                <h2>是我們進補的力量</h2>
+
+                <ul class="point_lightbox_list">
+                    <li>
+                        <span class="list_num">1</span>
+                        <h2>捐款集點</h2>
+                        <div>
+                            <img src="../assets/image/donate/donateLightbox_point.png" alt="">
+                            <img src="../assets/image/donate/donate_equal.png" alt="">
+                            <span>1點</span>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="list_num">2</span>
+                        <h2>前往商品頁面<br>折抵商品</h2>
+                        <div>
+                            <img src="../assets/image/donate/donateLightbox_cart.png" alt="">
+                            <span>一點一元</span>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
@@ -65,6 +58,7 @@ export default {
         closeLightbox() {
             this.showLightbox = false;
             console.log(this.showLightbox);
+            document.body.style.overflow = 'auto';
         },
     },
     components: { RouterLink }
@@ -76,7 +70,7 @@ export default {
 @import "../assets/scss/base/font";
 @import "../assets/scss/base/color";
 @import "../assets/scss/base/border";
-.donate_lightbox{
+.donate_lightbox_point{
     position: fixed;
     top: 0;
     left: 0;
@@ -86,15 +80,11 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: $white;
     z-index: 1000;
-    overflow-y: scroll;
 
-    div {
-        width: 100%;
-        max-width: 1200px;
+
+    div.lightbox_point_bg {
         position: relative;
-
         button {
             position: absolute;
             top: -35px;
@@ -107,101 +97,70 @@ export default {
         }
     }
 
-    a {
-        color: $white;
-    }
-
-    .donate_lightbox_content {
-        background: $white;
-        border: 3px solid $orange;
-        border-radius: $border-radius-1;
-        width: 100%;
-        height: 600px;
-        max-width: 1200px;
-        position: relative;
-        padding: 50px;
+    .point_lightbox_content {
+        width: 1000px;
+        height: 650px;
+        background: $orange;
         overflow-y: scroll;
+        padding: 40px;
+        border-radius: $border-radius-1;        
+        h2{
+            @include title_2;
+            color: $white;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .point_lightbox_list{
 
-        .donate_lightbox_top {
-            display: flex;
-            justify-content: center;
-            height: 100%;
-            align-items: center;
-
-            .donate_anonymous {
-                background: $orange;
-                margin-right: 50px;
+            li+li{
+                margin-top: 60px;
             }
-
-            .donate_member {
-                background: $gray-3;
-            }
-
-            .donate_anonymous,
-            .donate_member {
+            li{
+                background: $white;
+                position: relative;
+                overflow: hidden;
                 border-radius: $border-radius-1;
-                width: 500px;
-                height: 390px;
                 display: flex;
                 flex-direction: column;
-                align-items: center;
-                justify-content: center;
+                padding: 40px;
 
-                h2 {
-                    @include title-2;
+                span{
+                    z-index: 100;
                 }
-
-                img {
-                    margin: 30px 0;
-                }
-
-                p {
-                    text-align: center;
-                }
-            }
-        }
-
-        .donate_lightbox_bottom {
-            width: 100%;
-
-            h3 {
-                color: $orange;
-                width: 100%;
-                text-align: center;
-                @include title_3;
-                margin-top: 60px;
-                margin-bottom: 20px;
-            }
-
-            p {
-                color: red;
-                line-height: 60px;
-                font-weight: bold;
-            }
-
-            div {
-                border-radius: $border-radius-1;
-                overflow: hidden;
-                border: 1px solid $gray-3;
-
-                p {
+                span.list_num{
+                    position: absolute;
+                    top: -5px;
+                    left: 0-5px;
+                    background: $orange;
+                    @include title_2;
                     color: $white;
-                    background: $gray-3;
+                    width: 100px;
+                    height: 100px;
+                    border-radius: $border-radius-1;
                     text-align: center;
-                    @include title-10;
+                    line-height: 100px;
+                    
                 }
 
-                ul {
-                    padding: 20px;
+                h2{
+                    @include title_2;
+                    color: $black;
+                }
+                div{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background: $white;
+                    gap: 40px;
 
-                    li {
-                        color: $black;
-                        line-height: 30px;
+                    span{
+                        @include title_2;
+                        color: $orange;
                     }
                 }
-
             }
         }
     }
 
-}</style>
+}
+</style>

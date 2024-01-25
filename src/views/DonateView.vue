@@ -89,6 +89,7 @@ export default {
       // 用$refs指向燈箱元件檔案裡的showLightbox變數並設定為true
       this.$refs.DonateLightbox.showLightbox = true;
       console.log(this.$refs.DonateLightbox.showLightbox);
+      document.body.style.overflow = 'hidden';
     }
 
   },

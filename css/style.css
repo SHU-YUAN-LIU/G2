@@ -4,6 +4,7 @@
 */
 * {
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 html,
@@ -594,10 +595,10 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  z-index: 5;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
 }
 .successPop_bg .con_success {
   width: 800px;
@@ -2292,4 +2293,39 @@ form .register_read p {
 }
 .new_wrap .new_form .btn {
   margin-top: 30px;
+}
+
+.newspage_wrap {
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 20px;
+  width: 1200px;
+  margin: auto;
+}
+.newspage_wrap h1 {
+  font-family: "Mantou Sans";
+  font-size: 65px;
+  font-weight: initial;
+  line-height: 4rem;
+  letter-spacing: 0.5rem;
+}
+.newspage_wrap .type_date {
+  display: flex;
+  align-items: center;
+  margin: 30px 0;
+}
+.newspage_wrap .type_date span {
+  padding-left: 10px;
+  color: #666;
+}
+.newspage_wrap .newspage_photo1 {
+  max-width: 1200px;
+}
+.newspage_wrap .newspage_photo1 img {
+  width: 100%;
+  height: 100%;
+}
+.newspage_wrap .newspage_content {
+  padding: 50px 0 150px 0;
+  line-height: 2rem;
+  letter-spacing: 0.2rem;
 }/*# sourceMappingURL=style.css.map */

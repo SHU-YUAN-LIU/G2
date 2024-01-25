@@ -12,12 +12,17 @@
           <li>
             <RouterLink to="/news">最新消息</RouterLink>
           </li>
-          <li>
-            <RouterLink to="/about">關於我們</RouterLink>
+          <li class="dropdown">
+            <span>關於我們</span>
+            <div class="dropdown-content">
+              <RouterLink to="/">核心理念</RouterLink>
+              <RouterLink to="/">組織團隊</RouterLink>
+              <RouterLink to="/">黨史</RouterLink>
+            </div>
           </li>
           <li class="dropdown">
             <span>選舉資訊</span>
-            <div v-show="showDropdown" class="dropdown-content">
+            <div class="dropdown-content">
               <router-link to="/election">候選人資訊</router-link>
               <router-link to="/election_journey">活動資訊</router-link>
             </div>
@@ -25,8 +30,12 @@
           <li>
             <RouterLink to="/product">官方商城</RouterLink>
           </li>
-          <li>
-            <RouterLink to="/contact">聯絡我們</RouterLink>
+          <li class="dropdown">
+            <span>聯絡我們</span>
+            <div class="dropdown-content">
+              <router-link to="/">我要陳情</router-link>
+              <router-link to="/">陳情進度查詢</router-link>
+            </div>
           </li>
     </div>
     </li>
@@ -67,11 +76,6 @@ import { ref } from 'vue';
 
 export default {
   setup() {
-    const showDropdown = ref(true);
-
-    return {
-      showDropdown,
-    };
   },
   components: {
 
@@ -90,41 +94,42 @@ export default {
 <style scoped lang="scss">
 @import "@/assets/scss/layout/_header.scss";
 
-.nav ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-}
 
 .dropdown {
   cursor: pointer;
-}
 
-.nav li {
-  padding: 10px;
-  cursor: pointer;
-  position: relative;
+  :hover {
+    color: red;
+  }
 }
 
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  min-width: 120px;
   z-index: 1;
+  transform: translateX(-18%);
 }
 
 .dropdown-content a {
-  color: black;
-  padding: 12px 16px;
+  padding: 12px 0px;
+  text-align: center;
   text-decoration: none;
   display: block;
+
+  +a {
+    border-top: 1px solid #000;
+  }
+}
+
+.dropdown-content a:nth-child(1) {
+  margin-top: 34px;
 }
 
 .dropdown-content a:hover {
-  background-color: #ddd;
+  background-color: orange;
+  color: #f9f9f9;
 }
 
 .dropdown:hover .dropdown-content {
