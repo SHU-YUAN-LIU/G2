@@ -103,6 +103,6 @@ export default {
 }
 
 .active_tab {
-    font-weight: bold;
+    /* font-weight: bold; */
 }
 </style>
