@@ -19,8 +19,13 @@ export function show_product() {
         // 使用 find 方法用cart的每個productId 去 products json 尋找符合特定 product_no 的商品
         var shownum = products.find(item => item.product_no == element.productId);
         if (shownum) {
-            arrayOfObjects.push({ product_no: shownum.product_no, product_name: shownum.product_name, price: shownum.price, product_pic1: shownum.product_pic1,quantity: element.quantity});
+            arrayOfObjects.push({ product_no: shownum.product_no, product_name: shownum.product_name, price: shownum.price, product_pic1: shownum.product_pic1, quantity: element.quantity });
         }
+    });
+
+    arrayOfObjects.sort((a, b) => {
+        // 重排
+        return a.product_no - b.product_no;
     });
 
     return arrayOfObjects;
@@ -47,7 +52,7 @@ export function changeqty(event, id, qty) {
 
     // 如果找到了，checkproduct 將是找到的商品，否則為 undefined
     if (checkproduct) {
-        if (checkproduct.quantity + qty >= 0) {
+        if (checkproduct.quantity + qty > 0) {
             checkproduct.quantity += qty;
         }
         else {
@@ -55,9 +60,15 @@ export function changeqty(event, id, qty) {
             var removeindex = cart.indexOf(checkproduct);
             cart.splice(removeindex, 1);
         }
-    } else {
+    } else if (qty > 0) {
         cart.push({ productId: id, quantity: qty });
     }
+
+
+    cart.sort((a, b) => {
+        // 重排
+        return a.productId - b.productId;
+    });
 
     // 將修改後的 cart 陣列轉換回 JSON 字串
     var newCartJSON = JSON.stringify(cart);
