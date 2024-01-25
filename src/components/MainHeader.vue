@@ -124,7 +124,7 @@ export default {
 }
 
 .dropdown-content a:nth-child(1) {
-  margin-top: 33px;
+  margin-top: 34px;
 }
 
 .dropdown-content a:hover {
