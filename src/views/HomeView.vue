@@ -2,14 +2,15 @@
     <!-- banner -->
     <div class="banner">
         <div ref="bannercontent" class="bannercontent">
-            <div class="bannershow" >
-                <img v-for="(banner,index) in bannerList" :src="getImageUrl(banner)" class="image">
+            <div class="bannershow">
+                <img v-for="(banner, index) in bannerList" :src="getImageUrl(banner)" class="image">
             </div>
         </div>
         <button class="bannerleft" @click="bannerleft">&lt</button>
         <button class="bannerright" @click="bannerright">></button>
         <div class="pointwrap">
-            <div class="bannerpoint"   v-for="num in bannerList.length" @click="pointchangebanner(num)" :class="{'getdeep':currentBanner===num-1}"></div>
+            <div class="bannerpoint" v-for="num in bannerList.length" @click="pointchangebanner(num)"
+                :class="{ 'getdeep': currentBanner === num - 1 }"></div>
         </div>
     </div>
     <!-- <button> &lt </button>
@@ -75,7 +76,7 @@
         <div class="home_line_button">
             <div class="home_line"></div>
             <CommitButton class="homebutton dog" commitButton="立即前往">
-                <router-link to="/news" >
+                <router-link to="/news">
                 </router-link>
             </CommitButton>
         </div>
@@ -137,7 +138,7 @@
     <div class="home_line_button">
         <div class="home_line"></div>
         <CommitButton class="homebutton dog" commitButton="立即前往">
-            <router-link to="/news" >
+            <router-link to="/news">
             </router-link>
         </CommitButton>
     </div>
@@ -152,7 +153,7 @@ import vueMarquee from '@/components/Marquee.vue';
 export default {
     data() {
         return {
-            currentBanner:0,
+            currentBanner: 0,
             slogan: '這是一場改變政治文化的社會運動，投給劉緯育，投給自己的未來。',
             bannerList: [
                 'home/banner_1.png',
@@ -200,43 +201,45 @@ export default {
         get_for_range(arraydata, indexmin, indexmax) {
             return arraydata.filter((item, index) => index >= indexmin && index <= indexmax);
         },
-        move(){
-            const bannerShow = this.$refs.bannercontent.querySelector('.bannershow');
-            const translateX = -(this.currentBanner * 100);
-            bannerShow.style.transform = `translateX(${translateX}vw)`;
+        move() {
+            if (this.$refs.bannercontent) {
+                const bannerShow = this.$refs.bannercontent.querySelector('.bannershow');
+                const translateX = -(this.currentBanner * 100);
+                bannerShow.style.transform = `translateX(${translateX}vw)`;
+            }
         },
-        bannerStart(){
+        bannerStart() {
             this.bannerauto = setInterval(() => {
                 const numBanners = this.bannerList.length;
                 this.currentBanner = (this.currentBanner + 1) % numBanners;
                 this.move();
             }, 3000);
         },
-        bannerleft(){
+        bannerleft() {
             clearInterval(this.bannerauto)
             const numBanners = this.bannerList.length;
-            if(this.currentBanner==0){
-                this.currentBanner=0;
-            }else{
+            if (this.currentBanner == 0) {
+                this.currentBanner = 0;
+            } else {
                 this.currentBanner = (this.currentBanner - 1) % numBanners;
             }
             this.move();
             this.bannerStart();
         },
-        bannerright(){
+        bannerright() {
             clearInterval(this.bannerauto)
             const numBanners = this.bannerList.length;
-            if(this.currentBanner==numBanners-1){
-                this.currentBanner=numBanners-1;
-            }else{
+            if (this.currentBanner == numBanners - 1) {
+                this.currentBanner = numBanners - 1;
+            } else {
                 this.currentBanner = (this.currentBanner + 1) % numBanners;
             }
             this.move();
             this.bannerStart();
         },
-        pointchangebanner(num){
+        pointchangebanner(num) {
             clearInterval(this.bannerauto)
-            this.currentBanner = num-1;
+            this.currentBanner = num - 1;
             this.move();
             this.bannerStart();
         },
@@ -254,10 +257,12 @@ export default {
         CountDown,
         vueMarquee,
     },
-    created(){
-        
-    },
+    created() {
 
+    },
+    destroyed() {
+        clearInterval(this.bannerauto);
+    },
 }
 </script>
 
