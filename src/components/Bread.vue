@@ -10,6 +10,7 @@
             <!-- 用v-for來渲染麵包屑內容 -->
             <!-- 被點擊時將索引值作為參數傳到routeTo函式 -->
             <li v-for="(breadcrumb, idx) in breadcrumbList" :key="idx" @click="routeTo(idx)">
+                <!-- breadcrumb的name屬性對應到index.js=>meta=>breadcrumb陣列物件的name屬性 -->
                 {{ breadcrumb.name }}
             </li>
         </ul>
@@ -39,7 +40,7 @@ export default {
     methods: {
         // 處理當點擊麵包屑連結時的事件
         routeTo(pRouteTo){
-            // 如果被點擊的麵包屑文字存在link屬性, 則把路徑導到link內紀錄的連結
+            // 如果被點擊的麵包屑文字存在link屬性, 則把路徑導到link內紀錄的連結(即跳轉到對應頁面)
             if (this.breadcrumbList[pRouteTo].link) {
                 // $router用來管理路由(連結路徑)
                 // $router.push可以把當前路由切換到指定路徑
@@ -49,8 +50,9 @@ export default {
         
         updateList(){
             this.breadcrumbList = this.$route.meta.breadcrumb;
-            // 在畫面顯示對應麵包屑內容
+            // 把對應路由的breadcrumb陣列物件存放到breadCumbList陣列裡
             // 麵包屑內容寫在index.js內的meta物件=>breadcrumb陣列裡
+            console.log(this.$route.meta.breadcrumb);
         },
 
     },

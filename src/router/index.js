@@ -83,7 +83,7 @@ const router = createRouter({
         },
         {
           name:'我要捐款 /',
-          link: 'donate',
+          link: '/donate',
         },
         {
           name: '基本資料',
@@ -101,7 +101,7 @@ const router = createRouter({
         },
         {
           name:'我要捐款 /',
-          link: 'donate',
+          link: '/donate',
         },
         {
           name: '確認資料',
@@ -151,7 +151,7 @@ const router = createRouter({
         },
         {
           name:' 聯絡我們 /',
-          link: 'contact',
+          link: '/contact',
         },
         {
           name: ' 陳情案件查詢',
@@ -170,7 +170,7 @@ const router = createRouter({
         },
         {
           name:' 聯絡我們 /',
-          link: 'contact',
+          link: '/contact',
         },
         {
           name: ' 陳情案件查詢結果',
