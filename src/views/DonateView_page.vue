@@ -50,7 +50,9 @@
         <h4>捐款方式</h4>
         <p>請選擇付款方式</p>
         <ul>
-          <li v-for="method in paymentMethods">
+          <!-- class="{class名稱: 條件式}" -->
+          <li v-for="(method,index_method) in paymentMethods" @click="selectPaymentMethod(index_method)" :key="index_method"
+          :class="{ method_active: currentIndex_method === index_method}">
             <p>{{ method.text }}</p>
             <img :src="getImageUrl(method.imgUrl)" alt="">
           </li>
@@ -61,7 +63,7 @@
       <div class="donate_page_amount">
         <h4>捐贈金額</h4>
         <ul>
-          <li v-for="amount in donateAmount">
+          <li v-for="(amount,index_amount) in donateAmount" :key="index_amount" @click="selectAmount(index_amount)" :class="{ amount_active: currentIndex_amount === index_amount}">
             <p class="donate_point" v-if="donate_num == 2">{{ amount.point }}<span>點</span></p>
             <div class="donate_amount_item">
               <p>{{ amount.title }}</p>
@@ -129,6 +131,8 @@ export default {
           imgUrl:'donate/icon_atm.png',
         },
       ],
+      currentIndex_method:-1,
+      currentIndex_amount:-1,
 
       donateAmount:[
         {
@@ -180,7 +184,20 @@ export default {
       this.$refs.donatePoint.showLightbox = true;
       console.log(this.$refs.donatePoint.showLightbox);
       document.body.style.overflow = 'hidden';
-    }
+    },
+
+    // 被選擇的付款方式切換顏色
+    selectPaymentMethod(index_method){
+      this.currentIndex_method = index_method;
+
+      console.log(index_method, this.currentIndex_method)
+    },
+
+    selectAmount(index_amount){
+      this.currentIndex_amount = index_amount;
+
+      console.log(index_amount, this.currentIndex_amount)
+    },
   },
   components: {
     breadCrumbs,
@@ -196,297 +213,18 @@ export default {
 
 <style scoped lang="scss">
 @import '../assets/scss/style.scss';
-.donate_page{
-  h4{
-        margin-bottom: 30px;
-        @include title_4;
-        color: $orange;
-        width: 100%;
-        }
-  .donate_page_banner{
-    width: 100%;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    img {
-      width: 100%;
-    }
-
-    h1 {
-      @include title_1;
-      color: $white;
-      position: absolute;
-    }
+.donate_page_method .method_active {
+  box-shadow: 0px 1px 0px #666,
+              0px 1px 0px #777,
+              0px 2px 0px #888,
+              0px 2px 0px #999,
+              0px 3px 0px #aaa,
+              0px 3px 0px #bbb !important; 
+  transform: translate(0px, 3px);
+  background: #e3ecc2;
   }
 
-  // 主要內容區塊
-  .donate_page_main {
-    width: 100%;
-    max-width: 1200px;
-    margin: auto;
-    margin-top: 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    p {
-      @include title_10;
-      margin-top: 30px;
-    }
-
-    // 下一步按鈕
-    button.donate_page_next{
-    @include btn_3;
-    margin: 90px 0;
-    }
-
-    // 我要捐款的標題
-    .donate_page_title {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      border-bottom: 1px solid $gray_2;
-      height: 80px;
-      width: 100%;
-
-      h2 {
-        @include title_3;
-
-      }
-    }
-
-    // 捐款資料內容
-    .donate_page_content {
-      margin-left: 60px;
-      margin-top: 40px;
-      display: flex;
-      flex-direction: column;
-      gap: 40px;
-
-      input{
-        margin-top: 10px;
-      }
-      // 捐款資料內容_會員資料
-      .donate_page_info {
-
-        p {
-          color: red;
-        }
-
-        li {
-          margin-top: 30px;
-        }
-      }
-
-      // 捐款資料內容_捐款單位
-      .donate_page_unit {
-
-        p {
-          @include title_10;
-        }
-      }
-
-      // 捐款資料內容_聯絡資訊
-      .donate_page_contact {
-
-
-        input[type="checkbox"] {
-          width: 15px;
-          height: 15px;
-          margin-right: 10px;
-        }
-
-        .donate_page_email {
-          margin: 30px 0;
-
-          span {
-            color: red;
-          }
-
-          input {
-            width: 100%;
-            height: 40px;
-          }
-        }
-
-        .donate_page_phone {
-          span {
-            color: red;
-          }
-
-          input {
-            width: 100%;
-            height: 40px;
-          }
-        }
-      }
-
-      // 捐款資料內容_付款方式
-      .donate_page_method {
-        ul {
-          display: flex;
-          margin-top: 30px;
-          gap: 20px;
-          justify-content: start;
-        }
-
-        li {
-          display: flex;
-          flex-direction: column;
-          gap: 40px;
-          justify-content: center;
-          align-items: center;
-          background-color: $white;
-          border-radius: $border-radius-1;
-          width: 160px;
-          height: 180px;
-          border: 1px solid #000;
-
-          p {
-            text-align: center;
-          }
-
-          img {
-            width: 70px;
-          }
-        }
-      }
-
-      // 捐款資料內容_金額選擇
-      .donate_page_amount{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        h4{
-            margin-bottom: 60px;
-          }
-        ul{
-          display: flex;
-          gap: 70px;
-          flex-wrap: wrap;
-          justify-content: space-around;
-          align-items: center;
-          
-          
-          li{
-            border-radius: $border-radius-1;
-            border: 1px solid $gray_3;
-            position: relative;
-            width: 310px;
-            height: 160px;
-
-            // 點數標籤(黃色圓形)
-            .donate_point{
-              border-radius: 50%;
-              background: $yellow_2;
-              width: 110px;
-              height: 110px;
-              text-align: center;
-              line-height: 110px;
-              color: $white;
-              position: absolute;
-              top: -70px;
-              left: -50px;
-              letter-spacing: 1px;
-              @include title_4;
-              span{
-                font-size: 18px;
-              }
-            }
-            .donate_amount_item{
-              background: $gray_3;
-              height: 100px;
-              display: flex;
-              flex-direction: column;
-              justify-content: center;
-              gap: 20px;
-              border-radius: $border-radius-1 $border-radius-1 0 0;
-              p{
-                color: $white;
-                text-align: center;
-                margin: 0;
-              }
-
-              p:first-child{
-                font-size: $font_size_7;
-              }
-
-            }
-
-          }
-
-            p.donate_amount_text{
-              @include title_4;
-              color: $orange;
-              text-align: center;
-              margin: 0;
-              // li: 160px - div(容器上半)100px = 60px
-              line-height: 60px;
-            }
-          }
-          
-        }
-
-        // 了解進補點數按鈕
-        .donate_detail{
-          border: none;
-          border-bottom: 1px solid $orange;
-          @include title_9;
-          color: $orange;
-          background-color: rgba(255,255,255, 0);
-          height: 40px;
-          align-self: flex-end;
-        }
-
-        // 自訂金額區塊
-        .donate_page_inputAmount{
-
-          p:first-child{
-              margin-bottom: 30px;
-              span{
-                color: $orange;
-              }
-            }
-          div{
-            border-radius: $border-radius-1;
-            overflow: hidden;
-
-            table{
-
-              tr{
-                height: 50px;
-                td{
-                  line-height: 50px;
-                }
-
-                td:nth-child(1){
-                  width: 220px;
-                  text-align: center;
-                  background-color: $orange;
-                  color: $white;
-                }
-                td:nth-child(2){
-                  input{
-                    height: 50px;
-                    vertical-align: middle;
-                    margin: 0;
-                    width: 910px;
-                  }
-                }
-                td:nth-child(3){
-                  width: 70px;
-                  text-align: center;
-                  background-color: $orange;
-                  color: $white;
-                }
-              }
-            }
-
-          }
-        }
-    }
+  .donate_page_amount .amount_active .donate_amount_item{
+    background-color: #FF892E !important;
   }
-}
 </style>
