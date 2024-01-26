@@ -15,7 +15,7 @@
           <li class="dropdown">
             <span>關於我們</span>
             <div class="dropdown-content">
-              <RouterLink to="/">核心理念</RouterLink>
+              <RouterLink to="/about">核心理念</RouterLink>
               <RouterLink to="/">組織團隊</RouterLink>
               <RouterLink to="/">黨史</RouterLink>
             </div>
@@ -43,21 +43,23 @@
       <div class="nav_icons">
     <li>
       <RouterLink to="/donate">
-        <div><img src="@/assets/image/home/icon_donate.svg" alt="">
+        <div class="icon"><img src="@/assets/image/home/icon_donate.svg" alt="">
           <p>我要捐款</p>
         </div>
       </RouterLink>
     </li>
-    <li>
+    <li style="position:relative;">
       <RouterLink to="/cart">
-        <div><img src="@/assets/image/home/icon_cart.svg" alt="">
+        <div class="icon" @click="showDropDown"><img src="@/assets/image/home/icon_cart.svg" alt="">
           <p>購物車</p>
         </div>
       </RouterLink>
+      <DropDown v-if="isDropDown" style="position: absolute;" />
     </li>
+
     <li>
       <RouterLink to="/login">
-        <div><img src="@/assets/image/home/icon_login.png" alt="">
+        <div class="icon"><img src="@/assets/image/home/icon_login.png" alt="">
           <p>登入</p>
         </div>
       </RouterLink>
@@ -65,6 +67,7 @@
     </div>
     </li>
     </ul>
+
     </nav>
     </div>
   </header>
@@ -73,20 +76,35 @@
 <script>
 import { RouterLink } from 'vue-router';
 import { ref } from 'vue';
+import dropDown from '../components/cart/dropDown.vue'
+import DropDown from '../components/cart/dropDown.vue';
 
 export default {
   setup() {
   },
   components: {
-
+    dropDown,
+    DropDown
   },
   data() {
     return {
+      isDropDown: false,
+
     }
   },
   created() {
   },
   methods: {
+    //只要是data的物件',都要加this
+    showDropDown() {
+      if (this.isDropDown == true) {
+        this.isDropDown = false;
+      } else {
+        this.isDropDown = true;
+      }
+
+    },
+
   },
 }
 </script>
@@ -128,7 +146,7 @@ export default {
 }
 
 .dropdown-content a:hover {
-  background-color: orange;
+  background-color: #FF892E;
   color: #f9f9f9;
 }
 

@@ -1,22 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 .searchFinal-wrap {
     width: 1000px;
     margin: auto;
     margin-top: 150px;
     margin-bottom: 150px;
+    border: 3px solid $orange;
+    border-radius: $border-radius-1 ;
+    background-color: $white;
+    padding: 20px 30px;
+    position: relative;
 
     .searchF-title {
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 70px;
+        gap: 40px;
         padding: 50px;
+        position: relative;
+
+        &::after {
+            content: "";
+            width: 100%;
+            height: 1px;
+            background-color: $gray_3;
+            position: absolute;
+            z-index: 1;
+            top: 98px;
+        }
 
         .text-group {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            gap: 30px;
+            gap: 65px;
 
             span {
                 @include title_4;
@@ -28,6 +49,7 @@
                 letter-spacing: $space_letter;
                 height: 60px;
                 text-align: center;
+                line-height: 30px;
 
             }
 
@@ -35,21 +57,33 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                gap: 10px;
-
+                gap: 20px;
                 position: relative;
 
                 &::after {
                     content: "";
                     width: 100px;
-                    height: 5px;
+                    height: 4px;
                     background-color: $orange;
                     position: absolute;
                     vertical-align: middle;
-                    z-index: -1;
+                    // z-index: -1;
                 }
 
                 div {
+                    @include title_10;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 65px;
+                    height: 65px;
+                    border-radius: 50%;
+                    background-color: $white;
+                    border: 3px solid $orange;
+
+                }
+
+                div:nth-child(2) {
                     @include title_10;
                     display: flex;
                     justify-content: center;
@@ -58,6 +92,8 @@
                     height: 60px;
                     border-radius: 50%;
                     background-color: $orange;
+                    color: $white;
+                    z-index: 5;
 
                 }
             }
@@ -67,25 +103,29 @@
     .searchF-content {
         padding: 50px;
 
-        p {
-            // padding: 10px;
-            background-color: $orange;
-            @include title_4;
-            color: $white;
-            letter-spacing: $space_letter;
-            width: 150px;
-            // margin-bottom: 30px;
-            text-align: center;
-            height: 48px;
-            line-height: 48px;
-        }
+        .triangle-group {
+            display: flex;
+            justify-content: flex-start;
+            margin-bottom: 30px;
 
-        div {
-            // width: 10px;
-            // height: 10px;
-            border-top: 30px solid #fff;
-            border-bottom: 30px solid #fff;
-            border-left: 30px solid #FF892E;
+            p {
+                background-color: $orange;
+                @include title_4;
+                color: $white;
+                letter-spacing: $space_letter;
+                width: 150px;
+                text-align: center;
+                height: 48px;
+                line-height: 48px;
+            }
+
+            .triangle {
+                // width: 10px;
+                // height: 10px;
+                border-top: 24px solid transparent;
+                border-bottom: 24px solid transparent;
+                border-left: 24px solid #FF892E;
+            }
         }
 
         span {

@@ -1,0 +1,94 @@
+.drop-down-cart {
+    width: 450px;
+    max-height: 800px;
+
+    position: absolute;
+    border: 2px solid $gray_2;
+    background-color: $white;
+    border-radius: $border-radius-1 ;
+
+    .cart-group {
+        max-height: 600px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 15px;
+        overflow: scroll;
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid $gray_2;
+            padding: 10px;
+
+            .cart-pic {
+                width: 175px;
+                min-width: 175px;
+                height: 175px;
+                overflow: hidden;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    vertical-align: middle;
+                }
+            }
+
+            .cart-info {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                padding: 15px;
+
+                .cart-text p {
+                    font-family: $font_family_2;
+                    letter-spacing: $space_letter;
+                    font-size: 24px;
+                    margin: 10px 0;
+                }
+
+                .cart-text span {
+                    @include title_7;
+                    color: $orange;
+
+                }
+
+                .quality-trashcan {
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    gap: 20px;
+
+                    #num {
+                        display: flex;
+                        justify-content: flex-start;
+                        align-items: center;
+                        // gap: 10px;
+
+                        div {
+                            background-color: $white;
+                            border: 1px solid $gray_3;
+                            padding: 10px 20px;
+                        }
+
+                        button {
+                            background-color: $white;
+                            border: 1px solid $gray_3;
+                            padding: 10px;
+                            cursor: pointer;
+                        }
+                    }
+
+                    .trash-can img {
+                        cursor: pointer;
+                    }
+                }
+            }
+
+
+        }
+
+
+    }
+}
