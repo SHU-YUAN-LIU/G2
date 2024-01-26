@@ -9,6 +9,14 @@
     <div> 價格 : <span>{{ item.price }}</span></div>
     <div> 圖片名稱 : <span>{{ item.product_pic1 }}</span></div>
   </div>
+
+  <div> 總價格 : <span>{{ cart_total[0].total }}</span></div>
+  <div> 總項目數 : <span>{{ cart_total[0].listcount }}</span></div>
+
+  <!-- <div v-for="item in cart_total">
+    <div> 總價格 : <span>{{ item.total }}</span></div>
+    <div> 總項目數 : <span>{{ item.listcount }}</span></div>
+  </div> -->
 </template>
 
 <style></style>
@@ -19,7 +27,8 @@ import dropDown from '@/components/cart/dropDown.vue'
 export default {
   data() {
     return {
-      cart_info_show: []
+      cart_info_show: [],
+      cart_total: []
     }
   },
   components: {
@@ -29,7 +38,7 @@ export default {
   created() {
     // 在 created 鉤子中處理
     this.cartcreate();
-    this.show_product();
+    [this.cart_info_show, this.cart_total] = show_product();
     window.addEventListener('storage', this.changecartshow);
   },
   methods: {
@@ -42,12 +51,12 @@ export default {
     },
     changecartshow(event) {
       if (event.key === 'cart') {
-        this.cart_info_show = show_product();
+        [this.cart_info_show, this.cart_total] = show_product();
       }
     }
   },
   mounted() {
-    this.cart_info_show = show_product();
+    [this.cart_info_show, this.cart_total] = show_product();
     // 其他方法...
   },
   destroyed() {

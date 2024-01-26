@@ -3,6 +3,9 @@ import { products } from '../../product_data.json';
 export function show_product() {
     //因為畫面處理用陣列去顯示資料,所以這邊用陣列
     let arrayOfObjects = [];
+    let sumobject = [];
+    var totalprice = 0;
+    var totallist = 0;
 
     //確保函數執行時localstorage必定有這個陣列
     if (!localStorage.getItem('cart')) {
@@ -21,15 +24,19 @@ export function show_product() {
         var shownum = products.find(item => item.product_no == element.productId);
         if (shownum) {
             arrayOfObjects.push({ product_no: shownum.product_no, product_name: shownum.product_name, price: shownum.price, product_pic1: shownum.product_pic1, quantity: element.quantity });
+            totalprice = totalprice + (shownum.price * element.quantity);
+            totallist = totallist + 1;
         }
     });
+
+    sumobject = [{ total: totalprice, listcount: totallist }];
 
     arrayOfObjects.sort((a, b) => {
         // 商品編號按照順序排列
         return a.product_no - b.product_no;
     });
 
-    return arrayOfObjects;
+    return [arrayOfObjects,sumobject];
 }
 
 //會有一個func是判斷按鈕增加到購物車的數量
