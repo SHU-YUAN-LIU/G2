@@ -1,4 +1,4 @@
-import { products } from '../../product_data.json';
+import { products } from '../assets/local_json/product_data.json';
 
 export function show_product() {
     //因為畫面處理用陣列去顯示資料,所以這邊用陣列
