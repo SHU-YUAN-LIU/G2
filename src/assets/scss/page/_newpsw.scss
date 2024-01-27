@@ -9,3 +9,20 @@
         }
     }
 }
+@media (max-width: 375px) {
+    .new_wrap {
+        // height: ;
+        .new_form {
+            input {
+                width: 250px;
+                height: 30px;
+                font-size: 12px;
+            }
+            .btn {
+                margin-top: 20px;
+            }
+            
+        }
+    }
+    
+}

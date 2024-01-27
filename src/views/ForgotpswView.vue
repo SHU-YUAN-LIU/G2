@@ -9,11 +9,15 @@
             <div class="forgot_code">
                 <p>請輸入驗證碼 (4碼數字)<span>*</span></p>
                 <div class="valification">
-                    <input type="text" placeholder="請輸入驗證碼" v-model="userInput">
-                    <div class="captcha"><img :src="captchaImage" alt="captcha" @click="refreshCaptcha"></div>
-                    <button>重新發送</button>
+                    <div>
+                        <input type="text" placeholder="請輸入驗證碼" class="input_code" v-model="userInput">
+                        <p class="mark">若未收到驗證碼，請點選重新發送</p>
+                    </div>
+                    <div class="vali_code">
+                        <div class="captcha"><img :src="captchaImage" alt="captcha" @click="refreshCaptcha"></div>
+                        <button>重新發送</button>
+                    </div>
                 </div>
-                <p class="mark">若未收到驗證碼，請點選重新發送</p>
             </div>
             <button class="btn" @click="submit">確認 ➜</button>
             <a href="/newpsw">新密碼</a>
