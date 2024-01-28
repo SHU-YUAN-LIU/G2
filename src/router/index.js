@@ -30,6 +30,34 @@ const router = createRouter({
       }
     },
     {
+      path: '/organization',
+      name: 'organization',
+      component: () => import('../views/OrganizationView.vue'),
+      meta: {
+        breadcrumb: [{
+          name: '首頁 / ',
+          link: '',
+        },
+        {
+          name: '組織團隊',
+        }]
+      }
+    },
+    {
+      path: '/partyhistory',
+      name: 'partyhistory',
+      component: () => import('../views/PartyHistoryView.vue'),
+      meta: {
+        breadcrumb: [{
+          name: '首頁 / ',
+          link: '',
+        },
+        {
+          name: '黨史',
+        }]
+      }
+    },
+    {
       path: '/product',
       name: 'product',
       // route level code-splitting
