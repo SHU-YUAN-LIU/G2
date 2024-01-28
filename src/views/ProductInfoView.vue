@@ -63,7 +63,7 @@ export default {
     methods: {
         axiosGetData() {
             var productId = this.$route.params.productId;
-            axios.get("../../product_data.json")
+            axios.get("src/assets/local_json/product_data.json")
                 .then(res => {
                     console.log(res.data.products.find(product => product.product_no == productId));
                     this.iteminfo = res.data.products.find(product => product.product_no == productId);

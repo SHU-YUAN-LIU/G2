@@ -16,6 +16,7 @@ footer{
 }
 .footer_logo, .footer_contact, .footer_media {
     padding: 30px;
+    margin: auto;
 }
 .footer_logo img {
     max-width: 200px;
@@ -49,4 +50,12 @@ footer{
     line-height: 30px;
     margin: auto;
     padding: 0 30px;
+}
+@media (max-width: 375px) {
+    .footer_container {
+        flex-direction: column;
+    }
+    .footer_container h4 {
+        text-align: center;
+    }
 }

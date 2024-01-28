@@ -39,13 +39,13 @@ article {
         align-items: center;
         justify-content: center;
         padding: 70px 50px;
-        width: calc(50% - 80px);
+        width: calc(50% - 50px);
         height: calc(100%);
         transform: translateX($property);
         transition: transform .5s ease-in-out;
     }
     .overlay_left{
-        @include overlays(-20%);
+        @include overlays(-40%);
         
         p{
             font-family: 'Mantou Sans';
@@ -72,7 +72,7 @@ form {
     top: 0;
     display: flex;
     flex-direction: column;  
-    padding: 40px 100px;
+    padding: 40px 110px;
     height: calc(100%);
     transition: all .5s ease-in-out;
     background: white;
@@ -84,9 +84,12 @@ form {
         height: 200px;
         border-radius: 50%;
         background-color: #ccc;
-        margin: 15px auto;
+        margin: 20px auto;
         display: flex;
         justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
+        // padding: 30px 20px;
         img {
             width: 90px;
         }
@@ -148,10 +151,10 @@ form {
 }
 .register-active {
     .login {
-        transform: translateX(100%);
+        transform: translateX(90%);
     }
     .register {
-        transform: translateX(100%);
+        transform: translateX(90%);
         opacity: 1;
         z-index: 5;
         animation: show .5s;
@@ -163,10 +166,10 @@ form {
         transform: translateX(50%);
     }
     .overlay_left {
-        transform: translateX(0);
+        transform: translateX(5%);
     }
     .overlay_right {
-        transform: translateX(20%);
+        transform: translateX(30%);
     }
 }
 @keyframes show {
@@ -184,4 +187,34 @@ form {
     }
     
     
+}
+@media (max-width: 1200px) {
+    .container {
+        width: 800px;
+    }
+    form.login {
+        width: 400px;
+        box-sizing: border-box;
+        .profile {
+            width: 150px;
+            height: 150px;
+            img {
+                height: 80%;
+            }
+        }
+        p {
+            font-size: .8rem;
+        }
+        input {
+            width: 200px;
+        }
+    }
+    .register-active {
+        .register {
+            transform: translateX(50%);
+            opacity: 1;
+            z-index: 5;
+            animation: show .5s;
+        }
+    }
 }
