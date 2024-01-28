@@ -18,7 +18,7 @@
                 <div>{{ count }}</div>
                 <button @click="count += 1"> +</button>
             </div>
-            <CartButton :id= iteminfo.product_no :qty= count />
+            <!-- <CartButton :id= iteminfo.product_no :qty= count /> -->
         </div>
         <!-- 左邊圖片區 -->
         <div class="proPic_group">
@@ -39,12 +39,12 @@
 import axios from 'axios';
 import Bread from '../components/Bread.vue'
 import CommitButton from '@/components/button/commitButton.vue';
-import CartButton from '@/components/button/CartButton.vue';
+// import CartButton from '@/components/button/CartButton.vue';
 export default {
     components: {
         Bread,
         CommitButton,
-        CartButton,
+        // CartButton,
     },
     data() {
         return {
@@ -62,7 +62,7 @@ export default {
     methods: {
         axiosGetData() {
             var productId = this.$route.params.productId;
-            axios.get("src/assets/local_json/product_data.json")
+            axios.get("/src/assets/local_json/product_data.json")
                 .then(res => {
                     console.log(res.data.products.find(product => product.product_no == productId));
                     this.iteminfo = res.data.products.find(product => product.product_no == productId);
