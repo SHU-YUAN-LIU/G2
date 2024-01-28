@@ -16,8 +16,8 @@
             <span>關於我們</span>
             <div class="dropdown-content">
               <RouterLink to="/about">核心理念</RouterLink>
-              <RouterLink to="/">組織團隊</RouterLink>
-              <RouterLink to="/">黨史</RouterLink>
+              <RouterLink to="/organization">組織團隊</RouterLink>
+              <RouterLink to="/partyhistory">黨史</RouterLink>
             </div>
           </li>
           <li class="dropdown">
