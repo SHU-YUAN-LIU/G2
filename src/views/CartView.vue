@@ -17,7 +17,6 @@
     <div> 總價格 : <span>{{ item.total }}</span></div>
     <div> 總項目數 : <span>{{ item.listcount }}</span></div>
   </div> -->
-  <triangleDown />
 </template>
 
 <style></style>

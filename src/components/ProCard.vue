@@ -10,7 +10,7 @@
     <!-- 標題/價錢 -->
     <p class="pro-title">{{ name }}</p>
     <p class="pro-price">價錢:{{ price }}</p>
-    <CartButton :text="addCart" :id=id :qty=1 />
+    <CartButton :text="addCart" :id="id" :qty="1" />
   </router-link>
 </template>
 <script>

@@ -1,3 +1,4 @@
+import { Dropdown } from 'view-ui-plus'
 import { createRouter, createWebHistory } from 'vue-router'
 
 // path設定'/'表示將該頁面設置為首頁
@@ -8,7 +9,7 @@ const router = createRouter({
       path: '/',
       name: 'Home',
       component: () => import('../views/HomeView.vue'),
-      meta:{
+      meta: {
         breadcrumb: [{
           name: '首頁',
         }]
@@ -18,13 +19,13 @@ const router = createRouter({
       path: '/about',
       name: 'about',
       component: () => import('../views/AboutView.vue'),
-      meta:{
+      meta: {
         breadcrumb: [{
           name: '首頁 / ',
           link: '',
         },
         {
-          name:'關於我們',
+          name: '關於我們',
         }]
       }
     },
@@ -35,13 +36,13 @@ const router = createRouter({
       // this generates a separate chunk (Product.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/ProductView.vue'),
-      meta:{
+      meta: {
         breadcrumb: [{
           name: '首頁 / ',
           link: '/',
         },
         {
-          name:'官方商城',
+          name: '官方商城',
         }]
       },
 
@@ -61,13 +62,13 @@ const router = createRouter({
       // this generates a separate chunk (Login.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/DonateView.vue'),
-      meta:{
+      meta: {
         breadcrumb: [{
           name: '首頁 / ',
           link: '/',
         },
         {
-          name:'我要捐款',
+          name: '我要捐款',
         }]
       }
     },
@@ -76,31 +77,31 @@ const router = createRouter({
       name: 'donate_page',
 
       component: () => import('../views/DonateView_page.vue'),
-      meta:{
+      meta: {
         breadcrumb: [{
           name: '首頁 / ',
           link: '/',
         },
         {
-          name:'我要捐款 /',
+          name: '我要捐款 /',
           link: '/donate',
         },
         {
           name: '基本資料',
         }]
       }
-    }, 
+    },
     {
       path: '/donate/page/confirm',
       name: 'donate_page_confirm',
       component: () => import('../views/DonateView_page_confirm.vue'),
-      meta:{
+      meta: {
         breadcrumb: [{
           name: '首頁 / ',
           link: '/',
         },
         {
-          name:'我要捐款 /',
+          name: '我要捐款 /',
           link: '/donate',
         },
         {
@@ -113,13 +114,13 @@ const router = createRouter({
       name: 'news',
 
       component: () => import('../views/NewsView.vue'),
-      meta:{
+      meta: {
         breadcrumb: [{
           name: '首頁 / ',
           link: '/',
         },
         {
-          name:'最新消息',
+          name: '最新消息',
         }]
       }
     },
@@ -128,13 +129,13 @@ const router = createRouter({
       name: 'contact',
 
       component: () => import('../views/ContactView.vue'),
-      meta:{
+      meta: {
         breadcrumb: [{
           name: '首頁 / ',
           link: '/',
         },
         {
-          name:'聯絡我們',
+          name: '聯絡我們',
         }]
       }
 
@@ -144,13 +145,13 @@ const router = createRouter({
       name: '/contact_search',
 
       component: () => import('../views/ContactSearchView.vue'),
-      meta:{
+      meta: {
         breadcrumb: [{
           name: '首頁 / ',
           link: '/',
         },
         {
-          name:' 聯絡我們 /',
+          name: ' 聯絡我們 /',
           link: '/contact',
         },
         {
@@ -163,13 +164,13 @@ const router = createRouter({
       name: '/contact_searchFinal',
 
       component: () => import('../views/ContactSearchFinalView.vue'),
-      meta:{
+      meta: {
         breadcrumb: [{
           name: '首頁 / ',
           link: '/',
         },
         {
-          name:' 聯絡我們 /',
+          name: ' 聯絡我們 /',
           link: '/contact',
         },
         {
@@ -188,13 +189,13 @@ const router = createRouter({
       name: 'election_journey',
 
       component: () => import('../views/ElectionView_journey.vue'),
-      meta:{
+      meta: {
         breadcrumb: [{
           name: '首頁 / ',
           link: '/',
         },
         {
-          name:' 選舉資訊',
+          name: ' 選舉資訊',
         }]
       }
     },
@@ -227,7 +228,13 @@ const router = createRouter({
       path: '/cart',
       name: 'cart',
       component: () => import('../views/CartView.vue')
-    }
+    },
+    {
+      path: '/ProductPay',
+      name: 'ProductPay',
+      component: () => import('../views/ProductPayView.vue')
+    },
+
   ]
 })
 

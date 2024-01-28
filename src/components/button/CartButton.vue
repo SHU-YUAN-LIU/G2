@@ -10,7 +10,7 @@
 <script>
 import { changeqty } from '../../stores/cart.js';
 export default {
-    props: ['id', 'qty'],
+    props: ['id', 'qty', 'text'],
     created() {
         // 在 created 鉤子中處理
         this.cartcreate();
@@ -22,8 +22,9 @@ export default {
             if (!localStorage.getItem('cart')) {
                 localStorage.setItem('cart', JSON.stringify([]));
             }
+            console.log(1);
         },
     },
-    props: ['text'],
+
 }
 </script>
