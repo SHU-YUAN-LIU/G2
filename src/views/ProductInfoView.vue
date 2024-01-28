@@ -14,11 +14,11 @@
             <span>NT$ {{ iteminfo.price }}</span>
             <span>供貨狀況: 尚有庫存</span>
             <div id="num">
-                <button @click="count -= 1"> -</button>
+                <button @click="if (count >= 1) { count -= 1 };"> -</button>
                 <div>{{ count }}</div>
                 <button @click="count += 1"> +</button>
             </div>
-            <!-- <CartButton :id= iteminfo.product_no :qty= count /> -->
+            <CartButton :id=iteminfo.product_no :qty=count />
         </div>
         <!-- 左邊圖片區 -->
         <div class="proPic_group">
@@ -39,12 +39,12 @@
 import axios from 'axios';
 import Bread from '../components/Bread.vue'
 import CommitButton from '@/components/button/commitButton.vue';
-// import CartButton from '@/components/button/CartButton.vue';
+import CartButton from '@/components/button/CartButton.vue';
 export default {
     components: {
         Bread,
         CommitButton,
-        // CartButton,
+        CartButton,
     },
     data() {
         return {
@@ -72,7 +72,12 @@ export default {
                 });
         },
         getpicurl(picname) {
-            var url = '../src/assets/image/product/product_data/' + picname;
+            if (picname) {
+                var url = '../src/assets/image/product/product_data/' + picname;
+            }
+            else {
+                url = "/src/assets/image/product/errorpic.png";
+            }
             return url;
         }
     },
