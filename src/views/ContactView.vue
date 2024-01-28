@@ -49,14 +49,14 @@
           <p>案件宗旨</p>
           <input type="text" placeholder="請輸入案件宗旨">
           <p>案件內容</p>
-          <input class="con_text" type="text" placeholder="請輸入100字以內">
+          <textarea name="" placeholder="請輸入100字以內"></textarea>
         </div>
       </div>
-      <!-- <router-link :to="{ path: '/contact_search' }"> -->
+
       <commitButton :commitButton="commit" @click="showSuccessPop" />
       <!-- 要加上ref屬性, script裡的$refs才能抓到變數 -->
       <successPop ref="successPop" />
-      <!-- </router-link> -->
+
     </div>
   </div>
 </template>

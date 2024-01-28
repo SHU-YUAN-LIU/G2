@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="{ name: 'productinfoview', params: { productId: id }}" class="procard">
+  <router-link :to="{ name: 'productinfoview', params: { productId: id } }" class="procard">
     <!-- NewIcon -->
     <div v-if="num < 6" class="newIcon">NEW</div>
 
@@ -10,7 +10,7 @@
     <!-- 標題/價錢 -->
     <p class="pro-title">{{ name }}</p>
     <p class="pro-price">價錢:{{ price }}</p>
-    <CartButton :id= id :qty=1 />
+    <CartButton :id=id :qty=1 />
   </router-link>
 </template>
 <script>

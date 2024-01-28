@@ -1,14 +1,4 @@
 <template>
-    <!-- go to top -->
-    <!-- <a href="#goToTop-a">
-        <div class="goToTop">
-            <span class="material-symbols-outlined">
-                expand_less
-            </span>
-            <span>TOP</span>
-        </div>
-    </a> -->
-
     <a href="#">
         <div class="goToTop">
             <span class="material-symbols-outlined">
@@ -46,11 +36,9 @@ export default {
     position: fixed;
     z-index: 7;
     right: 50px;
-    bottom: 50px;
-
-    /* 不知道為何還是沒有平滑得效果 */
+    bottom: 90px;
     transition: bottom 0.3s ease-in-out;
-    scroll-behavior: smooth;
+
 }
 
 .goToTop span:last-child {

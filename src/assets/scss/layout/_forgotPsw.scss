@@ -1,15 +1,19 @@
 @mixin forgotpsw {
-    width: 1200px;
+    max-width: 1200px;
+    width: 90%;
+    height: 900px;
     display: flex;
     margin: 200px auto;
     justify-content: center;
+    align-items: center;
     box-shadow: 0 15px 30px rgba(0, 0, 0, .2),
                 0 10px 10px rgba(0, 0, 0, .2);
     border-radius: 10px;
     form {
         position: inherit;
-        width: 700px;
-        height: 900px;
+        max-width: 700px;
+        width: 100%;
+        height: 600px;
         input {
             margin-bottom: 20px;
         }
@@ -24,6 +28,7 @@
             letter-spacing: 10px;
         }
         .forgot_email {
+            margin: 0 auto;
             input {
                 width: 500px;
             }
@@ -32,9 +37,10 @@
             .mark {
                 color: $orange;
                 margin-bottom: 20px;
-                font-size: 14px;
+                font-size: 16px;
             }
             .valification {
+                width: 100%;
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
@@ -42,12 +48,72 @@
                 input {
                     width: 250px;
                 }
-                button {
-                    border-radius: 10px;
-                    padding: 10px;
-                    background-color: #6666;
-                    border: none;
-                    color: white;
+                input.input_code {
+                    margin-bottom: 10px;
+                }
+                .vali_code {
+                    display: flex;
+                    button {
+                        border-radius: 10px;
+                        padding: 10px;
+                        background-color: #6666;
+                        border: none;
+                        color: white;
+                        margin-left: 20px;
+                    }
+                }
+            }
+        }
+    }
+    @media (max-width: 375px) {
+        height: auto;
+        margin: 150px auto 100px auto;
+        form {
+            height: auto;
+            padding: 50px 30px;
+            p {
+                font-size: 12px;
+            }
+            h1 {
+                @include title_4;
+                padding-bottom: 30px;
+            }
+            .btn {
+                width: 200px;
+                height: 40px;
+                font-size: 14px;
+                margin: 20px auto;
+            }
+            .forgot_email {
+                input {
+                    width: 250px;
+                    height: 30px;
+                    font-size: 12px;
+                }
+            }
+            .forgot_code {
+                margin: 0 auto;
+                .mark {
+                    margin-bottom: 20px;
+                    font-size: 12px;
+                    order: 1;
+                    display: block;
+                }
+                .valification {
+                    flex-direction: column;
+                    align-items: flex-start;
+                    input {
+                        width: 250px;
+                        height: 30px;
+                        font-size: 12px;
+                    }
+                    .vali_code {
+                        margin-bottom: 20px;
+                        button {
+                            font-size: 12px;
+                        }
+                    }
+
                 }
             }
         }

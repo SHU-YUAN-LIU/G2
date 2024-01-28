@@ -1,14 +1,26 @@
 <template>
     <!-- banner -->
     <div class="banner">
-        <button> &lt </button>
-        <ul>
-            <li v-for="banner in bannerList">
-                <img :src="getImageUrl(banner)" alt="">
-            </li>
-        </ul>
-        <button>></button>
+        <div ref="bannercontent" class="bannercontent">
+            <div class="bannershow">
+                <img v-for="(banner, index) in bannerList" :src="getImageUrl(banner)" class="image">
+            </div>
+        </div>
+        <button class="bannerleft" @click="bannerleft">&lt</button>
+        <button class="bannerright" @click="bannerright">></button>
+        <div class="pointwrap">
+            <div class="bannerpoint" v-for="num in bannerList.length" @click="pointchangebanner(num)"
+                :class="{ 'getdeep': currentBanner === num - 1 }"></div>
+        </div>
     </div>
+    <!-- <button> &lt </button>
+        <div ref="bannercontainer" class="bannercontainer">
+            <div class="bannershow">
+                <img v-for="banner in bannerList" :src="getImageUrl(banner)" alt="">
+            </div>
+            
+        </div>
+    <button>></button> -->
 
     <!-- 倒數 -->
     <CountDown />
@@ -139,11 +151,17 @@ import CommitButton from '@/components/button/commitButton.vue';
 import bookmark from '../components/BookMark.vue';
 import CountDown from '../components/CountDown.vue';
 import vueMarquee from '@/components/Marquee.vue';
+
 export default {
     data() {
         return {
+            currentBanner: 0,
             slogan: '這是一場改變政治文化的社會運動，投給劉緯育，投給自己的未來。',
             bannerList: [
+                'home/banner_1.png',
+                'home/banner_2.png',
+                'home/banner_1.png',
+                'home/banner_2.png',
                 'home/banner_1.png',
                 'home/banner_2.png',
             ],
@@ -178,23 +196,76 @@ export default {
     methods: {
         // 改用函式, 動態抓取圖片路徑
         // 參數為圖片路徑的最後一層子資料夾/檔名.副檔名
-
         getImageUrl(paths) {
             return new URL(`../assets/image/${paths}`, import.meta.url).href
         },
         get_for_range(arraydata, indexmin, indexmax) {
             return arraydata.filter((item, index) => index >= indexmin && index <= indexmax);
         },
+        move() {
+            if (this.$refs.bannercontent) {
+                const bannerShow = this.$refs.bannercontent.querySelector('.bannershow');
+                const translateX = -(this.currentBanner * 100);
+                bannerShow.style.transform = `translateX(${translateX}vw)`;
+            }
+        },
+        bannerStart() {
+            this.bannerauto = setInterval(() => {
+                const numBanners = this.bannerList.length;
+                this.currentBanner = (this.currentBanner + 1) % numBanners;
+                this.move();
+            }, 3000);
+        },
+        bannerleft() {
+            clearInterval(this.bannerauto)
+            const numBanners = this.bannerList.length;
+            if (this.currentBanner == 0) {
+                this.currentBanner = 0;
+            } else {
+                this.currentBanner = (this.currentBanner - 1) % numBanners;
+            }
+            this.move();
+            this.bannerStart();
+        },
+        bannerright() {
+            clearInterval(this.bannerauto)
+            const numBanners = this.bannerList.length;
+            if (this.currentBanner == numBanners - 1) {
+                this.currentBanner = numBanners - 1;
+            } else {
+                this.currentBanner = (this.currentBanner + 1) % numBanners;
+            }
+            this.move();
+            this.bannerStart();
+        },
+        pointchangebanner(num) {
+            clearInterval(this.bannerauto)
+            this.currentBanner = num - 1;
+            this.move();
+            this.bannerStart();
+        },
+
+
+
     },
     mounted() {
         // 設定網站標題(瀏覽器頁籤上的標題)
         document.title = '青年進補黨 - 首頁';
+        this.bannerStart();
+
+
     },
     components: {
         bookmark,
         CommitButton,
         CountDown,
         vueMarquee,
+    },
+    created() {
+
+    },
+    destroyed() {
+        clearInterval(this.bannerauto);
     },
 }
 </script>
@@ -209,52 +280,25 @@ export default {
     z-index: 0;
 }
 
-ul {
-    list-style: none;
-}
+// ul {
+//     list-style: none;
+// }
 
-.banner {
-    overflow: hidden;
-    /* width: 1920px; */
-    position: relative;
-    margin-top: 85px;
-}
+// .banner {
+//     overflow: hidden;
+//     /* width: 1920px; */
+//     position: relative;
+//     margin-top: 85px;
+// }
 
-.banner>ul {
-    display: flex;
-    padding: 0;
-}
+// .banner>ul {
+//     display: flex;
+//     padding: 0;
+// }
 
-.banner>ul {
-    display: flex;
-}
-
-.banner>button {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    border: 2px solid #fff;
-    background-color: rgba(255, 255, 255, .5);
-    backdrop-filter: blur(5px);
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    margin: auto;
-    font-size: 40px;
-}
-
-
-.banner>button:first-child {
-    left: 20px;
-}
-
-.banner>button:last-child {
-    right: 20px;
-}
-
-.banner>button:last-child {
-    right: 60px;
-}
+// .banner>ul {
+//     display: flex;
+// }
 
 .donate_container {
     width: 100%;

@@ -1,40 +1,60 @@
-// .header {
-//     height: 85px;
-// }
-
 .pro_wrap {
     width: 1200px;
     margin: auto;
-}
 
-//篩選器
-.top {
-    margin-top: 100px;
-    height: 200px;
-}
-
-//商品卡片
-.product {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-
-    .pro_card_group {
-        // display: flex;
+    //篩選器
+    .pro-top {
+        margin: 150px 0;
+        display: flex;
         justify-content: center;
+        align-items: flex-start;
+        gap: 30px;
 
-        .card_group {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 40px;
+        input {
+            height: 48px;
+            border-radius: $border-radius-1;
+            text-indent: 20px;
 
-            .procard {
-                width: 200px;
-                position: relative;
-                display: flex;
-                flex-direction: column;
-                height: 400px;
-                justify-content: space-between;
+            &:focus {
+                outline: none;
+                border: 2px solid $orange;
+            }
+        }
+
+        .pro-class {
+            width: 175px;
+            height: 48px;
+            border-radius: $border-radius-1;
+            text-indent: 20px;
+        }
+
+    }
+
+    //商品卡片
+    .product {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+
+        .pro_card_group {
+            // display: flex;
+            justify-content: center;
+
+            .card_group {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 40px;
+                margin-bottom: 200px;
+
+                .procard {
+                    width: 200px;
+                    color: $orange;
+                    position: relative;
+                    display: flex;
+                    flex-direction: column;
+                    height: 400px;
+                    justify-content: space-between;
+                }
             }
         }
     }
@@ -54,4 +74,5 @@
     position: absolute;
     top: -25px;
     left: -25px;
+    color: $black;
 }

@@ -4,25 +4,27 @@
   <banner :bannerTitle="bannerTitle" :bannerPic="bannerPic" />
   <!-- 麵包屑 -->
   <Bread :page="pro" />
+
   <div class="pro_wrap">
-    <div class="top">
-      <input type="text" width="100px" placeholder="搜尋關鍵字" v-model.trim="search" @input="changeDis">
-      <input type="number" width="100px" v-model="min" @input="changeDis">
-      <input type="number" width="100px" v-model="max" @input="changeDis">
-      <select v-model="currentCategory" @change="changeDis">
-        <option selected value="ALL">ALL</option>
+    <div class="pro-top">
+      <!-- 分類篩選 -->
+      <select v-model="currentCategory" @change="changeDis" class="pro-class">
+        <option selected value="ALL">類別</option>
         <option v-for="types in product_class_group" :value="types.product_class_no">{{ types.product_class_name }}
         </option>
       </select>
+      <!-- 關鍵字篩選 -->
+      <input type="text" width="100px" placeholder="搜尋關鍵字" v-model.trim="search" @input="changeDis">
+      <input type="number" width="100px" v-model="min" @input="changeDis">
+      <input type="number" width="100px" v-model="max" @input="changeDis">
     </div>
-
+    <!-- 商品卡片 -->
     <div class="product">
-      <!-- 商品卡片 -->
       <div class="pro_card_group">
         <div class="card_group">
           <div v-for="(item, index) in disPro">
-            <ProCard :imgSrc="defaultSrc + item.product_pic1" :name="item.product_name" :price="item.price"
-              :num="index"  :id="item.product_no" />
+            <ProCard :imgSrc="defaultSrc + item.product_pic1" :name="item.product_name" :price="item.price" :num="index"
+              :id="item.product_no" />
           </div>
         </div>
       </div>
@@ -30,7 +32,6 @@
   </div>
 </template>
 
-<!-- <script src="../stores/cart.js"></script> -->
 <script>
 import axios from 'axios';
 import ProCard from '../components/ProCard.vue'
@@ -67,15 +68,16 @@ export default {
   },
   methods: {
     axiosGetData() {
-      axios.get("../../product_data.json")
+      axios.get("src/assets/local_json/product_data.json")
         .then(res => {
-          console.log(res.data.product_class);
+          // console.log(res.data.product_class);
           this.allPro = res.data.products;
           this.disPro = res.data.products;
           this.product_class_group = res.data.product_class;
           this.addCategory();
         })
         .catch(error => {
+          console.log(123);
           console.error('Error fetching data:', error);
         });
     },

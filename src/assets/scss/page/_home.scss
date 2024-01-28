@@ -89,3 +89,69 @@
     width: 194px !important;
 
 }
+.bannercontent{
+    overflow: hidden;
+    position: relative;
+    .bannershow{
+        position: relative;
+        display: flex;
+        transition: transform 0.5s ease;
+    }
+}
+.bannerleft{
+    position: absolute;
+    left: 0;
+    cursor: pointer;
+}
+.bannerright{
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+}
+
+.bannercontent div img{
+    width: 100vw;
+}
+.pointwrap{
+    display: flex;
+    width: 300px;
+    justify-content: space-between;
+    position: absolute;
+    bottom: -50px;
+}
+.bannerpoint{
+    background-color: $gray_2;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.getdeep{
+    background-color:$orange;
+}
+.banner>button {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    background-color: rgba(255, 255, 255, .5);
+    backdrop-filter: blur(5px);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    font-size: 40px;
+}
+
+
+.banner>button:first-child {
+    left: 20px;
+}
+
+.banner>button:last-child {
+    right: 20px;
+}
+
+.banner>button:last-child {
+    right: 60px;
+}

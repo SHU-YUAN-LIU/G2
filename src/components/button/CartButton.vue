@@ -1,11 +1,11 @@
 <template>
-    <div class="span" @click="changeqty($event,id,qty)">
+    <div class="span" @click="changeqty($event, id, qty)">
         <img loading="lazy" src="/src/assets/image/product/Cart.svg" class="img" />
-        <div class="div">加入購物車</div>
+        <div class="add">加入購物車</div>
     </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .span {
     justify-content: center;
     align-items: center;
@@ -15,6 +15,8 @@
     padding: 5px 10px;
     gap: 10px;
     cursor: pointer;
+
+    background-color: white;
 }
 
 .span:hover {
@@ -34,7 +36,7 @@
     /* 加入過渡效果，使顏色變化更平滑 */
 }
 
-.div {
+.add {
     color: var(--, #ff892e);
     text-align: center;
     letter-spacing: 1.5px;
@@ -49,7 +51,7 @@
     /* 透過 filter 屬性反轉顏色 */
 }
 
-.span:hover .div {
+.span:hover .add {
     color: white;
 }
 </style>
@@ -57,9 +59,19 @@
 <script>
 import { changeqty } from '../../stores/cart.js';
 export default {
-    props: ['id','qty'],
+    props: ['id', 'qty'],
+    created() {
+        // 在 created 鉤子中處理
+        this.cartcreate();
+    },
     methods: {
-        changeqty ,
+        changeqty,
+        cartcreate() {
+            // 檢查是否已經存在 cart 變數，如果不存在，則創建一個空值
+            if (!localStorage.getItem('cart')) {
+                localStorage.setItem('cart', JSON.stringify([]));
+            }
+        },
     }
 }
 </script>

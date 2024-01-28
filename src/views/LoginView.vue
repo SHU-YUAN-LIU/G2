@@ -34,23 +34,23 @@
                 </div>
                 <div class="register_email">
                     <p>電子信箱<span>*</span></p>
-                    <input type="email" name="" id="" placeholder="請輸入您的電子信箱">
+                    <input type="email" name="email" id="email" placeholder="請輸入您的電子信箱">
                 </div>
                 <div class="register_phone">
                     <p>手機<span>*</span></p>
-                    <input type="text" placeholder="請輸入您的手機號碼" maxlength="10">
+                    <input type="text" name="phone" id="phone" placeholder="請輸入您的手機號碼" maxlength="10">
                 </div>
                 <div class="register_id">
                     <p>身分證<span>*</span></p>
-                    <input type="text" placeholder="請輸入您的身分證" minlength="10" >
+                    <input type="text" name="ide" id="ide" placeholder="請輸入您的身分證" minlength="10" >
                 </div>
                 <div class="register_psw">
                     <p>密碼<span>*</span></p>
-                    <input type="text" placeholder="請輸入您的密碼">
+                    <input type="text" name="psw" id="psw" placeholder="請輸入您的密碼">
                 </div>
                 <div class="register_check_psw">
                     <p>確認密碼<span>*</span></p>
-                    <input type="text" placeholder="請再次輸入您的密碼">
+                    <input type="text" name="checkpsw" id="checkpsw" placeholder="請再次輸入您的密碼">
                 </div>
                 <div class="register_read">
                     <input type="checkbox" class="box">
@@ -58,30 +58,54 @@
                 </div>
                 <button class="btn">立刻前往 ➜</button>
             </form>
-            <form action="" class="login">
+            <form ref="login" action="" class="login">
                 <div class="profile">
                     <img src="../assets/image/login/user-solid.svg" alt="">
                 </div>
                 <div class="register_email">
                     <p>電子信箱<span>*</span></p>
-                    <input type="email" placeholder="請輸入您的電子信箱">
+                    <input type="email" name="email" id="email" placeholder="請輸入您的電子信箱">
                 </div>
                 <div class="register_psw">
                     <p>密碼<span>*</span></p>
-                    <input type="text" placeholder="請輸入您的密碼">
+                    <input type="text" name="psw" id="psw" placeholder="請輸入您的密碼">
                 </div>
                 <a href="/forgotpsw">忘記密碼?</a>
-                <button class="btn">登入 ➜</button>
+                <button class="btn" @click="checkmemdata">登入 ➜</button>
             </form>
         </div>
     </article>
 </template>
 <script>
+
     export default{
                 data: () => {
                     return {
                         registerBtn: false,
+                        member:{
+                            mail:'youth@party',
+                            psw:'youthparty',
+                        }
                     }
+                },
+                methods: {
+                    checkmemdata(event){
+                        const mailinput = this.$refs.login.querySelector('#email').value;
+                        console.log(mailinput);
+                        const pswinput = this.$refs.login.querySelector('#psw').value;
+                        console.log(pswinput);
+                        if(mailinput==this.member.mail&&pswinput==this.member.psw){
+                            alert("success")
+                            event.preventDefault();
+                            this.$router.push('/news')
+                        }else{
+                            alert("fail")
+                            event.preventDefault();
+                        }
+                    },
+                },
+                created(){
+                    // const user = this.checkLogin()
                 }
             }
 </script>
