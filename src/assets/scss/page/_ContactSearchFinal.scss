@@ -4,7 +4,7 @@
 }
 
 .searchFinal-wrap {
-    width: 1000px;
+    max-width: 1000px;
     margin: auto;
     margin-top: 150px;
     margin-bottom: 150px;
@@ -14,6 +14,14 @@
     padding: 20px 30px;
     position: relative;
 
+    @media screen and (max-width:768px) {
+        margin: 100px;
+    }
+
+    @media screen and (max-width:414px) {
+        margin: 30px;
+    }
+
     .searchF-title {
         display: flex;
         justify-content: center;
@@ -22,6 +30,17 @@
         padding: 50px;
         position: relative;
 
+        @media screen and (max-width:768px) {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 0px;
+            position: relative;
+            gap: 0px;
+
+        }
+
         &::after {
             content: "";
             width: 100%;
@@ -29,7 +48,12 @@
             background-color: $gray_3;
             position: absolute;
             z-index: 1;
-            top: 98px;
+            top: 110px;
+
+            @media screen and (max-width:768px) {
+                background-color: transparent;
+            }
+
         }
 
         .text-group {
@@ -39,9 +63,25 @@
             align-items: center;
             gap: 65px;
 
+            @media screen and (max-width:768px) {
+                border-bottom: 1px solid $gray_3;
+                width: 100%;
+                padding: 15px;
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: center;
+            }
+
             span {
                 @include title_4;
                 letter-spacing: $space_letter;
+
+                @media screen and (max-width:768px) {
+                    font-family: $font_family_2;
+                    font-size: $font_size_8;
+
+                }
             }
 
             p {
@@ -50,6 +90,11 @@
                 height: 60px;
                 text-align: center;
                 line-height: 30px;
+
+                @media screen and (max-width:768px) {
+                    @include title_10;
+                    height: 40px;
+                }
 
             }
 

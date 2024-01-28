@@ -36,13 +36,14 @@ export function show_product() {
         return a.product_no - b.product_no;
     });
 
-    return [arrayOfObjects,sumobject];
+    return [arrayOfObjects, sumobject];
 }
 
 //會有一個func是判斷按鈕增加到購物車的數量
 export function changeqty(event, id, qty) {
     event.preventDefault();// 阻止默認行為，例如超連結
     // alert(id + ' ' + qty);(測試用)
+    console.log(event, id, qty);
 
     //確保函數執行時localstorage必定有這個陣列
     if (!localStorage.getItem('cart')) {

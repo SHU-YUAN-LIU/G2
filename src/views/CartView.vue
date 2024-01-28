@@ -17,28 +17,33 @@
     <div> 總價格 : <span>{{ item.total }}</span></div>
     <div> 總項目數 : <span>{{ item.listcount }}</span></div>
   </div> -->
+  <triangleDown />
 </template>
 
 <style></style>
 
 <script>
 import { show_product } from '@/stores/cart.js';
-import dropDown from '@/components/cart/dropDown.vue'
+import dropDown from '@/components/cart/dropDown.vue';
+import triangleDown from '@/components/bg/triangleDown.vue';
 export default {
   data() {
     return {
       cart_info_show: [],
-      cart_total: []
+      cart_total: [],
+
     }
   },
   components: {
     dropDown,
+    triangleDown,
   }
   ,
   created() {
     // 在 created 鉤子中處理
     this.cartcreate();
     [this.cart_info_show, this.cart_total] = show_product();
+    console.log(show_product());
     window.addEventListener('storage', this.changecartshow);
   },
   methods: {

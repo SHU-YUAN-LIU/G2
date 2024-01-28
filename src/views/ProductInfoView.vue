@@ -18,7 +18,7 @@
                 <div>{{ count }}</div>
                 <button @click="count += 1"> +</button>
             </div>
-            <CartButton :id= iteminfo.product_no :qty= count />
+            <CartButton :text="addCart" :id=iteminfo.product_no :qty=count />
         </div>
         <!-- 左邊圖片區 -->
         <div class="proPic_group">
@@ -51,6 +51,7 @@ export default {
             proInfo: '官方商城',
             count: 0,
             iteminfo: [],
+            addCart: "加入購物車"
         }
     },
     computed: {

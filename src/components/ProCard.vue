@@ -10,7 +10,7 @@
     <!-- 標題/價錢 -->
     <p class="pro-title">{{ name }}</p>
     <p class="pro-price">價錢:{{ price }}</p>
-    <CartButton :id=id :qty=1 />
+    <CartButton :text="addCart" :id=id :qty=1 />
   </router-link>
 </template>
 <script>
@@ -21,7 +21,7 @@ export default {
   },
   data() {
     return {
-
+      addCart: "加入購物車"
     }
   },
   props: ['imgSrc', 'name', 'price', 'int', 'num', 'id'],

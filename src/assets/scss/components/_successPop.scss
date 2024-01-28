@@ -21,6 +21,11 @@
         align-items: center;
         position: absolute;
 
+        @media screen and (max-width:414px) {
+            width: 400px;
+        }
+
+
         .cross {
             top: -20px;
             left: 570px;
@@ -29,6 +34,10 @@
             z-index: 3;
             border: none;
             background: none;
+
+            @media screen and (max-width:414px) {
+                left: 370px;
+            }
 
             img {
                 width: 55px;
@@ -44,6 +53,11 @@
             padding: 30px;
             gap: 20px;
 
+            @media screen and (max-width:414px) {
+                padding: 20px;
+            }
+
+
             .success_top {
                 width: 500px;
                 display: flex;
@@ -53,6 +67,10 @@
                 margin: auto;
                 border-radius: $border-radius-1;
                 padding: 20px;
+
+                @media screen and (max-width:414px) {
+                    width: 350px;
+                }
 
 
                 h3 {
@@ -87,6 +105,10 @@
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
+
+                @media screen and (max-width:414px) {
+                    width: 350px;
+                }
 
                 p {
                     margin: 3px 0px;
