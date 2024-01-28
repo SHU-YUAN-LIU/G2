@@ -108,7 +108,7 @@ const router = createRouter({
       path: '/newspage',
       name: 'newspage',
       component: () => import('../views/NewsPageView.vue')
-    }
+    },
   ]
 })
 

@@ -33,8 +33,8 @@
           <li class="dropdown">
             <span>聯絡我們</span>
             <div class="dropdown-content">
-              <router-link to="/">我要陳情</router-link>
-              <router-link to="/">陳情進度查詢</router-link>
+              <router-link to="/contact">我要陳情</router-link>
+              <router-link to="/contact_search">陳情進度查詢</router-link>
             </div>
           </li>
     </div>
@@ -43,21 +43,23 @@
       <div class="nav_icons">
     <li>
       <RouterLink to="/donate">
-        <div><img src="@/assets/image/home/icon_donate.svg" alt="">
+        <div class="icon"><img src="@/assets/image/home/icon_donate.svg" alt="">
           <p>我要捐款</p>
         </div>
       </RouterLink>
     </li>
-    <li>
+    <li style="position:relative;">
       <RouterLink to="/cart">
-        <div><img src="@/assets/image/home/icon_cart.svg" alt="">
+        <div class="icon" @click="showDropDown"><img src="@/assets/image/home/icon_cart.svg" alt="">
           <p>購物車</p>
         </div>
       </RouterLink>
+      <DropDown v-if="isDropDown" style="position: absolute;" />
     </li>
+
     <li>
       <RouterLink to="/login">
-        <div><img src="@/assets/image/home/icon_login.png" alt="">
+        <div class="icon"><img src="@/assets/image/home/icon_login.png" alt="">
           <p>登入</p>
         </div>
       </RouterLink>
@@ -65,6 +67,7 @@
     </div>
     </li>
     </ul>
+
     </nav>
     </div>
   </header>
@@ -74,11 +77,9 @@
 import { RouterLink } from 'vue-router';
 import { ref } from 'vue';
 
+
 export default {
   setup() {
-  },
-  components: {
-
   },
   data() {
     return {
@@ -107,6 +108,7 @@ export default {
   display: none;
   position: absolute;
   background-color: #fff;
+  border: 2px solid orange;
   min-width: 120px;
   z-index: 1;
   transform: translateX(-18%);
@@ -124,7 +126,7 @@ export default {
 }
 
 .dropdown-content a:nth-child(1) {
-  margin-top: 34px;
+  // margin-top: 34px;
 }
 
 .dropdown-content a:hover {

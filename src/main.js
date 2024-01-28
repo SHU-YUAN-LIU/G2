@@ -1,5 +1,6 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
+import { Button } from 'view-ui-plus'
 
 import App from './App.vue'
 import router from './router'
@@ -16,7 +17,7 @@ import Vue3Marquee from 'vue3-marquee';
 
 //創建一個vue應用程式(主要配置在app.vue裡)
 const app = createApp(App)
-
+app.component('Button', Button)
 app.use(createPinia())
 app.use(router)
 app.use(Vue3Marquee);

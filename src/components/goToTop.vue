@@ -9,7 +9,7 @@
         </div>
     </a> -->
 
-    <a href="#goToTop-a">
+    <a href="#">
         <div class="goToTop">
             <span class="material-symbols-outlined">
                 expand_less

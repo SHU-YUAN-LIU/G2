@@ -64,7 +64,7 @@
         <div class="home_line_button">
             <div class="home_line"></div>
             <CommitButton class="homebutton dog" commitButton="立即前往">
-                <router-link to="/news" >
+                <router-link to="/news">
                 </router-link>
             </CommitButton>
         </div>
@@ -120,13 +120,15 @@
         </div>
 
 
-        <!-- 頁面路由route渲染的位置 -->
+
+
         <RouterView />
+        <!-- 頁面路由route渲染的位置 -->
     </div>
     <div class="home_line_button">
         <div class="home_line"></div>
         <CommitButton class="homebutton dog" commitButton="立即前往">
-            <router-link to="/news" >
+            <router-link to="/news">
             </router-link>
         </CommitButton>
     </div>
@@ -170,8 +172,7 @@ export default {
                 date_time: "2023/12/25",
                 news_title: "這是一場改變政治文化的社會運動",
                 news_script: "這是一場改變政治文化的社會運動，投給劉緯育，投給自己的未來。躊灣資蚤萌我取要天，枯思揀傳之破裡知？書也等起論都風、看珊妻欒外龍若停衣不凰性燈啡。瑛感今我您給不空風樣。作，鳩體能、具的矜手描"
-            }]
-
+            }],
         }
     },
     methods: {
@@ -183,7 +184,7 @@ export default {
         },
         get_for_range(arraydata, indexmin, indexmax) {
             return arraydata.filter((item, index) => index >= indexmin && index <= indexmax);
-        }
+        },
     },
     mounted() {
         // 設定網站標題(瀏覽器頁籤上的標題)

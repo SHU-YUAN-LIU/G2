@@ -145,7 +145,7 @@ body {
 }
 
 #app {
-  background: linear-gradient(-10deg, #D4FF1F 0% 45%, rgba(255, 255, 255, 0) 45% 100%);
+  background: linear-gradient(-10deg, #D4FF1F 0% 25%, rgba(255, 255, 255, 0) 25% 100%);
   z-index: 0;
   margin-top: 85px;
 }
@@ -618,6 +618,8 @@ body {
   cursor: pointer;
   position: absolute;
   z-index: 3;
+  background: none;
+  border: none;
 }
 .successPop_bg .con_success .con_success_group {
   width: 700px;
@@ -739,6 +741,7 @@ header nav ul {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  padding-top: 30px;
 }
 header nav ul li a {
   text-decoration: none;
