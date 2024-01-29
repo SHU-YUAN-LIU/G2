@@ -9,14 +9,23 @@
     // 麵包屑文字
     ul {
         width: 100%;
-        max-width: 1200px;
+        max-width: 1000px;
         display: flex;
         align-items: center;
         position: relative;
 
+        @media screen and (max-width:768px) {
+            max-width: 700px;
+        }
+
+        @media screen and (max-width:414px) {
+            max-width: 380px;
+        }
+
         li {
             @include title_10;
             text-decoration: none;
+            padding: 0 5px;
         }
 
         a {
@@ -29,12 +38,12 @@
             color: $white;
         }
 
-        li:not(li:last-child){
+        li:not(li:last-child) {
             cursor: pointer;
         }
 
-        li:last-child:after{
-            content:'';
+        li:last-child:after {
+            content: '';
             height: 1px;
             // 寬度不確定要設多少?
             width: 80%;
@@ -42,8 +51,12 @@
             position: absolute;
             top: 50%;
             margin-left: 20px;
-  
-          }
+
+            @media screen and (max-width:414px) {
+                width: 50%;
+            }
+
+        }
 
     }
 

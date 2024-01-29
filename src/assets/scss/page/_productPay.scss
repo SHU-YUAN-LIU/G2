@@ -121,10 +121,28 @@
             justify-content: center;
             align-items: center;
             gap: 20px;
+
         }
 
     }
 
+    .pay-detail {
+        @include title_10;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 20px;
+        width: 91%;
+        margin: 20px 0;
+        letter-spacing: $space_letter ;
+
+        .final-num {
+            @include title_9;
+            letter-spacing: $space_letter ;
+            color: $orange;
+            font-weight: 700;
+        }
+    }
 
 
 }

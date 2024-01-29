@@ -1,5 +1,6 @@
 <template>
     <div class="pay-wrap">
+        <!-- 1.購物車內容 -->
         <div class="pay-title">
             <div class="pay-title-group">
                 <div class="title-num">1</div>
@@ -50,8 +51,17 @@
         <div class="pay-detail">
             <span>購物車合計1項商品</span>
             <span>應付總額</span>
-            <span>$1050</span>
+            <span class="final-num">$1050</span>
         </div>
+        <!-- 2.購物車內容 -->
+        <div class="pay-title">
+            <div class="pay-title-group">
+                <div class="title-num">2</div>
+                <span>會員資料</span>
+            </div>
+        </div>
+        <label for="">會員名稱</label>
+        <input type="text">
     </div>
 </template>
 
