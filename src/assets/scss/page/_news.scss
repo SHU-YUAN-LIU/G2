@@ -70,6 +70,7 @@
     margin: 25px 50px;
     border: 1px solid #ccc;
     max-width: 1200px;
+    width: 90%;
     border-radius: 10px;
     overflow: hidden;
 }
@@ -118,4 +119,20 @@
 
 .news_content span {
     color: #666;
+}
+
+@media (max-width: 375px) {
+    .news_card {
+        flex-direction: column;
+    }
+    .news_content {
+        padding: 10px 20px;
+        h3 {
+            @include title_8;
+            margin: 10px 0;
+        }
+        p {
+            @include title_10;
+        }
+    }
 }
