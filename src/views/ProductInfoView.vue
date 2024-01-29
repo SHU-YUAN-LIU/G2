@@ -39,7 +39,7 @@
 import axios from 'axios';
 import Bread from '../components/Bread.vue'
 import CommitButton from '@/components/button/commitButton.vue';
-import CartButton from '@/components/button/CartButton.vue';
+import CartButton from '@/components/button/cartButton.vue';
 export default {
     components: {
         Bread,

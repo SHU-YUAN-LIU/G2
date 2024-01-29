@@ -133,10 +133,10 @@
 
 
         <!-- 頁面路由route渲染的位置 -->
-        <RouterView />
+        <!-- <RouterView /> -->
     </div>
-    <div class="home_line_button">
-        <div class="home_line"></div>
+    <div class="home_line_button ">
+        <div class="home_line donate_line"></div>
         <CommitButton class="homebutton dog" commitButton="立即前往">
             <router-link to="/news">
             </router-link>
@@ -359,5 +359,9 @@ export default {
     margin: auto;
     width: 250px;
     height: 250px;
+}
+
+.commit_btn{
+    margin: initial;
 }
 </style>
