@@ -1,5 +1,5 @@
 <template>
-  <div class="about_wrap">
+  
     <div class="about">
       <div class="contect_banner">
         <img
@@ -11,6 +11,7 @@
       <!-- 麵包屑 -->
       <Bread :page="dog" />
     </div>
+    <div class="about_wrap">
 
     <div class="about_content">
       <div class="about_content-2">

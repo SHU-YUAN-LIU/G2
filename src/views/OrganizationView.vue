@@ -1,16 +1,19 @@
 <template>
-  <div class="organization_wrap">
-    <div class="organization">
-      <div class="contect_banner">
-        <img
-          src="@/assets/image/about/organization_banner.svg"
-          alt="organization_banner.svg"
-        />
-        <h1>組織團隊</h1>
+  <div class="organization">
+    <div class="contect_banner">
+      <img
+        src="@/assets/image/about/organization_banner.svg"
+        alt="organization_banner.svg"
+      />
+      <h1>組織團隊</h1>
       </div>
       <!-- 麵包屑 -->
       <Bread :page="dog" />
-    </div>
+      <div class="organization_wrap">
+      
+    
+    
+  
     <h1 class="organization-title">青年進補黨中央委員會<br />組織團隊</h1>
     <h1 class="organization-title2">中央黨部</h1>
 
@@ -53,6 +56,7 @@
       </div>
     </div>
   </div>
+</div>
 
   <!-- 分隔線 -->
   <!-- <div class="IamSpace" style="display: block; width: 100%; height: 10000px;"></div> -->
