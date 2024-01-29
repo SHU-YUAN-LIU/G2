@@ -54,17 +54,7 @@ export default {
         },
     }
 }
+
 </script>
 
-<style>
-/* @media screen and () {
-    
-}
-.bookmark_content ul {
-    display: flex;
 
-    li {
-        display: block;
-    }
-} */
-</style>

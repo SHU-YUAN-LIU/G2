@@ -27,9 +27,6 @@
 
 
 <script>
-// import vueMarquee from '@/components/Marquee.vue';
-// import bookmark from '@/components/BookMark.vue';
-
 import vueMarquee from "@/components/Marquee.vue";
 import bookmark from "@/components/BookMark.vue"
 
@@ -90,3 +87,10 @@ export default {
 }
 </script>
 
+<style>
+.election {
+  .marq {
+    margin-top: 60px;
+  }
+}
+</style>
