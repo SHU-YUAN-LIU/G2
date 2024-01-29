@@ -45,7 +45,7 @@ export default {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1000;
+    z-index: 2000;
 
     .donate_container {
         width: 600px;

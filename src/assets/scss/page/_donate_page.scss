@@ -297,3 +297,124 @@
     }
   }
 }
+
+@media(max-width: 768px){
+  .donate_page{
+    h4{
+      @include title_4;
+      color: $orange;
+      width: 100%;
+    }
+    .donate_page_banner{    
+      h1 {
+        @include title_4;
+      }
+    }
+  
+    // 主要內容區塊
+    .donate_page_main {
+      max-width: 350px;  
+
+      // 下一步按鈕
+      button.donate_page_next{
+      margin: 50px 0;
+      }
+  
+      // 我要捐款的標題
+      .donate_page_title {
+  
+        h2 {
+          @include title_3;
+        }
+      }
+  
+      // 捐款資料內容
+      .donate_page_content {
+        max-width: 350px;
+        margin-left: 0px;
+        margin-top: 20px;
+
+        // 捐款資料內容_付款方式
+        .donate_page_method {
+          ul {
+            display: flex;
+            margin-top: 30px;
+            gap: 20px;
+            justify-content: start;
+          }
+  
+          li {
+            gap: 20px;
+            height: 150px;
+            align-items: center;
+            p {
+              margin: 0;
+            }
+          }
+        }
+  
+        // 捐款資料內容_金額選擇
+        .donate_page_amount{
+          ul{
+            display: flex;
+            gap: 50px;
+               
+            li{
+              width: 300px;
+  
+              // 點數標籤(黃色圓形)
+              .donate_point{
+                width: 100px;
+                height: 100px;
+                left: -50px;
+                font-size: 24px;
+                span{
+                  font-size: 16px;
+                }
+              }
+            }
+  
+            }
+            
+          }
+  
+          // 了解進補點數按鈕
+          .donate_detail{
+           font-size: 16px;
+          }
+  
+          // 自訂金額區塊
+          .donate_page_inputAmount{
+  
+            p:first-child{
+                margin-bottom: 20px;
+              }
+            div{
+              table{
+                tr{  
+                  td:nth-child(1){
+                    width: 70px;
+                  }
+                  td:nth-child(2){
+                    input{
+                      height: 50px;
+                      vertical-align: middle;
+                      margin: 0;
+                      width: 150px;
+                    }
+                  }
+                  td:nth-child(3){
+                    width: 70px;
+                    text-align: center;
+                    background-color: $orange;
+                    color: $white;
+                  }
+                }
+              }
+  
+            }
+          }
+      }
+    }
+  }
+}
