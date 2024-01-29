@@ -82,11 +82,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "../assets/scss/base/reset";
-@import "../assets/scss/base/font";
-@import "../assets/scss/base/color";
-@import "../assets/scss/base/border";
-
+@import "../assets/scss/style.scss";
 .donate_lightbox {
     position: fixed;
     top: 0;
@@ -214,6 +210,88 @@ export default {
             }
         }
     }
+
+}
+
+@media(max-width: 768px){
+    .donate_lightbox {
+    div {
+        width: 100%;
+        max-width: 350px;
+
+        button {
+            top: -25px;
+            right: -25px;
+            width: 50px;
+            height: 50px;
+            img{
+                width: 50px;
+                height: 50px;
+            }
+        }
+    }
+
+    .donate_lightbox_content {
+        max-width: 350px;
+        padding: 20px;
+        .donate_lightbox_top {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            .donate_anonymous {
+                margin-right: 0px;
+                margin-top: 200px;
+            }
+
+            .donate_member {
+                background: $gray-3;
+            }
+
+            .donate_anonymous,
+            .donate_member {
+                width: 300px;
+                padding: 20px;
+
+                h2 {
+                    @include title-2;
+                }
+
+            }
+        }
+
+        .donate_lightbox_bottom {
+            width: 100%;
+            margin-top: 250px;
+
+            h3 {
+                @include title_3;
+            }
+
+            p {
+                line-height: 30px;
+            }
+
+            div {
+
+                p {
+                    @include title-10;
+                }
+
+                ul {
+                    padding: 20px;
+
+                    li {
+                        line-height: 30px;
+                        font-size: 14px;
+                    }
+                }
+
+            }
+        }
+    }
+
+}
+
 
 }
 </style>

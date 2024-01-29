@@ -20,7 +20,6 @@
     <!-- 政策懶人包 -->
     <div>
       <span class="policy">政策懶人包</span>
-      <!-- 頁籤 -->
       <bookmark />
     </div>
   </div>

@@ -23,21 +23,21 @@
                     </div>
                 </div>
             </div>
-            <form action="" class="register">
+            <form action="" class="register" id="registerform">
                 <div class="register_name">
-                    <p>真實姓名<span>*</span></p>
-                    <input type="text" placeholder="請輸入您的姓名">
+                    <p>真實姓名<span>*</span><span id="nameerror"></span></p>
+                    <input id="name" type="text" placeholder="請輸入您的姓名">
                 </div>
                 <div class="register_birthday">
-                    <p>生日<span>*</span></p>
-                    <input type="date">
+                    <p>生日<span>*</span><span id="dateerror"></span></p>
+                    <input type="date" id="date">
                 </div>
                 <div class="register_email">
-                    <p>電子信箱<span>*</span></p>
+                    <p>電子信箱<span>*</span><span id="emailerror"></span></p>
                     <input type="email" name="email" id="email" placeholder="請輸入您的電子信箱">
                 </div>
                 <div class="register_phone">
-                    <p>手機<span>*</span></p>
+                    <p>手機<span>*</span><span id="phoneerror"></span></p>
                     <input type="text" name="phone" id="phone" placeholder="請輸入您的手機號碼" maxlength="10">
                 </div>
                 <div class="register_id">
@@ -45,7 +45,7 @@
                     <input type="text" name="ide" id="ide" placeholder="請輸入您的身分證" minlength="10" >
                 </div>
                 <div class="register_psw">
-                    <p>密碼<span>*</span></p>
+                    <p>密碼<span>*</span><span id="pswerror"></span></p>
                     <input type="text" name="psw" id="psw" placeholder="請輸入您的密碼">
                 </div>
                 <div class="register_check_psw">
@@ -58,12 +58,12 @@
                 </div>
                 <button class="btn">立刻前往 ➜</button>
             </form>
-            <form ref="login" action="" class="login">
+            <form ref="login" action="" class="login" id="loginform">
                 <div class="profile">
                     <img src="../assets/image/login/user-solid.svg" alt="">
                 </div>
                 <div class="register_email">
-                    <p>電子信箱<span>*</span></p>
+                    <p>電子信箱<span>*</span><span id="emailerror"></span></p>
                     <input type="email" name="email" id="email" placeholder="請輸入您的電子信箱">
                 </div>
                 <div class="register_psw">
@@ -77,7 +77,7 @@
     </article>
 </template>
 <script>
-
+    import { addlistener } from '@/stores/datacheck.js';
     export default{
                 data: () => {
                     return {
@@ -89,6 +89,7 @@
                     }
                 },
                 methods: {
+                    addlistener,
                     checkmemdata(event){
                         const mailinput = this.$refs.login.querySelector('#email').value;
                         console.log(mailinput);
@@ -106,6 +107,10 @@
                 },
                 created(){
                     // const user = this.checkLogin()
+                    // addlistener();
+                },
+                mounted(){
+                    addlistener(); 
                 }
             }
 </script>

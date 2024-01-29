@@ -34,7 +34,7 @@ export default {
     justify-content: center;
     align-items: center;
     position: fixed;
-    z-index: 7;
+    z-index: 10;
     right: 50px;
     bottom: 90px;
     transition: bottom 0.3s ease-in-out;

@@ -19,7 +19,7 @@
             </div>
             <div class="text-group">
                 <span>陳情主旨</span>
-                <p>呼籲政府加強環保政策，共同守護地球家園！</p>
+                <p>呼籲政府加強環保政策，共同守護家園！</p>
             </div>
             <div class="text-group">
                 <span>陳情狀態</span>
