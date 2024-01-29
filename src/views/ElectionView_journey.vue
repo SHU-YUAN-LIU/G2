@@ -104,6 +104,9 @@ export default {
     },
     methods: {
     },
+    mounted() {
+        document.title="青年進補黨 - 活動資訊";
+    },
 }
 </script>
 
@@ -133,39 +136,52 @@ export default {
         .journey {
             background-color: #272727;
             border-radius: 10px;
-            height: 660px;
+            height: 700px;
             width: 600px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
 
             h3 {
                 @include title_6;
                 color: #fff;
                 text-align: center;
-                padding: 10px 0;
+                width: 100%;
+                height: 60px;   
+                line-height: 60px;
 
                 &:nth-child(2) {
                     background-color: $orange;
-                    padding: 10px 0;
                 }
             }
 
             .journey_card {
                 display: flex;
                 justify-content: space-between;
-                border-bottom: 1px solid #FFFFFF;
+                // border-bottom: 1px solid #FFFFFF;
+                border-left: 1px solid #fff;
+                width: 360px;
                 padding: 10px 20px;
-
                 p {
                     font-size: 14px;
                     line-height: 20px;
                     color: $gray_3;
 
-                    &:nth-child(1)::bedore {
+                    &:nth-child(1){
+                        position: relative;
+                    }
+
+                    &:nth-child(1)::before {
                         content: '';
                         width: 10px;
                         height: 10px;
                         background-color: $gray_3;
                         border: 1px solid #fff;
                         border-radius: 50%;
+                        display: inline-block;
+                        position: absolute;
+                        top: 5px;
+                        left: -26px;
                     }
 
                     &:nth-child(2) {
@@ -176,6 +192,18 @@ export default {
                         margin-top: 30px;
                     }
                 }
+                div:last-child{
+                    &::after{
+                        content: '';
+                        width: 240%;
+                        height: 1px;
+                        background: $white;
+                        display: block;
+                        margin-left: -180px;
+                        margin-top: 5px;
+                    }
+                }
+               
             }
         }
     }

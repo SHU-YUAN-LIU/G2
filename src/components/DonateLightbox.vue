@@ -215,9 +215,11 @@ export default {
 
 @media(max-width: 768px){
     .donate_lightbox {
+        z-index: 1000;
     div {
         width: 100%;
         max-width: 350px;
+
 
         button {
             top: -25px;
