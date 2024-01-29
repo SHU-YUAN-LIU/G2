@@ -1,3 +1,4 @@
+import { Dropdown } from 'view-ui-plus'
 import { createRouter, createWebHistory } from 'vue-router'
 
 // path設定'/'表示將該頁面設置為首頁
@@ -32,13 +33,13 @@ const router = createRouter({
       path: '/organization',
       name: 'organization',
       component: () => import('../views/OrganizationView.vue'),
-      meta:{
+      meta: {
         breadcrumb: [{
           name: '首頁 / ',
           link: '',
         },
         {
-          name:'組織團隊',
+          name: '組織團隊',
         }]
       }
     },
@@ -46,13 +47,13 @@ const router = createRouter({
       path: '/partyhistory',
       name: 'partyhistory',
       component: () => import('../views/PartyHistoryView.vue'),
-      meta:{
+      meta: {
         breadcrumb: [{
           name: '首頁 / ',
           link: '',
         },
         {
-          name:'黨史',
+          name: '黨史',
         }]
       }
     },
@@ -255,7 +256,13 @@ const router = createRouter({
       path: '/cart',
       name: 'cart',
       component: () => import('../views/CartView.vue')
-    }
+    },
+    {
+      path: '/ProductPay',
+      name: 'ProductPay',
+      component: () => import('../views/ProductPayView.vue')
+    },
+
   ]
 })
 

@@ -49,12 +49,11 @@
       </RouterLink>
     </li>
     <li style="position:relative;">
-      <RouterLink to="/cart">
-        <div class="icon" @click="showDropDown"><img src="@/assets/image/home/icon_cart.svg" alt="">
-          <p>購物車</p>
-        </div>
-      </RouterLink>
-      <DropDown v-if="isDropDown" style="position: absolute;" />
+
+      <div class="icon" @click="showDropDown"><img src="@/assets/image/home/icon_cart.svg" alt="">
+        <p>購物車</p>
+      </div>
+      <DropDown v-if="isDropDown" />
     </li>
 
     <li>

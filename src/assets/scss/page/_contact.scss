@@ -4,9 +4,13 @@
 
 //  內容
 .contect_info {
-    max-width: 1200px;
+    max-width: 1000px;
     margin: auto;
     position: relative;
+
+    @media screen and (max-width:414px) {
+        max-width: 280px;
+    }
 
     h2 {
         @include title_2;
@@ -16,22 +20,40 @@
         margin-top: 80px;
         margin-bottom: 80px;
         text-align: center;
+
+        @media screen and (max-width:414px) {
+            @include title_3;
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
     }
 
     //  陳情流程
     .con_process_group {
         display: flex;
-        justify-content: center;
-        gap: 95px;
+        justify-content: space-evenly;
         position: relative;
         margin-bottom: 100px;
 
+        @media screen and (max-width:414px) {
+            margin-bottom: 40px;
+        }
+
         .bar {
-            width: 760px;
+            width: 70%;
             height: 5px;
             background-color: $orange;
             position: absolute;
             top: 65px;
+
+            @media screen and (max-width:768px) {
+                top: 50px;
+            }
+
+            @media screen and (max-width:414px) {
+                top: 30px;
+                height: 3px;
+            }
         }
 
         .con_process {
@@ -44,6 +66,16 @@
                 width: 130px;
                 height: 130px;
                 z-index: 2;
+
+                @media screen and (max-width:768px) {
+                    width: 100px;
+                    height: 100px;
+                }
+
+                @media screen and (max-width:414px) {
+                    width: 60px;
+                    height: 60px;
+                }
             }
 
             span {
@@ -51,22 +83,39 @@
                 font-weight: 800;
                 margin-top: 30px;
                 margin-bottom: 30px;
+
+                @media screen and (max-width:414px) {
+                    @include title_10;
+                }
             }
         }
     }
 
     .con_process_know {
-        max-width: 1200px;
+        max-width: 1000px;
         border: 2px solid $orange;
         background-color: $white;
         border-radius: $border-radius-1 ;
         padding: 60px 80px;
+        margin: 100px;
+
+        @media screen and (max-width:414px) {
+            margin: 0px;
+            padding: 20px 20px;
+        }
 
         h3 {
             @include title_7;
             font-weight: 800;
             margin: 10px 0px;
             letter-spacing: 2px;
+            line-height: $line-height;
+            text-align: justify;
+
+            @media screen and (max-width:414px) {
+                @include title_10;
+                font-weight: 800;
+            }
         }
 
         ul {
@@ -82,17 +131,26 @@
     }
 
     .con_input_group {
-        max-width: 1200px;
+        max-width: 1000px;
         border: 2px solid $orange;
         background-color: $white;
         border-radius: $border-radius-1 ;
         padding: 60px 80px;
+        margin: 100px;
 
+        @media screen and (max-width:414px) {
+            margin: 0px;
+            padding: 20px 20px;
+        }
 
         p {
             @include title_10;
             letter-spacing: $space_letter;
             margin: 15px 0;
+
+            @media screen and (max-width:414px) {
+                letter-spacing: 1px;
+            }
         }
 
         .con_input {
@@ -130,4 +188,8 @@
             }
         }
     }
+}
+
+.commit_btn {
+    width: 280px;
 }

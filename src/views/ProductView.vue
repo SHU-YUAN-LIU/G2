@@ -68,7 +68,7 @@ export default {
   },
   methods: {
     axiosGetData() {
-      axios.get("src/assets/local_json/product_data.json")
+      axios.get("/src/assets/local_json/product_data.json")
         .then(res => {
           // console.log(res.data.product_class);
           this.allPro = res.data.products;
