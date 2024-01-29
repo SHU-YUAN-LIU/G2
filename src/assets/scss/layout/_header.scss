@@ -80,7 +80,88 @@ header {
             display: flex;
             justify-content: space-evenly;
         }
-
     }
+}
 
+@media (max-width:768px){
+    header {
+        width: 100%;
+        height: 85px;
+        background-color: #fff;
+        position: fixed;
+        top: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 5;
+    
+        .logo {
+            width: 120px;
+            height: 80px;
+        }
+    
+        nav {
+            width: 100%;
+            max-width: 1920px;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+    
+            ul {
+                list-style: none;
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+    
+    
+                li {
+                    a {
+                        text-decoration: none;
+                        color: $black;
+                        font-size: $font-basic;
+    
+                        &:hover {
+                            color: red
+                        }
+                    }
+    
+                }
+            }
+    
+            .nav_icons {
+                width: 280px;
+                display: flex;
+                justify-content: space-evenly;
+    
+                .icon {
+                    display: flex;
+                    flex-direction: column;
+                    width: 78px;
+                    height: 58px;
+                    align-items: center;
+                    border: 2px solid $orange;
+                    border-radius: $border-radius-1;
+                    cursor: pointer;
+    
+                    img {
+                        width: 25px;
+                        height: 25px;
+                        margin: auto;
+                    }
+    
+                    p {
+                        margin: 0;
+                        color: $orange;
+                    }
+                }
+            }
+    
+            .nav_items {
+                width: 660px;
+                display: flex;
+                justify-content: space-evenly;
+            }
+        }
+    }
 }

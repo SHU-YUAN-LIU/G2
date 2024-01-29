@@ -8,7 +8,7 @@
       <h1>組織團隊</h1>
       </div>
       <!-- 麵包屑 -->
-      <Bread :page="dog" />
+      <breadCrumbs :page="currentPage" />
       <div class="organization_wrap">
       
     
@@ -63,13 +63,14 @@
 </template>
 
 <script>
-import Bread from "../components/Bread.vue";
+import breadCrumbs from '../components/Bread.vue';
 export default {
   components: {
-    Bread,
+    breadCrumbs,
   },
   data() {
     return {
+      
       candidates: [
         {
           name: "陳緯珊",

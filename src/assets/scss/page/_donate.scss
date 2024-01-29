@@ -182,8 +182,6 @@ div.donate{
   #app {
     background: linear-gradient(-10deg, $green 0% 45%, rgba(255, 255, 255, 0) 45% 100%);
     z-index: -1;
-    // 設margin-top高度 = header高度
-    margin-top: 85px;
   }
 
 
@@ -239,7 +237,6 @@ div.donate{
         width: 100%;
         max-width: 350px;
         margin: auto;
-        z-index: 10;
         // 卡片1
         .donate_card1{
           width: 350px;
