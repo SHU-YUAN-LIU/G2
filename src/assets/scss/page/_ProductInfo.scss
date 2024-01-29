@@ -82,6 +82,40 @@
     }
 }
 
+.pro_info_main{
+    width: 1000px;
+    margin: auto;
+    margin-bottom: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    .product_info_title{
+        @include title_2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 80px;
+        margin-bottom: 30px;
+        line-height: $line_height;
+        letter-spacing: $space_letter;
+        width: 100%;
+    }
+
+    .product_info_script{
+        max-width: 800px;
+        text-align: center;
+        @include title_7;
+        line-height: $line_height;
+        letter-spacing: $space_letter;
+    }
+    img{
+        margin-top: 75px;
+        width: 100%;
+        vertical-align: middle;
+    }
+}
 // .test {
 //     display: flex;
 //     justify-content: center;
