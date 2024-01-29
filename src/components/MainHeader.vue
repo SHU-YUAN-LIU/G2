@@ -16,8 +16,8 @@
             <span>關於我們</span>
             <div class="dropdown-content">
               <RouterLink to="/about">核心理念</RouterLink>
-              <RouterLink to="/">組織團隊</RouterLink>
-              <RouterLink to="/">黨史</RouterLink>
+              <RouterLink to="/organization">組織團隊</RouterLink>
+              <RouterLink to="/partyhistory">黨史</RouterLink>
             </div>
           </li>
           <li class="dropdown">
@@ -49,12 +49,11 @@
       </RouterLink>
     </li>
     <li style="position:relative;">
-      <RouterLink to="/cart">
-        <div class="icon" @click="showDropDown"><img src="@/assets/image/home/icon_cart.svg" alt="">
-          <p>購物車</p>
-        </div>
-      </RouterLink>
-      <DropDown v-if="isDropDown" style="position: absolute;" />
+
+      <div class="icon" @click="showDropDown"><img src="@/assets/image/home/icon_cart.svg" alt="">
+        <p>購物車</p>
+      </div>
+      <DropDown v-if="isDropDown" />
     </li>
 
     <li>
@@ -78,6 +77,7 @@ import { RouterLink } from 'vue-router';
 import { ref } from 'vue';
 import dropDown from '../components/cart/dropDown.vue'
 import DropDown from '../components/cart/dropDown.vue';
+
 
 export default {
   setup() {
@@ -125,6 +125,7 @@ export default {
   display: none;
   position: absolute;
   background-color: #fff;
+  border: 2px solid orange;
   min-width: 120px;
   z-index: 1;
   transform: translateX(-18%);
@@ -142,7 +143,7 @@ export default {
 }
 
 .dropdown-content a:nth-child(1) {
-  margin-top: 34px;
+  // margin-top: 34px;
 }
 
 .dropdown-content a:hover {

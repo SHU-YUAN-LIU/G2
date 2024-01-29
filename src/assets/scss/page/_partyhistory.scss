@@ -1,0 +1,23 @@
+.partyhistory {
+    margin-top: 85px;
+  
+    .contect_banner {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  
+      h1 {
+        @include title_1;
+        color: $white;
+        font-weight: initial;
+        letter-spacing: 10px;
+        position: absolute;
+      }
+  
+      img {
+        width: 100%;
+        vertical-align: middle;
+      }
+    }
+  }

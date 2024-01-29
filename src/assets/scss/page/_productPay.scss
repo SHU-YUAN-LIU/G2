@@ -1,0 +1,130 @@
+.pay-wrap {
+    width: 1200px;
+    margin: auto;
+    margin-top: 150px;
+
+    .pay-title {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 20px 0;
+
+        p {
+            @include title_10;
+            letter-spacing: $space_letter ;
+
+        }
+
+        span {
+            font-weight: 700;
+            letter-spacing: $space_letter ;
+        }
+
+        .pay-title-group {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            @include title_9;
+            gap: 10px;
+
+            .title-num {
+                width: 35px;
+                height: 35px;
+                @include title_9;
+                color: $white;
+                background-color: $orange;
+                border-radius: 50%;
+                text-align: center;
+                line-height: 30px;
+            }
+
+        }
+
+
+    }
+
+    .pay-bar {
+        height: 45px;
+        background-color: $orange;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        border-radius: 10px 10px 0 0;
+
+        p {
+            color: $white;
+            @include title_10;
+            letter-spacing: $space_letter;
+
+        }
+    }
+
+    .pay-info {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        gap: 50px;
+        @include title_10;
+        color: $black;
+        margin: 10px 0;
+
+        .pay-product {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+
+            .pay-pic {
+                width: 120px;
+                height: 120px;
+                display: flex;
+
+                img {
+                    width: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+
+        #num {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+
+            div {
+                background-color: $white;
+                border: 1px solid $gray_3;
+                padding: 10px 20px;
+            }
+
+            button {
+                background-color: $white;
+                border: 1px solid $gray_3;
+                padding: 10px;
+                cursor: pointer;
+            }
+
+            .trash-can {
+                border: 1px solid transparent;
+
+                img {
+                    cursor: pointer;
+                }
+            }
+
+
+        }
+
+        .pay-delete {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+
+    }
+
+
+
+}

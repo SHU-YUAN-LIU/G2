@@ -29,6 +29,10 @@
             color: $white;
         }
 
+        li:not(li:last-child){
+            cursor: pointer;
+        }
+
         li:last-child:after{
             content:'';
             height: 1px;

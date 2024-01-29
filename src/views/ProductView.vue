@@ -68,15 +68,16 @@ export default {
   },
   methods: {
     axiosGetData() {
-      axios.get("../../product_data.json")
+      axios.get("/src/assets/local_json/product_data.json")
         .then(res => {
-          console.log(res.data.product_class);
+          // console.log(res.data.product_class);
           this.allPro = res.data.products;
           this.disPro = res.data.products;
           this.product_class_group = res.data.product_class;
           this.addCategory();
         })
         .catch(error => {
+          console.log(123);
           console.error('Error fetching data:', error);
         });
     },

@@ -14,11 +14,11 @@
             <span>NT$ {{ iteminfo.price }}</span>
             <span>供貨狀況: 尚有庫存</span>
             <div id="num">
-                <button @click="count -= 1"> -</button>
+                <button @click="if (count >= 1) { count -= 1 };"> -</button>
                 <div>{{ count }}</div>
                 <button @click="count += 1"> +</button>
             </div>
-            <CartButton :id= iteminfo.product_no :qty= count />
+            <CartButton :text="addCart" :id=iteminfo.product_no :qty=count />
         </div>
         <!-- 左邊圖片區 -->
         <div class="proPic_group">
@@ -51,6 +51,7 @@ export default {
             proInfo: '官方商城',
             count: 0,
             iteminfo: [],
+            addCart: "加入購物車"
         }
     },
     computed: {
@@ -62,7 +63,7 @@ export default {
     methods: {
         axiosGetData() {
             var productId = this.$route.params.productId;
-            axios.get("../../product_data.json")
+            axios.get("/src/assets/local_json/product_data.json")
                 .then(res => {
                     console.log(res.data.products.find(product => product.product_no == productId));
                     this.iteminfo = res.data.products.find(product => product.product_no == productId);
@@ -72,7 +73,12 @@ export default {
                 });
         },
         getpicurl(picname) {
-            var url = '../src/assets/image/product/product_data/' + picname;
+            if (picname) {
+                var url = '../src/assets/image/product/product_data/' + picname;
+            }
+            else {
+                url = "/src/assets/image/product/errorpic.png";
+            }
             return url;
         }
     },
