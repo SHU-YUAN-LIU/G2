@@ -48,3 +48,16 @@
     }
 
 }
+
+@media(max-width: 768px){
+    .bread{
+        ul{
+            max-width: 600px;
+            padding-left: 20px;
+
+            li:last-child:after{
+                width: 50%;
+            }
+        }
+    }
+}

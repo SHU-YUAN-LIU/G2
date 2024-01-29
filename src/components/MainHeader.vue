@@ -9,36 +9,36 @@
           </li>
           <li>
             <div class="nav_items">
-          <li>
-            <RouterLink to="/news">最新消息</RouterLink>
-          </li>
-          <li class="dropdown">
-            <span>關於我們</span>
-            <div class="dropdown-content">
-              <RouterLink to="/about">核心理念</RouterLink>
-              <RouterLink to="/organization">組織團隊</RouterLink>
-              <RouterLink to="/partyhistory">黨史</RouterLink>
-            </div>
-          </li>
-          <li class="dropdown">
-            <span>選舉資訊</span>
-            <div class="dropdown-content">
-              <router-link to="/election">候選人資訊</router-link>
-              <router-link to="/election_journey">活動資訊</router-link>
-            </div>
-          </li>
-          <li>
-            <RouterLink to="/product">官方商城</RouterLink>
-          </li>
-          <li class="dropdown">
-            <span>聯絡我們</span>
-            <div class="dropdown-content">
-              <router-link to="/contact">我要陳情</router-link>
-              <router-link to="/contact_search">陳情進度查詢</router-link>
-            </div>
-          </li>
-    </div>
-    </li>
+              <li>
+                <RouterLink to="/news">最新消息</RouterLink>
+              </li>
+              <li class="dropdown">
+                <span>關於我們</span>
+                <div class="dropdown-content">
+                  <RouterLink to="/about">核心理念</RouterLink>
+                  <RouterLink to="/organization">組織團隊</RouterLink>
+                  <RouterLink to="/partyhistory">黨史</RouterLink>
+                </div>
+              </li>
+              <li class="dropdown">
+                <span>選舉資訊</span>
+                <div class="dropdown-content">
+                  <router-link to="/election">候選人資訊</router-link>
+                  <router-link to="/election_journey">活動資訊</router-link>
+                </div>
+              </li>
+              <li>
+                <RouterLink to="/product">官方商城</RouterLink>
+              </li>
+              <li class="dropdown">
+                <span>聯絡我們</span>
+                <div class="dropdown-content">
+                  <router-link to="/contact">我要陳情</router-link>
+                  <router-link to="/contact_search">陳情進度查詢</router-link>
+                </div>
+              </li>
+          </div>
+      </li>
     <li>
       <div class="nav_icons">
     <li>
