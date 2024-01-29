@@ -3,14 +3,14 @@
 // }
 
 .pro_info_group {
-    width: 1000px;
+    width: 300px;
     margin: auto;
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: column-reverse;
     align-items: stretch;
     gap: 20px;
-    margin-top: 80px;
-    margin-bottom: 80px;
+    margin-top: 30px;
+    margin-bottom: 30px;
 
     .proText_group {
         display: flex;
@@ -18,25 +18,29 @@
         justify-content: space-between;
 
         .proLine {
-            width: 480px;
+            width: 250px;
             height: 1px;
             background-color: gray;
+            margin-block: 10px;
         }
 
         p {
-            @include title_3;
+            @include title_6;
             letter-spacing: 4px;
+            padding-block: 10px;
 
         }
 
         span {
             @include title_10;
             line-height: $line_height;
+            padding-block: 10px;
         }
 
         #num {
             display: flex;
             justify-content: center;
+            margin-block: 10px;
         }
 
 
@@ -50,8 +54,8 @@
         gap: 20px;
 
         .bigPic {
-            width: 500px;
-            height: 400px;
+            width: 300px;
+            height: 240px;
 
             img {
                 width: 100%;
@@ -68,8 +72,8 @@
 
 
             div {
-                width: 110px;
-                height: 100px;
+                width: 66px;
+                height: 60px;
 
                 img {
                     width: 100%;
@@ -78,6 +82,165 @@
                     object-fit: cover;
                 }
             }
+        }
+    }
+}
+
+.pro_info_main {
+    width: 300px;
+    margin: auto;
+    margin-bottom: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    .product_info_title {
+        @include title_4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 30px;
+        margin-bottom: 20px;
+        line-height: $line_height;
+        letter-spacing: $space_letter;
+        width: 100%;
+    }
+
+    .product_info_script {
+        max-width: 250px;
+        text-align: center;
+        @include title_10;
+        line-height: $line_height;
+        letter-spacing: $space_letter;
+    }
+
+    img {
+        margin-top: 30px;
+        width: 100%;
+        vertical-align: middle;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .pro_info_group {
+        width: 700px;
+        flex-direction: row-reverse;
+        margin-top: 80px;
+        margin-bottom: 80px;
+
+        .proText_group {
+            .proLine {
+                width: 360px;
+                margin-block: 0;
+            }
+
+            span {
+                padding: 0
+            }
+
+            p {
+                @include title_3;
+            }
+            #num {
+                margin-block: 0;
+            }
+        }
+
+        .proPic_group {
+            .bigPic {
+                width: 400px;
+                height: 320px;
+            }
+
+            .littlePic {
+                div {
+                    width: 88px;
+                    height: 80px;
+                }
+            }
+        }
+    }
+
+    .pro_info_main {
+        width: 700px;
+        margin-bottom: 50px;
+
+        .product_info_title {
+            @include title_3;
+            margin-top: 50px;
+            margin-bottom: 25px;
+        }
+
+        .product_info_script {
+            max-width: 600px;
+            @include title_8;
+        }
+
+        img {
+            margin-top: 50px;
+        }
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .pro_info_group {
+        width: 1000px;
+        flex-direction: row-reverse;
+        margin-top: 80px;
+        margin-bottom: 80px;
+
+        .proText_group {
+            .proLine {
+                width: 480px;
+                margin-block: 0;
+            }
+
+            span {
+                padding: 0
+            }
+
+            p {
+                @include title_3;
+            }
+            #num {
+                margin-block: 0;
+            }
+        }
+
+        .proPic_group {
+            .bigPic {
+                width: 500px;
+                height: 400px;
+            }
+
+            .littlePic {
+                div {
+                    width: 110px;
+                    height: 100px;
+                }
+            }
+        }
+    }
+
+    .pro_info_main {
+        width: 1000px;
+        margin-bottom: 30px;
+
+        .product_info_title {
+            @include title_2;
+            margin-top: 80px;
+            margin-bottom: 30px;
+        }
+
+        .product_info_script {
+            max-width: 800px;
+            @include title_7;
+        }
+
+        img {
+            margin-top: 75px;
         }
     }
 }

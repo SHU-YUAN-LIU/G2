@@ -43,6 +43,8 @@
   }
   .organization_wrap {
     position: relative;
+    width: 1200px;
+    margin: auto;
   }
   
 
@@ -58,8 +60,8 @@
 
     position: absolute;
     /* 設定特定位置的座標 */
-    top: 2050px;
-    left: 42.5%;
+    top: 1300px;
+    left: 38%;
     /* 根據需求調整其他樣式 */
   }
 
@@ -112,15 +114,16 @@
     margin-top: 120px;
   }
   .card:nth-child(2) {
-    margin-left: 31.35%;
+    margin-left:  calc((100% - 600px)/2);
     margin-right: 2.5%;
   }
   .card:nth-child(3) {
     margin-left: 2.5%;
-    margin-right: 31.35%;
+    margin-right: calc((100% - 600px)/2);
   }
+  
   .card:nth-child(4) {
-    margin-left: 25%;
+    margin-left: calc((100% - 750px)/2);
     margin-right: 2.5%;
   }
   .card:nth-child(5) {
@@ -130,7 +133,7 @@
 
   .card:nth-child(6) {
     margin-left: 2.5%;
-    margin-right: 25%;
+    margin-right: calc((100% - 750px)/2);
   }
   .card:nth-child(7),
   .card:nth-child(8), 

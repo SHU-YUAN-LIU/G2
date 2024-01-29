@@ -21,6 +21,10 @@
     }
   }
 }
+.about_wrap{
+  width: 1250px;
+    margin: auto;
+}
 .about_content {
   border-radius: $border-radius-1;
   border: 3px solid #ff892e;
@@ -31,8 +35,8 @@
   align-items: center;
   padding: 50px 60px;
   margin: 150px;
-  margin-left: 360px;
-  margin-right: 360px;
+  // margin-left: 360px;
+  // margin-right: 360px;
 }
 @media (max-width: 768px) {
   .about_content {
