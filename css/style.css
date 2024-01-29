@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -140,6 +141,11 @@ a {
   text-decoration: none;
 }
 
+input,
+input:focus {
+  border-width: 1px;
+}
+
 body {
   font-size: 16px;
 }
@@ -152,11 +158,14 @@ body {
 
 .pro-title {
   font-family: "Mantou Sans";
+  font-size: 23px;
+  color: #000;
 }
 
 .pro-price {
   font-family: "Noto Sans TC", sans-serif;
   font-size: 16px;
+  font-weight: 600;
   letter-spacing: 1.5px;
   color: #FF892E;
 }
@@ -169,8 +178,8 @@ body {
 .card_pic img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  -o-object-fit: contain;
+     object-fit: contain;
   vertical-align: middle;
 }
 
@@ -454,6 +463,9 @@ body {
 .bread ul li:last-child {
   color: #FFF;
 }
+.bread ul li:not(li:last-child) {
+  cursor: pointer;
+}
 .bread ul li:last-child:after {
   content: "";
   height: 1px;
@@ -575,6 +587,7 @@ body {
   font-size: 16px;
   line-height: 75px;
   font-family: "Noto Sans TC", sans-serif;
+  margin-top: 60px;
 }
 
 .marqbtn {
@@ -588,9 +601,88 @@ body {
   color: #000;
 }
 
+.drop-down-cart {
+  width: 450px;
+  max-height: 800px;
+  position: absolute;
+  border: 2px solid #D8D8D8;
+  background-color: #FFF;
+  border-radius: 10px;
+}
+.drop-down-cart .cart-group {
+  max-height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 15px;
+  overflow: scroll;
+}
+.drop-down-cart .cart-group .cart-item {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #D8D8D8;
+  padding: 10px;
+}
+.drop-down-cart .cart-group .cart-item .cart-pic {
+  width: 175px;
+  min-width: 175px;
+  height: 175px;
+  overflow: hidden;
+}
+.drop-down-cart .cart-group .cart-item .cart-pic img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  vertical-align: middle;
+}
+.drop-down-cart .cart-group .cart-item .cart-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 15px;
+}
+.drop-down-cart .cart-group .cart-item .cart-info .cart-text p {
+  font-family: "Mantou Sans";
+  letter-spacing: 1.5px;
+  font-size: 24px;
+  margin: 10px 0;
+}
+.drop-down-cart .cart-group .cart-item .cart-info .cart-text span {
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  color: #FF892E;
+}
+.drop-down-cart .cart-group .cart-item .cart-info .quality-trashcan {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+}
+.drop-down-cart .cart-group .cart-item .cart-info .quality-trashcan #num {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.drop-down-cart .cart-group .cart-item .cart-info .quality-trashcan #num div {
+  background-color: #FFF;
+  border: 1px solid #565656;
+  padding: 10px 20px;
+}
+.drop-down-cart .cart-group .cart-item .cart-info .quality-trashcan #num button {
+  background-color: #FFF;
+  border: 1px solid #565656;
+  padding: 10px;
+  cursor: pointer;
+}
+.drop-down-cart .cart-group .cart-item .cart-info .quality-trashcan .trash-can img {
+  cursor: pointer;
+}
+
 .successPop_bg {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background-color: rgba(75, 75, 75, 0.4470588235);
   display: flex;
   justify-content: center;
@@ -601,8 +693,7 @@ body {
   z-index: 1000;
 }
 .successPop_bg .con_success {
-  width: 800px;
-  height: 800px;
+  width: 600px;
   margin: auto;
   background-color: #D4FF1F;
   border-radius: 10px;
@@ -612,56 +703,54 @@ body {
   position: absolute;
 }
 .successPop_bg .con_success .cross {
-  position: absolute;
-  top: -30px;
-  left: 760px;
+  top: -20px;
+  left: 570px;
   cursor: pointer;
   position: absolute;
   z-index: 3;
-  background: none;
   border: none;
+  background: none;
+}
+.successPop_bg .con_success .cross img {
+  width: 55px;
 }
 .successPop_bg .con_success .con_success_group {
   width: 700px;
   display: flex;
-}
-.successPop_bg .con_success .con_success_group .success_top {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 30px;
-  width: 700px;
+  padding: 30px;
+  gap: 20px;
+}
+.successPop_bg .con_success .con_success_group .success_top {
+  width: 500px;
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: #FFF;
   margin: auto;
   border-radius: 10px;
-  padding: 30px;
+  padding: 20px;
 }
-.successPop_bg .con_success .con_success_group .success_top hr {
-  height: 2px;
-  background-color: #565656;
-}
-.successPop_bg .con_success .con_success_group .success_top h2 {
+.successPop_bg .con_success .con_success_group .success_top h3 {
   font-family: "Mantou Sans";
-  font-size: 65px;
+  font-size: 45px;
   font-weight: initial;
-  font-weight: initial;
-  margin: 20px 0px 50px 0px;
+  margin: 20px 0px 20px 0px;
 }
 .successPop_bg .con_success .con_success_group .success_top p {
-  margin: 8px;
+  margin: 5px;
   font-family: "Noto Sans TC", sans-serif;
   font-size: 16px;
-  font-weight: 800;
+  font-weight: 700;
 }
 .successPop_bg .con_success .con_success_group .success_top img {
-  width: 150px;
+  width: 80px;
 }
 .successPop_bg .con_success .con_success_group .success_bottom {
-  height: 220px;
-  padding: 30px;
+  width: 500px;
+  padding: 20px;
   background-color: #565656;
   border-radius: 10px;
   font-family: "Noto Sans TC", sans-serif;
@@ -675,7 +764,7 @@ body {
   align-items: center;
 }
 .successPop_bg .con_success .con_success_group .success_bottom p {
-  margin: 8px 0px;
+  margin: 3px 0px;
 }
 
 .commit_btn {
@@ -698,7 +787,8 @@ body {
   gap: 10px;
   border: transparent;
   cursor: pointer;
-  margin-top: 50px;
+  margin: auto;
+  margin-top: 80px;
   margin-bottom: 80px;
 }
 .commit_btn:hover {
@@ -756,7 +846,7 @@ header nav .nav_icons {
   display: flex;
   justify-content: space-evenly;
 }
-header nav .nav_icons div {
+header nav .nav_icons .icon {
   display: flex;
   flex-direction: column;
   width: 78px;
@@ -765,12 +855,12 @@ header nav .nav_icons div {
   border: 2px solid #FF892E;
   border-radius: 10px;
 }
-header nav .nav_icons div img {
+header nav .nav_icons .icon img {
   width: 25px;
   height: 25px;
   margin: auto;
 }
-header nav .nav_icons div p {
+header nav .nav_icons .icon p {
   margin: 0;
   color: #FF892E;
 }
@@ -800,6 +890,7 @@ footer {
 
 .footer_logo, .footer_contact, .footer_media {
   padding: 30px;
+  margin: auto;
 }
 
 .footer_logo img {
@@ -843,6 +934,14 @@ footer {
   padding: 0 30px;
 }
 
+@media (max-width: 375px) {
+  .footer_container {
+    flex-direction: column;
+  }
+  .footer_container h4 {
+    text-align: center;
+  }
+}
 .about {
   margin-top: 85px;
 }
@@ -1089,7 +1188,6 @@ footer {
 
 .Three {
   border-radius: 10px;
-  border: 3px solid #ff892e;
   background-color: #fff;
   display: flex;
   flex-direction: column;
@@ -1097,27 +1195,221 @@ footer {
   align-items: center;
   padding: 50px 60px;
   margin: 150px;
-  margin-left: 360px;
-  margin-right: 360px;
+  margin-left: 18%;
+  margin-right: 18%;
+  margin-top: 60px; /* 根據需求設定合適的值 */
+  margin-top: 0; /* 將 margin-top 設為 0，讓台灣價值的區塊與決策三原則相鄰 */
 }
 
-.value_img {
+.Value-main-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: #fff;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+@media (max-width: 991px) {
+  .Value-main-container {
+    max-width: 100%;
+    margin-top: 40px;
+  }
+}
+.Value-title {
+  color: #000;
+  text-align: center;
+  letter-spacing: 13px;
+  align-self: center;
+  font: 400 65px/97% Mantou Sans, sans-serif;
+}
+
+@media (max-width: 991px) {
+  .Value-title {
+    font-size: 40px;
+  }
+}
+.Value-section {
+  margin: auto;
+  margin-top: 191px;
+  width: 100%;
+  display: flex;
+}
+
+@media (max-width: 991px) {
+  .Value-section {
+    max-width: 100%;
+    margin-top: 40px;
+  }
+}
+.Value-column {
+  display: flex;
+  flex-wrap: wrap;
+  line-height: normal;
+  margin-left: 0px;
+  margin: auto;
+}
+
+@media (max-width: 991px) {
+  .Value-column {
+    width: 100%;
+  }
+}
+.Value-img {
   aspect-ratio: 0.74;
   -o-object-fit: contain;
      object-fit: contain;
   -o-object-position: center;
      object-position: center;
   width: 100%;
-  overflow: hidden;
   flex-grow: 1;
 }
 
 @media (max-width: 991px) {
-  .value_img {
+  .Value-img {
     max-width: 100%;
     margin-top: 40px;
   }
 }
+.Value-description {
+  border-radius: 10px;
+  border: 3px solid #ff892e;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  color: #000;
+  white-space: nowrap;
+  text-align: justify;
+  width: 450px;
+  margin: auto 0;
+  padding: 50px 80px;
+}
+
+@media (max-width: 991px) {
+  .Value-description {
+    max-width: 100%;
+    margin-top: 40px;
+    white-space: initial;
+    padding: 0 20px;
+  }
+}
+.Value-sub-title {
+  justify-content: center;
+  letter-spacing: 3.6px;
+  margin-top: 23px;
+  font: 600 36px/131% Noto Sans, sans-serif;
+}
+
+@media (max-width: 991px) {
+  .Value-sub-title {
+    margin: 0 8px;
+  }
+}
+.Value-divider {
+  background-color: #000;
+  margin-top: 22px;
+  width: 259px;
+  max-width: 100%;
+  height: 1px;
+}
+
+@media (max-width: 991px) {
+  .Value-divider {
+    margin: 0 8px;
+  }
+}
+.Value-content {
+  width: 100%;
+  letter-spacing: 2.08px;
+  margin-top: 23px;
+  font: 500 16px/27px Noto Sans, sans-serif;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  word-wrap: break-word; /* 新增這行 */
+  white-space: pre-line; /* 新增這行 */
+}
+
+@media (max-width: 991px) {
+  .Value-content {
+    margin: 0 8px;
+  }
+}
+.Value-content p {
+  width: 100%;
+  white-space: pre-line; /* 新增這行 */
+}
+
+.Value-img-container {
+  position: relative;
+}
+
+.Value-small-img1 {
+  position: absolute;
+  /* 設定特定位置的座標 */
+  top: 80px;
+  left: 200px;
+  /* 根據需求調整其他樣式 */
+}
+
+.Value-small-img2 {
+  position: absolute;
+  /* 設定特定位置的座標 */
+  top: 250px;
+  left: 50px;
+  /* 根據需求調整其他樣式 */
+}
+
+.Value-small-img3 {
+  position: absolute;
+  /* 設定特定位置的座標 */
+  top: 450px;
+  left: 50px;
+  /* 根據需求調整其他樣式 */
+}
+
+.Value-small-img4 {
+  position: absolute;
+  /* 設定特定位置的座標 */
+  top: 650px;
+  left: 100px;
+  /* 根據需求調整其他樣式 */
+}
+
+.Value-small-img5 {
+  position: absolute;
+  /* 設定特定位置的座標 */
+  top: 650px;
+  left: 450px;
+  /* 根據需求調整其他樣式 */
+}
+
+.Value-small-img6 {
+  position: absolute;
+  /* 設定特定位置的座標 */
+  top: 450px;
+  left: 550px;
+  /* 根據需求調整其他樣式 */
+}
+
+.Value-small-img7 {
+  position: absolute;
+  /* 設定特定位置的座標 */
+  top: 250px;
+  left: 600px;
+  /* 根據需求調整其他樣式 */
+}
+
+.Value-small-img8 {
+  position: absolute;
+  /* 設定特定位置的座標 */
+  top: 50px;
+  left: 550px;
+  /* 根據需求調整其他樣式 */
+}
+
 div.donate {
   margin-top: 85px;
 }
@@ -1377,6 +1669,79 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
   width: 194px !important;
 }
 
+.bannercontent {
+  overflow: hidden;
+  position: relative;
+}
+.bannercontent .bannershow {
+  position: relative;
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.bannerleft {
+  position: absolute;
+  left: 0;
+  cursor: pointer;
+}
+
+.bannerright {
+  position: absolute;
+  right: 0;
+  cursor: pointer;
+}
+
+.bannercontent div img {
+  width: 100vw;
+}
+
+.pointwrap {
+  display: flex;
+  width: 300px;
+  justify-content: space-between;
+  position: absolute;
+  bottom: -50px;
+}
+
+.bannerpoint {
+  background-color: #D8D8D8;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.getdeep {
+  background-color: #FF892E;
+}
+
+.banner > button {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  background-color: rgba(255, 255, 255, 0.5);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  font-size: 40px;
+}
+
+.banner > button:first-child {
+  left: 20px;
+}
+
+.banner > button:last-child {
+  right: 20px;
+}
+
+.banner > button:last-child {
+  right: 60px;
+}
+
 article {
   margin: 200px;
   display: flex;
@@ -1419,9 +1784,9 @@ article {
   align-items: center;
   justify-content: center;
   padding: 70px 50px;
-  width: calc(50% - 80px);
+  width: calc(50% - 50px);
   height: 100%;
-  transform: translateX(-20%);
+  transform: translateX(-40%);
   transition: transform 0.5s ease-in-out;
 }
 .container .overlay_left p {
@@ -1438,7 +1803,7 @@ article {
   align-items: center;
   justify-content: center;
   padding: 70px 50px;
-  width: calc(50% - 80px);
+  width: calc(50% - 50px);
   height: 100%;
   transform: translateX(0);
   transition: transform 0.5s ease-in-out;
@@ -1458,7 +1823,7 @@ form {
   top: 0;
   display: flex;
   flex-direction: column;
-  padding: 40px 100px;
+  padding: 40px 110px;
   height: 100%;
   transition: all 0.5s ease-in-out;
   background: white;
@@ -1472,9 +1837,11 @@ form .profile {
   height: 200px;
   border-radius: 50%;
   background-color: #ccc;
-  margin: 15px auto;
+  margin: 20px auto;
   display: flex;
   justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
 }
 form .profile img {
   width: 90px;
@@ -1548,10 +1915,10 @@ form .register_read p {
 }
 
 .register-active .login {
-  transform: translateX(100%);
+  transform: translateX(90%);
 }
 .register-active .register {
-  transform: translateX(100%);
+  transform: translateX(90%);
   opacity: 1;
   z-index: 5;
   animation: show 0.5s;
@@ -1563,10 +1930,10 @@ form .register_read p {
   transform: translateX(50%);
 }
 .register-active .overlay_left {
-  transform: translateX(0);
+  transform: translateX(5%);
 }
 .register-active .overlay_right {
-  transform: translateX(20%);
+  transform: translateX(30%);
 }
 
 @keyframes show {
@@ -1581,6 +1948,34 @@ form .register_read p {
   50% {
     opacity: 1;
     z-index: 10;
+  }
+}
+@media (max-width: 1200px) {
+  .container {
+    width: 800px;
+  }
+  form.login {
+    width: 400px;
+    box-sizing: border-box;
+  }
+  form.login .profile {
+    width: 150px;
+    height: 150px;
+  }
+  form.login .profile img {
+    height: 80%;
+  }
+  form.login p {
+    font-size: 0.8rem;
+  }
+  form.login input {
+    width: 200px;
+  }
+  .register-active .register {
+    transform: translateX(50%);
+    opacity: 1;
+    z-index: 5;
+    animation: show 0.5s;
   }
 }
 .news_wrap {
@@ -1733,27 +2128,45 @@ form .register_read p {
   width: 1200px;
   margin: auto;
 }
-
-.top {
-  margin-top: 100px;
-  height: 200px;
+.pro_wrap .pro-top {
+  margin: 150px 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
 }
-
-.product {
+.pro_wrap .pro-top input {
+  height: 48px;
+  border-radius: 10px;
+  text-indent: 20px;
+}
+.pro_wrap .pro-top input:focus {
+  outline: none;
+  border: 2px solid #FF892E;
+}
+.pro_wrap .pro-top .pro-class {
+  width: 175px;
+  height: 48px;
+  border-radius: 10px;
+  text-indent: 20px;
+}
+.pro_wrap .product {
   display: flex;
   justify-content: center;
   gap: 20px;
 }
-.product .pro_card_group {
+.pro_wrap .product .pro_card_group {
   justify-content: center;
 }
-.product .pro_card_group .card_group {
+.pro_wrap .product .pro_card_group .card_group {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 40px;
+  margin-bottom: 200px;
 }
-.product .pro_card_group .card_group .procard {
+.pro_wrap .product .pro_card_group .card_group .procard {
   width: 200px;
+  color: #FF892E;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -1774,6 +2187,7 @@ form .register_read p {
   position: absolute;
   top: -25px;
   left: -25px;
+  color: #000;
 }
 
 .pro_info_group {
@@ -1846,6 +2260,96 @@ form .register_read p {
      object-fit: cover;
 }
 
+/* 手機版 */
+.election {
+  /* 候選人資訊 */
+  /* 跑馬燈 */
+}
+.election .election_banner {
+  background-image: url("@/assets/image/election/banner-480px.png");
+  height: 1540px;
+}
+.election .election_info .election_content {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  text-align: center;
+}
+.election .election_info .election_content ul li {
+  padding: 10px 10px;
+  font-size: 24px;
+}
+.election .election_info .election_content ul li:nth-child(1) {
+  color: #9D9D9D;
+  font-family: "Mantou Sans";
+  font-size: 28px;
+  font-weight: initial;
+}
+.election .election_info .election_content ul li:nth-child(2) {
+  color: #FF892E;
+  font-family: "Mantou Sans";
+  font-size: 65px;
+  font-weight: initial;
+  border-bottom: 1px solid black;
+}
+.election .election_info .election_content ul li:nth-child(3) {
+  font-family: "Mantou Sans";
+  font-size: 36px;
+  font-weight: initial;
+}
+.election .election_info .election_content ul li:nth-child(7) {
+  font-family: "Mantou Sans";
+  font-size: 36px;
+  font-weight: initial;
+}
+.election .election_marquee {
+  background-color: #D4FF1F;
+}
+.election .policy {
+  display: flex;
+  justify-content: center;
+  font-family: "Mantou Sans";
+  font-size: 65px;
+  font-weight: initial;
+  margin: 60px 0;
+}
+
+/*平板 */
+@media screen and (min-width: 768px) {
+  .election {
+    /* banner */
+  }
+  .election .election_banner {
+    background-image: url("@/assets/image/election/banner-480px.png");
+    background-repeat: no-repeat;
+  }
+  .election .election_info .election_content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .election .election_info .election_content ul {
+    margin: 0 20px;
+  }
+}
+/*PC板 */
+@media screen and (min-width: 1200px) {
+  .election {
+    /* banner */
+  }
+  .election .election_banner {
+    background-image: url("@/assets/image/election/banner-1920px.png");
+    background-repeat: no-repeat;
+  }
+  .election .election_info .election_content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .election .election_info .election_content ul {
+    margin: 0 100px;
+  }
+}
 .contect {
   margin-top: 85px;
 }
@@ -1930,13 +2434,34 @@ form .register_read p {
   border-radius: 10px;
   padding: 60px 80px;
 }
+.contect_info .con_input_group p {
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 16px;
+  letter-spacing: 1.5px;
+  margin: 15px 0;
+}
 .contect_info .con_input_group .con_input {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 .contect_info .con_input_group .con_input input {
-  width: 1040px;
+  height: 48px;
+  border-radius: 10px;
+  text-indent: 20px;
+}
+.contect_info .con_input_group .con_input input:focus {
+  outline: none;
+  border: 2px solid #FF892E;
+}
+.contect_info .con_input_group .con_input textarea {
+  height: 300px;
+  padding: 20px;
+  border-radius: 10px;
+}
+.contect_info .con_input_group .con_input textarea:focus {
+  outline: none;
+  border: 2px solid #FF892E;
 }
 .contect_info .con_input_group .con_input .con_text {
   height: 300px;
@@ -1952,7 +2477,7 @@ form .register_read p {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 25px;
+  gap: 30px;
   margin-top: 150px;
   margin-bottom: 150px;
 }
@@ -1961,10 +2486,148 @@ form .register_read p {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  gap: 10px;
+}
+.contect_search .searchInput input {
+  width: 600px;
+  height: 48px;
+  border-radius: 10px;
+  text-indent: 20px;
+}
+.contect_search .searchInput input:focus {
+  outline: none;
+  border: 2px solid #FF892E;
 }
 .contect_search .searchInput label {
   font-family: "Noto Sans TC", sans-serif;
   font-size: 16px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.searchFinal-wrap {
+  width: 1000px;
+  margin: auto;
+  margin-top: 150px;
+  margin-bottom: 150px;
+  border: 3px solid #FF892E;
+  border-radius: 10px;
+  background-color: #FFF;
+  padding: 20px 30px;
+  position: relative;
+}
+.searchFinal-wrap .searchF-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  padding: 50px;
+  position: relative;
+}
+.searchFinal-wrap .searchF-title::after {
+  content: "";
+  width: 100%;
+  height: 1px;
+  background-color: #565656;
+  position: absolute;
+  z-index: 1;
+  top: 98px;
+}
+.searchFinal-wrap .searchF-title .text-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 65px;
+}
+.searchFinal-wrap .searchF-title .text-group span {
+  font-family: "Mantou Sans";
+  font-size: 28px;
+  font-weight: initial;
+  letter-spacing: 1.5px;
+}
+.searchFinal-wrap .searchF-title .text-group p {
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 20px;
+  letter-spacing: 1.5px;
+  height: 60px;
+  text-align: center;
+  line-height: 30px;
+}
+.searchFinal-wrap .searchF-title .text-group .searchF-process {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+}
+.searchFinal-wrap .searchF-title .text-group .searchF-process::after {
+  content: "";
+  width: 100px;
+  height: 4px;
+  background-color: #FF892E;
+  position: absolute;
+  vertical-align: middle;
+}
+.searchFinal-wrap .searchF-title .text-group .searchF-process div {
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  background-color: #FFF;
+  border: 3px solid #FF892E;
+}
+.searchFinal-wrap .searchF-title .text-group .searchF-process div:nth-child(2) {
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #FF892E;
+  color: #FFF;
+  z-index: 5;
+}
+.searchFinal-wrap .searchF-content {
+  padding: 50px;
+}
+.searchFinal-wrap .searchF-content .triangle-group {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 30px;
+}
+.searchFinal-wrap .searchF-content .triangle-group p {
+  background-color: #FF892E;
+  font-family: "Mantou Sans";
+  font-size: 28px;
+  font-weight: initial;
+  color: #FFF;
+  letter-spacing: 1.5px;
+  width: 150px;
+  text-align: center;
+  height: 48px;
+  line-height: 48px;
+}
+.searchFinal-wrap .searchF-content .triangle-group .triangle {
+  border-top: 24px solid transparent;
+  border-bottom: 24px solid transparent;
+  border-left: 24px solid #FF892E;
+}
+.searchFinal-wrap .searchF-content span {
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 20px;
+  letter-spacing: 1.5px;
+  line-height: 1.5;
+  margin: 20px 0px;
 }
 
 .member_wrap {
@@ -1990,6 +2653,7 @@ form .register_read p {
   height: 78px;
   margin: auto;
   margin-top: 20px;
+  cursor: pointer;
 }
 .member_wrap .membercontent .searchbar {
   margin-top: 30px;
@@ -2035,6 +2699,7 @@ form .register_read p {
   border: 1px solid #FF892E;
   height: 66px;
   width: 184px;
+  cursor: pointer;
 }
 .member_wrap .btn_wrap .focuson {
   background-color: #FF892E;
@@ -2072,6 +2737,7 @@ form .register_read p {
   height: 48px;
   font-size: 16px;
   border: none;
+  cursor: pointer;
 }
 
 .startdate {
@@ -2174,6 +2840,7 @@ form .register_read p {
 }
 .orderdatesearch .searchbtn {
   margin-right: 0;
+  cursor: pointer;
 }
 
 .member_idno span {
@@ -2187,17 +2854,21 @@ form .register_read p {
 }
 
 .forgot_wrap {
-  width: 1200px;
+  max-width: 1200px;
+  width: 90%;
+  height: 900px;
   display: flex;
   margin: 200px auto;
   justify-content: center;
+  align-items: center;
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2), 0 10px 10px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
 }
 .forgot_wrap form {
   position: inherit;
-  width: 700px;
-  height: 900px;
+  max-width: 700px;
+  width: 100%;
+  height: 600px;
 }
 .forgot_wrap form input {
   margin-bottom: 20px;
@@ -2214,15 +2885,19 @@ form .register_read p {
   padding-bottom: 50px;
   letter-spacing: 10px;
 }
+.forgot_wrap form .forgot_email {
+  margin: 0 auto;
+}
 .forgot_wrap form .forgot_email input {
   width: 500px;
 }
 .forgot_wrap form .forgot_code .mark {
   color: #FF892E;
   margin-bottom: 20px;
-  font-size: 14px;
+  font-size: 16px;
 }
 .forgot_wrap form .forgot_code .valification {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -2231,26 +2906,91 @@ form .register_read p {
 .forgot_wrap form .forgot_code .valification input {
   width: 250px;
 }
-.forgot_wrap form .forgot_code .valification button {
+.forgot_wrap form .forgot_code .valification input.input_code {
+  margin-bottom: 10px;
+}
+.forgot_wrap form .forgot_code .valification .vali_code {
+  display: flex;
+}
+.forgot_wrap form .forgot_code .valification .vali_code button {
   border-radius: 10px;
   padding: 10px;
   background-color: rgba(102, 102, 102, 0.4);
   border: none;
   color: white;
+  margin-left: 20px;
+}
+@media (max-width: 375px) {
+  .forgot_wrap {
+    height: auto;
+    margin: 150px auto 100px auto;
+  }
+  .forgot_wrap form {
+    height: auto;
+    padding: 50px 30px;
+  }
+  .forgot_wrap form p {
+    font-size: 12px;
+  }
+  .forgot_wrap form h1 {
+    font-family: "Mantou Sans";
+    font-size: 28px;
+    font-weight: initial;
+    padding-bottom: 30px;
+  }
+  .forgot_wrap form .btn {
+    width: 200px;
+    height: 40px;
+    font-size: 14px;
+    margin: 20px auto;
+  }
+  .forgot_wrap form .forgot_email input {
+    width: 250px;
+    height: 30px;
+    font-size: 12px;
+  }
+  .forgot_wrap form .forgot_code {
+    margin: 0 auto;
+  }
+  .forgot_wrap form .forgot_code .mark {
+    margin-bottom: 20px;
+    font-size: 12px;
+    order: 1;
+    display: block;
+  }
+  .forgot_wrap form .forgot_code .valification {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .forgot_wrap form .forgot_code .valification input {
+    width: 250px;
+    height: 30px;
+    font-size: 12px;
+  }
+  .forgot_wrap form .forgot_code .valification .vali_code {
+    margin-bottom: 20px;
+  }
+  .forgot_wrap form .forgot_code .valification .vali_code button {
+    font-size: 12px;
+  }
 }
 
 .new_wrap {
-  width: 1200px;
+  max-width: 1200px;
+  width: 90%;
+  height: 900px;
   display: flex;
   margin: 200px auto;
   justify-content: center;
+  align-items: center;
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2), 0 10px 10px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
 }
 .new_wrap form {
   position: inherit;
-  width: 700px;
-  height: 900px;
+  max-width: 700px;
+  width: 100%;
+  height: 600px;
 }
 .new_wrap form input {
   margin-bottom: 20px;
@@ -2267,15 +3007,19 @@ form .register_read p {
   padding-bottom: 50px;
   letter-spacing: 10px;
 }
+.new_wrap form .forgot_email {
+  margin: 0 auto;
+}
 .new_wrap form .forgot_email input {
   width: 500px;
 }
 .new_wrap form .forgot_code .mark {
   color: #FF892E;
   margin-bottom: 20px;
-  font-size: 14px;
+  font-size: 16px;
 }
 .new_wrap form .forgot_code .valification {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -2284,12 +3028,73 @@ form .register_read p {
 .new_wrap form .forgot_code .valification input {
   width: 250px;
 }
-.new_wrap form .forgot_code .valification button {
+.new_wrap form .forgot_code .valification input.input_code {
+  margin-bottom: 10px;
+}
+.new_wrap form .forgot_code .valification .vali_code {
+  display: flex;
+}
+.new_wrap form .forgot_code .valification .vali_code button {
   border-radius: 10px;
   padding: 10px;
   background-color: rgba(102, 102, 102, 0.4);
   border: none;
   color: white;
+  margin-left: 20px;
+}
+@media (max-width: 375px) {
+  .new_wrap {
+    height: auto;
+    margin: 150px auto 100px auto;
+  }
+  .new_wrap form {
+    height: auto;
+    padding: 50px 30px;
+  }
+  .new_wrap form p {
+    font-size: 12px;
+  }
+  .new_wrap form h1 {
+    font-family: "Mantou Sans";
+    font-size: 28px;
+    font-weight: initial;
+    padding-bottom: 30px;
+  }
+  .new_wrap form .btn {
+    width: 200px;
+    height: 40px;
+    font-size: 14px;
+    margin: 20px auto;
+  }
+  .new_wrap form .forgot_email input {
+    width: 250px;
+    height: 30px;
+    font-size: 12px;
+  }
+  .new_wrap form .forgot_code {
+    margin: 0 auto;
+  }
+  .new_wrap form .forgot_code .mark {
+    margin-bottom: 20px;
+    font-size: 12px;
+    order: 1;
+    display: block;
+  }
+  .new_wrap form .forgot_code .valification {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .new_wrap form .forgot_code .valification input {
+    width: 250px;
+    height: 30px;
+    font-size: 12px;
+  }
+  .new_wrap form .forgot_code .valification .vali_code {
+    margin-bottom: 20px;
+  }
+  .new_wrap form .forgot_code .valification .vali_code button {
+    font-size: 12px;
+  }
 }
 .new_wrap .new_form input {
   width: 500px;
@@ -2298,6 +3103,16 @@ form .register_read p {
   margin-top: 30px;
 }
 
+@media (max-width: 375px) {
+  .new_wrap .new_form input {
+    width: 250px;
+    height: 30px;
+    font-size: 12px;
+  }
+  .new_wrap .new_form .btn {
+    margin-top: 20px;
+  }
+}
 .newspage_wrap {
   font-family: "Noto Sans TC", sans-serif;
   font-size: 20px;
@@ -2317,7 +3132,7 @@ form .register_read p {
   margin: 30px 0;
 }
 .newspage_wrap .type_date span {
-  padding-left: 10px;
+  padding-left: 20px;
   color: #666;
 }
 .newspage_wrap .newspage_photo1 {
@@ -2329,6 +3144,251 @@ form .register_read p {
 }
 .newspage_wrap .newspage_content {
   padding: 50px 0 150px 0;
-  line-height: 2rem;
+  line-height: 2.5rem;
   letter-spacing: 0.2rem;
+}
+
+.donate_page h4 {
+  margin-bottom: 30px;
+  font-family: "Mantou Sans";
+  font-size: 28px;
+  font-weight: initial;
+  color: #FF892E;
+  width: 100%;
+}
+.donate_page .donate_page_banner {
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.donate_page .donate_page_banner img {
+  width: 100%;
+}
+.donate_page .donate_page_banner h1 {
+  font-family: "Mantou Sans";
+  font-size: 93px;
+  font-weight: initial;
+  color: #FFF;
+  position: absolute;
+}
+.donate_page .donate_page_main {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.donate_page .donate_page_main p {
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 16px;
+  margin-top: 30px;
+}
+.donate_page .donate_page_main button.donate_page_next {
+  background-color: #FF892E;
+  padding: 13px 30px;
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 20px;
+  border-radius: 50px;
+  letter-spacing: 1.5px;
+  color: #FFF;
+  border: none;
+  margin: 90px 0;
+}
+.donate_page .donate_page_main .donate_page_title {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border-bottom: 1px solid #D8D8D8;
+  height: 80px;
+  width: 100%;
+}
+.donate_page .donate_page_main .donate_page_title h2 {
+  font-family: "Mantou Sans";
+  font-size: 36px;
+  font-weight: initial;
+}
+.donate_page .donate_page_main .donate_page_content {
+  margin-left: 60px;
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.donate_page .donate_page_main .donate_page_content input {
+  margin-top: 10px;
+}
+.donate_page .donate_page_main .donate_page_content .donate_page_info p {
+  color: red;
+}
+.donate_page .donate_page_main .donate_page_content .donate_page_info li {
+  margin-top: 30px;
+}
+.donate_page .donate_page_main .donate_page_content .donate_page_unit p {
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 16px;
+}
+.donate_page .donate_page_main .donate_page_content .donate_page_contact input[type=checkbox] {
+  width: 15px;
+  height: 15px;
+  margin-right: 10px;
+}
+.donate_page .donate_page_main .donate_page_content .donate_page_contact .donate_page_email {
+  margin: 30px 0;
+}
+.donate_page .donate_page_main .donate_page_content .donate_page_contact .donate_page_email span {
+  color: red;
+}
+.donate_page .donate_page_main .donate_page_content .donate_page_contact .donate_page_email input {
+  width: 100%;
+  height: 40px;
+}
+.donate_page .donate_page_main .donate_page_content .donate_page_contact .donate_page_phone span {
+  color: red;
+}
+.donate_page .donate_page_main .donate_page_content .donate_page_contact .donate_page_phone input {
+  width: 100%;
+  height: 40px;
+}
+.donate_page .donate_page_main .donate_page_content .donate_page_method ul {
+  display: flex;
+  margin-top: 30px;
+  gap: 20px;
+  justify-content: start;
+}
+.donate_page .donate_page_main .donate_page_content .donate_page_method li {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  width: 160px;
+  height: 180px;
+  border: 1px solid #000;
+  box-shadow: 0px 1px 0px #666, 0px 2px 0px #777, 0px 3px 0px #888, 0px 4px 0px #999, 0px 5px 0px #aaa, 0px 6px 0px #bbb;
+}
+.donate_page .donate_page_main .donate_page_content .donate_page_method li p {
+  text-align: center;
+}
+.donate_page .donate_page_main .donate_page_content .donate_page_method li img {
+  width: 70px;
+}
+.donate_page .donate_page_main .donate_page_content .donate_page_method .chosen {
+  background-color: #FF892E;
+  color: #FFF;
+}
+.donate_page .donate_page_main .donate_page_content .donate_page_amount {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.donate_page .donate_page_main .donate_page_content .donate_page_amount h4 {
+  margin-bottom: 60px;
+}
+.donate_page .donate_page_main .donate_page_content .donate_page_amount ul {
+  display: flex;
+  gap: 70px;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+.donate_page .donate_page_main .donate_page_content .donate_page_amount ul li {
+  border-radius: 10px;
+  border: 1px solid #565656;
+  position: relative;
+  width: 310px;
+  height: 160px;
+}
+.donate_page .donate_page_main .donate_page_content .donate_page_amount ul li .donate_point {
+  border-radius: 50%;
+  background: #FFD216;
+  width: 110px;
+  height: 110px;
+  text-align: center;
+  line-height: 110px;
+  color: #FFF;
+  position: absolute;
+  top: -70px;
+  left: -50px;
+  letter-spacing: 1px;
+  font-family: "Mantou Sans";
+  font-size: 28px;
+  font-weight: initial;
+}
+.donate_page .donate_page_main .donate_page_content .donate_page_amount ul li .donate_point span {
+  font-size: 18px;
+}
+.donate_page .donate_page_main .donate_page_content .donate_page_amount ul li .donate_amount_item {
+  background: #565656;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  border-radius: 10px 10px 0 0;
+}
+.donate_page .donate_page_main .donate_page_content .donate_page_amount ul li .donate_amount_item p {
+  color: #FFF;
+  text-align: center;
+  margin: 0;
+}
+.donate_page .donate_page_main .donate_page_content .donate_page_amount ul li .donate_amount_item p:first-child {
+  font-size: 24px;
+}
+.donate_page .donate_page_main .donate_page_content .donate_page_amount ul p.donate_amount_text {
+  font-family: "Mantou Sans";
+  font-size: 28px;
+  font-weight: initial;
+  color: #FF892E;
+  text-align: center;
+  margin: 0;
+  line-height: 60px;
+}
+.donate_page .donate_page_main .donate_page_content .donate_detail {
+  border: none;
+  border-bottom: 1px solid #FF892E;
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 20px;
+  color: #FF892E;
+  background-color: rgba(255, 255, 255, 0);
+  height: 40px;
+  align-self: flex-end;
+}
+.donate_page .donate_page_main .donate_page_content .donate_page_inputAmount p:first-child {
+  margin-bottom: 30px;
+}
+.donate_page .donate_page_main .donate_page_content .donate_page_inputAmount p:first-child span {
+  color: #FF892E;
+}
+.donate_page .donate_page_main .donate_page_content .donate_page_inputAmount div {
+  border-radius: 10px;
+  overflow: hidden;
+}
+.donate_page .donate_page_main .donate_page_content .donate_page_inputAmount div table tr {
+  height: 50px;
+}
+.donate_page .donate_page_main .donate_page_content .donate_page_inputAmount div table tr td {
+  line-height: 50px;
+}
+.donate_page .donate_page_main .donate_page_content .donate_page_inputAmount div table tr td:nth-child(1) {
+  width: 220px;
+  text-align: center;
+  background-color: #FF892E;
+  color: #FFF;
+}
+.donate_page .donate_page_main .donate_page_content .donate_page_inputAmount div table tr td:nth-child(2) input {
+  height: 50px;
+  vertical-align: middle;
+  margin: 0;
+  width: 910px;
+}
+.donate_page .donate_page_main .donate_page_content .donate_page_inputAmount div table tr td:nth-child(3) {
+  width: 70px;
+  text-align: center;
+  background-color: #FF892E;
+  color: #FFF;
 }/*# sourceMappingURL=style.css.map */

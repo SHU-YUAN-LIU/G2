@@ -57,14 +57,14 @@ export default {
 </script>
 
 <style>
-@media screen and (max-width:768px) {
-    .bookmark_content ul {
-        display: flex;
-
-        li {
-            display: block;
-        }
-    }
-
+/* @media screen and () {
+    
 }
+.bookmark_content ul {
+    display: flex;
+
+    li {
+        display: block;
+    }
+} */
 </style>

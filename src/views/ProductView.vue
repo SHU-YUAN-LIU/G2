@@ -29,6 +29,10 @@
         </div>
       </div>
     </div>
+    <!-- 分頁 -->
+    <div>
+      <Pagination />
+    </div>
   </div>
 </template>
 
@@ -37,11 +41,13 @@ import axios from 'axios';
 import ProCard from '../components/ProCard.vue'
 import Banner from '../components/Banner.vue'
 import Bread from '../components/Bread.vue'
+import Pagination from '../components/Pagination.vue'
 export default {
   components: {
     ProCard,
     Banner,
     Bread,
+    Pagination,
   },
   data() {
     return {
