@@ -258,11 +258,11 @@ const router = createRouter({
       component: () => import('../views/CartView.vue')
     },
     {
-      path: '/ProductPay',
+      path: '/ProductPayView',
       name: 'ProductPay',
       component: () => import('../views/ProductPayView.vue')
     },
-
+    
   ]
 })
 

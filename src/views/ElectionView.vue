@@ -73,7 +73,7 @@
     <!-- 政策懶人包 -->
     <div>
       <span class="policy">政策懶人包</span>
-
+      <bookmark />
     </div>
   </div>
 </template>
@@ -217,7 +217,7 @@ export default {
     }
 
     /* 候選人資訊 */
-    .election_content {}
+    // .election_content {}
 
     /* 跑馬燈 */
     .election_marquee {

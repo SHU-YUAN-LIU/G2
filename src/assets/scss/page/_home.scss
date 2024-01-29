@@ -72,9 +72,10 @@
     align-items: center;
     padding: 80px 0px;
     gap: 10px;
+
     .home_line{
         height: 2px;
-        width: 42%;
+        width: 41%;
         background-color: $orange; 
     }
     .dog{
@@ -84,7 +85,13 @@
         margin-top: auto;
         margin-bottom: auto;
     }
+    .donate_line{
+        width: 52%;
+    }
 }
+
+
+
 .homebutton{
     width: 194px !important;
 

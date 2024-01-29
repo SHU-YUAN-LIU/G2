@@ -1,168 +1,162 @@
 <template>
-    <div class="about_wrap">
-      <div class="about">
-        <div class="contect_banner">
-          <img
-            src="@/assets/image/about/about_banner.svg"
-            alt="about_banner.svg"
-          />
-          <h1>關於我們</h1>
+  <div class="organization_wrap">
+    <div class="organization">
+      <div class="contect_banner">
+        <img
+          src="@/assets/image/about/organization_banner.svg"
+          alt="organization_banner.svg"
+        />
+        <h1>組織團隊</h1>
+      </div>
+      <!-- 麵包屑 -->
+      <Bread :page="dog" />
+    </div>
+    <h1 class="organization-title">青年進補黨中央委員會<br />組織團隊</h1>
+    <h1 class="organization-title2">中央黨部</h1>
+
+    <div class="card-container">
+      <div
+        v-for="(candidate, index) in candidates"
+        :key="index"
+        class="card"
+        @click="showPopup(candidate)"
+      >
+        <img
+          :src="candidate.image"
+          alt="Candidate Image"
+          class="candidate-image"
+        />
+        <div class="candidate-info">
+          <p class="candidate-name">{{ candidate.name }}</p>
+          <p class="candidate-position">{{ candidate.position }}</p>
         </div>
-        <!-- 麵包屑 -->
-        <Bread :page="dog" />
-      </div>
-  
-      <div class="about_content">
-        <div class="about_content-2">
-          <div class="about_content-3">
-            以三大政策方向，讓台灣融入區域經濟、改善投資環境，帶動企業創新轉型
-          </div>
-          <div class="about_content-4"></div>
-          <div class="about_content-5">
-            透過三大政策方向，我們能引領台灣融入區域經濟，加強與周邊國家合作，促進貿易，打造共榮經濟環境。優化投資環境，進行法規改革，提供激勵，吸引企業投資發展。著重企業創新轉型，建立創新生態系統，支持研發。這三項政策結合，有助於提升競爭力，帶動經濟成長，確保台灣在全球經濟中有更穩固的地位。
-          </div>
-        </div>
-      </div>
-  
-      <div class="rule">
-        <div class="rule-2">
-          <div class="rule-3">
-            <div class="rule-column">
-              <div class="rule-4">
-                我們是台灣的人民。我們堅信政治應該是我們日常生活中的重要一環，以「追求台灣的共同利益和增進人民福祉」為我們的宗旨。期望憑藉我們的存在和努力，台灣能變得更加美好。基於這一信念，我們相信集體的智慧遠勝於個人，要達到長遠的目標，需要大家的共同前行。
-              </div>
-            </div>
-            <div class="rule-column-2">
-              <div class="rule-5">
-                <div class="rule-6">黨會規範</div>
-                <img
-                  loading="lazy"
-                  src="@/assets/image/about/logo.svg"
-                  class="img"
-                />
-              </div>
-            </div>
-            <div class="rule-column-3">
-              <div class="rule-7">
-                雖然我們來自不同的背景，但現在擁有同一片天空，並期望邁向一個共同的未來。我們的願景是終結政治派系之間的紛爭和族群間的分歧，通過實現包容和融合，達到真正的和諧與榮耀。我們相信，只有先實現彼此的相互接納和融合，最終才能共同分享榮光。
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-  
-      <!-- 決策三原則 -->
-      <div class="Three">
-        <span class="policy rule-6">決策三原則</span>
-        <ThreeBookMark />
-      </div>
-  
-      <!-- 台灣價值 -->
-      <div class="Value-main-container">
-        <div class="Value-title">台灣價值</div>
-        <section class="Value-section">
-          <div class="Value-column">
-            <div class="Value-img-container">
-              <img
-              loading="lazy"
-              src="@/assets/image/about/GreanTaiwan 1.svg"
-              class="Value-img"/>    
-              <div class="Value-small-img1"> 
-                <img src="@/assets/image/about/small_image_1.svg" alt="small_image_1" @click="showContent(1)" />
-              </div>
-              <div class="Value-small-img2"> 
-                <img src="@/assets/image/about/small_image_2.svg" alt="small_image_2" @click="showContent(2)" />
-              </div>
-              <div class="Value-small-img3"> 
-                <img src="@/assets/image/about/small_image_3.svg" alt="small_image_3" @click="showContent(3)" />
-              </div>
-              <div class="Value-small-img4"> 
-                <img src="@/assets/image/about/small_image_4.svg" alt="small_image_4" @click="showContent(4)" />
-              </div>
-              <div class="Value-small-img5"> 
-                <img src="@/assets/image/about/small_image_5.svg" alt="small_image_5" @click="showContent(5)" />
-              </div>
-              <div class="Value-small-img6"> 
-                <img src="@/assets/image/about/small_image_6.svg" alt="small_image_6" @click="showContent(6)" />
-              </div>
-              <div class="Value-small-img7"> 
-                <img src="@/assets/image/about/small_image_7.svg" alt="small_image_7" @click="showContent(7)" />
-              </div>
-              <div class="Value-small-img8"> 
-                <img src="@/assets/image/about/small_image_8.svg" alt="small_image_8" @click="showContent(8)" />
-              </div>
-            </div>
-            
-            
-          </div>
-          <div class="Value-column">
-            <div class="Value-description">
-              <!-- 內容將在這裡動態更新 -->
-              <h2 class="Value-sub-title" ref="ValueSubtitle">DEMOCRACY</h2>
-              <div class="Value-divider"></div>
-              <div class="Value-content"  ref="ValueDescription" >
-                <p class="Value-word" >政治為人民所共有，人民有平等的權利來參與政治，不受限於黨派意識型態、性別、族群、階級，開放政府、全民參與，是我們的目標。
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
       </div>
     </div>
-  
-    <!-- 分隔線 -->
-    <div class="IamSpace" style="display: block; width: 100%; height: 10000px;"></div>
-  </template>
-  
-  <script>
-  import Bread from "../components/Bread.vue";
-  import ThreeBookMark from "../components/ThreeBookMark.vue";
-  export default {
-    components: {
-      Bread,
-      ThreeBookMark,
+
+    <h1 class="organization-title3">地方黨部</h1>
+
+    <div class="localparty">
+      <div class="localcard-container">
+        <div
+          v-for="(localcandidate, index) in localcandidates"
+          :key="index"
+          class="localcard"
+        >
+          <div class="localcandidate-info">
+            <p class="localcandidate-name">{{ localcandidate.name }}</p>
+            <p class="localcandidate-position">{{ localcandidate.position }}</p>
+          </div>
+          <div class="local-span" @click="showDetails(localcandidate)">
+            <div class="add">詳細資訊</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 分隔線 -->
+  <!-- <div class="IamSpace" style="display: block; width: 100%; height: 10000px;"></div> -->
+</template>
+
+<script>
+import Bread from "../components/Bread.vue";
+export default {
+  components: {
+    Bread,
+  },
+  data() {
+    return {
+      candidates: [
+        {
+          name: "陳緯珊",
+          position: "黨主席",
+          image: "/src/assets/image/about/Candidate1.svg",
+        },
+        {
+          name: "陳優華",
+          position: "秘書長",
+          image: "/src/assets/image/about/Candidate2.svg",
+        },
+        {
+          name: "林悅芬",
+          position: "副秘書長",
+          image: "/src/assets/image/about/Candidate3.svg",
+        },
+        {
+          name: "劉緯育",
+          position: "發言人",
+          image: "/src/assets/image/about/Candidate4.svg",
+        },
+        {
+          name: "張美玲",
+          position: "發言人",
+          image: "/src/assets/image/about/Candidate5.svg",
+        },
+        {
+          name: "許嘉宏",
+          position: "發言人",
+          image: "/src/assets/image/about/Candidate6.svg",
+        },
+        {
+          name: "吳建民",
+          position: "政策研究部主任",
+          image: "/src/assets/image/about/Candidate7.svg",
+        },
+        {
+          name: "陳淑萍",
+          position: "新聞輿情部主任",
+          image: "/src/assets/image/about/Candidate8.svg",
+        },
+        {
+          name: "林宗良",
+          position: "媒體創意部主任",
+          image: "/src/assets/image/about/Candidate9.svg",
+        },
+        {
+          name: "黃雅琳",
+          position: "組織部主任",
+          image: "/src/assets/image/about/Candidate10.svg",
+        },
+        {
+          name: "王明德",
+          position: "行政部主任",
+          image: "/src/assets/image/about/Candidate11.svg",
+        },
+      ],
+      localcandidates: [
+        { id: 1, name: "陳建宏", position: "基隆黨部主任" },
+        { id: 2, name: "張秀芬", position: "新北黨部主任" },
+        { id: 3, name: "李志明", position: "台北黨部主任" },
+        { id: 4, name: "蔡雅雯", position: "桃園黨部主任" },
+        { id: 5, name: "林國良", position: "新竹黨部主任" },
+        { id: 6, name: "王美玲", position: "苗栗黨部主任" },
+        { id: 7, name: "陳明宏", position: "台中黨部主任" },
+        { id: 8, name: "鄭雅筑", position: "彰化黨部主任" },
+        { id: 9, name: "吳宗霖", position: "雲林黨部主任" },
+        { id: 10, name: "許玉美", position: "嘉義黨部主任" },
+        { id: 11, name: "梁偉哲", position: "台南黨部主任" },
+        { id: 12, name: "蔡佳琳", position: "高雄黨部主任" },
+        { id: 13, name: "鄭文彬", position: "屏東黨部主任" },
+        { id: 14, name: "賴宏偉", position: "花蓮黨部主任" },
+        { id: 15, name: "吳偉賢", position: "宜蘭黨部主任" },
+        // ... 其他候選人的資料 ...
+      ],
+    };
+  },
+  methods: {
+    showPopup(candidate) {
+      // Implement logic to show popup with candidate details
+      
+      console.log("Show popup for", candidate.name);
     },
-    data() {
-      return {
-        applyCustomStyle: false,
-        // 內容數據，例如：
-        titles: [
-        "DEMOCRACY",
-        "FREEDOM",
-        "DIVERSITY",
-        "OPEN",
-        "RULE OF LAW",
-        "HUMAN RIGHTS",
-        "CARE",
-        "SUSTAINABILITY",
-        ],
-        contents: [
-          "政治為人民所共有，人民有平等的權利來參與政治，不受限於黨派意識型態、性別、族群、階級，開放政府、全民參與，是我們的目標。",
-          "自由是每個人的根本權利，追求夢想與表達意見，是社會不斷進步的重要動能。",
-          "多元是文明的象徵，尊重各種觀點和信仰，共同建構充滿活力的社會。",
-          "開放政府促進透明參與，民眾有權監督，打造公正、高效的治理機制。",
-          "法治是社會秩序的基石，以法律守護公民權益，維護社會公正。",
-          "人權是普世價值，每個人生而平等，應受到尊重和保護。",
-          "關懷弱勢是社會的溫度，共同發聲、提供支持，實現平等機會。",
-          "永續經營為後代着想，保護環境、節約資源，實現社會經濟的永續發展。",        
-        ],
-      };
+    showDetails(localcandidate) {
+      // 调用弹窗显示详细信息的逻辑，您可以根据需要实现
+      console.log("Show details for", localcandidate.name);
+      // 在这里添加弹窗显示的逻辑，例如使用模态框或其他方式
     },
-    methods: {
-      showContent(index) {
-        this.applyCustomStyle = true;
-        // 在這個方法中更新 Value-description 的內容
-        this.$refs.ValueDescription.innerHTML = this.contents[index - 1];
-        this.applyCustomStyle = true;
-      // 在這個方法中更新 Value-sub-title 的內容
-      this.$refs.ValueSubtitle.innerHTML = this.titles[index - 1];
-        
-      },
-    },
-  
-  };
-  
-  </script>
-  
-  <style scoped lang="scss"></style>
-  
+
+  },
+};
+</script>
+
+<style scoped lang="scss"></style>
