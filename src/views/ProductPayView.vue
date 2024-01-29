@@ -53,15 +53,111 @@
             <span>應付總額</span>
             <span class="final-num">$1050</span>
         </div>
-        <!-- 2.購物車內容 -->
+        <!-- 2.會員資料 -->
         <div class="pay-title">
             <div class="pay-title-group">
                 <div class="title-num">2</div>
                 <span>會員資料</span>
+                <input type="checkbox" name="approval">
+                以下自動帶入會員資料
             </div>
         </div>
-        <label for="">會員名稱</label>
-        <input type="text">
+        <div class="mem-info">
+            <div class="mem-input">
+                <label for="">會員名稱</label>
+                <input type="text" placeholder="王大明">
+            </div>
+            <div class="mem-input">
+                <label for="">會員電話</label>
+                <input type="text" placeholder="0927384773">
+            </div>
+            <div class="mem-input">
+                <label for="">會員信箱</label>
+                <input type="text" placeholder="andy123@yahoo.com.tw">
+            </div>
+            <div class="mem-input">
+                <label for="">會員地址</label>
+                <input type="text" placeholder="桃園市中壢區復興路46號9樓">
+            </div>
+
+        </div>
+        <!-- 3.收件人資料 -->
+        <div class="pay-title">
+            <div class="pay-title-group">
+                <div class="title-num">3</div>
+                <span>收件人資料</span>
+                <input type="checkbox" name="approval">
+                同會員資料
+            </div>
+        </div>
+        <div class="mem-info">
+            <div class="mem-input">
+                <label for="">收件人姓名</label>
+                <input type="text" placeholder="請輸入收件人姓名">
+            </div>
+            <div class="mem-input">
+                <label for="">收件人聯絡電話</label>
+                <input type="text" placeholder="請輸入購買人聯絡電話">
+            </div>
+        </div>
+        <!-- 4.運送方式 -->
+        <div class="pay-title">
+            <div class="pay-title-group">
+                <div class="title-num">4</div>
+                <span>運送方式</span>
+            </div>
+        </div>
+        <div class="shipping-box-group">
+            <div class="shipping-box">
+                <input type="radio" name="approval">
+                宅配
+            </div>
+            <div class="shipping-box">
+                <input type="radio" name="approval">
+                全家取貨(先付款)
+            </div>
+            <div class="shipping-box">
+                <input type="radio" name="approval">
+                7-11 取貨(先付款)
+            </div>
+            <div class="shipping-box">
+                <input type="radio" name="approval">
+                萊爾富取貨(先付款)
+            </div>
+        </div>
+        <button class="pay-btn">請選擇取貨門市</button>
+        <div class="receive-address">
+            <label for="">收件人地址(如果是超商取貨則免填)</label>
+            <input type="text" placeholder="購買人地址， 例：桃園市中壢區復興路46號9樓">
+        </div>
+        <!-- 5.付款方式 -->
+        <div class="pay-title">
+            <div class="pay-title-group">
+                <div class="title-num">5</div>
+                <span>付款方式</span>
+            </div>
+        </div>
+        <div class="shipping-box-group">
+            <div class="shipping-box">
+                <input type="radio" name="approval">
+                信用卡
+            </div>
+            <div class="shipping-box">
+                <input type="radio" name="approval">
+                虛擬ATM
+            </div>
+        </div>
+        <div class="pay-checkbox-group">
+            <div class="pay-checkbox">
+                <input type="checkbox" name="approval">
+                同意商店服務條款/會員責任規範及個資聲明
+            </div>
+            <div class="pay-checkbox">
+                <input type="checkbox" name="approval">
+                為保障彼此之權益，賣家在收到您的訂單後仍保有決定是否接受訂單及出貨與否之權利
+            </div>
+        </div>
+        <button class="pay-btn-now">立即結賬</button>
     </div>
 </template>
 
