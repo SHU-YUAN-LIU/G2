@@ -28,7 +28,7 @@
 </template>    
 <script>
 import { show_product } from '@/stores/cart.js';
-import cartButton from '@/components/button/cartButton.vue'
+import cartButton from '@/components/button/CartButton.vue'
 export default {
     data() {
         return {
