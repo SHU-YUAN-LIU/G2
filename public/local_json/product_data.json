@@ -1,0 +1,224 @@
+{
+    "products": [
+        {
+            "product_no": "1",
+            "product_name": "挺進補•帽T-淺灰M",
+            "product_class_no": "1",
+            "product_intro":"單一雙色的灰白定調，鐵灰與純白象徵超然的「意志」與「包容」的氣度。使用台灣獨有的創新環保布料，布料由台灣興采咖啡渣技術製成絲絨，表示永續環保的精神。單一雙色的灰白定調，鐵灰與純白象徵超然的「意志」與「包容」的氣度。使用台灣獨有的創新環保布料，布料由台灣興采咖啡渣技術製成絲絨，表示永續環保的精神。",
+            "info": "Product 1 description",
+            "price": 3600,
+            "status": "A",
+            "product_pic1": "product1_pic1.png",
+            "product_pic2": "",
+            "product_pic3": "",
+            "product_pic4": ""
+        },
+        {
+            "product_no": "2",
+            "product_name": "挺進補•素T-淺灰M",
+            "product_class_no": "1",
+            "product_intro":"product 2 script",
+            "info": "Product 2 description",
+            "price": 3600,
+            "status": "A",
+            "product_pic1": "product2_pic1.png",
+            "product_pic2": "",
+            "product_pic3": "",
+            "product_pic4": ""
+        },
+        {
+            "product_no": "3",
+            "product_name": "挺進補•素T-黑M",
+            "product_class_no": "1",
+            "product_intro":"product 3 script",
+            "info": "Product 3 description",
+            "price": 3600,
+            "status": "A",
+            "product_pic1": "product3_pic1.png",
+            "product_pic2": "",
+            "product_pic3": "",
+            "product_pic4": ""
+        },
+        {
+            "product_no": "4",
+            "product_name": "挺進補•高領外套-淺灰L",
+            "product_class_no": "1",
+            "product_intro":"product 4 script",
+            "info": "Product 4 description",
+            "price": 3600,
+            "status": "A",
+            "product_pic1": "product4_pic1.png",
+            "product_pic2": "",
+            "product_pic3": "",
+            "product_pic4": ""
+        },
+        {
+            "product_no": "5",
+            "product_name": "挺進補•馬克杯-白",
+            "product_class_no": "2",
+            "product_intro":"product 5 script",
+            "info": "Product 5 description",
+            "price": 3600,
+            "status": "A",
+            "product_pic1": "product5_pic1.png",
+            "product_pic2": "",
+            "product_pic3": "",
+            "product_pic4": ""
+        },
+        {
+            "product_no": "6",
+            "product_name": "挺進補•馬克杯-淺灰(設計師合作)",
+            "product_class_no": "2",
+            "product_intro":"product 6 script",
+            "info": "Product 6 description",
+            "price": 3600,
+            "status": "A",
+            "product_pic1": "product6_pic1.png",
+            "product_pic2": "",
+            "product_pic3": "",
+            "product_pic4": ""
+        },
+        {
+            "product_no": "7",
+            "product_name": "挺進補•辦公用杯子-白",
+            "product_class_no": "2",
+            "product_intro":"product 7 script",
+            "info": "Product 7 description",
+            "price": 3600,
+            "status": "A",
+            "product_pic1": "product7_pic1.png",
+            "product_pic2": "",
+            "product_pic3": "",
+            "product_pic4": ""
+        },
+        {
+            "product_no": "8",
+            "product_name": "挺進補•馬克杯-淺灰(設計師合作)",
+            "product_class_no": "2",
+            "product_intro":"product 8 script",
+            "info": "Product 8 description",
+            "price": 3600,
+            "status": "A",
+            "product_pic1": "product8_pic1.png",
+            "product_pic2": "",
+            "product_pic3": "",
+            "product_pic4": ""
+        },
+        {
+            "product_no": "9",
+            "product_name": "挺進補•鴨舌帽-白M",
+            "product_class_no": "3",
+            "product_intro":"product 9 script",
+            "info": "Product 9 description",
+            "price": 3600,
+            "status": "A",
+            "product_pic1": "product9_pic1.png",
+            "product_pic2": "",
+            "product_pic3": "",
+            "product_pic4": ""
+        },
+        {
+            "product_no": "10",
+            "product_name": "挺進補•鴨舌帽-漆黑M",
+            "product_class_no": "3",
+            "product_intro":"product 10 script",
+            "info": "Product 10 description",
+            "price": 3600,
+            "status": "A",
+            "product_pic1": "product10_pic1.png",
+            "product_pic2": "",
+            "product_pic3": "",
+            "product_pic4": ""
+        },
+        {
+            "product_no": "11",
+            "product_name": "挺進補•鴨舌帽-牛仔藍M",
+            "product_class_no": "3",
+            "product_intro":"product 11 script",
+            "info": "Product 11 description",
+            "price": 3600,
+            "status": "A",
+            "product_pic1": "product11_pic1.png",
+            "product_pic2": "",
+            "product_pic3": ""
+        },
+        {
+            "product_no": "12",
+            "product_name": "挺進補•遮陽帽-白M",
+            "product_class_no": "3",
+            "product_intro":"product 12 script",
+            "info": "Product 12 description",
+            "price": 3600,
+            "status": "A",
+            "product_pic1": "product12_pic1.png",
+            "product_pic2": "",
+            "product_pic3": ""
+        },
+        {
+            "product_no": "13",
+            "product_name": "挺進補•保溫杯-淺藍-500ml",
+            "product_class_no": "4",
+            "product_intro":"product 13 script",
+            "info": "Product 13 description",
+            "price": 3600,
+            "status": "A",
+            "product_pic1": "product13_pic1.png",
+            "product_pic2": "",
+            "product_pic3": ""
+        },
+        {
+            "product_no": "14",
+            "product_name": "挺進補•保溫杯-金屬灰-500ml",
+            "product_class_no": "4",
+            "product_intro":"product 14 script",
+            "info": "Product 14 description",
+            "price": 3600,
+            "status": "A",
+            "product_pic1": "product14_pic1.png",
+            "product_pic2": "",
+            "product_pic3": ""
+        },
+        {
+            "product_no": "15",
+            "product_name": "挺進補•保溫杯-夕陽黃-500ml",
+            "product_class_no": "4",
+            "product_intro":"product 15 script",
+            "info": "Product 15 description",
+            "price": 3600,
+            "status": "A",
+            "product_pic1": "product15_pic1.png",
+            "product_pic2": "",
+            "product_pic3": ""
+        },
+        {
+            "product_no": "16",
+            "product_name": "挺進補•保溫杯-霧面黑-500ml",
+            "product_class_no": "4",
+            "product_intro":"product 16 script",
+            "info": "Product 16 description",
+            "price": 3600,
+            "status": "A",
+            "product_pic1": "product16_pic1.png",
+            "product_pic2": "",
+            "product_pic3": ""
+        }
+    ],
+    "product_class": [
+        {
+            "product_class_no": "1",
+            "product_class_name": "服飾"
+        },
+        {
+            "product_class_no": "2",
+            "product_class_name": "杯子"
+        },
+        {
+            "product_class_no": "3",
+            "product_class_name": "帽子"
+        },
+        {
+            "product_class_no": "4",
+            "product_class_name": "保溫杯"
+        }
+    ]
+}

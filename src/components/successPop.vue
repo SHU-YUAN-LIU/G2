@@ -1,9 +1,11 @@
 <template>
     <div v-if="showSuccessPop" class="showSuccessPop">
-        <div class="successPop_bg"  @click="closeLightbox">
-            <div class="con_success" @click.stop> 
+        <div class="successPop_bg">
+            <div class="con_success">
+                <!-- 阻止冒泡事件.stop -->
                 <!-- 打叉 -->
-                <button class="cross"  @click="closeLightbox"><img src="@/assets/image/contect/cross.svg" alt=""></button>
+                <Router-link to="/" class="cross" @click="closeLightbox"><img src="@/assets/image/contect/cross.svg"
+                        alt=""></Router-link>
                 <div class="con_success_group">
                     <!-- 送出成功 -->
                     <div class="success_top">
