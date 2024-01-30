@@ -91,8 +91,8 @@ export default {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100vh;
+    right: 0;
+    bottom: 0;
     background: rgba(0, 0, 0, .5);
     display: flex;
     align-items: center;
@@ -216,4 +216,91 @@ export default {
     }
 
 }
+<<<<<<< HEAD
+=======
+
+@media(max-width: 768px){
+    .donate_lightbox {
+        z-index: 1000;
+    div {
+        width: 100%;
+        max-width: 350px;
+
+
+        button {
+            top: -25px;
+            right: -25px;
+            width: 50px;
+            height: 50px;
+            img{
+                width: 50px;
+                height: 50px;
+            }
+        }
+    }
+
+    .donate_lightbox_content {
+        max-width: 350px;
+        padding: 20px;
+        .donate_lightbox_top {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            .donate_anonymous {
+                margin-right: 0px;
+                margin-top: 200px;
+            }
+
+            .donate_member {
+                background: $gray-3;
+            }
+
+            .donate_anonymous,
+            .donate_member {
+                width: 300px;
+                padding: 20px;
+
+                h2 {
+                    @include title-2;
+                }
+
+            }
+        }
+
+        .donate_lightbox_bottom {
+            width: 100%;
+            margin-top: 250px;
+
+            h3 {
+                @include title_3;
+            }
+
+            p {
+                line-height: 30px;
+            }
+
+            div {
+
+                p {
+                    @include title-10;
+                }
+
+                ul {
+                    padding: 20px;
+
+                    li {
+                        line-height: 30px;
+                        font-size: 14px;
+                    }
+                }
+
+            }
+        }
+    }
+
+}
+
+
+}
+>>>>>>> 7a21fc263e2957f9c24edce902a5140b788eda6f
 </style>

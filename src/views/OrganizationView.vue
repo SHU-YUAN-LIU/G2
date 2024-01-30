@@ -6,6 +6,7 @@
         alt="organization_banner.svg"
       />
       <h1>組織團隊</h1>
+<<<<<<< HEAD
     </div>
     <!-- 麵包屑 -->
     <Bread :page="dog" />
@@ -13,6 +14,18 @@
     <div class="organization_wrap">
       <h1 class="organization-title">青年進補黨中央委員會<br />組織團隊</h1>
       <h1 class="organization-title2">中央黨部</h1>
+=======
+      </div>
+      <!-- 麵包屑 -->
+      <breadCrumbs :page="currentPage" />
+      <div class="organization_wrap">
+      
+    
+    
+  
+    <h1 class="organization-title">青年進補黨中央委員會<br />組織團隊</h1>
+    <h1 class="organization-title2">中央黨部</h1>
+>>>>>>> 7a21fc263e2957f9c24edce902a5140b788eda6f
 
       <div class="card-container">
         <div
@@ -62,15 +75,23 @@
 </template>
 
 <script>
+<<<<<<< HEAD
 import Bread from "../components/Bread.vue";
 import OrganizationLightbox from "../components/OrganizationLightbox.vue";
 export default {
   components: {
     Bread,
     OrganizationLightbox,
+=======
+import breadCrumbs from '../components/Bread.vue';
+export default {
+  components: {
+    breadCrumbs,
+>>>>>>> 7a21fc263e2957f9c24edce902a5140b788eda6f
   },
   data() {
     return {
+      
       candidates: [
         {
           name: "陳緯珊",

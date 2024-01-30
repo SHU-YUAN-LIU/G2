@@ -75,6 +75,7 @@
             </form>
         </div>
     </article>
+
 </template>
 <script>
     import { addlistener } from '@/stores/datacheck.js';
@@ -115,5 +116,5 @@
             }
 </script>
 <style scoped> 
-/* @import "../assets/scss/page/_test.scss" */
+
 </style>

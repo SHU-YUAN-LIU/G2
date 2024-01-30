@@ -36,8 +36,6 @@ export default {
 @import '../assets/scss/base/border';
 
 .donate_lightbox {
-    width: 100vw;
-    height: 100vh;
     background-color: #4b4b4b72;
     display: flex;
     justify-content: center;
@@ -45,7 +43,9 @@ export default {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1000;
+    right: 0;
+    bottom: 0;
+    z-index: 2000;
 
     .donate_container {
         width: 600px;
@@ -84,6 +84,21 @@ export default {
                 align-items: center;
                 background-color: $white;
                 border-radius: $border-radius-1;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px){
+    .donate_lightbox {
+        .donate_container {
+            width: 350px;
+            height: 400px;
+            .donate_content {
+                .donate_top {
+                    width: 250px;
+                    height: 300px;
+                }
             }
         }
     }
