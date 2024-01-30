@@ -81,7 +81,7 @@ export default {
       commit: '表單送出',
       isModalVisible: false,
       bannerTitle: '聯絡我們',
-      bannerPic: 'src/assets/image/contect/contect_banner.png'
+      bannerPic: 'image/contect/contect_banner.png'
     }
   },
   methods: {
