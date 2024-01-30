@@ -4,7 +4,7 @@
             <!-- "item"是陣列的每一筆資料 -->
             <!-- 用for迴圈把所有資料找出來 -->
             <div v-for="(item, index) in cartList " class="cart-item" :key="item.product_no">
-                <div class="cart-pic"><img :src="`/src/assets/image/product/product_data/${item.product_pic1}`" alt="">
+                <div class="cart-pic"><img :src="`../../image/product/product_data/${item.product_pic1}`" alt="">
                 </div>
                 <div class="cart-info">
                     <div class="cart-text">
@@ -18,14 +18,14 @@
                             <button @click="changeqty($event, item.product_no, 1)"> +</button>
                         </div>
                         <div @click=" changeqty($event, item.product_no, -(item.quantity))" class="trash-can">
-                            <img src="@/assets/image/product/trash.svg" alt="">
+                            <img src="../../image/product/trash.svg" alt="">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <!-- 結帳按鈕 -->
-        <router-link to="/ProductPayView">
+        <router-link to="/ProductPay">
             <PayButton />
         </router-link>
     </div>

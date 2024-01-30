@@ -52,7 +52,7 @@ export default {
   data() {
     return {
       // defaultSrc: 'https://tibamef2e.com/chd103/g2/image/ShopImage/',
-      defaultSrc: 'src/assets/image/product/product_data/',
+      defaultSrc: '../../image/product/product_data/',
       search: '',
       allPro: [],
       disPro: [],
@@ -62,7 +62,7 @@ export default {
       max: 1000000,
       min: 0,
       bannerTitle: '官方商城',
-      bannerPic: 'src/assets/image/product/product_banner.png',
+      bannerPic: '../../image/product/product_banner.png',
       pro: '官方商城',
     }
   },
@@ -74,7 +74,7 @@ export default {
   },
   methods: {
     axiosGetData() {
-      axios.get("/src/assets/local_json/product_data.json")
+      axios.get("../../local_json/product_data.json")
         .then(res => {
           // console.log(res.data.product_class);
           this.allPro = res.data.products;

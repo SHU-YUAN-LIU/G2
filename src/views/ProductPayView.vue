@@ -17,7 +17,7 @@
         <div v-for="(item, index) in cartList " class="pay-info" :key="item.product_no">
             <div class="pay-product">
                 <div class="pay-pic">
-                    <img :src="`/src/assets/image/product/product_data/${item.product_pic1}`" alt="">
+                    <img :src="`../../image/product/product_data/${item.product_pic1}`" alt="">
                 </div>
                 <span>{{ item.product_name }}</span>
             </div>
@@ -30,7 +30,7 @@
             <div class="pay-delete">
                 <span>${{ item.quantity * item.price }}</span>
                 <div @click=" changeqty($event, item.product_no, -(item.quantity))" class="trash-can"><img
-                        src="@/assets/image/product/trash.svg" alt="">
+                        src="../../image/product/trash.svg" alt="">
                 </div>
             </div>
         </div>
