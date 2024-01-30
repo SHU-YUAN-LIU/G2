@@ -14,7 +14,6 @@
 @import "components/body";
 @import "components/card";
 @import "components/form";
-@import "components/rwd";
 @import "components/table";
 @import "components/grid";
 @import "components/bread";
@@ -42,6 +41,8 @@
 @import "page/organization";
 @import "page/partyhistory";
 @import "page/donate";
+@import "page/donate_page";
+@import "page/donate_page_confirm";
 @import "page/home";
 @import "page/login";
 @import "page/news";
@@ -49,14 +50,15 @@
 @import "page/productPay";
 @import "page/ProductInfo";
 @import "page/election";
+@import "page/election_journey";
 @import "page/contact";
 @import "page/contactSearch";
-@import "page/ContactSearchFinal";
+@import "page/contactSearchFinal";
 @import "page/member";
 @import "page/forgotpsw";
 @import "page/newpsw";
 @import "page/newspage";
-@import "page/donate_page";
+
 
 
 
