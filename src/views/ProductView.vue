@@ -42,6 +42,7 @@ import ProCard from '../components/ProCard.vue'
 import Banner from '../components/Banner.vue'
 import Bread from '../components/Bread.vue'
 import Pagination from '../components/Pagination.vue'
+import { products } from '@/assets/local_json/product_data.json';
 export default {
   components: {
     ProCard,
@@ -52,17 +53,17 @@ export default {
   data() {
     return {
       // defaultSrc: 'https://tibamef2e.com/chd103/g2/image/ShopImage/',
-      defaultSrc: '../../image/product/product_data/',
+      defaultSrc: 'image/product/product_data/',
       search: '',
-      allPro: [],
-      disPro: [],
+      allPro: products,
+      disPro: products,
       product_class_group: [],
       category: [],
       currentCategory: 'ALL',
       max: 1000000,
       min: 0,
       bannerTitle: '官方商城',
-      bannerPic: '../../image/product/product_banner.png',
+      bannerPic: 'image/product/product_banner.png',
       pro: '官方商城',
     }
   },
@@ -74,18 +75,20 @@ export default {
   },
   methods: {
     axiosGetData() {
-      axios.get("../../local_json/product_data.json")
-        .then(res => {
-          // console.log(res.data.product_class);
-          this.allPro = res.data.products;
-          this.disPro = res.data.products;
-          this.product_class_group = res.data.product_class;
-          this.addCategory();
-        })
-        .catch(error => {
-          console.log(123);
-          console.error('Error fetching data:', error);
-        });
+      // this.allPro = products
+      // this.disPro = products
+      // axios.get("local_json/product_data.json")
+      //   .then(res => {
+      //     // console.log(res.data.product_class);
+      //     this.allPro = res.data.products;
+      //     this.disPro = res.data.products;
+      //     this.product_class_group = res.data.product_class;
+      //     this.addCategory();
+      //   })
+      //   .catch(error => {
+      //     console.log(123);
+      //     console.error('Error fetching data:', error);
+      //   });
     },
     changeDis() {
       // if(this.currentCategory=='ALL'){
