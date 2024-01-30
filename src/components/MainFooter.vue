@@ -2,7 +2,6 @@
     <footer>
         <div class="footer_container">
             <div class="footer_logo">
-                <img src="@/assets/image/login/Logo.png" alt="">
             </div>
             <div class="footer_contact">
                 <h4>中央黨部</h4>
@@ -15,12 +14,14 @@
             <div class="footer_media">
                 <h4>社群媒體</h4>
                 <div class="footer_icon">
-                    <a href="#"><img src="../assets/image/footer/youtube.png" alt=""></a>
-                    <a href="#"><img src="../assets/image/footer/fb.png" alt=""></a>
-                </div>
-                <div class="footer_icon">
-                    <a href="#"><img src="../assets/image/footer/ig.png" alt=""></a>
-                    <a href="#"><img src="../assets/image/footer/line.png" alt=""></a>
+                    <div>
+                        <a href="#"><img src="../assets/image/footer/youtube.png" alt=""></a>
+                        <a href="#"><img src="../assets/image/footer/fb.png" alt=""></a>
+                    </div>
+                    <div>
+                        <a href="#"><img src="../assets/image/footer/ig.png" alt=""></a>
+                        <a href="#"><img src="../assets/image/footer/line.png" alt=""></a>
+                    </div>
                 </div>
             </div>
         </div>

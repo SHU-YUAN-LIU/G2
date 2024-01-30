@@ -50,14 +50,19 @@
         img {
             min-width: 100%;
             vertical-align: middle;
+            @media screen and (max-width: 769px) {
+                border-radius: 10px 10px;
+            }     
         }
 
+
         .index_news_card_text {
-            padding: 16px 35px 0;
+            padding: 16px 35px 16px;
             letter-spacing: $space_letter;
             line-height: $line_height;
             @media (width<769px){
                 background-color: $white;
+                border-radius: 10px;
             }
             @include title_10;
             .index_news_card_header {

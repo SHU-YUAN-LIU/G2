@@ -7,7 +7,7 @@
             <!-- 捐款成功 -->
             <div class="donate_content">
                 <div class="donate_top">
-                    <h2>捐款成功</h2>
+                    <p>捐款成功</p>
                     <img src="@/assets/image/contect/successCheck.svg" alt="">
                 </div>
             </div>
@@ -71,6 +71,7 @@ export default {
 
         .donate_content {
             display: flex;
+            @include title_3;
 
             .donate_top {
                 flex-direction: column;
