@@ -24,7 +24,6 @@
 <script>
 import { show_product } from '@/stores/cart.js';
 import dropDown from '@/components/cart/dropDown.vue';
-import triangleDown from '@/components/bg/triangleDown.vue';
 export default {
   data() {
     return {
@@ -35,7 +34,6 @@ export default {
   },
   components: {
     dropDown,
-    triangleDown,
   }
   ,
   created() {
