@@ -40,7 +40,6 @@ export default {
 
     data() {
         return {
-
             cartList: [],//存購物車資料的陣列
             quantity: 1,//初始數量
             cart_total: [],//存總價格跟總項目陣列

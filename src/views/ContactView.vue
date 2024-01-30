@@ -92,7 +92,9 @@ export default {
       document.body.style.overflow = 'hidden';
     }
   },
-
+  mounted() {
+    document.title = "青年進補黨 - 聯絡我們";
+  },
 }
 </script>
 
