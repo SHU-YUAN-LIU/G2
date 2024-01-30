@@ -1,17 +1,13 @@
 <template>
-  
-    <div class="about">
-      <div class="contect_banner">
-        <img
-          src="image/about/about_banner.svg"
-          alt="about_banner.svg"
-        />
-        <h1>關於我們</h1>
-      </div>
-      <!-- 麵包屑 -->
-      <Bread :page="dog" />
+  <div class="about">
+    <div class="contect_banner">
+      <img src="/image/about/about_banner.svg" alt="about_banner.svg" />
+      <h1>關於我們</h1>
     </div>
-    <div class="about_wrap">
+    <!-- 麵包屑 -->
+    <Bread :page="dog" />
+  </div>
+  <div class="about_wrap">
 
     <div class="about_content">
       <div class="about_content-2">
@@ -36,11 +32,7 @@
           <div class="rule-column-2">
             <div class="rule-5">
               <div class="rule-6">黨會規範</div>
-              <img
-                loading="lazy"
-                src="image/about/logo.svg"
-                class="img"
-              />
+              <img loading="lazy" src="^/image/about/logo.svg" class="img" />
             </div>
           </div>
           <div class="rule-column-3">
@@ -64,45 +56,42 @@
       <section class="Value-section">
         <div class="Value-column">
           <div class="Value-img-container">
-            <img
-            loading="lazy"
-            src="image/about/GreanTaiwan 1.svg"
-            class="Value-img"/>    
-            <div class="Value-small-img1"> 
-              <img src="image/about/small_image_1.svg" alt="small_image_1" @click="showContent(1)" />
+            <img loading="lazy" src="^/image/about/GreanTaiwan 1.svg" class="Value-img" />
+            <div class="Value-small-img1">
+              <img src="^/image/about/small_image_1.svg" alt="small_image_1" @click="showContent(1)" />
             </div>
-            <div class="Value-small-img2"> 
-              <img src="image/about/small_image_2.svg" alt="small_image_2" @click="showContent(2)" />
+            <div class="Value-small-img2">
+              <img src="^/image/about/small_image_2.svg" alt="small_image_2" @click="showContent(2)" />
             </div>
-            <div class="Value-small-img3"> 
-              <img src="image/about/small_image_3.svg" alt="small_image_3" @click="showContent(3)" />
+            <div class="Value-small-img3">
+              <img src="^/image/about/small_image_3.svg" alt="small_image_3" @click="showContent(3)" />
             </div>
-            <div class="Value-small-img4"> 
-              <img src="image/about/small_image_4.svg" alt="small_image_4" @click="showContent(4)" />
+            <div class="Value-small-img4">
+              <img src="^/image/about/small_image_4.svg" alt="small_image_4" @click="showContent(4)" />
             </div>
-            <div class="Value-small-img5"> 
-              <img src="image/about/small_image_5.svg" alt="small_image_5" @click="showContent(5)" />
+            <div class="Value-small-img5">
+              <img src="^/image/about/small_image_5.svg" alt="small_image_5" @click="showContent(5)" />
             </div>
-            <div class="Value-small-img6"> 
-              <img src="image/about/small_image_6.svg" alt="small_image_6" @click="showContent(6)" />
+            <div class="Value-small-img6">
+              <img src="^/image/about/small_image_6.svg" alt="small_image_6" @click="showContent(6)" />
             </div>
-            <div class="Value-small-img7"> 
-              <img src="image/about/small_image_7.svg" alt="small_image_7" @click="showContent(7)" />
+            <div class="Value-small-img7">
+              <img src="^/image/about/small_image_7.svg" alt="small_image_7" @click="showContent(7)" />
             </div>
-            <div class="Value-small-img8"> 
-              <img src="image/about/small_image_8.svg" alt="small_image_8" @click="showContent(8)" />
+            <div class="Value-small-img8">
+              <img src="^/image/about/small_image_8.svg" alt="small_image_8" @click="showContent(8)" />
             </div>
           </div>
-          
-          
+
+
         </div>
         <div class="Value-column">
           <div class="Value-description">
             <!-- 內容將在這裡動態更新 -->
             <h2 class="Value-sub-title" ref="ValueSubtitle">DEMOCRACY</h2>
             <div class="Value-divider"></div>
-            <div class="Value-content"  ref="ValueDescription" >
-              <p class="Value-word" >政治為人民所共有，人民有平等的權利來參與政治，不受限於黨派意識型態、性別、族群、階級，開放政府、全民參與，是我們的目標。
+            <div class="Value-content" ref="ValueDescription">
+              <p class="Value-word">政治為人民所共有，人民有平等的權利來參與政治，不受限於黨派意識型態、性別、族群、階級，開放政府、全民參與，是我們的目標。
               </p>
             </div>
           </div>
@@ -128,14 +117,14 @@ export default {
       applyCustomStyle: false,
       // 內容數據，例如：
       titles: [
-      "DEMOCRACY",
-      "FREEDOM",
-      "DIVERSITY",
-      "OPEN",
-      "RULE OF LAW",
-      "HUMAN RIGHTS",
-      "CARE",
-      "SUSTAINABILITY",
+        "DEMOCRACY",
+        "FREEDOM",
+        "DIVERSITY",
+        "OPEN",
+        "RULE OF LAW",
+        "HUMAN RIGHTS",
+        "CARE",
+        "SUSTAINABILITY",
       ],
       contents: [
         "政治為人民所共有，人民有平等的權利來參與政治，不受限於黨派意識型態、性別、族群、階級，開放政府、全民參與，是我們的目標。",
@@ -145,7 +134,7 @@ export default {
         "法治是社會秩序的基石，以法律守護公民權益，維護社會公正。",
         "人權是普世價值，每個人生而平等，應受到尊重和保護。",
         "關懷弱勢是社會的溫度，共同發聲、提供支持，實現平等機會。",
-        "永續經營為後代着想，保護環境、節約資源，實現社會經濟的永續發展。",        
+        "永續經營為後代着想，保護環境、節約資源，實現社會經濟的永續發展。",
       ],
     };
   },
@@ -155,9 +144,9 @@ export default {
       // 在這個方法中更新 Value-description 的內容
       this.$refs.ValueDescription.innerHTML = this.contents[index - 1];
       this.applyCustomStyle = true;
-    // 在這個方法中更新 Value-sub-title 的內容
-    this.$refs.ValueSubtitle.innerHTML = this.titles[index - 1];
-      
+      // 在這個方法中更新 Value-sub-title 的內容
+      this.$refs.ValueSubtitle.innerHTML = this.titles[index - 1];
+
     },
   },
 

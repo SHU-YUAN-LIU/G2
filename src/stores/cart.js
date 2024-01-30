@@ -1,4 +1,4 @@
-import { products } from '^/local_json/product_data.json';
+import { products } from '@/assets/local_json/product_data.json';
 import { defineStore } from "pinia";
 
 
@@ -94,7 +94,7 @@ export function changeqty(event, id, qty) {
     storageEvent.key = 'cart';
     // 触发事件
     window.dispatchEvent(storageEvent);
-    
+
     // 把local storage的資料重新rander到畫面中
     // usecartListStore().setCartList()
     // console.log(usecartListStore());
