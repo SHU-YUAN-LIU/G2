@@ -67,7 +67,7 @@
     </li>
     </ul>
 
-    <<<<<<< HEAD </nav>
+</nav>
       </div>
   </header>
   <!-- 漢堡 -->
@@ -115,11 +115,9 @@
       </ul>
     </div>
   </div>
-  =======
-  </nav>
-  </div>
-  </header>
-  >>>>>>> dev
+
+
+
 </template>
 
 <script>
@@ -200,7 +198,7 @@ export default {
   }
 }
 
-<<<<<<< HEAD=======>>>>>>>dev .dropdown-content a:hover {
+.dropdown-content a:hover {
   background-color: #FF892E;
   color: #f9f9f9;
 }
