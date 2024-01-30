@@ -48,7 +48,7 @@ export default {
     z-index: 2000;
 
     .donate_container {
-        width: 600px;
+        width: 400px;
         height: 400px;
         margin: auto;
         background-color: $green;
@@ -78,13 +78,16 @@ export default {
                 justify-content: center;
                 align-items: center;
                 gap: 30px;
-                width: 400px;
+                width: 300px;
                 height: 300px;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 background-color: $white;
                 border-radius: $border-radius-1;
+                img{
+                    width: 150px;
+                }
             }
         }
     }
