@@ -1,4 +1,4 @@
-import { products } from '~/local_json/product_data.json';
+import { products } from '^/local_json/product_data.json';
 import { defineStore } from "pinia";
 
 
