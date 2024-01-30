@@ -6,7 +6,7 @@
 <!-- input不要用v-for直接寫就好了 -->
 <template>
     <article>
-        <div class="container" :class="{'register-active': registerBtn}">
+        <div class="container" :class="{ 'register-active': registerBtn }">
             <div class="overlay_container">
                 <div class="overlay">
                     <div class="overlay_left">
@@ -42,7 +42,7 @@
                 </div>
                 <div class="register_id">
                     <p>身分證<span>*</span></p>
-                    <input type="text" name="ide" id="ide" placeholder="請輸入您的身分證" minlength="10" >
+                    <input type="text" name="ide" id="ide" placeholder="請輸入您的身分證" minlength="10">
                 </div>
                 <div class="register_psw">
                     <p>密碼<span>*</span><span id="pswerror"></span></p>
@@ -70,51 +70,50 @@
                     <p>密碼<span>*</span></p>
                     <input type="text" name="psw" id="psw" placeholder="請輸入您的密碼">
                 </div>
-                <a href="/forgotpsw">忘記密碼?</a>
-                <button class="btn" @click="checkmemdata">登入 ➜</button>
+                <router-link to="/forgotpsw">忘記密碼?</router-link>
+                <!-- <button class="btn" @click="checkmemdata">登入 ➜</button> -->
+                <button class="btn"><router-link to="/member">登入 ➜</router-link></button>
             </form>
         </div>
     </article>
-
 </template>
 <script>
-    import { addlistener } from '@/stores/datacheck.js';
-    export default{
-                data: () => {
-                    return {
-                        registerBtn: false,
-                        member:{
-                            mail:'youth@party',
-                            psw:'youthparty',
-                        }
-                    }
-                },
-                methods: {
-                    addlistener,
-                    checkmemdata(event){
-                        const mailinput = this.$refs.login.querySelector('#email').value;
-                        console.log(mailinput);
-                        const pswinput = this.$refs.login.querySelector('#psw').value;
-                        console.log(pswinput);
-                        if(mailinput==this.member.mail&&pswinput==this.member.psw){
-                            alert("success")
-                            event.preventDefault();
-                            this.$router.push('/news')
-                        }else{
-                            alert("fail")
-                            event.preventDefault();
-                        }
-                    },
-                },
-                created(){
-                    // const user = this.checkLogin()
-                    // addlistener();
-                },
-                mounted(){
-                    addlistener(); 
-                }
+import { addlistener } from '@/stores/datacheck.js';
+export default {
+    data: () => {
+        return {
+            registerBtn: false,
+            member: {
+                mail: 'youth@party',
+                psw: 'youthparty',
             }
+        }
+    },
+    methods: {
+        addlistener,
+        checkmemdata(event) {
+            const mailinput = this.$refs.login.querySelector('#email').value;
+            console.log(mailinput);
+            const pswinput = this.$refs.login.querySelector('#psw').value;
+            console.log(pswinput);
+            if (mailinput == this.member.mail && pswinput == this.member.psw) {
+                alert("success")
+                event.preventDefault();
+                this.$router.push('/news')
+            } else {
+                alert("fail")
+                event.preventDefault();
+            }
+        },
+    },
+    created() {
+        // const user = this.checkLogin()
+        // addlistener();
+    },
+    mounted() {
+        document.title = '會員登入/註冊';
+        addlistener();
+    }
+}
 </script>
-<style scoped> 
-
-</style>
+<style scoped></style>
