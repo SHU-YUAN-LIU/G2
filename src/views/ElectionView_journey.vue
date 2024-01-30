@@ -19,8 +19,7 @@
                     <Button type="info" @click="blue = !blue">{{ blue ? '隱藏' : '顯示' }}藍色Pin</Button> | -->
                 </div>
                 <div class="minimap_svg" :class="{ redShow: red, blueShow: blue }">
-                    <MiniMap @changeInfo="change"
-                     />
+                    <MiniMap @changeInfo="change" />
                 </div>
             </div>
             <!-- 行程 -->
@@ -177,7 +176,7 @@ export default {
                     src: "src/assets/image/election/journey-1.png",
                 },
             ],
-            currentTitle:"",
+            currentTitle: "",
 
         }
     },
@@ -190,7 +189,7 @@ export default {
     },
     methods: {
         change(pos) {
-            this.currentTitle=pos;
+            this.currentTitle = pos;
             this.displayTrip = this.allTrip.filter((item) => {
                 return item.country == pos;
             })
@@ -198,7 +197,7 @@ export default {
 
     },
     mounted() {
-        document.title = "青年進補黨 - 活動資訊";
+        document.title = "候選人行程";
     },
 }
 </script>
