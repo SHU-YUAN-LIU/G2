@@ -25,7 +25,7 @@
             </div>
         </div>
         <!-- 結帳按鈕 -->
-        <router-link to="/ProductPayView">
+        <router-link to="/ProductPay">
             <PayButton />
         </router-link>
     </div>

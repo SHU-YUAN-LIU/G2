@@ -146,3 +146,13 @@ input,
 input:focus {
 	border-width: 1px;
 }
+
+input {
+	text-indent: 10px;
+
+	&:focus {
+		outline: none;
+		border: 2px solid #FF892E;
+
+	}
+}
