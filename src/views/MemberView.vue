@@ -1,13 +1,24 @@
 <template>
     <div class="member_wrap">
-        <div class="member_profile"><div class="edit_icon"><img src="../assets/image/login/camara.png" alt=""></div></div>
-        <div class="btn_wrap">
-            <button class="btn" @click="currentPage=0" :class="{focuson: currentPage===0}">會員資料</button>
-            <button class="btn" @click="currentPage=1" :class="{focuson: currentPage===1}">我的訂單</button>
-            <button class="btn" @click="currentPage=2" :class="{focuson: currentPage===2}">我的陳情</button>
-            <button class="btn" @click="currentPage=3" :class="{focuson: currentPage===3}">我的捐款</button>
+        <div class="member_profile">
+            <div class="edit_icon"><img src="../assets/image/login/camara.png" alt=""></div>
         </div>
-        <form class="membercontent" v-show="currentPage==0">
+        <!-- 電腦版選單 -->
+        <div class="btn_wrap">
+            <button class="btn" @click="currentPage = 0" :class="{ focuson: currentPage === 0 }">會員資料</button>
+            <button class="btn" @click="currentPage = 1" :class="{ focuson: currentPage === 1 }">我的訂單</button>
+            <button class="btn" @click="currentPage = 2" :class="{ focuson: currentPage === 2 }">我的陳情</button>
+            <button class="btn" @click="currentPage = 3" :class="{ focuson: currentPage === 3 }">我的捐款</button>
+        </div>
+        <!-- 手機板選單 -->
+       <select v-model="currentPage">
+            <option value="0" >會員資料</option>
+            <option value="1" >我的訂單</option>
+            <option value="2" >我的陳情</option>
+            <option value="3" >我的捐款</option>
+        </select>
+        <!-- 表單 -->
+        <form class="membercontent" v-show="currentPage == 0">
             <div class="member_name">
                 <label for="name">真實姓名： </label>
                 <input type="text" id="name">
@@ -33,14 +44,14 @@
             </div>
             <div class="member_addr">
                 <label for="address">通訊地址：</label>
-                <input type="etext" id="address">
+                <input type="text" id="address">
             </div>
             <div class="member_point">
-                <p >進補點數：<span class="member_point_text">9999點</span></p>
-                          </div>
+                <p>進補點數：<span class="member_point_text">9999點</span></p>
+            </div>
             <button class="btn">確認修改 ➜</button>
         </form>
-        <div class="membercontent" v-show="currentPage==1">
+        <div class="membercontent" v-show="currentPage == 1">
             <div class="searchbar">
                 <div class="search_icon">
                     <input type="text" class="searchnum" placeholder="請輸入訂單編號">
@@ -67,7 +78,7 @@
                 </div>
             </div>
         </div>
-        <div class="membercontent" v-show="currentPage==2">
+        <div class="membercontent" v-show="currentPage == 2">
             <div class="searchbar">
                 <div class="search_icon">
                     <input type="text" class="searchnum" placeholder="請輸入陳情編號">
@@ -88,7 +99,7 @@
                 </div>
             </div>
         </div>
-        <div class="membercontent" v-show="currentPage==3">
+        <div class="membercontent" v-show="currentPage == 3">
             <div class="searchbar">
                 <input type="date" class="startdate">到
                 <input type="date" class="enddate">
@@ -104,107 +115,108 @@
                         <div class="orderstatus">捐款方式:{{ item.donateWay }}</div>
                         <div>捐款金額: <span class="donateTotal">${{ item.donateTotal }}</span></div>
                     </div>
-                    <div class="orderright"><img src="../assets/image/login/pointlogo.png" alt="">進補點數: <span class="orderTotal">${{ item.donateTotal/100 }}點</span></div>
+                    <div class="orderright"><img src="../assets/image/login/pointlogo.png" alt="">進補點數: <span
+                            class="orderTotal">${{ item.donateTotal / 100 }}點</span></div>
                 </div>
             </div>
         </div>
-        
+
     </div>
 </template>
 <script>
 export default {
     data() {
         return {
-            currentPage:0,
-            order:{
-                order1:{
-                    orderId:123321,
-                    orderDate:'2023/11/11',
-                    orderStatus:'已完成',
-                    orderTotal:1000,
+            currentPage: 0,
+            order: {
+                order1: {
+                    orderId: 123321,
+                    orderDate: '2023/11/11',
+                    orderStatus: '已完成',
+                    orderTotal: 1000,
                 },
-                order2:{
-                    orderId:123761,
-                    orderDate:'2023/10/12',
-                    orderStatus:'已完成',
-                    orderTotal:500,
+                order2: {
+                    orderId: 123761,
+                    orderDate: '2023/10/12',
+                    orderStatus: '已完成',
+                    orderTotal: 500,
                 },
-                order3:{
-                    orderId:136356,
-                    orderDate:'2023/10/10',
-                    orderStatus:'已完成',
-                    orderTotal:12000,
+                order3: {
+                    orderId: 136356,
+                    orderDate: '2023/10/10',
+                    orderStatus: '已完成',
+                    orderTotal: 12000,
                 },
-                order4:{
-                    orderId:749239,
-                    orderDate:'2023/09/22',
-                    orderStatus:'已完成',
-                    orderTotal:700,
+                order4: {
+                    orderId: 749239,
+                    orderDate: '2023/09/22',
+                    orderStatus: '已完成',
+                    orderTotal: 700,
                 },
-                order5:{
-                    orderId:184923,
-                    orderDate:'2023/09/01',
-                    orderStatus:'已完成',
-                    orderTotal:1432,
+                order5: {
+                    orderId: 184923,
+                    orderDate: '2023/09/01',
+                    orderStatus: '已完成',
+                    orderTotal: 1432,
                 }
             },
-            petition:{
-                petition1:{
-                    petitionId:123321,
-                    petitionDate:'2023/11/11',
-                    petitionStatus:'已回覆',
+            petition: {
+                petition1: {
+                    petitionId: 123321,
+                    petitionDate: '2023/11/11',
+                    petitionStatus: '已回覆',
                 },
-                petition2:{
-                    petitionId:123761,
-                    petitionDate:'2023/10/12',
-                    petitionStatus:'已回覆',
+                petition2: {
+                    petitionId: 123761,
+                    petitionDate: '2023/10/12',
+                    petitionStatus: '已回覆',
                 },
-                petition3:{
-                    petitionId:136356,
-                    petitionDate:'2023/10/10',
-                    petitionStatus:'已回覆',
+                petition3: {
+                    petitionId: 136356,
+                    petitionDate: '2023/10/10',
+                    petitionStatus: '已回覆',
                 },
-                petition4:{
-                    petitionId:749239,
-                    petitionDate:'2023/09/22',
-                    petitionStatus:'已回覆',
+                petition4: {
+                    petitionId: 749239,
+                    petitionDate: '2023/09/22',
+                    petitionStatus: '已回覆',
                 },
-                petition5:{
-                    petitionId:184923,
-                    petitionDate:'2023/09/01',
-                    petitionStatus:'已回覆',
+                petition5: {
+                    petitionId: 184923,
+                    petitionDate: '2023/09/01',
+                    petitionStatus: '已回覆',
                 }
             },
-            donate:{
-                donate1:{
-                    donateId:123321,
-                    donateDate:'2023/11/11',
-                    donateWay:'現金匯款',
-                    donateTotal:2200,
+            donate: {
+                donate1: {
+                    donateId: 123321,
+                    donateDate: '2023/11/11',
+                    donateWay: '現金匯款',
+                    donateTotal: 2200,
                 },
-                donate2:{
-                    donateId:123761,
-                    donateDate:'2023/10/12',
-                    donateWay:'現金匯款',
-                    donateTotal:1200,
+                donate2: {
+                    donateId: 123761,
+                    donateDate: '2023/10/12',
+                    donateWay: '現金匯款',
+                    donateTotal: 1200,
                 },
-                donate3:{
-                    donateId:136356,
-                    donateDate:'2023/10/10',
-                    donateWay:'現金匯款',
-                    donateTotal:3200,
+                donate3: {
+                    donateId: 136356,
+                    donateDate: '2023/10/10',
+                    donateWay: '現金匯款',
+                    donateTotal: 3200,
                 },
-                donate4:{
-                    donateId:749239,
-                    donateDate:'2023/09/22',
-                    donateWay:'現金匯款',
-                    donateTotal:4000,
+                donate4: {
+                    donateId: 749239,
+                    donateDate: '2023/09/22',
+                    donateWay: '現金匯款',
+                    donateTotal: 4000,
                 },
-                donate5:{
-                    donateId:184923,
-                    donateDate:'2023/09/01',
-                    donateWay:'現金匯款',
-                    donateTotal:5200,
+                donate5: {
+                    donateId: 184923,
+                    donateDate: '2023/09/01',
+                    donateWay: '現金匯款',
+                    donateTotal: 5200,
                 }
             }
         }

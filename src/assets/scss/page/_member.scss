@@ -4,7 +4,27 @@
     align-items: center;
     max-width: 800px;
     margin: auto;
-
+    
+    
+   select{
+    display: none;
+        border-radius: 10px;
+        margin-top: 50px;
+        height: 35px;
+        width: 150px;
+        box-sizing: border-box;
+    @media screen and (max-width:768px) {
+        display: block;
+        border-radius: 10px;
+        margin: 25px 0;
+        height: 35px;
+        width: 150px;
+        box-sizing: border-box;
+        padding-left: 5px;
+    }
+    }
+   
+    
     .membercontent {
         display: flex;
         flex-direction: column;
@@ -80,8 +100,8 @@
         display: flex;
 
         @media screen and (max-width:768px) {
-            margin-bottom: 40px;
-        }
+          display: none;
+           }
 
         .btn {
             @include btn_3;
@@ -123,8 +143,8 @@
             align-items: center;
         }
 
-        @media (width<415px) {
-            padding: 40px 10px;
+        @media (width<768px) {
+            padding: 0 10px;
         }
     }
 
