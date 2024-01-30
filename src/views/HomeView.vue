@@ -40,9 +40,6 @@
             </router-link>
         </CommitButton>
     </div>
-
-
-
     <!-- 消息-->
     <div class="index_news_bg">
         <div class="home_container">
@@ -119,7 +116,6 @@
         </CommitButton>
     </div>
     <!-- 捐款 -->
-
     <div class="donate_container">
 
         <img v-for="donateImg in donateList" :src="getImageUrl(donateImg)" alt="" class="icon">
@@ -130,7 +126,6 @@
                 <p>2024 總統大選，面對這光榮民主的一戰，我們需要更多社會支持，邀請大家加入 Team Taiwan，一起挺台灣！</p>
             </div>
         </div>
-
         <RouterView />
         <!-- 頁面路由route渲染的位置 -->
     </div>
@@ -303,12 +298,19 @@ export default {
     padding-top: 280px;
     position: relative;
     border-radius: $border-radius-1;
-}
+    @media screen and (max-width: 786px) {
+        padding-top: 218px;
+    }
+   }
 
 .donate_container h2 {
     font-size: 65px;
     height: 130px;
     text-align: center;
+    @media screen and (max-width: 786px) {
+        margin-bottom: 10px ;
+    }
+   
 }
 
 .donate_container p {
@@ -326,6 +328,16 @@ export default {
     margin: auto;
     border-radius: 10px;
     display: flex;
+    @media screen and (max-width: 769px) {
+     display: flex;
+     flex-direction: column;
+     width: 90%;
+
+     p{
+        width: initial;
+        background-color: aliceblue;
+     }
+        }
 }
 
 
@@ -340,6 +352,9 @@ export default {
     margin: auto;
     width: 200px;
     height: 200px;
+    @media screen and (max-width: 768px) {
+        top: -2px;
+    }
 }
 
 .donate_container>img:nth-child(2) {
@@ -348,6 +363,9 @@ export default {
     margin: auto;
     width: 220px;
     height: 220px;
+    @media screen and (max-width: 769px) {
+        display: none;
+    }
 }
 
 .donate_container>img:nth-child(3) {
@@ -357,6 +375,9 @@ export default {
     margin: auto;
     width: 250px;
     height: 250px;
+    @media screen and (max-width: 769px) {
+        display: none;
+    }
 }
 
 .commit_btn{
