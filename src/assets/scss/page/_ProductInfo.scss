@@ -221,8 +221,25 @@
             }
 
             #num {
-                margin-block: 0;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                // gap: 10px;
+
+                div {
+                    background-color: $white;
+                    border: 1px solid $gray_3;
+                    padding: 10px 20px;
+                }
+
+                button {
+                    background-color: $white;
+                    border: 1px solid $gray_3;
+                    padding: 10px;
+                    cursor: pointer;
+                }
             }
+
         }
 
         .proPic_group {

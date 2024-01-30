@@ -1,5 +1,5 @@
 .pro_wrap {
-    width: 1200px;
+    max-width: 1200px;
     margin: auto;
 
     //篩選器
@@ -10,10 +10,23 @@
         align-items: flex-start;
         gap: 30px;
 
+        @media screen and (max-width:414px) {
+            gap: 10px;
+        }
+
         input {
             height: 48px;
             border-radius: $border-radius-1;
             text-indent: 20px;
+
+            @media screen and (max-width:768px) {
+                width: 120px;
+            }
+
+            @media screen and (max-width:414px) {
+                width: 80px;
+                text-indent: 5px;
+            }
 
             &:focus {
                 outline: none;
@@ -26,6 +39,15 @@
             height: 48px;
             border-radius: $border-radius-1;
             text-indent: 20px;
+
+            @media screen and (max-width:768px) {
+                width: 120px;
+            }
+
+            @media screen and (max-width:414px) {
+                width: 80px;
+                text-indent: 10px;
+            }
         }
 
     }
@@ -47,7 +69,12 @@
                 margin-bottom: 200px;
 
                 @media screen and (max-width:768px) {
-                    grid-template-columns: repeat(3, 1fr);
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 80px;
+                }
+
+                @media screen and (max-width:414px) {
+                    grid-template-columns: repeat(1, 1fr);
                 }
 
                 .procard {

@@ -1,11 +1,14 @@
 .newspage_wrap {
     @include title_9;
-    width: 1200px;
+    max-width: 1200px;
+    width: 100%;
     margin: auto;
+    padding: 50px;
     h1 {
         @include title_2;
         line-height: 4rem;
         letter-spacing: .5rem;
+        padding: 0 10px;
     }
     .type_date {
         display: flex;
@@ -24,8 +27,41 @@
         }
     }
     .newspage_content {
-        padding: 50px 0 150px 0;
+        padding: 50px 0;
         line-height: 2.5rem;
         letter-spacing: .2rem;
+    }
+}
+@media (max-width: 900px) {
+    .newspage_wrap {
+        @include title_10;
+        h1 {
+            @include title_3;
+            line-height: 2.5rem;
+        }
+        .newspage_content {
+            padding: 30px 0;
+        }
+    }
+}
+@media (max-width: 600px) {
+    .newspage_wrap {
+        padding: 30px;
+        .newspage_content {
+            line-height: 2rem;
+        }
+    }
+}
+@media (max-width: 435px) {
+    .newspage_wrap {
+        font-size: 14px;
+        h1 {
+            @include title_4;
+            line-height: 2rem;
+        }
+        .newspage_content {
+            padding: 20px 0;
+            line-height: 1.8rem;
+        }
     }
 }

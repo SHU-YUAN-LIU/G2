@@ -156,7 +156,8 @@ export default {
 </script>
 
 
-
+<style scoped lang="scss">
+@import "../assets/scss/style.scss";
 .donate_confirm {
 
     // banner

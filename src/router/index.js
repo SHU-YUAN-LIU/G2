@@ -4,6 +4,17 @@ import { createRouter, createWebHistory } from 'vue-router'
 // path設定'/'表示將該頁面設置為首頁
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
+  //跳轉頁面後,會回到最上成
+  scrollBehavior(to, from, savedPosition) {
+    // 如果有 savedPosition，使用它，否则滚动到页面顶部
+    if (savedPosition) {
+      return savedPosition;
+    } else {
+      return { top: 0 };
+    }
+  },
+
+
   routes: [
     {
       path: '/',

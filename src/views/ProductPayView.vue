@@ -14,29 +14,31 @@
             <p>數量</p>
             <p>小計</p>
         </div>
-        <div class="pay-info">
+        <div v-for="(item, index) in cartList " class="pay-info" :key="item.product_no">
             <div class="pay-product">
                 <div class="pay-pic">
-                    <img src="@/assets/image/product/product_data/product10_pic1.png" alt="">
+                    <img :src="`/src/assets/image/product/product_data/${item.product_pic1}`" alt="">
                 </div>
-                <span>挺進補•鴨舌帽-漆黑M</span>
+                <span>{{ item.product_name }}</span>
             </div>
-            <span>$1000</span>
+            <span>NT{{ item.price }}</span>
             <div id="num">
-                <button> -</button>
-                <div>0</div>
-                <button> +</button>
+                <button @click="changeqty($event, item.product_no, -1)"> -</button>
+                <div>{{ item.quantity }}</div>
+                <button @click="changeqty($event, item.product_no, 1)"> +</button>
             </div>
             <div class="pay-delete">
-                <span>$1000</span>
-                <div class="trash-can"><img src="@/assets/image/product/trash.svg" alt="">
+                <span>${{ item.quantity * item.price }}</span>
+                <div @click=" changeqty($event, item.product_no, -(item.quantity))" class="trash-can"><img
+                        src="@/assets/image/product/trash.svg" alt="">
                 </div>
             </div>
         </div>
+        <!-- ------------------------------------------------------------------------------ -->
         <hr>
         <div class="pay-detail">
             <span>訂單金額</span>
-            <span>$1000</span>
+            <span>$ {{ cart_total[0].total }}</span>
         </div>
         <div class="pay-detail">
             <span>運費</span>
@@ -49,9 +51,9 @@
         </div>
         <hr>
         <div class="pay-detail">
-            <span>購物車合計1項商品</span>
+            <span>購物車合計{{ cart_total[0].listcount }}項商品</span>
             <span>應付總額</span>
-            <span class="final-num">$1050</span>
+            <span class="final-num">${{ cart_total[0].total + 60 - 10 }}</span>
         </div>
         <!-- 2.會員資料 -->
         <div class="pay-title">
@@ -162,28 +164,43 @@
 </template>
 
 <script>
-import axios from 'axios';
+import { show_product, changeqty } from '@/stores/cart.js';
+import PayButton from '@/components/button/PayButton.vue';
 
 export default {
-    components: {
 
-
-    },
     data() {
         return {
 
+            cartList: [],//存購物車資料的陣列
+            quantity: 1,//初始數量
+            cart_total: [],//存總價格跟總項目陣列
         }
     },
-    computed: {
-
+    components: {
+        PayButton,
     },
     created() {
 
+        [this.cartList, this.cart_total] = show_product();
+        window.addEventListener('storage', this.changecartshow);
     },
     methods: {
+        changeqty,
+        show_product,
+        changecartshow(event) {
+            if (event.key == 'cart') {
+                [this.cartList, this.cart_total] = show_product();
+            }
+        }
 
     },
-
+    mounted() {
+        [this.cartList, this.cart_total] = show_product();
+    },
+    destroyed() {
+        window.removeEventListener('storage', this.changecartshow);
+    },
 }
 </script>
 

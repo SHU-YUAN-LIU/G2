@@ -82,7 +82,11 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "../assets/scss/style.scss";
+@import "../assets/scss/base/reset";
+@import "../assets/scss/base/font";
+@import "../assets/scss/base/color";
+@import "../assets/scss/base/border";
+
 .donate_lightbox {
     position: fixed;
     top: 0;
@@ -212,6 +216,8 @@ export default {
     }
 
 }
+<<<<<<< HEAD
+=======
 
 @media(max-width: 768px){
     .donate_lightbox {
@@ -296,4 +302,5 @@ export default {
 
 
 }
+>>>>>>> 7a21fc263e2957f9c24edce902a5140b788eda6f
 </style>
