@@ -39,15 +39,15 @@
         <div class="product_info_title">商品介紹</div>
         <p class="product_info_script">單一雙色的灰白定調，使用台灣獨有的創新環保布料，鐵灰與純白象徵超然的「意志」與「包容」的氣度。布料由台灣興采咖啡渣技術製成絲絨，表示永續環保的精神。</p>
         <div>
-            <img src="^/image/product/product_info_example1.png" alt="">
+            <img src="/image/product/product_info_example1.png" alt="">
         </div>
         <div>
-            <img src="^/image/product/product_info_example2.png" alt="">
+            <img src="/image/product/product_info_example2.png" alt="">
         </div>
         <div class="product_info_title">規格說明</div>
         <div class="product_info_title">SIDE GUIDE</div>
         <div>
-            <img src="^/image/product/product_size_example.png" alt="">
+            <img src="/image/product/product_size_example.png" alt="">
         </div>
     </div>
 </template>
