@@ -74,8 +74,8 @@ export default {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100vh;
+    right: 0;
+    bottom: 0;
     background: rgba(0, 0, 0, .5);
     display: flex;
     align-items: center;
@@ -130,7 +130,7 @@ export default {
                 span.list_num{
                     position: absolute;
                     top: -5px;
-                    left: 0-5px;
+                    left: -5px;
                     background: $orange;
                     @include title_2;
                     color: $white;
@@ -153,6 +153,10 @@ export default {
                     background: $white;
                     gap: 40px;
 
+                    img{
+
+                    }
+
                     span{
                         @include title_2;
                         color: $orange;
@@ -162,5 +166,66 @@ export default {
         }
     }
 
+}
+
+@media(max-width: 768px){
+.donate_lightbox_point{
+    div.lightbox_point_bg {
+        button {
+            top: -25px;
+            right: -25px;
+            width: 50px;
+            height: 50px;
+        }
+    }
+
+    .point_lightbox_content {
+        max-width: 350px;
+        height: 600px;
+        padding: 20px;   
+        h2{
+            @include title_4;
+            margin-bottom: 30px;
+        }
+        .point_lightbox_list{
+            li+li{
+                margin-top: 20px;
+            }
+            li{
+                padding: 20px;
+
+                span.list_num{
+                    top: -5px;
+                    left: -5px;
+                    @include title_3;
+                    width: 60px;
+                    height: 60px;
+                    line-height: 60px;
+                    
+                }
+
+                h2{
+                    @include title_3;
+                    position: relative;
+                    left: 15px;
+                }
+                div{
+                    gap: 20px;
+                    img{
+                        width: 100px;
+                    }
+
+                    img:nth-child(2){
+                        width: 70px;
+                    }
+                    span{
+                        @include title_4;
+                    }
+                }
+            }
+        }
+    }
+
+}
 }
 </style>

@@ -87,8 +87,8 @@ export default {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100vh;
+    right: 0;
+    bottom: 0;
     background: rgba(0, 0, 0, .5);
     display: flex;
     align-items: center;
@@ -215,9 +215,11 @@ export default {
 
 @media(max-width: 768px){
     .donate_lightbox {
+        z-index: 1000;
     div {
         width: 100%;
         max-width: 350px;
+
 
         button {
             top: -25px;

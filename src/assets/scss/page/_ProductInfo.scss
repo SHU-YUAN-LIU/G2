@@ -32,7 +32,7 @@
         }
 
         span {
-            @include title_10;
+            @include title_9;
             line-height: $line_height;
             padding-block: 10px;
         }
@@ -43,6 +43,20 @@
             margin-block: 10px;
         }
 
+        .pro-info-price {
+            display: flex;
+            justify-content: flex-start;
+            align-items: baseline;
+            gap: 20px;
+
+            .pro-nt {
+                color: $orange;
+            }
+
+            .iteminfo-price {
+                @include title_5;
+            }
+        }
 
     }
 
@@ -143,6 +157,7 @@
             p {
                 @include title_3;
             }
+
             #num {
                 margin-block: 0;
             }
@@ -204,6 +219,7 @@
             p {
                 @include title_3;
             }
+
             #num {
                 margin-block: 0;
             }

@@ -111,3 +111,8 @@
         }
     }
 }
+
+#app {
+    background: linear-gradient(-10deg, $green 0% 25%, rgba(255, 255, 255, 0) 25% 100%);
+    z-index: -1;
+}
