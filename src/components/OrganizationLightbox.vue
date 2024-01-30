@@ -10,35 +10,35 @@
           <div class="PartyInfo-column">
             <img
               loading="lazy"
-              srcSet="/src/assets/image/about/Candidate1.svg"
+              :src=" image "
               class="PartyInfo-img"
             />
           </div>
           <div class="PartyInfo-column-2">
             <div class="PartyInfo-Info">
-              <h1 class="PartyInfo-name">陳緯珊</h1>
+              <h1 class="PartyInfo-name">{{ name }}</h1>
               <div class="PartyInfo-solid"></div>
               <h2 class="PartyInfo-position">現任</h2>
               <div class="party-info">
-                <p class="party">青年黨 黨主席</p>
-                <p class="legislator">第 10 屆不分區立法委員</p>
+                <p class="party">{{position}}</p>
+                <p class="legislator">{{position2}}</p>
               </div>
               <h2 class="PartyInfo-education">學歷</h2>
               <div class="PartyInfo-education-info">
                 <p>
-                  美國哈佛大學 公共衛生學院碩士
+                  {{education}}
                   <br />
-                  成功大學 學士後醫學系畢業
+                  {{education1}}
                   <br />
-                  台灣大學 復健學系
+                  {{education2}}
                 </p>
               </div>
               <h2 class="PartyInfo-experience">經歷</h2>
               <div class="PartyInfo-experience-info">
                 <p>
-                  青年黨 黨主席
+                    {{exp}}
                   <br />
-                  第 10 屆不分區立法委員
+                  {{exp1}}
                   <br />
                 </p>
               </div>
@@ -63,6 +63,7 @@ export default {
       document.body.style.overflow = "auto";
     },
   },
+  props: ['name', 'position', 'position2', 'education', 'education1', 'education2','exp','exp1','image'],
 };
 </script>
 <style lang="scss">
