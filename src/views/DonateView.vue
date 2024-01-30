@@ -101,4 +101,5 @@ export default {
 
 <style scoped lang="scss">
 @import "../assets/scss/style.scss";
+
 </style>

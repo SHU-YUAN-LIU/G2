@@ -10,9 +10,11 @@
             <span>
                 {{ iteminfo.product_intro }}
             </span>
-            <span>建議售價</span>
-            <span>NT$ {{ iteminfo.price }}</span>
-            <span>供貨狀況: 尚有庫存</span>
+            <div class="pro-info-price">
+                <span>建議售價</span>
+                <span class="pro-nt">NT$ <span class="iteminfo-price">{{ iteminfo.price }}</span></span>
+            </div>
+            <div class="pro-num-state">供貨狀況: 尚有庫存</div>
             <div id="num">
                 <button @click="if (count >= 1) { count -= 1 };"> -</button>
                 <div>{{ count }}</div>
@@ -54,7 +56,7 @@
 import axios from 'axios';
 import Bread from '../components/Bread.vue'
 import CommitButton from '@/components/button/commitButton.vue';
-import CartButton from '@/components/button/cartButton.vue';
+import CartButton from '@/components/button/CartButton.vue';
 export default {
     components: {
         Bread,

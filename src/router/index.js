@@ -22,7 +22,7 @@ const router = createRouter({
       meta: {
         breadcrumb: [{
           name: '首頁 / ',
-          link: '',
+          link: '/',
         },
         {
           name: '關於我們',
@@ -36,7 +36,7 @@ const router = createRouter({
       meta: {
         breadcrumb: [{
           name: '首頁 / ',
-          link: '',
+          link: '/',
         },
         {
           name: '組織團隊',
@@ -50,7 +50,7 @@ const router = createRouter({
       meta: {
         breadcrumb: [{
           name: '首頁 / ',
-          link: '',
+          link: '/',
         },
         {
           name: '黨史',

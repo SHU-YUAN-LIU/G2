@@ -38,38 +38,38 @@
                 </div>
               </li>
           </div>
-      </li>
-    <li>
-      <div class="nav_icons">
-    <li>
-      <RouterLink to="/donate">
-        <div class="icon"><img src="@/assets/image/home/icon_donate.svg" alt="">
-          <p>我要捐款</p>
-        </div>
-      </RouterLink>
-    </li>
-    <li style="position:relative;">
+          </li>
+              <li>
+                <div class="nav_icons">
+                  <li>
+                    <RouterLink to="/donate">
+                      <div class="icon"><img src="@/assets/image/home/icon_donate.svg" alt="">
+                        <p>我要捐款</p>
+                      </div>
+                    </RouterLink>
+                  </li>
+              <li style="position:relative;">
 
-      <div class="icon" @click="showDropDown"><img src="@/assets/image/home/icon_cart.svg" alt="">
-        <p>購物車</p>
-      </div>
-      <DropDown v-if="isDropDown" />
-    </li>
+                <div class="icon" @click="showDropDown"><img src="@/assets/image/home/icon_cart.svg" alt="">
+                  <p>購物車</p>
+                </div>
+                <DropDown v-if="isDropDown" />
+              </li>
 
-    <li>
-      <RouterLink to="/login">
-        <div class="icon"><img src="@/assets/image/home/icon_login.png" alt="">
-          <p>登入</p>
-        </div>
-      </RouterLink>
-    </li>
-    </div>
-    </li>
-    </ul>
+              <li>
+                <RouterLink to="/login">
+                  <div class="icon"><img src="@/assets/image/home/icon_login.png" alt="">
+                    <p>登入</p>
+                  </div>
+                </RouterLink>
+              </li>
+            </div>
+          </li>
+        </ul>
 
-    </nav>
-    </div>
-  </header>
+</nav>
+  </div>
+</header>
 </template>
 
 <script>
@@ -142,9 +142,6 @@ export default {
   }
 }
 
-.dropdown-content a:nth-child(1) {
-  // margin-top: 34px;
-}
 
 .dropdown-content a:hover {
   background-color: #FF892E;
