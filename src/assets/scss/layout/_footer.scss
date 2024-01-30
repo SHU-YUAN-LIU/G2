@@ -51,11 +51,28 @@ footer{
     margin: auto;
     padding: 0 30px;
 }
-@media (max-width: 375px) {
+@media (max-width: 768px) {
+    .footer_logo{
+        padding: 0;
+        img{
+        display: none;
+        }
+    }
+
+    .footer_icon{
+        display: flex;
+    }
     .footer_container {
         flex-direction: column;
     }
     .footer_container h4 {
         text-align: center;
+    }
+    .footer_logo, .footer_contact, .footer_media{
+          order:1;
+          padding: 12px;
+    }
+    .footer_contact{
+        order:2;
     }
 }

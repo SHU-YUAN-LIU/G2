@@ -305,11 +305,13 @@ export default {
 
 .donate_container h2 {
     font-size: 65px;
-    height: 130px;
+    height: 100px;
     text-align: center;
-    @media screen and (max-width: 786px) {
-        margin-bottom: 10px ;
-    }
+    @media screen and (max-width: 414px) {
+     @include title_3;
+     margin-top: 20px;
+  
+}
    
 }
 
@@ -318,6 +320,9 @@ export default {
     width: 600px;
     margin: auto;
     line-height: 50px;
+    @media screen and (max-width: 786px) {
+        line-height: 45px;
+    }
 }
 
 
@@ -335,9 +340,15 @@ export default {
 
      p{
         width: initial;
-        background-color: aliceblue;
+        background-color: #fff;
+        padding: 10px;
+        border-radius: 10px;
      }
-        }
+
+     img{
+        border-radius: 10px;
+     }
+    }
 }
 
 
