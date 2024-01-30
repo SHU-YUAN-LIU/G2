@@ -1,5 +1,4 @@
 div.donate{
-
     .donate_banner{
       position: relative; 
       display: flex;
@@ -179,10 +178,7 @@ div.donate{
   }
 
 
-  #app {
-    background: linear-gradient(-10deg, $green 0% 45%, rgba(255, 255, 255, 0) 45% 100%);
-    z-index: -1;
-  }
+ 
 
 
 // 手機板
@@ -204,8 +200,7 @@ div.donate{
       // 背景圖片設定
       img.icon{
         position: absolute;
-        // 設z-index以免背景圖蓋到卡片
-        z-index: 0;
+        z-index: -1;
       }
       img.icon:nth-child(1){
         width: 170px;

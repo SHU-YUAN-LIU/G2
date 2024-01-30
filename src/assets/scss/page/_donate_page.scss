@@ -220,9 +220,7 @@
               p:first-child{
                 font-size: $font_size_7;
               }
-
             }
-
           }
 
             p.donate_amount_text{
@@ -291,7 +289,6 @@
                 }
               }
             }
-
           }
         }
     }
@@ -304,10 +301,12 @@
       @include title_4;
       color: $orange;
       width: 100%;
+      font-size: 28px;
     }
     .donate_page_banner{    
+      width: 100%;
       h1 {
-        @include title_4;
+        @include title_3;
       }
     }
   
@@ -393,14 +392,14 @@
               table{
                 tr{  
                   td:nth-child(1){
-                    width: 70px;
+                    width: 80px;
                   }
                   td:nth-child(2){
                     input{
                       height: 50px;
                       vertical-align: middle;
                       margin: 0;
-                      width: 150px;
+                      width: 200px;
                     }
                   }
                   td:nth-child(3){

@@ -32,11 +32,17 @@
             <div class="donate_info_table">
                 <table>
                     <tr>
-                        <td>捐款編號 Order number</td>
+                        <td>
+                            捐款編號
+                            Order number
+                        </td>
                         <td>DO20231228000010</td>
                     </tr>
                     <tr>
-                        <td>帳戶名稱Merchant'name</td>
+                        <td>
+                            帳戶名稱
+                            Merchant'name
+                        </td>
                         <td>青年進補黨政治獻金專戶</td>
                     </tr>
                 </table>
@@ -63,12 +69,15 @@
                 <h3>捐款方式</h3>
                 <p>信用卡交易資訊</p>
                 <img src="../assets/image/donate/donate_card_icon.png" alt="信用卡icon">
-                <div class="credit card">
+                <div class="credit_card">
                     <label for="">信用卡卡號<br>Credit card number</label>
-                    <input type="text">
-                    <input type="text">
-                    <input type="text">
-                    <input type="text">
+                    <div>
+                        <input type="text">
+                        <input type="text">
+                        <input type="text">
+                        <input type="text">
+                    </div>
+                    
                 </div>
                 <div>
                     <label for="">卡片有效期限<br>Card valid thru</label>
@@ -168,7 +177,6 @@ export default {
             @include title_1;
             color: $white;
             position: absolute;
-            font-weight: inherit;
         }
     }
 
@@ -188,7 +196,7 @@ export default {
         // 捐款確認資料的內容
         .content {
             border: 2px solid $orange;
-            border-radius: 10px;
+            border-radius: $border-radius-1;
             padding: 30px;
 
             li {
@@ -212,7 +220,7 @@ export default {
 
                 tr {
                     height: 50px;
-                    line-height: 50px;
+                    padding: 0;
                 }
 
                 tr+tr {
@@ -229,6 +237,7 @@ export default {
 
                 td:last-child {
                     padding-left: 20px;
+                    line-height: 50px;
                 }
             }
         }
@@ -239,6 +248,7 @@ export default {
             p {
                 margin: 30px 0 20px 0;
                 text-align: right;
+                @include title_10;
             }
 
 
@@ -251,7 +261,7 @@ export default {
                     color: #fff;
                     height: 50px;
                     line-height: 50px;
-                    border-radius: 10px;
+                    border-radius: $border-radius-1;
                     letter-spacing: 2px;
                 }
 
@@ -280,10 +290,9 @@ export default {
                 background-color: $orange;
                 color: #fff;
                 @include title_9;
-                border-radius: 10px;
+                border-radius: $border-radius-1;
                 padding-left: 10px;
                 line-height: 50px;
-
             }
 
             img {
@@ -297,13 +306,12 @@ export default {
 
                 label {
                     @include title_10;
-                    display: inline-block;
                     width: 200px;
                 }
 
                 input {
                     margin: 0 0 30px 30px;
-                    border-radius: 10px;
+                    border-radius: $border-radius-1;
                     height: 40px;
                     flex: 1;
                 }
@@ -319,6 +327,14 @@ export default {
                 height: 20px;
                 flex: initial;
             }
+
+            .credit_card{
+                label{
+                    width: 200px;
+                    margin: 0;
+                    padding: 0;
+                }
+            }
         }
     }
 
@@ -333,6 +349,118 @@ export default {
             @include btn_3;
             margin: 90px 0;
             cursor: pointer;
+        }
+    }
+}
+
+
+@media(max-width: 768px){
+.donate_confirm {
+// banner
+    .donate_confirm_banner {
+        img {
+            width: 100%;
+        }
+        h1 {
+            @include title_3;
+        }
+    }
+
+// 捐款確認資料
+    .donate_container {
+        max-width: 350px;
+        margin: auto;
+
+        // 捐款確認資料的標題
+        h3 {
+        }
+
+        // 捐款確認資料的內容
+        .content {
+            padding: 15px;
+
+            li {
+                padding: 10px;
+
+                +li {
+                    border-top: 1px solid black;
+                }
+            }
+        }
+        // 捐款資訊
+        .donate_info_table {
+            table {
+                tr {
+                    font-size: 14px;
+                }
+
+                td:first-child {
+                    letter-spacing: 2px;
+                    width: 120px;
+                    line-height: 20px;
+                }
+
+                td:last-child {
+                    padding-left: 10px;
+                    line-height: 40px;
+                }
+            }
+        }
+
+        // 捐款明細
+        .donate_detail_table {
+
+            table {
+                th {
+                    @include title_10;
+                    letter-spacing: 1px;
+                }
+            }
+        }
+
+        // 捐款方式
+        .donete_payment {
+
+            p {
+                @include title_10;
+                border-radius: $border-radius-1;
+                padding-left: 10px;
+                line-height: 50px;
+
+            }
+
+            div {
+                // flex-wrap: wrap;
+                label {
+                    width: 100px;
+                }
+
+                input {
+                    margin: 0 0 20px 20px;
+                    border-radius: $border-radius-1;
+                    height: 40px;
+                    flex: 1;
+                }
+            }
+
+            .credit_card{
+                label{
+                    width: 100px;
+                    margin: 0;
+                    padding: 0;
+                }
+            }
+        }
+    }
+
+// 捐款按鈕
+        .donate_confirm_button {
+            max-width: 350px;
+            button {
+                @include btn_3;
+                margin: 60px 0;
+                cursor: pointer;
+            }
         }
     }
 }
