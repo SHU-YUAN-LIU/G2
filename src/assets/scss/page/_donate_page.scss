@@ -100,27 +100,24 @@
           margin-right: 10px;
         }
 
+        input {
+          width: 100%;
+          height: 40px;
+          padding-left: 10px;
+          border-radius: $border-radius-1;
+        }
+
         .donate_page_email {
           margin: 30px 0;
 
           span {
             color: red;
           }
-
-          input {
-            width: 100%;
-            height: 40px;
-          }
         }
 
         .donate_page_phone {
           span {
             color: red;
-          }
-
-          input {
-            width: 100%;
-            height: 40px;
           }
         }
       }
