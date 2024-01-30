@@ -72,7 +72,9 @@ export default {
 
         }
     },
-
+    mounted() {
+        document.title = "青年進補黨 - 陳情案件查詢結果";
+    },
 }
 </script>
 

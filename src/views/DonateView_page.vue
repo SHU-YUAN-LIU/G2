@@ -82,13 +82,13 @@
           <table>
             <tr>
               <td>新台幣</td>
-              <td><input type="number" placeholder="請自行輸入金額"></td>
+              <td><input type="text" placeholder="請自行輸入金額"></td>
               <td>元</td>
             </tr>
           </table>
         </div>
         
-        <p>目前選擇方式可捐款金額為新台幣 <span v-if="donate_num == 2">300 ~ 300,000</span><span v-else-if="donate_num == 1">300 ~ 10,000</span> 元</p>
+        <p>可捐款金額為新台幣 <span v-if="donate_num == 2">300 ~ 300,000</span><span v-else-if="donate_num == 1">300 ~ 10,000</span> 元</p>
       </div>
       
       <div class="donate_page_attention">
@@ -204,7 +204,7 @@ export default {
     donatePoint,
   },
   mounted() {
-    document.title = '我要捐款 - 會員捐款';
+    document.title = '青年進補黨 - 捐款';
     this.donate_num = localStorage.getItem('donate_num');
   },
 };
@@ -221,10 +221,11 @@ export default {
               0px 3px 0px #aaa,
               0px 3px 0px #bbb !important; 
   transform: translate(0px, 3px);
-  background: #e3ecc2;
+  background: $orange;
+  color: $white;
   }
 
   .donate_page_amount .amount_active .donate_amount_item{
-    background-color: #FF892E !important;
+    background-color: $orange !important;
   }
 </style>

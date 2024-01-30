@@ -19,8 +19,7 @@
                     <Button type="info" @click="blue = !blue">{{ blue ? '隱藏' : '顯示' }}藍色Pin</Button> | -->
                 </div>
                 <div class="minimap_svg" :class="{ redShow: red, blueShow: blue }">
-                    <MiniMap @changeInfo="change"
-                     />
+                    <MiniMap @changeInfo="change" />
                 </div>
             </div>
             <!-- 行程 -->
@@ -56,7 +55,7 @@ export default {
     data() {
         return {
             bannerTitle: '候選人行程',
-            bannerPic: 'src/assets/image/election/journey.png',
+            bannerPic: '^/image/election/journey.png',
             slogan: '這是一場改變政治文化的社會運動，投給劉緯育，投給自己的未來。',
             red: true,
             blue: true,
@@ -68,7 +67,7 @@ export default {
                     position: "凱達格蘭大道",
                     add: "台北市中正區凱達格蘭大道",
                     country: '桃園',
-                    src: "src/assets/image/election/journey-2.png",
+                    src: "^/image/election/journey-2.png",
                 },
                 {
                     time: "2024/01/01(五)18:30-22:00",
@@ -76,7 +75,7 @@ export default {
                     position: "凱達格蘭大道",
                     add: "台北市中正區凱達格蘭大道",
                     country: '桃園',
-                    src: "src/assets/image/election/journey-1.png",
+                    src: "^/image/election/journey-1.png",
                 },
                 {
                     time: "2024/01/01(五)18:30-22:00",
@@ -84,7 +83,7 @@ export default {
                     position: "凱達格蘭大道",
                     add: "台北市中正區凱達格蘭大道",
                     country: '南投',
-                    src: "src/assets/image/election/journey-1.png",
+                    src: "^/image/election/journey-1.png",
                 },
                 {
                     time: "2024/01/01(五)18:30-22:00",
@@ -92,7 +91,7 @@ export default {
                     position: "凱達格蘭大道",
                     add: "台北市中正區凱達格蘭大道",
                     country: '苗栗',
-                    src: "src/assets/image/election/journey-1.png",
+                    src: "^/image/election/journey-1.png",
                 },
                 {
                     time: "2024/01/01(五)18:30-22:00",
@@ -100,7 +99,7 @@ export default {
                     position: "凱達格蘭大道",
                     add: "台北市中正區凱達格蘭大道",
                     country: '雲林',
-                    src: "src/assets/image/election/journey-2.png",
+                    src: "^/image/election/journey-2.png",
                 },
                 {
                     time: "2024/01/01(五)18:30-22:00",
@@ -108,7 +107,7 @@ export default {
                     position: "凱達格蘭大道",
                     add: "台北市中正區凱達格蘭大道",
                     country: '高雄',
-                    src: "src/assets/image/election/journey-2.png",
+                    src: "^/image/election/journey-2.png",
                 },
                 {
                     time: "2024/01/01(五)18:30-22:00",
@@ -116,7 +115,7 @@ export default {
                     position: "凱達格蘭大道",
                     add: "台北市中正區凱達格蘭大道",
                     country: '台東',
-                    src: "src/assets/image/election/journey-2.png",
+                    src: "^/image/election/journey-2.png",
                 },
             ],
             displayTrip: [
@@ -126,7 +125,7 @@ export default {
                     position: "凱達格蘭大道",
                     add: "台北市中正區凱達格蘭大道",
                     country: '桃園',
-                    src: "src/assets/image/election/journey-1.png",
+                    src: "^/image/election/journey-1.png",
                 },
                 {
                     time: "2024/01/01(五)18:30-22:00",
@@ -134,7 +133,7 @@ export default {
                     position: "凱達格蘭大道",
                     add: "台北市中正區凱達格蘭大道",
                     country: '桃園',
-                    src: "src/assets/image/election/journey-1.png",
+                    src: "^/image/election/journey-1.png",
                 },
                 {
                     time: "2024/01/01(五)18:30-22:00",
@@ -142,7 +141,7 @@ export default {
                     position: "凱達格蘭大道",
                     add: "台北市中正區凱達格蘭大道",
                     country: '南投',
-                    src: "src/assets/image/election/journey-1.png",
+                    src: "^/image/election/journey-1.png",
                 },
                 {
                     time: "2024/01/01(五)18:30-22:00",
@@ -150,7 +149,7 @@ export default {
                     position: "凱達格蘭大道",
                     add: "台北市中正區凱達格蘭大道",
                     country: '台東',
-                    src: "src/assets/image/election/journey-1.png",
+                    src: "^/image/election/journey-1.png",
                 },
                 {
                     time: "2024/01/01(五)18:30-22:00",
@@ -158,7 +157,7 @@ export default {
                     position: "凱達格蘭大道",
                     add: "台北市中正區凱達格蘭大道",
                     country: '台東',
-                    src: "src/assets/image/election/journey-1.png",
+                    src: "^/image/election/journey-1.png",
                 },
                 {
                     time: "2024/01/01(五)18:30-22:00",
@@ -166,7 +165,7 @@ export default {
                     position: "凱達格蘭大道",
                     add: "台北市中正區凱達格蘭大道",
                     country: '苗栗',
-                    src: "src/assets/image/election/journey-1.png",
+                    src: "^/image/election/journey-1.png",
                 },
                 {
                     time: "2024/01/01(五)18:30-22:00",
@@ -174,10 +173,10 @@ export default {
                     position: "凱達格蘭大道",
                     add: "台北市中正區凱達格蘭大道",
                     country: '高雄',
-                    src: "src/assets/image/election/journey-1.png",
+                    src: "^/image/election/journey-1.png",
                 },
             ],
-            currentTitle:"",
+            currentTitle: "",
 
         }
     },
@@ -190,7 +189,7 @@ export default {
     },
     methods: {
         change(pos) {
-            this.currentTitle=pos;
+            this.currentTitle = pos;
             this.displayTrip = this.allTrip.filter((item) => {
                 return item.country == pos;
             })
@@ -198,7 +197,7 @@ export default {
 
     },
     mounted() {
-        document.title = "青年進補黨 - 活動資訊";
+        document.title = "候選人行程";
     },
 }
 </script>

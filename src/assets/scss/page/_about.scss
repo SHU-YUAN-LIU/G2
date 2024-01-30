@@ -13,7 +13,13 @@
       font-weight: initial;
       letter-spacing: 10px;
       position: absolute;
-    }
+      text-shadow: 0 0 30px rgba(92, 92, 92, 0.8);
+
+      @media screen and (max-width:768px) {
+          @include title_2;
+      }
+
+  }
 
     img {
       width: 100%;

@@ -13,19 +13,19 @@
       <div class="con_process_group">
         <div class="bar"></div>
         <div class="con_process">
-          <img src="@/assets/image/contect/writeForm.svg" alt="">
+          <img src="^/image/contect/writeForm.svg" alt="">
           <span>填寫表單</span>
         </div>
         <div class="con_process">
-          <img src="@/assets/image/contect/check.svg" alt="">
+          <img src="^/image/contect/check.svg" alt="">
           <span>已受理</span>
         </div>
         <div class="con_process">
-          <img src="@/assets/image/contect/working.svg" alt="">
+          <img src="^/image/contect/working.svg" alt="">
           <span>處理中</span>
         </div>
         <div class="con_process">
-          <img src="@/assets/image/contect/finalReply.svg" alt="">
+          <img src="^/image/contect/finalReply.svg" alt="">
           <span>結果回覆</span>
         </div>
       </div>
@@ -81,7 +81,7 @@ export default {
       commit: '表單送出',
       isModalVisible: false,
       bannerTitle: '聯絡我們',
-      bannerPic: 'src/assets/image/contect/contect_banner.png'
+      bannerPic: 'image/contect/contect_banner.png'
     }
   },
   methods: {
@@ -92,7 +92,9 @@ export default {
       document.body.style.overflow = 'hidden';
     }
   },
-
+  mounted() {
+    document.title = "青年進補黨 - 聯絡我們";
+  },
 }
 </script>
 

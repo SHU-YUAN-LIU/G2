@@ -23,7 +23,7 @@
     </form>
     <div class="news_cards">
       <div v-for="item in newsCard" class="card_a">
-        <a :href="item.url">
+        <router-link :to="item.url">
           <div class="news_card">
             <div class="news_pic">
               <img :src="item.imageUrl">
@@ -35,7 +35,7 @@
               <span>{{ item.date }}</span>
             </div>
           </div>
-        </a>
+        </router-link>
       </div>
     </div>
   </div>
@@ -50,7 +50,7 @@ export default {
       
       newsCard: [
         { 
-          url: '/member',
+          url: '/newspage',
           type: "新聞資訊",
           typeClass: "news_info",
           title: "#120 台灣政治改革之路 - 義無反顧的選擇",
@@ -69,7 +69,7 @@ export default {
           imageUrl: "/src/assets/image/news/news2_s.png"
         },
         {
-          url: '#',
+          url: '/newspage',
           type: "新聞資訊",
           typeClass: "news_info",
           title: "2024，選擇劉緯育，改變台灣的未來!",
@@ -78,7 +78,7 @@ export default {
           imageUrl: "/src/assets/image/news/news3_s.png"
         },
         {
-          url: '#',
+          url: '/newspage',
           type: "演講活動",
           typeClass: "speech",
           title: "2024/2/24 青年之聲 新竹開講",
@@ -87,7 +87,7 @@ export default {
           imageUrl: "/src/assets/image/news/news4_s.png"
         },
         {
-          url: '#',
+          url: '/newspage',
           type: "新聞資訊",
           typeClass: "news_info",
           title: "台灣政治迎來新希望 - 青年進補黨宣佈改變政治文化",
@@ -101,7 +101,10 @@ export default {
   },
   components: {
     breadCrumbs,
-  }
+  },
+  mounted() {
+        document.title = '最新消息';
+    }
 }
 
 </script>

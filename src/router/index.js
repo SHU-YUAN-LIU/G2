@@ -71,9 +71,6 @@ const router = createRouter({
     {
       path: '/product',
       name: 'product',
-      // route level code-splitting
-      // this generates a separate chunk (Product.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
       component: () => import('../views/ProductView.vue'),
       meta: {
         breadcrumb: [{
@@ -89,17 +86,11 @@ const router = createRouter({
     {
       path: '/login',
       name: 'login',
-      // route level code-splitting
-      // this generates a separate chunk (Login.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
       component: () => import('../views/LoginView.vue')
     },
     {
       path: '/donate',
       name: 'donate',
-      // route level code-splitting
-      // this generates a separate chunk (Login.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
       component: () => import('../views/DonateView.vue'),
       meta: {
         breadcrumb: [{
@@ -269,7 +260,7 @@ const router = createRouter({
       component: () => import('../views/CartView.vue')
     },
     {
-      path: '/ProductPayView',
+      path: '/ProductPay',
       name: 'ProductPay',
       component: () => import('../views/ProductPayView.vue')
     },

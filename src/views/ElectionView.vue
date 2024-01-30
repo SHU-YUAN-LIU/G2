@@ -83,7 +83,10 @@ export default {
   components: {
     vueMarquee,
     bookmark,
-  }
+  },
+  mounted() {
+    document.title = "候選人資訊";
+  },
 }
 </script>
 

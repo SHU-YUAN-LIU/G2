@@ -1007,7 +1007,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 5;
+  z-index: 50;
 }
 header .logo {
   width: 120px;
@@ -1152,14 +1152,17 @@ footer {
 }
 
 .footer_logo {
-  background-image: url("@/assets/image/footer/Logo.png");
+  background-image: url("@/assets/image/footer/Logo_PC.svg");
   background-repeat: no-repeat;
+  width: 200px;
+  height: 160px;
+  background-size: 180px 160px;
 }
 
 .footer_logo,
 .footer_contact,
 .footer_media {
-  padding: 30px;
+  padding: 15px;
   margin: auto;
 }
 
@@ -1191,7 +1194,7 @@ footer {
 
 .footer_declaration {
   background-color: #3D3D3D;
-  padding: 10px;
+  padding: 25px;
 }
 
 .footer_declaration p {
@@ -1199,7 +1202,7 @@ footer {
   max-width: 1200px;
   letter-spacing: 1px;
   color: white;
-  line-height: 30px;
+  line-height: 24px;
   margin: auto;
   padding: 0 30px;
 }
@@ -1263,6 +1266,14 @@ footer {
   font-weight: initial;
   letter-spacing: 10px;
   position: absolute;
+  text-shadow: 0 0 30px rgba(92, 92, 92, 0.8);
+}
+@media screen and (max-width: 768px) {
+  .about .contect_banner h1 {
+    font-family: "Mantou Sans";
+    font-size: 65px;
+    font-weight: initial;
+  }
 }
 .about .contect_banner img {
   width: 100%;
@@ -2968,7 +2979,7 @@ article {
   height: 100%;
   overflow: hidden;
   transition: transform 0.5s ease-in-out;
-  z-index: 100;
+  z-index: 2;
 }
 .container .overlay {
   position: relative;
@@ -3019,6 +3030,10 @@ article {
 }
 .container .overlay_right .sub_register .login_logo {
   padding: 15px 0;
+  max-width: 283px;
+}
+.container .overlay_right .sub_register .login_logo img {
+  width: 100%;
 }
 
 form {
@@ -3154,12 +3169,17 @@ form .register_read p {
   }
 }
 @media (max-width: 1200px) {
+  article {
+    margin: 100px;
+  }
   .container {
-    width: 800px;
+    width: 900px;
+  }
+  .container .overlay_left p {
+    font-size: 40px;
   }
   form.login {
-    width: 400px;
-    box-sizing: border-box;
+    width: 450px;
   }
   form.login .profile {
     width: 150px;
@@ -3168,17 +3188,31 @@ form .register_read p {
   form.login .profile img {
     height: 80%;
   }
-  form.login p {
-    font-size: 0.8rem;
+  .register-active .register {
+    transform: translateX(90%);
   }
-  form.login input {
-    width: 200px;
+  form {
+    padding: 40px 50px;
+  }
+  form input {
+    width: 350px;
+  }
+}
+@media (max-width: 1099px) {
+  article {
+    margin: 50px;
+  }
+  .container .overlay_left {
+    padding: 0;
   }
   .register-active .register {
-    transform: translateX(50%);
-    opacity: 1;
-    z-index: 5;
-    animation: show 0.5s;
+    transform: translateX(95%);
+  }
+  form {
+    padding: 40px 50px;
+  }
+  form input {
+    width: 350px;
   }
 }
 .news_wrap {
@@ -4842,6 +4876,7 @@ form .register_read p {
   max-width: 700px;
   width: 100%;
   height: 600px;
+  padding: 40px 80px;
 }
 .forgot_wrap form input {
   margin-bottom: 20px;
@@ -4863,6 +4898,9 @@ form .register_read p {
 }
 .forgot_wrap form .forgot_email input {
   width: 500px;
+}
+.forgot_wrap form .forgot_code {
+  margin: 0 20px;
 }
 .forgot_wrap form .forgot_code .mark {
   color: #FF892E;
@@ -4964,6 +5002,7 @@ form .register_read p {
   max-width: 700px;
   width: 100%;
   height: 600px;
+  padding: 40px 80px;
 }
 .new_wrap form input {
   margin-bottom: 20px;
@@ -4985,6 +5024,9 @@ form .register_read p {
 }
 .new_wrap form .forgot_email input {
   width: 500px;
+}
+.new_wrap form .forgot_code {
+  margin: 0 20px;
 }
 .new_wrap form .forgot_code .mark {
   color: #FF892E;
