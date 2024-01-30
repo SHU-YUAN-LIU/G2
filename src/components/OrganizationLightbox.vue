@@ -3,7 +3,7 @@
     <div class="donate_container" @click.stop>
       <!-- 打叉icon -->
       <div class="icon" @click="closeLightbox">
-        <img src="@/assets/image/contect/cross.svg" alt="" />
+        <img src="image/contect/cross.svg" alt="" />
       </div>
       <div>
         <div class="PartyInfo-container">
