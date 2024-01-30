@@ -21,20 +21,22 @@
         <button class="btn">搜尋</button>
       </div>
     </form>
-    <div v-for="item in newsCard" class="news_cards">
-      <a :href="item.url">
-        <div class="news_card">
-          <div class="news_pic">
-            <img :src="item.imageUrl">
+    <div class="news_cards">
+      <div v-for="item in newsCard" class="card_a">
+        <a :href="item.url">
+          <div class="news_card">
+            <div class="news_pic">
+              <img :src="item.imageUrl">
+            </div>
+            <div class="news_content">
+              <div :class="item.typeClass">{{ item.type }}</div>
+              <h3>{{ item.title }}</h3>
+              <p>{{ item.content }}</p>
+              <span>{{ item.date }}</span>
+            </div>
           </div>
-          <div class="news_content">
-            <div :class="item.typeClass">{{ item.type }}</div>
-            <h3>{{ item.title }}</h3>
-            <p>{{ item.content }}</p>
-            <span>{{ item.date }}</span>
-          </div>
-        </div>
-      </a>
+        </a>
+      </div>
     </div>
   </div>
 </template>
