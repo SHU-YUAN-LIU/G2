@@ -12,7 +12,7 @@
 .index_news_flex {
     justify-content: center;
     gap: 40px;
-    @media (width<768px){
+    @media (width<769px){
         display: block;
         width: 100%;
 
@@ -27,7 +27,7 @@
     }
     .index_news_card {
         display: flex;
-        @media (width<768px){
+        @media (width<769px){
             display: inline;
         }
         flex-wrap: nowrap;
@@ -50,7 +50,7 @@
             padding: 16px 35px 0;
             letter-spacing: $space_letter;
             line-height: $line_height;
-            @media (width<768px){
+            @media (width<769px){
                 background-color: $white;
             }
             @include title_10;
@@ -67,7 +67,7 @@
 
 .index_news_flex>.index_news_card:nth-child(2) {
     flex-direction: column;
-    @media (width<768px){
+    @media (width<769px){
         margin-bottom: 80px;
     }
     
@@ -80,7 +80,7 @@
 .news_index_inner_flex {
     flex-direction: column;
     gap: 40px;
-    @media (width<768px){
+    @media (width<769px){
         width: 100%;    
     }
 }
