@@ -372,8 +372,6 @@ export default {
         margin: auto;
 
         // 捐款確認資料的標題
-        h3 {
-        }
 
         // 捐款確認資料的內容
         .content {
@@ -420,25 +418,13 @@ export default {
 
         // 捐款方式
         .donete_payment {
-
-            p {
-                @include title_10;
-                border-radius: $border-radius-1;
-                padding-left: 10px;
-                line-height: 50px;
-
-            }
-
             div {
-                // flex-wrap: wrap;
                 label {
                     width: 100px;
                 }
 
                 input {
-                    margin: 0 0 20px 20px;
-                    border-radius: $border-radius-1;
-                    height: 40px;
+                    height: 30px;
                     flex: 1;
                 }
             }
@@ -448,6 +434,16 @@ export default {
                     width: 100px;
                     margin: 0;
                     padding: 0;
+                }
+                div{
+                    display: flex;
+                    flex-direction: column;
+                    height: 200px;
+                    input{
+                        margin-bottom: 20px;
+                        width: 220px;
+
+                    }
                 }
             }
         }
