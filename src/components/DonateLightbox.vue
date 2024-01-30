@@ -140,12 +140,12 @@ export default {
             align-items: center;
 
             .donate_anonymous {
-                background: $orange;
+                background: $gray_3;
                 margin-right: 50px;
             }
 
             .donate_member {
-                background: $gray-3;
+                background: $orange;
             }
 
             .donate_anonymous,
@@ -160,6 +160,7 @@ export default {
 
                 h2 {
                     @include title-2;
+                    margin-bottom: 10px;
                 }
 
                 img {
@@ -242,7 +243,11 @@ export default {
         .donate_lightbox_content {
             max-width: 350px;
             padding: 20px;
+            border: 1px solid #000;
 
+            img{
+                display: none;
+            }
             .donate_lightbox_top {
                 display: flex;
                 flex-direction: column;
@@ -250,12 +255,9 @@ export default {
 
                 .donate_anonymous {
                     margin-right: 0px;
-                    margin-top: 200px;
+                    margin-top: 0px;
                 }
 
-                .donate_member {
-                    background: $gray-3;
-                }
 
                 .donate_anonymous,
                 .donate_member {
@@ -271,7 +273,7 @@ export default {
 
             .donate_lightbox_bottom {
                 width: 100%;
-                margin-top: 250px;
+                
 
                 h3 {
                     @include title_3;
