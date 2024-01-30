@@ -16,14 +16,17 @@ footer {
 }
 
 .footer_logo {
-    background-image: url('@/assets/image/footer/Logo.png');
+    background-image: url('@/assets/image/footer/Logo_PC.svg');
     background-repeat: no-repeat;
+    width: 200px;
+    height: 160px;
+    background-size: 180px 160px
 }
 
 .footer_logo,
 .footer_contact,
 .footer_media {
-    padding: 30px;
+    padding: 15px;
     margin: auto;
 }
 
@@ -54,7 +57,7 @@ footer {
 
 .footer_declaration {
     background-color: #3D3D3D;
-    padding: 10px;
+    padding: 25px;
 }
 
 .footer_declaration p {
@@ -62,7 +65,7 @@ footer {
     max-width: 1200px;
     letter-spacing: 1px;
     color: white;
-    line-height: 30px;
+    line-height: 24px;
     margin: auto;
     padding: 0 30px;
 }
