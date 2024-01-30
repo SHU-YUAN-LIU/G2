@@ -13,7 +13,7 @@
                 <input type="text" id="name">
             </div>
             <div class="member_idno">
-                <p>身分證字號： <span>H224729803</span></p>
+                <p>身分證字號： <span class="member_idno_text">H224729803</span></p>
             </div>
             <div class="member_birth">
                 <label for="birthday">出生日期：</label>
@@ -36,8 +36,8 @@
                 <input type="etext" id="address">
             </div>
             <div class="member_point">
-                <p>進補點數：<span>9999</span>點</p>
-            </div>
+                <p >進補點數：<span class="member_point_text">9999點</span></p>
+                          </div>
             <button class="btn">確認修改 ➜</button>
         </form>
         <div class="membercontent" v-show="currentPage==1">
@@ -215,6 +215,3 @@ export default {
 
 }
 </script>
-<style>
-
-</style>

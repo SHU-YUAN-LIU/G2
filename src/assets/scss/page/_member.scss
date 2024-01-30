@@ -2,11 +2,15 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 800px;
+    max-width: 800px;
     margin: auto;
     .membercontent{
+        display: flex;
+        flex-direction: column;
+        align-content: center;
         width: 100%;
-        .contentwrap{
+        
+              .contentwrap{
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -20,7 +24,12 @@
             margin: auto;
             margin-top: 20px;
             cursor: pointer;
-        }
+@media screen and (max-width:768px) {
+    width: 300px;
+    height: 60px;
+    
+}
+                }
         .searchbar{
             margin-top: 30px;
             margin-bottom: 30px;
@@ -28,10 +37,21 @@
             gap: 20px;
             align-items: center;
             position: relative;
+
+            @media screen and (max-width:768px) {
+                display: none;
+            }
         }
         input{
-            height: 30px;
+            height: 48px;
+            @media screen and (max-width:414px){
+                width: 300px;
+                            }
         }
+
+        label{
+            width: 150px;
+                    }
     }
     .member_profile {
         width: 210px;
@@ -49,6 +69,10 @@
         margin-top: 50px;
         max-width: 700px;
         display: flex;
+        @media screen and (max-width:768px) {
+           margin-bottom: 40px;
+        }
+        
         .btn {
             @include btn_3;
             margin: 0 10px;
@@ -67,7 +91,6 @@
         
     }
     form {
-        width: 750px;
         display: flex;
         position: inherit;
         margin-bottom: 50px;
@@ -75,19 +98,26 @@
         @include title_9;
         p {
             margin: 20px 0;
-            span {
-                margin-left: 50px;
+
+            span{
+                margin-left: 5px;
             }
         }
-        div {
+              div {
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-start;
             align-items: center;
+        }
+        @media (width<415px) {  
+            padding: 40px 10px;
         }
     }
     .searchbtn {
         @include btn_5;
         cursor: pointer;
+    }
+    input{
+        max-width: 400px;
     }
 }
 .startdate{
@@ -191,18 +221,28 @@
     }
 }
 .member_idno{
-    span{
-        padding-left: 28px;
-        color: $black;
+    .member_idno_text{
+    color: $black;
     }
-}
-.member_point{
-    span{
-        padding-left: 52px;
-        color: $black;
+    @media screen and (min-width:768px) {
+        .member_idno_text{
+            padding-left: 25px;
+       }
     }
+     
 }
 
-// .orderTotal{
-//     color: $orange;
-// }
+.member_point{
+   .member_point_text{
+    color: black;
+    padding-left: 30px;
+   }
+
+   @media screen and (min-width:768px) {
+    .member_point_text{
+        padding-left: 45px;
+   }
+}
+}
+
+

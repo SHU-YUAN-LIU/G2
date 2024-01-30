@@ -6,6 +6,15 @@
         alt="organization_banner.svg"
       />
       <h1>組織團隊</h1>
+<<<<<<< HEAD
+    </div>
+    <!-- 麵包屑 -->
+    <Bread :page="dog" />
+    <OrganizationLightbox ref="OrganizationLightbox" />
+    <div class="organization_wrap">
+      <h1 class="organization-title">青年進補黨中央委員會<br />組織團隊</h1>
+      <h1 class="organization-title2">中央黨部</h1>
+=======
       </div>
       <!-- 麵包屑 -->
       <breadCrumbs :page="currentPage" />
@@ -16,57 +25,69 @@
   
     <h1 class="organization-title">青年進補黨中央委員會<br />組織團隊</h1>
     <h1 class="organization-title2">中央黨部</h1>
+>>>>>>> 7a21fc263e2957f9c24edce902a5140b788eda6f
 
-    <div class="card-container">
-      <div
-        v-for="(candidate, index) in candidates"
-        :key="index"
-        class="card"
-        @click="showPopup(candidate)"
-      >
-        <img
-          :src="candidate.image"
-          alt="Candidate Image"
-          class="candidate-image"
-        />
-        <div class="candidate-info">
-          <p class="candidate-name">{{ candidate.name }}</p>
-          <p class="candidate-position">{{ candidate.position }}</p>
+      <div class="card-container">
+        <div
+          v-for="(candidate, index) in candidates"
+          :key="index"
+          class="card"
+          @click="PartyInfo"
+        >
+          <img
+            :src="candidate.image"
+            alt="Candidate Image"
+            class="candidate-image"
+          />
+          <div class="candidate-info">
+            <p class="candidate-name">{{ candidate.name }}</p>
+            <p class="candidate-position">{{ candidate.position }}</p>
+          </div>
         </div>
       </div>
-    </div>
 
-    <h1 class="organization-title3">地方黨部</h1>
+      <h1 class="organization-title3">地方黨部</h1>
 
-    <div class="localparty">
-      <div class="localcard-container">
-        <div
-          v-for="(localcandidate, index) in localcandidates"
-          :key="index"
-          class="localcard"
-        >
-          <div class="localcandidate-info">
-            <p class="localcandidate-name">{{ localcandidate.name }}</p>
-            <p class="localcandidate-position">{{ localcandidate.position }}</p>
-          </div>
-          <div class="local-span" @click="showDetails(localcandidate)">
-            <div class="add">詳細資訊</div>
+      <div class="localparty">
+        <div class="localcard-container">
+          <div
+            v-for="(localcandidate, index) in localcandidates"
+            :key="index"
+            class="localcard"
+          >
+            <div class="localcandidate-info">
+              <p class="localcandidate-name">{{ localcandidate.name }}</p>
+              <p class="localcandidate-position">
+                {{ localcandidate.position }}
+              </p>
+            </div>
+            <div class="local-span" @click="PartyInfo">
+              <div class="add">詳細資訊</div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 
   <!-- 分隔線 -->
   <!-- <div class="IamSpace" style="display: block; width: 100%; height: 10000px;"></div> -->
 </template>
 
 <script>
+<<<<<<< HEAD
+import Bread from "../components/Bread.vue";
+import OrganizationLightbox from "../components/OrganizationLightbox.vue";
+export default {
+  components: {
+    Bread,
+    OrganizationLightbox,
+=======
 import breadCrumbs from '../components/Bread.vue';
 export default {
   components: {
     breadCrumbs,
+>>>>>>> 7a21fc263e2957f9c24edce902a5140b788eda6f
   },
   data() {
     return {
@@ -76,6 +97,9 @@ export default {
           name: "陳緯珊",
           position: "黨主席",
           image: "/src/assets/image/about/Candidate1.svg",
+          position2: "",
+          
+
         },
         {
           name: "陳優華",
@@ -151,7 +175,7 @@ export default {
   methods: {
     showPopup(candidate) {
       // Implement logic to show popup with candidate details
-      
+
       console.log("Show popup for", candidate.name);
     },
     showDetails(localcandidate) {
@@ -159,7 +183,10 @@ export default {
       console.log("Show details for", localcandidate.name);
       // 在这里添加弹窗显示的逻辑，例如使用模态框或其他方式
     },
-
+    PartyInfo() {
+            this.$refs.OrganizationLightbox.showLightbox = true;
+            document.body.style.overflow="hidden";
+        }
   },
 };
 </script>

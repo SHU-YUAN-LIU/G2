@@ -67,8 +67,8 @@
     </li>
     </ul>
 
-    </nav>
-    </div>
+    <<<<<<< HEAD </nav>
+      </div>
   </header>
   <!-- 漢堡 -->
   <div class="hamburger-menu" :class="{ open: isOpen }" @click="toggleMenu">
@@ -115,6 +115,11 @@
       </ul>
     </div>
   </div>
+  =======
+  </nav>
+  </div>
+  </header>
+  >>>>>>> dev
 </template>
 
 <script>
@@ -195,7 +200,7 @@ export default {
   }
 }
 
-.dropdown-content a:hover {
+<<<<<<< HEAD=======>>>>>>>dev .dropdown-content a:hover {
   background-color: #FF892E;
   color: #f9f9f9;
 }
