@@ -17,7 +17,7 @@
         <div v-for="(item, index) in cartList " class="pay-info" :key="item.product_no">
             <div class="pay-product">
                 <div class="pay-pic">
-                    <img :src="`^/image/product/product_data/${item.product_pic1}`" alt="">
+                    <img :src="getpicurl(item.product_pic1)" alt="">
                 </div>
                 <span>{{ item.product_name }}</span>
             </div>
@@ -30,7 +30,7 @@
             <div class="pay-delete">
                 <span>${{ item.quantity * item.price }}</span>
                 <div @click=" changeqty($event, item.product_no, -(item.quantity))" class="trash-can"><img
-                        src="^/image/product/trash.svg" alt="">
+                        src="/image/product/trash.svg" alt="">
                 </div>
             </div>
         </div>
@@ -192,6 +192,15 @@ export default {
             if (event.key == 'cart') {
                 [this.cartList, this.cart_total] = show_product();
             }
+        },
+        getpicurl(picname) {
+            if (picname) {
+                var url = `${import.meta.env.VITE_RESOURCE_URL}/image/product/product_data/` + picname;
+            }
+            else {
+                url = `${import.meta.env.VITE_RESOURCE_URL}/image/product/errorpic.png`;
+            }
+            return url;
         }
 
     },

@@ -53,17 +53,17 @@ export default {
   data() {
     return {
       // defaultSrc: 'https://tibamef2e.com/chd103/g2/image/ShopImage/',
-      defaultSrc: 'image/product/product_data/',
+      defaultSrc: `${import.meta.env.VITE_RESOURCE_URL}` + '/image/product/product_data/',
       search: '',
-      allPro: products,
-      disPro: products,
+      allPro: [],
+      disPro: [],
       product_class_group: [],
       category: [],
       currentCategory: 'ALL',
       max: 1000000,
       min: 0,
       bannerTitle: '官方商城',
-      bannerPic: 'image/product/product_banner.png',
+      bannerPic: `${import.meta.env.VITE_RESOURCE_URL}` + '/image/product/product_banner.png',
       pro: '官方商城',
     }
   },
@@ -77,18 +77,18 @@ export default {
     axiosGetData() {
       // this.allPro = products
       // this.disPro = products
-      // axios.get("local_json/product_data.json")
-      //   .then(res => {
-      //     // console.log(res.data.product_class);
-      //     this.allPro = res.data.products;
-      //     this.disPro = res.data.products;
-      //     this.product_class_group = res.data.product_class;
-      //     this.addCategory();
-      //   })
-      //   .catch(error => {
-      //     console.log(123);
-      //     console.error('Error fetching data:', error);
-      //   });
+      axios.get(`${import.meta.env.VITE_RESOURCE_URL}` + "/local_json/product_data.json")
+        .then(res => {
+          // console.log(res.data.product_class);
+          this.allPro = res.data.products;
+          this.disPro = res.data.products;
+          this.product_class_group = res.data.product_class;
+          this.addCategory();
+        })
+        .catch(error => {
+          console.log(123);
+          console.error('Error fetching data:', error);
+        });
     },
     changeDis() {
       // if(this.currentCategory=='ALL'){
