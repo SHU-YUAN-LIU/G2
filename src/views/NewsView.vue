@@ -4,7 +4,7 @@
       <h1>最新消息</h1>
     </div>
 
-    <breadCrumbs :page="currentPage" />
+    <breadCrumbs />
 
     <form action="" class="filter_form">
       <div class="news_filter">
@@ -98,6 +98,9 @@ export default {
       ]
 
     }
+  },
+  components: {
+    breadCrumbs,
   }
 }
 
