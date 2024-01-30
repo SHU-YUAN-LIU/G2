@@ -9,9 +9,41 @@
         }
     }
 }
+
+@media (max-width: 735px) {
+    .new_wrap {
+        height: auto;
+        .new_form {
+            input {
+                width: 413px;
+            }
+            .btn {
+                margin-top: 20px;
+            }
+            
+        }
+    }
+    
+}
+@media (max-width: 660px) {
+    .new_wrap {
+        height: auto;
+        .new_form {
+            input {
+                width: 373px;
+            }
+            .btn {
+                margin-top: 20px;
+            }
+            
+        }
+    }
+    
+}
+
 @media (max-width: 375px) {
     .new_wrap {
-        // height: ;
+        height: auto;
         .new_form {
             input {
                 width: 250px;
