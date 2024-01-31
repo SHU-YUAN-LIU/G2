@@ -8,7 +8,11 @@
             margin-top: 70px;
         }
     }
-
+    .minimap{
+        @media (max-width:768px){
+            display: none;
+        }
+    }
     .election_container {
         display: flex;
         align-items: center;

@@ -94,7 +94,7 @@ export default {
                 var url = `${import.meta.env.VITE_RESOURCE_URL}/image/product/product_data/` + picname;
             }
             else {
-                url = "/image/product/errorpic.png";
+                url = `${import.meta.env.VITE_RESOURCE_URL}/image/product/errorpic.png`;
             }
             return url;
         }

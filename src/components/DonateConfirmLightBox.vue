@@ -2,13 +2,13 @@
     <div v-if="showLightbox" class="donate_lightbox" @click="closeLightbox">
         <div class="donate_container" @click.stop>
             <!-- 打叉icon -->
-            <div class="icon" @click="closeLightbox"><img src="@/assets/image/contect/cross.svg" alt="">
+            <div class="icon" @click="closeLightbox"><img src="/image/contect/cross.svg" alt="">
             </div>
             <!-- 捐款成功 -->
             <div class="donate_content">
                 <div class="donate_top">
                     <p>捐款成功</p>
-                    <img src="@/assets/image/contect/successCheck.svg" alt="">
+                    <img src="/image/contect/successCheck.svg" alt="">
                 </div>
             </div>
         </div>

@@ -53,7 +53,7 @@ export default {
   data() {
     return {
       // defaultSrc: 'https://tibamef2e.com/chd103/g2/image/ShopImage/',
-      defaultSrc: 'image/product/product_data/',
+      defaultSrc: `${import.meta.env.VITE_RESOURCE_URL}/image/product/product_data/`,
       search: '',
       allPro: products,
       disPro: products,
@@ -63,7 +63,7 @@ export default {
       max: 1000000,
       min: 0,
       bannerTitle: '官方商城',
-      bannerPic: 'image/product/product_banner.png',
+      bannerPic: `${import.meta.env.VITE_RESOURCE_URL}/image/product/product_banner.png`,
       pro: '官方商城',
     }
   },

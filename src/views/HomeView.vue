@@ -122,7 +122,7 @@
         <div>
             <h2>小額捐款, 作伙相挺</h2>
             <div class="donate_content">
-                <img src="@/assets/image/home/donate_img.png" alt="">
+                <img src="/image/home/donate_img.png" alt="">
                 <p>2024 總統大選，面對這光榮民主的一戰，我們需要更多社會支持，邀請大家加入 Team Taiwan，一起挺台灣！</p>
             </div>
         </div>
@@ -190,6 +190,7 @@ export default {
         // 參數為圖片路徑的最後一層子資料夾/檔名.副檔名
         getImageUrl(paths) {
             return new URL(`../assets/image/${paths}`, import.meta.url).href
+            // return new URL(`/image/${paths}`, import.meta.url).href
         },
         get_for_range(arraydata, indexmin, indexmax) {
             return arraydata.filter((item, index) => index >= indexmin && index <= indexmax);
