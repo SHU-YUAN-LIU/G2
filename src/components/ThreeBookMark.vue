@@ -106,8 +106,4 @@ export default {
     border-radius: 10px;
     padding: 50px;
 }
-
-.active_tab {
-    /* font-weight: bold; */
-}
 </style>
