@@ -30,7 +30,7 @@
 .about_wrap{
   width: 1250px;
     margin: auto;
-    @media (width<768px){
+    @media (width<1400px){
       margin: auto;
       width: 100%;
       margin-top: 50px;
@@ -46,15 +46,15 @@
   justify-content: center;
   align-items: center;
   padding: 50px 60px;
-  margin: 150px;
-  // margin-left: 360px;
-  // margin-right: 360px;
+  margin: auto;
+  margin-top: 150px;
 }
-@media (max-width: 768px) {
+@media (max-width: 1400px) {
   .about_content {
     margin: auto;
+    margin-top: 150px;
     display: block;
-    width: 100%;
+    width: 90%;
     padding: 20px;
     
   }
@@ -109,11 +109,12 @@
 }
 
 .rule-2 {
-  width: 1202px;
-  max-width: 100%;
+  // width: 1202px;
+  width: 100%;
   margin: 80px 0 124px;
-  @media (width<1200px){
+  @media (width<1400px){
     width: 100%;
+    margin: auto;
   };
 }
 
@@ -260,6 +261,18 @@
   margin-right: 18%;
   margin-top: 60px; /* 根據需求設定合適的值 */
   margin-top: 0; /* 將 margin-top 設為 0，讓台灣價值的區塊與決策三原則相鄰 */
+  @media (width<769px){
+    margin: auto;
+    display: block;
+    width: 100%;
+}
+}
+.policy rule-6 {
+  @include title_2;
+        margin: 145px 0;
+        @media (width<1400px){
+            @include title_3;
+          margin: auto;}
 }
 
 // 台灣價值
@@ -303,10 +316,12 @@
   
 }
 
-@media (max-width: 991px) {
+@media (max-width: 768px) {
   .Value-section {
-    max-width: 100%;
+    width: 100%;
     margin-top: 40px;
+    display: flex;
+    flex-direction: column-reverse;
   }
 }
 
@@ -357,9 +372,10 @@
   
 }
 
-@media (max-width: 991px) {
+@media (max-width: 768px) {
   .Value-description {
     max-width: 100%;
+    margin: auto;
     margin-top: 40px;
     white-space: initial;
     padding: 0 20px;
@@ -376,6 +392,7 @@
 @media (max-width: 991px) {
   .Value-sub-title {
     margin: 0 8px;
+    padding: 10px;
   }
 }
 
@@ -421,6 +438,7 @@
 
 .Value-img-container {
   position: relative;
+  width: 100%;
 }
 .Value-small-img1 {
   position: absolute;
@@ -428,6 +446,7 @@
   top: 80px;
   left: 200px;
   /* 根據需求調整其他樣式 */
+  
 }
 .Value-small-img2 {
   position: absolute;
@@ -455,6 +474,8 @@
   /* 設定特定位置的座標 */
   top: 650px;
   left: 450px;
+  @media (width<1400px){
+    left: 55%;}
   /* 根據需求調整其他樣式 */
 }
 .Value-small-img6 {
@@ -462,6 +483,8 @@
   /* 設定特定位置的座標 */
   top: 450px;
   left: 550px;
+  @media (width<1400px){
+    left: 70%;}
   /* 根據需求調整其他樣式 */
 }
 .Value-small-img7 {
@@ -469,6 +492,8 @@
   /* 設定特定位置的座標 */
   top: 250px;
   left: 600px;
+  @media (width<1400px){
+    left: 75%;}
   /* 根據需求調整其他樣式 */
 }
 .Value-small-img8 {
@@ -476,5 +501,14 @@
   /* 設定特定位置的座標 */
   top: 50px;
   left: 550px;
+  @media (width<1400px){
+    left: 70%;}
   /* 根據需求調整其他樣式 */
 }
+
+.Value-small-allimg img {
+  width: 100%;
+}
+// .Value-small-allimg {
+//   width: 100%;
+// }

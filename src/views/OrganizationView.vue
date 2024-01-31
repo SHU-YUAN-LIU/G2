@@ -49,11 +49,11 @@
 </template>
 
 <script>
-import Breadcrumb from "../components/Bread.vue";
+import Bread from '../components/Bread.vue'
 import OrganizationLightbox from "../components/OrganizationLightbox.vue";
 export default {
   components: {
-    Breadcrumb,
+    Bread,
     OrganizationLightbox,
   },
   data() {

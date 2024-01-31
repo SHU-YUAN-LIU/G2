@@ -61,6 +61,11 @@ export default {
 .ThreeBookMark {
     /* margin: auto; */
     width: 1100px;
+    @media (width<1400px){
+        width: 100%;    
+        margin: auto;
+        gap: 15px;
+    }
 }
 
 
