@@ -158,12 +158,6 @@ body {
   font-size: 16px;
 }
 
-#app {
-  background: linear-gradient(-10deg, #D4FF1F 0% 30%, rgba(255, 255, 255, 0) 30% 100%);
-  z-index: 0;
-  margin-top: 85px;
-}
-
 .pro-title {
   font-family: "Mantou Sans";
   font-size: 23px;
@@ -1141,6 +1135,93 @@ header nav .nav_items {
     justify-content: space-evenly;
   }
 }
+@media screen and (min-width: 768px) {
+  .ham-pic {
+    display: none;
+  }
+}
+@media screen and (max-width: 768px) {
+  .ham-pic {
+    display: block;
+    padding: auto;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  header {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hamburger-menu {
+    position: fixed;
+    top: 0px;
+    height: 80px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: auto;
+    cursor: pointer;
+    z-index: 99;
+    background-color: #fff;
+  }
+  .hamburger-menu .ham-bar-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+  }
+  .hamburger-menu .ham-bar-group .ham-bar {
+    width: 100%;
+    height: 4px;
+    background-color: #565656;
+    transition: all 0.3s;
+  }
+}
+.ham-pull-menu {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.92);
+  position: absolute;
+  display: flex;
+  top: 60px;
+  justify-content: center;
+  align-items: center;
+  z-index: 6;
+}
+.ham-pull-menu li a {
+  color: black;
+  list-style: none;
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 17px;
+  display: block;
+  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+}
+.ham-pull-menu .icon {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.open .bar:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.open .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.open .bar:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
 footer {
   width: 100%;
   background-color: #FFF;
@@ -1292,6 +1373,13 @@ footer {
   width: 1250px;
   margin: auto;
 }
+@media (width < 1400px) {
+  .about_wrap {
+    margin: auto;
+    width: 100%;
+    margin-top: 50px;
+  }
+}
 
 .about_content {
   border-radius: 10px;
@@ -1302,26 +1390,25 @@ footer {
   justify-content: center;
   align-items: center;
   padding: 50px 60px;
-  margin: 150px;
+  margin: auto;
+  margin-top: 150px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1400px) {
   .about_content {
-    padding: 0 20px;
+    margin: auto;
+    margin-top: 150px;
+    display: block;
+    width: 90%;
+    padding: 20px;
   }
 }
 .about_content-2 {
   display: flex;
   width: 100%;
-  max-width: 997px;
   flex-direction: column;
 }
 
-@media (max-width: 768px) {
-  .about_content-2 {
-    max-width: 100%;
-  }
-}
 .about_content-3 {
   justify-content: center;
   color: #000;
@@ -1329,23 +1416,19 @@ footer {
   letter-spacing: 4.32px;
   font: 800 24px/112.5% Noto Sans, sans-serif;
 }
-
-@media (max-width: 768px) {
+@media (width < 768px) {
   .about_content-3 {
-    max-width: 100%;
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: 20px;
   }
 }
+
 .about_content-4 {
   background-color: #000;
   margin-top: 30px;
   height: 1px;
 }
 
-@media (max-width: 768px) {
-  .about_content-4 {
-    max-width: 100%;
-  }
-}
 .about_content-5 {
   justify-content: center;
   color: #000;
@@ -1354,12 +1437,13 @@ footer {
   margin-top: 28px;
   font: 600 20px/37px Noto Sans, sans-serif;
 }
-
-@media (max-width: 768px) {
+@media (width < 768px) {
   .about_content-5 {
-    max-width: 100%;
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: 16px;
   }
 }
+
 .rule {
   background-color: #f3f5f7;
   display: flex;
@@ -1368,29 +1452,29 @@ footer {
   align-items: center;
   padding: 50px 60px;
 }
-
-@media (max-width: 991px) {
+@media (width < 1200px) {
   .rule {
-    padding: 0 20px;
+    padding-top: 0px;
   }
 }
+
 .rule-2 {
-  width: 1202px;
-  max-width: 100%;
+  width: 100%;
   margin: 80px 0 124px;
 }
-
-@media (max-width: 991px) {
+@media (width < 1400px) {
   .rule-2 {
-    margin: 40px 0;
+    width: 100%;
+    margin: auto;
   }
 }
+
 .rule-3 {
   gap: 20px;
   display: flex;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 768px) {
   .rule-3 {
     flex-direction: column;
     align-items: stretch;
@@ -1408,6 +1492,7 @@ footer {
 @media (max-width: 991px) {
   .rule-column {
     width: 100%;
+    margin: auto;
   }
 }
 .rule-4 {
@@ -1417,6 +1502,12 @@ footer {
   letter-spacing: 1.76px;
   margin: auto 0;
   font: 600 18px/25px Noto Sans, sans-serif;
+}
+@media (width < 768px) {
+  .rule-4 {
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: 16px;
+  }
 }
 
 @media (max-width: 991px) {
@@ -1435,6 +1526,8 @@ footer {
 @media (max-width: 991px) {
   .rule-column-2 {
     width: 100%;
+    margin: auto;
+    margin-left: 10px;
   }
 }
 .rule-5 {
@@ -1485,6 +1578,11 @@ footer {
   width: 35%;
   margin-left: 20px;
 }
+@media (width < 768px) {
+  .rule-column-3 {
+    margin-left: 10px;
+  }
+}
 
 @media (max-width: 991px) {
   .rule-column-3 {
@@ -1498,6 +1596,12 @@ footer {
   letter-spacing: 1.76px;
   margin-top: 353px;
   font: 600 18px/25px Noto Sans, sans-serif;
+}
+@media (width < 768px) {
+  .rule-7 {
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: 16px;
+  }
 }
 
 @media (max-width: 991px) {
@@ -1525,6 +1629,28 @@ footer {
   margin-right: 18%;
   margin-top: 60px; /* 根據需求設定合適的值 */
   margin-top: 0; /* 將 margin-top 設為 0，讓台灣價值的區塊與決策三原則相鄰 */
+}
+@media (width < 769px) {
+  .Three {
+    margin: auto;
+    display: block;
+    width: 100%;
+  }
+}
+
+.policy rule-6 {
+  font-family: "Mantou Sans";
+  font-size: 65px;
+  font-weight: initial;
+  margin: 145px 0;
+}
+@media (width < 1400px) {
+  .policy rule-6 {
+    font-family: "Mantou Sans";
+    font-size: 36px;
+    font-weight: initial;
+    margin: auto;
+  }
 }
 
 .Value-main-container {
@@ -1564,10 +1690,12 @@ footer {
   display: flex;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 768px) {
   .Value-section {
-    max-width: 100%;
+    width: 100%;
     margin-top: 40px;
+    display: flex;
+    flex-direction: column-reverse;
   }
 }
 .Value-column {
@@ -1614,9 +1742,10 @@ footer {
   padding: 50px 80px;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 768px) {
   .Value-description {
     max-width: 100%;
+    margin: auto;
     margin-top: 40px;
     white-space: initial;
     padding: 0 20px;
@@ -1632,6 +1761,7 @@ footer {
 @media (max-width: 991px) {
   .Value-sub-title {
     margin: 0 8px;
+    padding: 10px;
   }
 }
 .Value-divider {
@@ -1671,6 +1801,7 @@ footer {
 
 .Value-img-container {
   position: relative;
+  width: 100%;
 }
 
 .Value-small-img1 {
@@ -1712,6 +1843,11 @@ footer {
   left: 450px;
   /* 根據需求調整其他樣式 */
 }
+@media (width < 1400px) {
+  .Value-small-img5 {
+    left: 55%;
+  }
+}
 
 .Value-small-img6 {
   position: absolute;
@@ -1719,6 +1855,11 @@ footer {
   top: 450px;
   left: 550px;
   /* 根據需求調整其他樣式 */
+}
+@media (width < 1400px) {
+  .Value-small-img6 {
+    left: 70%;
+  }
 }
 
 .Value-small-img7 {
@@ -1728,6 +1869,11 @@ footer {
   left: 600px;
   /* 根據需求調整其他樣式 */
 }
+@media (width < 1400px) {
+  .Value-small-img7 {
+    left: 75%;
+  }
+}
 
 .Value-small-img8 {
   position: absolute;
@@ -1735,6 +1881,15 @@ footer {
   top: 50px;
   left: 550px;
   /* 根據需求調整其他樣式 */
+}
+@media (width < 1400px) {
+  .Value-small-img8 {
+    left: 70%;
+  }
+}
+
+.Value-small-allimg img {
+  width: 100%;
 }
 
 .organization {
@@ -1745,6 +1900,7 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: -1px;
 }
 .organization .contect_banner h1 {
   font-family: "Mantou Sans";
@@ -1772,17 +1928,25 @@ footer {
   margin-top: 100px;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 768px) {
   .organization-title {
     max-width: 100%;
-    font-size: 40px;
-    line-height: 33px;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    font-family: "Mantou Sans";
+    font-size: 36px;
+    font-weight: initial;
   }
 }
 .organization_wrap {
   position: relative;
   width: 1200px;
   margin: auto;
+}
+@media (width < 1400px) {
+  .organization_wrap {
+    width: 100%;
+  }
 }
 
 .organization-title2 {
@@ -1799,6 +1963,11 @@ footer {
   top: 1300px;
   left: 38%;
   /* 根據需求調整其他樣式 */
+}
+@media (width < 768px) {
+  .organization-title2 {
+    display: none;
+  }
 }
 
 .organization-title3 {
@@ -1853,30 +2022,60 @@ footer {
   margin: 0 calc((100% - 200px) / 2);
   margin-top: 120px;
 }
+@media (width < 768px) {
+  .card:nth-child(1) {
+    margin: auto;
+  }
+}
 
 .card:nth-child(2) {
   margin-left: calc((100% - 600px) / 2);
   margin-right: 2.5%;
+}
+@media (width < 768px) {
+  .card:nth-child(2) {
+    margin: auto;
+  }
 }
 
 .card:nth-child(3) {
   margin-left: 2.5%;
   margin-right: calc((100% - 600px) / 2);
 }
+@media (width < 768px) {
+  .card:nth-child(3) {
+    margin: auto;
+  }
+}
 
 .card:nth-child(4) {
   margin-left: calc((100% - 750px) / 2);
   margin-right: 2.5%;
+}
+@media (width < 768px) {
+  .card:nth-child(4) {
+    margin: auto;
+  }
 }
 
 .card:nth-child(5) {
   margin-left: 2.5%;
   margin-right: 2.5%;
 }
+@media (width < 768px) {
+  .card:nth-child(5) {
+    margin: auto;
+  }
+}
 
 .card:nth-child(6) {
   margin-left: 2.5%;
   margin-right: calc((100% - 750px) / 2);
+}
+@media (width < 768px) {
+  .card:nth-child(6) {
+    margin: auto;
+  }
 }
 
 .card:nth-child(7),
@@ -1887,6 +2086,15 @@ footer {
   margin-left: 1.5%;
   margin-right: 1.5%;
   margin-top: 400px;
+}
+@media (width < 768px) {
+  .card:nth-child(7),
+  .card:nth-child(8),
+  .card:nth-child(9),
+  .card:nth-child(10),
+  .card:nth-child(11) {
+    margin: auto;
+  }
 }
 
 .localcard-container {
@@ -2143,10 +2351,6 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
     font-family: "Mantou Sans";
     font-size: 36px;
     font-weight: initial;
-  }
-  div.donate .donate_main img.icon {
-    position: absolute;
-    z-index: -1;
   }
   div.donate .donate_main img.icon:nth-child(1) {
     width: 170px;
@@ -4186,11 +4390,6 @@ form .register_read p {
     margin: 0 100px;
   }
 }
-#app {
-  background: linear-gradient(-10deg, #D4FF1F 0% 25%, rgba(255, 255, 255, 0) 25% 100%);
-  z-index: -1;
-}
-
 .elecion_journey .journey_title {
   display: flex;
   flex-direction: column;
@@ -5374,4 +5573,7 @@ form .register_read p {
     padding: 20px 0;
     line-height: 1.8rem;
   }
+}
+@font-face {
+  src: url("/Mantou_font/MantouSans-Regular.ttf") format("truetype");
 }/*# sourceMappingURL=style.css.map */

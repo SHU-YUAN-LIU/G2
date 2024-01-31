@@ -31,7 +31,7 @@
     </div>
     <!-- 分頁 -->
     <div>
-      <Pagination />
+      <!-- <Pagination /> -->
     </div>
   </div>
 </template>
