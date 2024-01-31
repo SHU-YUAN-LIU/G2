@@ -230,7 +230,15 @@
         padding: 0;
     }
 }
+@media (max-width: 780px) {
+    .news_banner {
+        background-image: url('/src/assets/image/news/news_banner_m.png');
+    }
+}
 @media (max-width: 414px) {
+    .news_banner {
+        background-image: url('/src/assets/image/news/news_banner_s.png');
+    }
     .news_banner h1 {
         @include title_2;
     }
