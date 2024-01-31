@@ -1,4 +1,7 @@
-article {
+.login_wrap_sm {
+    display: none;
+}
+.login_wrap_lg {
     margin: 200px;
     display: flex;
     justify-content: center;
@@ -190,8 +193,29 @@ form {
     
     
 }
+@media (max-width: 1540px) {
+    .container {
+        .overlay_left{
+            p{
+                padding: 0;
+            }
+        }
+    }
+    .register-active {
+        .register {
+            transform: translateX(80%);
+        }
+    }
+}
+@media (max-width: 1440px) {
+    .register-active {
+        .register {
+            transform: translateX(68%);
+        }
+    }
+}
 @media (max-width: 1200px) {
-    article {
+    .login_wrap_lg {
         margin: 100px;
     }
     .container {
@@ -199,11 +223,13 @@ form {
         .overlay_left{
             p{
                 font-size: 40px;
+                padding: 0;
             }
         }
     }
     form.login {
         width: 450px;
+        padding: 50px;
         .profile {
             width: 150px;
             height: 150px;
@@ -211,26 +237,34 @@ form {
                 height: 80%;
             }
         }
-    }
-    .register-active {
-        .register {
-            transform: translateX(90%);
-        }
-    }
-    form {
-        padding: 40px 50px;
         input {
             width: 350px;
         }
     }
+    .register-active {
+        form.register {
+            transform: translateX(90%);
+            width: 480px;
+            padding: 40px 50px;
+                input {
+                        width: 380px;
+                }
+                .box {
+                    width: 20px;
+                }
+        }
+    }
 }
 @media (max-width: 1099px) {
-    article {
+
+}
+@media (max-width: 1099px) {
+    .login_wrap_lg {
         margin: 50px;
     }
     .container {
         .overlay_left{
-            padding: 0;
+            padding: 0 20px;
         }
     }
     .register-active {
@@ -242,6 +276,31 @@ form {
         padding: 40px 50px;
         input {
             width: 350px;
+        }
+    }
+}
+@media (max-width: 1000px) {
+    .login_wrap_lg {
+        display: none;
+    }
+    .login_wrap_sm {
+        display: block;
+        max-width: 800px;
+        width: 90%;
+        height: auto;
+        margin: 100px auto;
+        padding: 30px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, .2),
+                    0 10px 10px rgba(0, 0, 0, .2);
+        form {
+            position: inherit;
+            padding: 0;
+            background-color: transparent;
         }
     }
 }

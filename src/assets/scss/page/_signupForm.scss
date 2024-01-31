@@ -1,0 +1,40 @@
+.signup_form {
+    position: inherit;
+    display: flex;
+    flex-direction: column;  
+    padding: 110px;
+    height: calc(100%);
+    transition: all .5s ease-in-out;
+    background: white;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    @include title_10;
+    h1 {
+        @include title_2;
+        margin-bottom: 50px;
+    }
+    span {
+        color: red;
+        padding-left: 5px
+    }
+    input {
+        @include input_1;
+        width: 500px;
+    }
+    .register_read {
+        display: flex;
+        width: 500px;
+        .box {
+        width: 20px;
+        height: 20px;
+        }
+        p {
+            padding-left: 5px;
+        }
+    }
+    
+}
+.btn {
+        @include btn_4;
+    }
