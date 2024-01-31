@@ -32,7 +32,7 @@
           <div class="rule-column-2">
             <div class="rule-5">
               <div class="rule-6">黨會規範</div>
-              <img loading="lazy" src="^/image/about/logo.svg" class="img" />
+              <img loading="lazy" src="@/assets/image/about/logo.svg" class="img" />
             </div>
           </div>
           <div class="rule-column-3">
@@ -56,30 +56,30 @@
       <section class="Value-section">
         <div class="Value-column">
           <div class="Value-img-container">
-            <img loading="lazy" src="^/image/about/GreanTaiwan 1.svg" class="Value-img" />
+            <img loading="lazy" src="@/assets/image/about/GreanTaiwan 1.svg" class="Value-img" />
             <div class="Value-small-img1">
-              <img src="^/image/about/small_image_1.svg" alt="small_image_1" @click="showContent(1)" />
+              <img src="@/assets/image/about/small_image_1.svg" alt="small_image_1" @click="showContent(1)" />
             </div>
             <div class="Value-small-img2">
-              <img src="^/image/about/small_image_2.svg" alt="small_image_2" @click="showContent(2)" />
+              <img src="@/assets/image/about/small_image_2.svg" alt="small_image_2" @click="showContent(2)" />
             </div>
             <div class="Value-small-img3">
-              <img src="^/image/about/small_image_3.svg" alt="small_image_3" @click="showContent(3)" />
+              <img src="@/assets/image/about/small_image_3.svg" alt="small_image_3" @click="showContent(3)" />
             </div>
             <div class="Value-small-img4">
-              <img src="^/image/about/small_image_4.svg" alt="small_image_4" @click="showContent(4)" />
+              <img src="@/assets/image/about/small_image_4.svg" alt="small_image_4" @click="showContent(4)" />
             </div>
             <div class="Value-small-img5">
-              <img src="^/image/about/small_image_5.svg" alt="small_image_5" @click="showContent(5)" />
+              <img src="@/assets/image/about/small_image_5.svg" alt="small_image_5" @click="showContent(5)" />
             </div>
             <div class="Value-small-img6">
-              <img src="^/image/about/small_image_6.svg" alt="small_image_6" @click="showContent(6)" />
+              <img src="@/assets/image/about/small_image_6.svg" alt="small_image_6" @click="showContent(6)" />
             </div>
             <div class="Value-small-img7">
-              <img src="^/image/about/small_image_7.svg" alt="small_image_7" @click="showContent(7)" />
+              <img src="@/assets/image/about/small_image_7.svg" alt="small_image_7" @click="showContent(7)" />
             </div>
             <div class="Value-small-img8">
-              <img src="^/image/about/small_image_8.svg" alt="small_image_8" @click="showContent(8)" />
+              <img src="@/assets/image/about/small_image_8.svg" alt="small_image_8" @click="showContent(8)" />
             </div>
           </div>
 
@@ -100,17 +100,20 @@
     </div>
   </div>
 
+  <Background_green :height="100" />
   <!-- 分隔線 -->
   <!-- <div class="IamSpace" style="display: block; width: 100%; height: 1200px;"></div> -->
 </template>
 
 <script>
+import Background_green from "@/components/Background_green.vue";
 import Bread from "../components/Bread.vue";
 import ThreeBookMark from "../components/ThreeBookMark.vue";
 export default {
   components: {
     Bread,
     ThreeBookMark,
+    Background_green
   },
   data() {
     return {

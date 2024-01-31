@@ -3,7 +3,7 @@
     <div class="donate_container" @click.stop>
       <!-- 打叉icon -->
       <div class="icon" @click="closeLightbox">
-        <img src="^/image/contect/cross.svg" alt="" />
+        <img src="@/assets/image/contect/cross.svg" alt="" />
       </div>
       <div>
         <div class="PartyInfo-container">
@@ -78,9 +78,19 @@ export default {
   top: 0;
   left: 0;
   z-index: 1000;
+  
+  div {
+    width: 100%;
+  }
+
+  
 
   .donate_container {
     width: 1228px;
+    @media (width<1400px){
+      width: 90%;
+      height: 700px;
+    }
     height: 740px;
     margin: auto;
     background-color: $white;
@@ -98,27 +108,13 @@ export default {
       height: 50px;
       top: -25px;
       right: -25px;
+      @media (width<1300px) {
+        top: -25px;
+        right: -10px;
+      }
       cursor: pointer;
       position: absolute;
       z-index: 3;
-    }
-
-    .donate_content {
-      display: flex;
-
-      .donate_top {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 30px;
-        width: 400px;
-        height: 300px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        background-color: $white;
-        border-radius: $border-radius-1;
-      }
     }
   }
 }
@@ -128,13 +124,16 @@ export default {
   display: flex;
   //   flex-wrap: wrap;
   margin-top: 5px;
+  @media (width<769px) {
+    flex-direction: column;    
+  }
 }
 
-@media (max-width: 991px) {
+@media (max-width: 768px) {
   .PartyInfo-container {
     flex-direction: column;
-    align-items: stretch;
-    gap: 0px;
+    align-items: center;
+    width: 100%;
   }
 }
 
@@ -147,9 +146,10 @@ export default {
   margin-top: 15px;
 }
 
-@media (max-width: 991px) {
-  .PartyInfo-column {
-    width: 100%;
+@media (max-width: 768px) {
+  .PartyInfo-column img {
+    width: 40%;
+    margin: auto;
   }
 }
 
@@ -160,7 +160,7 @@ export default {
   width: 100%;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 768px) {
   .PartyInfo-img {
     margin-top: 40px;
   }
@@ -193,7 +193,7 @@ export default {
 @media (max-width: 991px) {
   .PartyInfo-Info {
     max-width: 100%;
-    margin-top: 40px;
+    // margin-top: 40px;
   }
 }
 
@@ -207,7 +207,7 @@ export default {
 @media (max-width: 991px) {
   .PartyInfo-name {
     max-width: 100%;
-    font-size: 40px;
+    font-size: 36px;
   }
 }
 
@@ -223,11 +223,12 @@ export default {
   font-family: $font_family_2;
   font-size: $font_size_2;
   font-weight: initial;
+
 }
 
-@media (max-width: 991px) {
+@media (max-width: 1200px) {
   .PartyInfo-position {
-    max-width: 100%;
+    @include title_4;
   }
 }
 
@@ -241,9 +242,9 @@ export default {
   font-weight: 500;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 1200px) {
   .party-info {
-    max-width: 100%;
+    @include title_10;
   }
 }
 
@@ -255,9 +256,9 @@ export default {
   margin-top: 5px;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 1200px) {
   .PartyInfo-education {
-    max-width: 100%;
+    @include title_4;
   }
 }
 
@@ -271,9 +272,9 @@ export default {
   font-weight: 500;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 1200px) {
   .PartyInfo-education-info {
-    max-width: 100%;
+    @include title_10;
   }
 }
 
@@ -285,9 +286,9 @@ export default {
   margin-top: 5px;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 1200px) {
   .PartyInfo-experience {
-    max-width: 100%;
+    @include title_4;
   }
 }
 
@@ -301,9 +302,9 @@ export default {
   font-weight: 500;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 1200px) {
   .PartyInfo-experience-info {
-    max-width: 100%;
+    @include title_10;
   }
 }
 </style>

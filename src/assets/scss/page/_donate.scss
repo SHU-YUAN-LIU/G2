@@ -92,13 +92,6 @@ div.donate{
             justify-content: center;
             background-color: $white;
             border-radius: $border-radius-1;
-            // button.donate_showLightbox{
-            //   @include btn_1;
-            //   border: none;
-            //   @include title_7;
-            //   color: $white;
-            //   border-radius: 50px;
-            // }
           }
         }
   
@@ -197,10 +190,6 @@ div.donate{
     .donate_main{
 
       // 背景圖片設定
-      img.icon{
-        position: absolute;
-        z-index: -1;
-      }
       img.icon:nth-child(1){
         width: 170px;
         height: 170px;

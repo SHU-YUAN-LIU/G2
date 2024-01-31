@@ -16,7 +16,7 @@
                     <div class="overlay_right">
                         <div class="sub_register">
                             <div class="login_logo">
-                                <img src="@/assets/image/login/Logo.png" alt="">
+                                <img src="/image/login/Logo.png" alt="">
                             </div>
                             <button class="btn" id="registerBtn" @click="registerBtn = !registerBtn">註冊 ➜</button>
                         </div>
@@ -60,7 +60,7 @@
             </form>
             <form ref="login" action="" class="login" id="loginform">
                 <div class="profile">
-                    <img src="../assets/image/login/user-solid.svg" alt="">
+                    <img src="/image/login/user-solid.svg" alt="">
                 </div>
                 <div class="register_email">
                     <p>電子信箱<span>*</span><span id="emailerror"></span></p>

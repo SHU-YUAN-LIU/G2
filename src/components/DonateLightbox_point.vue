@@ -1,7 +1,7 @@
 <template>
     <div v-if="showLightbox" class="donate_lightbox_point" @click="closeLightbox">
         <div class="lightbox_point_bg"  @click.stop>
-            <button @click="closeLightbox" class="donate_closelightbox"><img src="../assets/image/donate/icon_close.png"
+            <button @click="closeLightbox" class="donate_closelightbox"><img src="/image/donate/icon_close.png"
                     alt=""></button>
 
             <div class="point_lightbox_content">
@@ -13,8 +13,8 @@
                         <span class="list_num">1</span>
                         <h2>捐款集點</h2>
                         <div>
-                            <img src="../assets/image/donate/donateLightbox_point.png" alt="">
-                            <img src="../assets/image/donate/donate_equal.png" alt="">
+                            <img src="/image/donate/donateLightbox_point.png" alt="">
+                            <img src="/image/donate/donate_equal.png" alt="">
                             <span>1點</span>
                         </div>
                     </li>
@@ -22,7 +22,7 @@
                         <span class="list_num">2</span>
                         <h2>前往商品頁面<br>折抵商品</h2>
                         <div>
-                            <img src="../assets/image/donate/donateLightbox_cart.png" alt="">
+                            <img src="/image/donate/donateLightbox_cart.png" alt="">
                             <span>一點一元</span>
                         </div>
                     </li>
@@ -153,9 +153,7 @@ export default {
                     background: $white;
                     gap: 40px;
 
-                    img{
-
-                    }
+                    
 
                     span{
                         @include title_2;

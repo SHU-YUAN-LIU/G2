@@ -56,7 +56,7 @@ export default {
           title: "#120 台灣政治改革之路 - 義無反顧的選擇",
           content: "今天，台灣政治掀起一陣嶄新的風潮，政黨號次抽籤結果出爐，青年進補黨為「20」號，為這場政治革命的序幕定調。",
           date: "2023/12/11",
-          imageUrl: "/src/assets/image/news/news1_s.png"
+          imageUrl: `${import.meta.env.VITE_RESOURCE_URL}/image/news/news1_s.png`
 
         },
         {
@@ -66,7 +66,7 @@ export default {
           title: "傳言：劉緯育高傲自大，對庶民經濟有什麼貢獻？",
           content: "傳言：劉緯育高傲自大，對庶民經濟有什麼貢獻？ 事實：改變成真！傳統市場改頭換面，菜籃族都說讚！",
           date: "2024/2/1",
-          imageUrl: "/src/assets/image/news/news2_s.png"
+          imageUrl: `${import.meta.env.VITE_RESOURCE_URL}/image/news/news2_s.png`
         },
         {
           url: '/newspage',
@@ -75,7 +75,7 @@ export default {
           title: "2024，選擇劉緯育，改變台灣的未來!",
           content: "我們站在一個新的開始之前，面對著選擇台灣未來的重要時刻。劉緯育，一位堅定認為台灣需要改變的領袖，宣佈參選2024年總統選舉。他的政策和願景將帶領台灣走向更美好的未來。",
           date: "2024/1/11",
-          imageUrl: "/src/assets/image/news/news3_s.png"
+          imageUrl: `${import.meta.env.VITE_RESOURCE_URL}/image/news/news3_s.png`
         },
         {
           url: '/newspage',
@@ -84,7 +84,7 @@ export default {
           title: "2024/2/24 青年之聲 新竹開講",
           content: "作為青年進補黨的總統候選人，劉緯育將於四日在新竹這個充滿活力和創意的城市，舉行一場為年輕族群打造更佳工作環境的重要演講。這次演講聚焦於年輕人的就業機會、工作環境以及相關政策。",
           date: "2024/2/1",
-          imageUrl: "/src/assets/image/news/news4_s.png"
+          imageUrl: `${import.meta.env.VITE_RESOURCE_URL}/image/news/news4_s.png`
         },
         {
           url: '/newspage',
@@ -93,7 +93,7 @@ export default {
           title: "台灣政治迎來新希望 - 青年進補黨宣佈改變政治文化",
           content: "今天，台灣政治迎來一場顛覆性的社會運動，青年進補黨正式宣佈成立，以改變政治文化並帶來新希望。該黨的黨主席是劉緯育，一位決心重塑台灣政治的嶄新領袖。",
           date: "2020/5/20",
-          imageUrl: "/src/assets/image/news/news5_s.png"
+          imageUrl: `${import.meta.env.VITE_RESOURCE_URL}/image/news/news5_s.png`
         },
       ]
 

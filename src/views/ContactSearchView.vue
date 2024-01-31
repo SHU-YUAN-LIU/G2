@@ -37,7 +37,7 @@ export default {
         return {
             text: '聯絡我們/陳情案件查詢',
             bannerTitle: '陳情案件查詢',
-            bannerPic: 'src/assets/image/contect/contectSearch_banner.png',
+            bannerPic: `${import.meta.env.VITE_RESOURCE_URL}/image/contect/contectSearch_banner.png`,
             check: '確認送出',
 
         }

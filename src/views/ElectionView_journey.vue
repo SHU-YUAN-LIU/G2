@@ -8,8 +8,26 @@
         <vueMarquee :marqueeArray="slogan" />
         <!-- 行程站台內容 -->
         <div class="journey_title">
-            <h2>行程站台 </h2>
+            <h2>行程站台</h2>
             <h2>地點: {{ currentTitle }}</h2>
+            <select v-model="currentPage" @change="selectloaction">
+                <option>所有地區</option>
+                <option>宜蘭</option>
+                <option>台北</option>
+                <option>桃園</option>
+                <option>新竹</option>
+                <option>新竹</option>
+                <option>台中</option>
+                <option>彰化</option>
+                <option>雲林</option>
+                <option>嘉義</option>
+                <option>台南</option>
+                <option>高雄</option>
+                <option>屏東</option>
+                <option>花蓮</option>
+                <option>台東</option>
+                <option>南投</option>
+            </select>
         </div>
         <div class="election_container">
             <!-- 地圖 -->
@@ -55,7 +73,7 @@ export default {
     data() {
         return {
             bannerTitle: '候選人行程',
-            bannerPic: '^/image/election/journey.png',
+            bannerPic: `${import.meta.env.VITE_RESOURCE_URL}/image/election/journey.png`,
             slogan: '這是一場改變政治文化的社會運動，投給劉緯育，投給自己的未來。',
             red: true,
             blue: true,
@@ -67,7 +85,7 @@ export default {
                     position: "凱達格蘭大道",
                     add: "台北市中正區凱達格蘭大道",
                     country: '桃園',
-                    src: "^/image/election/journey-2.png",
+                    src: `${import.meta.env.VITE_RESOURCE_URL}/image/election/journey-2.png`,
                 },
                 {
                     time: "2024/01/01(五)18:30-22:00",
@@ -75,7 +93,7 @@ export default {
                     position: "凱達格蘭大道",
                     add: "台北市中正區凱達格蘭大道",
                     country: '桃園',
-                    src: "^/image/election/journey-1.png",
+                    src: `${import.meta.env.VITE_RESOURCE_URL}/image/election/journey-1.png`,
                 },
                 {
                     time: "2024/01/01(五)18:30-22:00",
@@ -83,7 +101,7 @@ export default {
                     position: "凱達格蘭大道",
                     add: "台北市中正區凱達格蘭大道",
                     country: '南投',
-                    src: "^/image/election/journey-1.png",
+                    src: `${import.meta.env.VITE_RESOURCE_URL}/image/election/journey-1.png`,
                 },
                 {
                     time: "2024/01/01(五)18:30-22:00",
@@ -91,7 +109,7 @@ export default {
                     position: "凱達格蘭大道",
                     add: "台北市中正區凱達格蘭大道",
                     country: '苗栗',
-                    src: "^/image/election/journey-1.png",
+                    src: `${import.meta.env.VITE_RESOURCE_URL}/image/election/journey-1.png`,
                 },
                 {
                     time: "2024/01/01(五)18:30-22:00",
@@ -99,7 +117,7 @@ export default {
                     position: "凱達格蘭大道",
                     add: "台北市中正區凱達格蘭大道",
                     country: '雲林',
-                    src: "^/image/election/journey-2.png",
+                    src: `${import.meta.env.VITE_RESOURCE_URL}/image/election/journey-2.png`,
                 },
                 {
                     time: "2024/01/01(五)18:30-22:00",
@@ -107,7 +125,7 @@ export default {
                     position: "凱達格蘭大道",
                     add: "台北市中正區凱達格蘭大道",
                     country: '高雄',
-                    src: "^/image/election/journey-2.png",
+                    src: `${import.meta.env.VITE_RESOURCE_URL}/image/election/journey-2.png`,
                 },
                 {
                     time: "2024/01/01(五)18:30-22:00",
@@ -115,7 +133,7 @@ export default {
                     position: "凱達格蘭大道",
                     add: "台北市中正區凱達格蘭大道",
                     country: '台東',
-                    src: "^/image/election/journey-2.png",
+                    src: `${import.meta.env.VITE_RESOURCE_URL}/image/election/journey-2.png`,
                 },
             ],
             displayTrip: [
@@ -125,7 +143,7 @@ export default {
                     position: "凱達格蘭大道",
                     add: "台北市中正區凱達格蘭大道",
                     country: '桃園',
-                    src: "^/image/election/journey-1.png",
+                    src: `${import.meta.env.VITE_RESOURCE_URL}/image/election/journey-1.png`,
                 },
                 {
                     time: "2024/01/01(五)18:30-22:00",
@@ -133,7 +151,7 @@ export default {
                     position: "凱達格蘭大道",
                     add: "台北市中正區凱達格蘭大道",
                     country: '桃園',
-                    src: "^/image/election/journey-1.png",
+                    src: `${import.meta.env.VITE_RESOURCE_URL}/image/election/journey-1.png`,
                 },
                 {
                     time: "2024/01/01(五)18:30-22:00",
@@ -141,7 +159,7 @@ export default {
                     position: "凱達格蘭大道",
                     add: "台北市中正區凱達格蘭大道",
                     country: '南投',
-                    src: "^/image/election/journey-1.png",
+                    src: `${import.meta.env.VITE_RESOURCE_URL}/image/election/journey-1.png`,
                 },
                 {
                     time: "2024/01/01(五)18:30-22:00",
@@ -149,7 +167,7 @@ export default {
                     position: "凱達格蘭大道",
                     add: "台北市中正區凱達格蘭大道",
                     country: '台東',
-                    src: "^/image/election/journey-1.png",
+                    src: `${import.meta.env.VITE_RESOURCE_URL}/image/election/journey-1.png`,
                 },
                 {
                     time: "2024/01/01(五)18:30-22:00",
@@ -157,7 +175,7 @@ export default {
                     position: "凱達格蘭大道",
                     add: "台北市中正區凱達格蘭大道",
                     country: '台東',
-                    src: "^/image/election/journey-1.png",
+                    src: `${import.meta.env.VITE_RESOURCE_URL}/image/election/journey-1.png`,
                 },
                 {
                     time: "2024/01/01(五)18:30-22:00",
@@ -165,7 +183,7 @@ export default {
                     position: "凱達格蘭大道",
                     add: "台北市中正區凱達格蘭大道",
                     country: '苗栗',
-                    src: "^/image/election/journey-1.png",
+                    src: `${import.meta.env.VITE_RESOURCE_URL}/image/election/journey-1.png`,
                 },
                 {
                     time: "2024/01/01(五)18:30-22:00",
@@ -173,11 +191,11 @@ export default {
                     position: "凱達格蘭大道",
                     add: "台北市中正區凱達格蘭大道",
                     country: '高雄',
-                    src: "^/image/election/journey-1.png",
+                    src: `${import.meta.env.VITE_RESOURCE_URL}/image/election/journey-1.png`,
                 },
             ],
             currentTitle: "",
-
+            currentPage: "所有地區",
         }
     },
     components: {
@@ -194,7 +212,11 @@ export default {
                 return item.country == pos;
             })
         },
-
+        selectloaction() {
+            this.displayTrip = this.allTrip.filter((item) => {
+                return item.country == this.currentPage;
+            })
+        }
     },
     mounted() {
         document.title = "候選人行程";

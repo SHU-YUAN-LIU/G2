@@ -2,7 +2,7 @@
     <div class="donate_confirm">
         <!-- banner -->
         <div class="donate_confirm_banner">
-            <img src="../assets/image/donate/bg_banner.png" alt="">
+            <img src="/image/donate/bg_banner.png" alt="">
             <h1>確認資料</h1>
         </div>
         <!-- 麵包屑 -->
@@ -68,7 +68,7 @@
             <div class="donete_payment">
                 <h3>捐款方式</h3>
                 <p>信用卡交易資訊</p>
-                <img src="../assets/image/donate/donate_card_icon.png" alt="信用卡icon">
+                <img src="/image/donate/donate_card_icon.png" alt="信用卡icon">
                 <div class="credit_card">
                     <label for="">信用卡卡號<br>Credit card number</label>
                     <div>

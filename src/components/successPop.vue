@@ -4,13 +4,13 @@
             <div class="con_success">
                 <!-- 阻止冒泡事件.stop -->
                 <!-- 打叉 -->
-                <Router-link to="/" class="cross" @click="closeLightbox"><img src="@/assets/image/contect/cross.svg"
+                <Router-link to="/" class="cross" @click="closeLightbox"><img src="/image/contect/cross.svg"
                         alt=""></Router-link>
                 <div class="con_success_group">
                     <!-- 送出成功 -->
                     <div class="success_top">
                         <h3>送出成功</h3>
-                        <img src="@/assets/image/contect/successCheck.svg" alt="">
+                        <img src="/image/contect/successCheck.svg" alt="">
                         <hr>
                         <p>案件編號:ABC12345678</p>
                         <p>表單送出日期:2024/01/01</p>

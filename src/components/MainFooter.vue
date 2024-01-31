@@ -15,12 +15,12 @@
                 <h4>社群媒體</h4>
                 <div class="footer_icon">
                     <div>
-                        <a href="#"><img src="../assets/image/footer/youtube.png" alt=""></a>
-                        <a href="#"><img src="../assets/image/footer/fb.png" alt=""></a>
+                        <a href="#"><img src="/image/footer/youtube.png" alt=""></a>
+                        <a href="#"><img src="/image/footer/fb.png" alt=""></a>
                     </div>
                     <div>
-                        <a href="#"><img src="../assets/image/footer/ig.png" alt=""></a>
-                        <a href="#"><img src="../assets/image/footer/line.png" alt=""></a>
+                        <a href="#"><img src="/image/footer/ig.png" alt=""></a>
+                        <a href="#"><img src="/image/footer/line.png" alt=""></a>
                     </div>
                 </div>
             </div>

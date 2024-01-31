@@ -1,7 +1,7 @@
 <template>
 <div class="donate_page">
   <div class="donate_page_banner">
-    <img src="../assets/image/donate/bg_banner.png" alt="">
+    <img src="/image/donate/bg_banner.png" alt="">
     <h1>我要捐款</h1>
   </div>
 
@@ -10,7 +10,7 @@
   <div class="donate_page_main">
     <!-- 標題 -->
     <div class="donate_page_title">
-      <img src="../assets/image/donate/icon_info.png">
+      <img src="/image/donate/icon_info.png">
       <h2>我要捐款</h2>
     </div>
     <div class="donate_page_content">
