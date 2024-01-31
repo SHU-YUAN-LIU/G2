@@ -7,7 +7,11 @@
     align-items: center;
     gap: 30px;
     margin-top: 150px;
-    margin-bottom: 150px;
+    margin-bottom: 5px;
+
+    @media screen and (max-width:768px) {
+        margin-bottom: 0px;
+    }
 
 
     .searchInput {
@@ -37,5 +41,21 @@
             @include title_10;
         }
 
+    }
+}
+
+.commit_btn {
+    width: 280px;
+    margin-bottom: 0px;
+
+    @media screen and (max-width:414px) {
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+}
+
+.bread ul li:last-child:after {
+    @media screen and (max-width:414px) {
+        width: 100px;
     }
 }

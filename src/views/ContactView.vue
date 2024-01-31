@@ -59,6 +59,7 @@
 
     </div>
   </div>
+  <Background_green :height="100" />
 </template>
 
 
@@ -68,12 +69,14 @@ import Bread from '../components/Bread.vue'
 import commitButton from '../components/button/commitButton.vue'
 import successPop from '../components/successPop.vue'
 import Banner from '../components/Banner.vue'
+import Background_green from "@/components/Background_green.vue";
 export default {
   components: {
     Bread,
     commitButton,
     successPop,
     Banner,
+    Background_green
   },
   data() {
     return {

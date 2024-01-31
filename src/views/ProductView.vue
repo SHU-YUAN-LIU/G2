@@ -34,6 +34,7 @@
       <!-- <Pagination /> -->
     </div>
   </div>
+  <Background_green :height="100" />
 </template>
 
 <script>
@@ -43,12 +44,14 @@ import Banner from '../components/Banner.vue'
 import Bread from '../components/Bread.vue'
 import Pagination from '../components/Pagination.vue'
 import { products } from '@/assets/local_json/product_data.json';
+import Background_green from "@/components/Background_green.vue";
 export default {
   components: {
     ProCard,
     Banner,
     Bread,
     Pagination,
+    Background_green
   },
   data() {
     return {

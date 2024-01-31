@@ -17,6 +17,7 @@
             <commitButton :commitButton="check" />
         </router-link>
     </div>
+    <Background_green :height="100" />
 </template>
 
 
@@ -25,12 +26,13 @@
 import Bread from '../components/Bread.vue'
 import commitButton from '../components/button/commitButton.vue'
 import Banner from '../components/Banner.vue'
-
+import Background_green from "@/components/Background_green.vue";
 export default {
     components: {
         Bread,
         commitButton,
         Banner,
+        Background_green
 
     },
     data() {
