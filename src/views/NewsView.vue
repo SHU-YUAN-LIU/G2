@@ -15,8 +15,8 @@
           <option value="">假消息澄清</option>
           <option value="">演講活動</option>
         </select>
-        <input type="date" name="" id=""> 到 <input type="date">
-        <input type="text" name="" id="" placeholder="請輸入關鍵字">
+        <input type="date" name="" id=""><span>到</span><input type="date">
+        <input type="text" name="" id="" placeholder="請輸入關鍵字" class="news_search">
         <button class="remove">⟳</button>
         <button class="btn">搜尋</button>
       </div>
