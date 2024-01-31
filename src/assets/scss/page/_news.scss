@@ -82,7 +82,7 @@
 .news_card {
     display: flex;
     margin: 25px 50px;
-    border: 1px solid #ccc;
+    border: 1px solid #d7d5d5;
     max-width: 1200px;
     width: 90%;
     border-radius: 10px;
@@ -104,6 +104,7 @@
     flex-direction: column;
     box-sizing: border-box;
     justify-content: space-between;
+    background-color: white;
 }
 .news_content h3 {
     @include title_7;
@@ -227,6 +228,16 @@
     }
     .news_cards {
         padding: 0;
+    }
+}
+@media (max-width: 414px) {
+    .news_banner h1 {
+        @include title_2;
+    }
+    .news_cards {
+        .news_card {
+            width: 350px;
+        }
     }
 }
 @media (max-width: 375px) {

@@ -5,7 +5,7 @@
 -->
 <!-- input不要用v-for直接寫就好了 -->
 <template>
-    <article>
+    <article class="login_wrap_lg">
         <div class="container" :class="{ 'register-active': registerBtn }">
             <div class="overlay_container">
                 <div class="overlay">
@@ -56,7 +56,7 @@
                     <input type="checkbox" class="box">
                     <p>我已閱讀並瞭解條款和條件以及隱私權政策。<span>*</span></p>
                 </div>
-                <button class="btn">立刻前往 ➜</button>
+                <button class="btn">送出 ➜</button>
             </form>
             <form ref="login" action="" class="login" id="loginform">
                 <div class="profile">
@@ -76,6 +76,18 @@
             </form>
         </div>
     </article>
+    <div class="login_wrap_sm">
+        <div class="login_logo"><img src="../assets/image/login/logo.png" alt=""></div>
+        <form action="">
+        <div class="login_logo"><img src="" alt=""></div>
+        <p>帳號</p>
+        <input type="text">
+        <p>密碼</p>
+        <input type="text">
+        <router-link to="/signupform">尚未加入會員?</router-link>
+        <button type="button" class="btn">登入 ➜</button>
+        </form>
+    </div>
 </template>
 <script>
 import { addlistener } from '@/stores/datacheck.js';
