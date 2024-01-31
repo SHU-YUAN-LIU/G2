@@ -1,23 +1,82 @@
-.partyhistory {
-    margin-top: 85px;
-  
-    .contect_banner {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-  
-      h1 {
-        @include title_1;
-        color: $white;
-        font-weight: initial;
-        letter-spacing: 10px;
-        position: absolute;
-      }
-  
-      img {
-        width: 100%;
-        vertical-align: middle;
-      }
-    }
+.organization .contect_banner h1 {
+  @media (width<769px) {
+    @include title_2;
+  }
+}
+
+.bigstory {
+  display: flex;
+  margin-top: 50px;
+}
+
+.bigstory-info {
+  display: flex;
+  max-width: 488px;
+  flex-direction: column;
+  padding: 0 20px;
+}
+
+.bigstory-info-card {
+  margin-bottom: 80px;
+}
+
+.bigstory-info-card-year {
+  color: var(--primary-color, #ff892e);
+  text-align: start;
+  letter-spacing: 10.88px;
+  width: 100%;
+  @include title_3;
+}
+
+@media (max-width: 991px) {
+  .header {
+    max-width: 100%;
+    font-size: 40px;
+    line-height: 34px;
+  }
+}
+
+.bigstory-info-card-content {
+  color: #000;
+  text-align: justify;
+  letter-spacing: 2.08px;
+  margin-top: 10px;
+  width: 100%;
+  font: 500 16px/27px Noto Sans, sans-serif;
+}
+
+@media (max-width: 991px) {
+  .content {
+    max-width: 100%;
+  }
+}
+
+.bigstory-info-card-content-title {
+  @include title_7;
+}
+
+.bigstory-info-card-content-word{
+  margin-top: 10px;
+  @include title_10;
+}
+
+.bigstory-img {
+  margin: auto;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  @media (width<769px) {
+    display: none;
+  }
+}
+.bigstory-img img{
+  width: 100%;
+  padding: 10px;
+}
+
+.bigstory-info-container {
+    overflow-y: auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
   }
