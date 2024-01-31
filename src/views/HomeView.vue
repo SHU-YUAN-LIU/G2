@@ -273,20 +273,21 @@ export default {
 
 .body {
     background: linear-gradient(-10deg, #D4FF1F 0% 25%, rgba(255, 255, 255, 0) 25% 100%);
+    // height: 1000px;
+    // z-index:-1000;
+    // // position: absolute;
+    // margin-top: 40px;
 }
 
 .donate_container {
     width: 100%;
     height: 800px;
-    margin-top: 300px;
-    margin-top: 200px;
+    padding-top: 280px;
     position: relative;
     border-radius: $border-radius-1;
 
     @media screen and (max-width: 786px) {
         padding-top: 218px;
-        margin-top: 50px;
-        height: 50px;
     }
 }
 
