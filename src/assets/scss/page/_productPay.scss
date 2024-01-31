@@ -15,7 +15,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin: 20px 0;
+        margin: 40px 0;
 
         p {
             @include title_10;
@@ -286,7 +286,7 @@
         @include title_10;
         letter-spacing: $space_letter;
         cursor: pointer;
-        margin: 30px 0 300px;
+        margin: 30px 0;
     }
 }
 
