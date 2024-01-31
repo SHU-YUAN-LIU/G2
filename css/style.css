@@ -1192,6 +1192,11 @@ header nav .nav_items {
   align-items: center;
   z-index: 6;
 }
+@media screen and (max-width: 768px) {
+  .ham-pull-menu {
+    transition: 0.5s;
+  }
+}
 .ham-pull-menu li a {
   color: black;
   list-style: none;
@@ -3083,6 +3088,10 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
   width: 194px !important;
 }
 
+.banner {
+  margin-top: 85px;
+}
+
 .bannercontent {
   overflow: hidden;
   position: relative;
@@ -3166,7 +3175,11 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
   right: 60px;
 }
 
-article {
+.login_wrap_sm {
+  display: none;
+}
+
+.login_wrap_lg {
   margin: 200px;
   display: flex;
   justify-content: center;
@@ -3378,8 +3391,21 @@ form .register_read p {
     z-index: 10;
   }
 }
+@media (max-width: 1540px) {
+  .container .overlay_left p {
+    padding: 0;
+  }
+  .register-active .register {
+    transform: translateX(80%);
+  }
+}
+@media (max-width: 1440px) {
+  .register-active .register {
+    transform: translateX(68%);
+  }
+}
 @media (max-width: 1200px) {
-  article {
+  .login_wrap_lg {
     margin: 100px;
   }
   .container {
@@ -3387,9 +3413,11 @@ form .register_read p {
   }
   .container .overlay_left p {
     font-size: 40px;
+    padding: 0;
   }
   form.login {
     width: 450px;
+    padding: 50px;
   }
   form.login .profile {
     width: 150px;
@@ -3398,22 +3426,27 @@ form .register_read p {
   form.login .profile img {
     height: 80%;
   }
-  .register-active .register {
-    transform: translateX(90%);
+  form.login input {
+    width: 350px;
   }
-  form {
+  .register-active form.register {
+    transform: translateX(90%);
+    width: 480px;
     padding: 40px 50px;
   }
-  form input {
-    width: 350px;
+  .register-active form.register input {
+    width: 380px;
+  }
+  .register-active form.register .box {
+    width: 20px;
   }
 }
 @media (max-width: 1099px) {
-  article {
+  .login_wrap_lg {
     margin: 50px;
   }
   .container .overlay_left {
-    padding: 0;
+    padding: 0 20px;
   }
   .register-active .register {
     transform: translateX(95%);
@@ -3423,6 +3456,30 @@ form .register_read p {
   }
   form input {
     width: 350px;
+  }
+}
+@media (max-width: 1000px) {
+  .login_wrap_lg {
+    display: none;
+  }
+  .login_wrap_sm {
+    display: block;
+    max-width: 800px;
+    width: 90%;
+    height: auto;
+    margin: 100px auto;
+    padding: 30px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2), 0 10px 10px rgba(0, 0, 0, 0.2);
+  }
+  .login_wrap_sm form {
+    position: inherit;
+    padding: 0;
+    background-color: transparent;
   }
 }
 .news_wrap {
@@ -3521,7 +3578,7 @@ form .register_read p {
 .news_card {
   display: flex;
   margin: 25px 50px;
-  border: 1px solid #ccc;
+  border: 1px solid #d7d5d5;
   max-width: 1200px;
   width: 90%;
   border-radius: 10px;
@@ -3547,6 +3604,7 @@ form .register_read p {
   flex-direction: column;
   box-sizing: border-box;
   justify-content: space-between;
+  background-color: white;
 }
 
 .news_content h3 {
@@ -3666,6 +3724,24 @@ form .register_read p {
   }
   .news_cards {
     padding: 0;
+  }
+}
+@media (max-width: 780px) {
+  .news_banner {
+    background-image: url("/src/assets/image/news/news_banner_m.png");
+  }
+}
+@media (max-width: 414px) {
+  .news_banner {
+    background-image: url("/src/assets/image/news/news_banner_s.png");
+  }
+  .news_banner h1 {
+    font-family: "Mantou Sans";
+    font-size: 65px;
+    font-weight: initial;
+  }
+  .news_cards .news_card {
+    width: 350px;
   }
 }
 @media (max-width: 375px) {
@@ -4055,10 +4131,6 @@ form .register_read p {
   letter-spacing: 1.5px;
   cursor: pointer;
   margin: 30px 0 300px;
-}
-
-#app {
-  background: linear-gradient(-10deg, #D4FF1F 0% 25%, rgba(255, 255, 255, 0) 25% 100%);
 }
 
 .pro_info_group {
@@ -5574,6 +5646,64 @@ form .register_read p {
     line-height: 1.8rem;
   }
 }
+.signup_form {
+  position: inherit;
+  display: flex;
+  flex-direction: column;
+  padding: 110px;
+  height: 100%;
+  transition: all 0.5s ease-in-out;
+  background: white;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 16px;
+}
+.signup_form h1 {
+  font-family: "Mantou Sans";
+  font-size: 65px;
+  font-weight: initial;
+  margin-bottom: 50px;
+}
+.signup_form span {
+  color: red;
+  padding-left: 5px;
+}
+.signup_form input {
+  width: 400px;
+  height: 48px;
+  border-radius: 10px;
+  padding: 0 10px;
+  font-size: 16px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  margin: 10px 0;
+  width: 500px;
+}
+.signup_form .register_read {
+  display: flex;
+  width: 500px;
+}
+.signup_form .register_read .box {
+  width: 20px;
+  height: 20px;
+}
+.signup_form .register_read p {
+  padding-left: 5px;
+}
+
+.btn {
+  background-color: #FF892E;
+  color: white;
+  border-radius: 50px;
+  border: none;
+  height: 78px;
+  font-size: 24px;
+  margin: 20px 0;
+  padding: 0 50px;
+}
+
 @font-face {
   src: url("/Mantou_font/MantouSans-Regular.ttf") format("truetype");
 }/*# sourceMappingURL=style.css.map */

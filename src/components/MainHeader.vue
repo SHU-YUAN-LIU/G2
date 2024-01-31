@@ -49,13 +49,11 @@
       </RouterLink>
     </li>
     <li style="position:relative;">
-
       <div class="icon" @click="showDropDown"><img src="/image/home/icon_cart.svg" alt="">
         <p>購物車</p>
       </div>
       <DropDown v-if="isDropDown" />
     </li>
-
     <li>
       <RouterLink to="/login">
         <div class="icon"><img src="/image/home/icon_login.png" alt="">
@@ -83,13 +81,19 @@
           <RouterLink to="/news">最新消息</RouterLink>
         </li>
         <li>
-          <RouterLink to="/about">核心理念</RouterLink>
+          <RouterLink to="/about">關於我們</RouterLink>
         </li>
-        <li><router-link to="/election">候選人資訊</router-link></li>
+        <li @click="toggleDropDown">
+          <span>選舉資訊</span>
+          <ul v-if="dropDownMenu">
+            <router-link to="/election">候選人資訊</router-link>
+            <router-link to="/election_journey"> 活動資訊 </router-link>
+          </ul>
+        </li>
         <li>
           <RouterLink to="/product">官方商城</RouterLink>
         </li>
-        <li><router-link to="/contact">我要陳情</router-link></li>
+        <li><router-link to="/contact">聯絡我們</router-link></li>
         <li>
           <RouterLink to="/donate">
             <div class="icon"><img src="/image/home/icon_donate.svg" alt="">
@@ -135,7 +139,8 @@ export default {
       isOpen: false,
       //漢堡選單
       isMenuOpen: false,
-
+      //漢堡選單下拉
+      dropDownMenu: false,
     }
   },
   created() {
@@ -154,9 +159,11 @@ export default {
     toggleMenu() {
       this.isOpen = !this.isOpen;
       this.isMenuOpen = !this.isMenuOpen;
-    }
-
-  },
+    },
+    toggleDropDown() {
+      this.dropDownMenu = !this.dropDownMenu;
+    },
+  }
 }
 </script>
 
@@ -179,6 +186,10 @@ export default {
   min-width: 120px;
   z-index: 1;
   transform: translateX(-18%);
+
+  @media screen and (max: width 768px) {
+    display: block;
+  }
 }
 
 .dropdown-content a {
