@@ -11,11 +11,11 @@
             <button class="btn" @click="currentPage = 3" :class="{ focuson: currentPage === 3 }">我的捐款</button>
         </div>
         <!-- 手機板選單 -->
-       <select v-model="currentPage">
-            <option value="0" >會員資料</option>
-            <option value="1" >我的訂單</option>
-            <option value="2" >我的陳情</option>
-            <option value="3" >我的捐款</option>
+        <select v-model="currentPage">
+            <option value="0">會員資料</option>
+            <option value="1">我的訂單</option>
+            <option value="2">我的陳情</option>
+            <option value="3">我的捐款</option>
         </select>
         <!-- 表單 -->
         <form class="membercontent" v-show="currentPage == 0">

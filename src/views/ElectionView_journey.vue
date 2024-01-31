@@ -8,8 +8,26 @@
         <vueMarquee :marqueeArray="slogan" />
         <!-- 行程站台內容 -->
         <div class="journey_title">
-            <h2>行程站台 </h2>
+            <h2>行程站台</h2>
             <h2>地點: {{ currentTitle }}</h2>
+            <select v-model="currentPage" @change="selectloaction">
+                <option>所有地區</option>
+                <option>宜蘭</option>
+                <option>台北</option>
+                <option>桃園</option>
+                <option>新竹</option>
+                <option>新竹</option>
+                <option>台中</option>
+                <option>彰化</option>
+                <option>雲林</option>
+                <option>嘉義</option>
+                <option>台南</option>
+                <option>高雄</option>
+                <option>屏東</option>
+                <option>花蓮</option>
+                <option>台東</option>
+                <option>南投</option>
+            </select>
         </div>
         <div class="election_container">
             <!-- 地圖 -->
@@ -56,7 +74,8 @@ export default {
         return {
             bannerTitle: '候選人行程',
             bannerPic: '^/image/election/journey.png',
-            slogan: '這是一場改變政治文化的社會運動，投給劉緯育，投給自己的未來。',
+            slogan:
+                '共同見證政治文化的改變，支持劉緯育，為未來投下關鍵一票。   一同參與改變政治風氣的社會運動，挺劉緯育，為自己的未來做出選擇。    即刻追蹤柯文哲官方 LINE 帳號，即時獲取重要訊息！',
             red: true,
             blue: true,
             list: [],
@@ -177,7 +196,7 @@ export default {
                 },
             ],
             currentTitle: "",
-
+            currentPage: "所有地區",
         }
     },
     components: {
@@ -194,7 +213,11 @@ export default {
                 return item.country == pos;
             })
         },
-
+        selectloaction() {
+            this.displayTrip = this.allTrip.filter((item) => {
+                return item.country == this.currentPage;
+            })
+        }
     },
     mounted() {
         document.title = "候選人行程";

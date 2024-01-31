@@ -146,6 +146,14 @@ input:focus {
   border-width: 1px;
 }
 
+input {
+  text-indent: 10px;
+}
+input:focus {
+  outline: none;
+  border: 2px solid #FF892E;
+}
+
 body {
   font-size: 16px;
 }
@@ -498,7 +506,7 @@ body {
     padding-left: 20px;
   }
   .bread ul li:last-child:after {
-    width: 50%;
+    width: 180px;
   }
 }
 .banner {
@@ -2010,7 +2018,6 @@ div.donate .donate_main img.icon:nth-child(2) {
 div.donate .donate_main img.icon:nth-child(3) {
   right: 100px;
   bottom: 0px;
-  z-index: 1;
 }
 div.donate .donate_main .donate_cards {
   display: flex;
@@ -2160,7 +2167,6 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
     height: 160px;
     right: -10px;
     bottom: 0px;
-    z-index: 1;
   }
   div.donate .donate_main .donate_cards {
     display: flex;
@@ -4101,6 +4107,10 @@ form .register_read p {
   z-index: -1;
 }
 
+.elecion_journey .journey_title {
+  display: flex;
+  flex-direction: column;
+}
 .elecion_journey .journey_title h2 {
   font-family: "Mantou Sans";
   font-size: 65px;
@@ -4108,11 +4118,44 @@ form .register_read p {
   text-align: center;
   margin-top: 70px;
 }
+@media screen and (max-width: 768px) {
+  .elecion_journey .journey_title :nth-child(2) {
+    display: none;
+  }
+}
+.elecion_journey .journey_title select {
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  .elecion_journey .journey_title select {
+    width: 300px;
+    height: 25px;
+    border-radius: 10px;
+    margin: 40px auto 0;
+    display: block;
+    padding-left: 5px;
+  }
+}
+.elecion_journey .minimap {
+  display: block;
+}
+@media screen and (max-width: 768px) {
+  .elecion_journey .minimap {
+    display: none;
+  }
+}
 .elecion_journey .election_container {
   display: flex;
   align-items: center;
   position: relative;
   right: 200px;
+}
+@media screen and (max-width: 768px) {
+  .elecion_journey .election_container {
+    right: 0px;
+    margin-top: 20px;
+    padding: 30px;
+  }
 }
 .elecion_journey .election_container .journey {
   background-color: #272727;
@@ -4601,6 +4644,25 @@ form .register_read p {
   max-width: 800px;
   margin: auto;
 }
+.member_wrap select {
+  display: none;
+  border-radius: 10px;
+  margin-top: 50px;
+  height: 35px;
+  width: 150px;
+  box-sizing: border-box;
+}
+@media screen and (max-width: 768px) {
+  .member_wrap select {
+    display: block;
+    border-radius: 10px;
+    margin: 25px 0;
+    height: 35px;
+    width: 150px;
+    box-sizing: border-box;
+    padding-left: 5px;
+  }
+}
 .member_wrap .membercontent {
   display: flex;
   flex-direction: column;
@@ -4671,7 +4733,7 @@ form .register_read p {
 }
 @media screen and (max-width: 768px) {
   .member_wrap .btn_wrap {
-    margin-bottom: 40px;
+    display: none;
   }
 }
 .member_wrap .btn_wrap .btn {
@@ -4715,9 +4777,9 @@ form .register_read p {
   justify-content: flex-start;
   align-items: center;
 }
-@media (width < 415px) {
+@media (width < 768px) {
   .member_wrap form {
-    padding: 40px 10px;
+    padding: 0 10px;
   }
 }
 .member_wrap .searchbtn {
