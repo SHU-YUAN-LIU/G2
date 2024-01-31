@@ -162,12 +162,13 @@
         </div>
         <button class="pay-btn-now">立即結賬</button>
     </div>
+    <Background_green :height="100" />
 </template>
 
 <script>
 import { show_product, changeqty } from '@/stores/cart.js';
 import PayButton from '@/components/button/PayButton.vue';
-
+import Background_green from "@/components/Background_green.vue";
 export default {
 
     data() {
@@ -180,6 +181,7 @@ export default {
     },
     components: {
         PayButton,
+        Background_green
     },
     created() {
 
