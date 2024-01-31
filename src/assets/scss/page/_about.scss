@@ -30,6 +30,12 @@
 .about_wrap{
   width: 1250px;
     margin: auto;
+    @media (width<768px){
+      margin: auto;
+      width: 100%;
+      margin-top: 50px;
+      
+    }
 }
 .about_content {
   border-radius: $border-radius-1;
@@ -46,20 +52,19 @@
 }
 @media (max-width: 768px) {
   .about_content {
-    padding: 0 20px;
+    margin: auto;
+    display: block;
+    width: 100%;
+    padding: 20px;
+    
   }
 }
 .about_content-2 {
   display: flex;
   width: 100%;
-  max-width: 997px;
+  // max-width: 997px;
   flex-direction: column;
   //   margin: 26px 0 24px;
-}
-@media (max-width: 768px) {
-  .about_content-2 {
-    max-width: 100%;
-  }
 }
 .about_content-3 {
   justify-content: center;
@@ -67,22 +72,17 @@
   text-align: justify;
   letter-spacing: 4.32px;
   font: 800 24px/112.5% Noto Sans, sans-serif;
+  @media (width<768px){
+    @include title_9;
+  };
 }
-@media (max-width: 768px) {
-  .about_content-3 {
-    max-width: 100%;
-  }
-}
+
 .about_content-4 {
   background-color: #000;
   margin-top: 30px;
   height: 1px;
 }
-@media (max-width: 768px) {
-  .about_content-4 {
-    max-width: 100%;
-  }
-}
+
 .about_content-5 {
   justify-content: center;
   color: #000;
@@ -90,11 +90,10 @@
   letter-spacing: 2px;
   margin-top: 28px;
   font: 600 20px/37px Noto Sans, sans-serif;
-}
-@media (max-width: 768px) {
-  .about_content-5 {
-    max-width: 100%;
-  }
+  @media (width<768px){
+    font-family: $font_family_1 ;
+    font-size: $font_basic;
+  };
 }
 // 黨會規範樣式
 .rule {
@@ -104,27 +103,25 @@
   justify-content: center;
   align-items: center;
   padding: 50px 60px;
+  @media (width<1200px){
+    padding-top: 0px;
+  };
 }
-@media (max-width: 991px) {
-  .rule {
-    padding: 0 20px;
-  }
-}
+
 .rule-2 {
   width: 1202px;
   max-width: 100%;
   margin: 80px 0 124px;
+  @media (width<1200px){
+    width: 100%;
+  };
 }
-@media (max-width: 991px) {
-  .rule-2 {
-    margin: 40px 0;
-  }
-}
+
 .rule-3 {
   gap: 20px;
   display: flex;
 }
-@media (max-width: 991px) {
+@media (max-width: 768px) {
   .rule-3 {
     flex-direction: column;
     align-items: stretch;
@@ -141,6 +138,7 @@
 @media (max-width: 991px) {
   .rule-column {
     width: 100%;
+    margin: auto;
   }
 }
 .rule-4 {
@@ -150,6 +148,9 @@
   letter-spacing: 1.76px;
   margin: auto 0;
   font: 600 18px/25px Noto Sans, sans-serif;
+  @media (width<768px){
+    @include title_10;
+  };
 }
 @media (max-width: 991px) {
   .rule-4 {
@@ -166,6 +167,8 @@
 @media (max-width: 991px) {
   .rule-column-2 {
     width: 100%;
+    margin: auto;
+    margin-left: 10px;
   }
 }
 .rule-5 {
@@ -210,6 +213,9 @@
   line-height: normal;
   width: 35%;
   margin-left: 20px;
+  @media (width<768px){
+    margin-left: 10px;
+  };
 }
 @media (max-width: 991px) {
   .rule-column-3 {
@@ -223,6 +229,9 @@
   letter-spacing: 1.76px;
   margin-top: 353px;
   font: 600 18px/25px Noto Sans, sans-serif;
+  @media (width<768px){
+    @include title_10;
+  };
 }
 @media (max-width: 991px) {
   .rule-7 {

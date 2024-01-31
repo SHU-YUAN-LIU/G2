@@ -2,13 +2,13 @@
   <div class="organization">
     <div class="contect_banner">
       <img
-        src="image/about/organization_banner.svg"
+        src="@/assets/image/about/organization_banner.svg"
         alt="organization_banner.svg"
       />
       <h1>組織團隊</h1>
     </div>
     <!-- 麵包屑 -->
-    <Bread :page="dog" />
+    <Breadcrumb :page="dog" />
     <OrganizationLightbox ref="OrganizationLightbox" 
     :name="nowcandidates[0].name"
     :position="nowcandidates[0].position"
@@ -72,11 +72,11 @@
 </template>
 
 <script>
-import Bread from "../components/Bread.vue";
+import Breadcrumb from "../components/Bread.vue";
 import OrganizationLightbox from "../components/OrganizationLightbox.vue";
 export default {
   components: {
-    Bread,
+    Breadcrumb,
     OrganizationLightbox,
   },
   data() {
@@ -86,7 +86,7 @@ export default {
         {
           name: "陳緯珊",
           position: "黨主席",
-          image: "image/about/Candidate1.svg",
+          image: "/src/assets/image/about/Candidate1.svg",
           position2: "第 10 屆不分區立法委員",
           education:["美國哈佛大學 公共衛生學院碩士","成功大學 學士後醫學系畢業","台灣大學 復健學系"],    
           exp:["青年黨 黨主席","第 10 屆不分區立法委員"], 
@@ -96,7 +96,7 @@ export default {
         {
           name: "陳優華",
           position: "秘書長",
-          image: "image/about/Candidate2.svg",
+          image: "/src/assets/image/about/Candidate2.svg",
           position2: "第 8 屆環保委員會主席",
           education:["法國巴黎政治學院 政治學博士","中山大學 國際事務碩士","台北藝術大學 政治學系"],    
           exp:["青年黨 秘書長","第 8 屆環保委員會主席"],   
@@ -105,7 +105,7 @@ export default {
         {
           name: "林悅芬",
           position: "副秘書長",
-          image: "image/about/Candidate3.svg",
+          image: "/src/assets/image/about/Candidate3.svg",
           position2: "第 9 屆內政委員會副主席",
           education:["美國史丹佛大學 商學院碩士","政治大學 國際事務學士","國立台灣大學法學院"],    
           exp:["青年黨 副秘書長","第 9 屆內政委員會副主席"], 
@@ -114,7 +114,7 @@ export default {
         {
           name: "劉緯育",
           position: "發言人",
-          image: "image/about/Candidate4.svg",
+          image: "/src/assets/image/about/Candidate4.svg",
           position2: "第 9 屆內政委員會副主席",
           education:["美國史丹佛大學 商學院碩士","政治大學 國際事務學士","國立台灣大學法學院"],    
           exp:["青年黨 副秘書長","第 9 屆內政委員會副主席"],   
@@ -123,7 +123,7 @@ export default {
         {
           name: "張美玲",
           position: "發言人",
-          image: "image/about/Candidate5.svg",
+          image: "/src/assets/image/about/Candidate5.svg",
           position2: "第 9 屆內政委員會副主席",
           education:["美國史丹佛大學 商學院碩士","政治大學 國際事務學士","國立台灣大學法學院"],    
           exp:["青年黨 副秘書長","第 9 屆內政委員會副主席"], 
@@ -132,7 +132,7 @@ export default {
         {
           name: "許嘉宏",
           position: "發言人",
-          image: "image/about/Candidate6.svg",
+          image: "/src/assets/image/about/Candidate6.svg",
           position2: "第 9 屆內政委員會副主席",
           education:["美國史丹佛大學 商學院碩士","政治大學 國際事務學士","國立台灣大學法學院"],    
           exp:["青年黨 副秘書長","第 9 屆內政委員會副主席"],
@@ -141,7 +141,7 @@ export default {
         {
           name: "吳建民",
           position: "政策研究部主任",
-          image: "image/about/Candidate7.svg",
+          image: "/src/assets/image/about/Candidate7.svg",
           position2: "第 9 屆內政委員會副主席",
           education:["美國史丹佛大學 商學院碩士","政治大學 國際事務學士","國立台灣大學法學院"],    
           exp:["青年黨 副秘書長","第 9 屆內政委員會副主席"],
@@ -150,7 +150,7 @@ export default {
         {
           name: "陳淑萍",
           position: "新聞輿情部主任",
-          image: "image/about/Candidate8.svg",
+          image: "/src/assets/image/about/Candidate8.svg",
           position2: "第 9 屆內政委員會副主席",
           education:["美國史丹佛大學 商學院碩士","政治大學 國際事務學士","國立台灣大學法學院"],    
           exp:["青年黨 副秘書長","第 9 屆內政委員會副主席"],
@@ -159,7 +159,7 @@ export default {
         {
           name: "林宗良",
           position: "媒體創意部主任",
-          image: "image/about/Candidate9.svg",
+          image: "/src/assets/image/about/Candidate9.svg",
           position2: "第 9 屆內政委員會副主席",
           education:["美國史丹佛大學 商學院碩士","政治大學 國際事務學士","國立台灣大學法學院"],    
           exp:["青年黨 副秘書長","第 9 屆內政委員會副主席"],
@@ -168,7 +168,7 @@ export default {
         {
           name: "黃雅琳",
           position: "組織部主任",
-          image: "image/about/Candidate10.svg",
+          image: "/src/assets/image/about/Candidate10.svg",
           position2: "第 9 屆內政委員會副主席",
           education:["美國史丹佛大學 商學院碩士","政治大學 國際事務學士","國立台灣大學法學院"],    
           exp:["青年黨 副秘書長","第 9 屆內政委員會副主席"],
@@ -177,7 +177,7 @@ export default {
         {
           name: "王明德",
           position: "行政部主任",
-          image: "image/about/Candidate11.svg",
+          image: "/src/assets/image/about/Candidate11.svg",
           position2: "第 9 屆內政委員會副主席",
           education:["美國史丹佛大學 商學院碩士","政治大學 國際事務學士","國立台灣大學法學院"],    
           exp:["青年黨 副秘書長","第 9 屆內政委員會副主席"],
@@ -187,104 +187,104 @@ export default {
       localcandidates: [
         { id: 1, name: "陳建宏", 
         position: "基隆黨部主任",
-        image: "image/about/Candidate10.svg",
+        image: "/src/assets/image/about/Candidate10.svg",
         position2: "第 9 屆內政委員會副主席",
           education:["美國史丹佛大學 商學院碩士","政治大學 國際事務學士","國立台灣大學法學院"],    
           exp:["青年黨 副秘書長","第 9 屆內政委員會副主席"],
           index:12,  
         },
         { id: 2, name: "張秀芬", position: "新北黨部主任" ,
-          image: "image/about/Candidate10.svg",
+          image: "/src/assets/image/about/Candidate10.svg",
           position2: "",
           education:["","",""],    
           exp:["",""],
           index:13,
         },
         { id: 3, name: "李志明", position: "台北黨部主任",
-        image: "image/about/Candidate10.svg",
+        image: "/src/assets/image/about/Candidate10.svg",
         position2: "第 9 屆內政委員會副主席",
           education:["美國史丹佛大學 商學院碩士","政治大學 國際事務學士","國立台灣大學法學院"],    
           exp:["青年黨 副秘書長","第 9 屆內政委員會副主席"],  
           index:14,
         },
         { id: 4, name: "蔡雅雯", position: "桃園黨部主任",
-        image: "image/about/Candidate10.svg",
+        image: "/src/assets/image/about/Candidate10.svg",
         position2: "第 9 屆內政委員會副主席",
           education:["美國史丹佛大學 商學院碩士","政治大學 國際事務學士","國立台灣大學法學院"],    
           exp:["青年黨 副秘書長","第 9 屆內政委員會副主席"],
           index:15,
         },
         { id: 5, name: "林國良", position: "新竹黨部主任",
-        image: "image/about/Candidate10.svg",
+        image: "/src/assets/image/about/Candidate10.svg",
         position2: "第 9 屆內政委員會副主席",
           education:["美國史丹佛大學 商學院碩士","政治大學 國際事務學士","國立台灣大學法學院"],    
           exp:["青年黨 副秘書長","第 9 屆內政委員會副主席"],
           index:16,
         },
         { id: 6, name: "王美玲", position: "苗栗黨部主任",
-        image: "image/about/Candidate10.svg",
+        image: "/src/assets/image/about/Candidate10.svg",
         position2: "第 9 屆內政委員會副主席",
           education:["美國史丹佛大學 商學院碩士","政治大學 國際事務學士","國立台灣大學法學院"],    
           exp:["青年黨 副秘書長","第 9 屆內政委員會副主席"],  
           index:17,},
         { id: 7, name: "陳明宏", position: "台中黨部主任",
-        image: "image/about/Candidate10.svg",
+        image: "/src/assets/image/about/Candidate10.svg",
         position2: "第 9 屆內政委員會副主席",
           education:["美國史丹佛大學 商學院碩士","政治大學 國際事務學士","國立台灣大學法學院"],    
           exp:["青年黨 副秘書長","第 9 屆內政委員會副主席"],
           index:18, 
         },
         { id: 8, name: "鄭雅筑", position: "彰化黨部主任",
-        image: "image/about/Candidate10.svg",
+        image: "/src/assets/image/about/Candidate10.svg",
         position2: "第 9 屆內政委員會副主席",
           education:["美國史丹佛大學 商學院碩士","政治大學 國際事務學士","國立台灣大學法學院"],    
           exp:["青年黨 副秘書長","第 9 屆內政委員會副主席"],
           index:19,
         },
         { id: 9, name: "吳宗霖", position: "雲林黨部主任",
-        image: "image/about/Candidate10.svg",
+        image: "/src/assets/image/about/Candidate10.svg",
         position2: "第 9 屆內政委員會副主席",
           education:["美國史丹佛大學 商學院碩士","政治大學 國際事務學士","國立台灣大學法學院"],    
           exp:["青年黨 副秘書長","第 9 屆內政委員會副主席"],  
           index:20,
         },
         { id: 10, name: "許玉美", position: "嘉義黨部主任",
-        image: "image/about/Candidate10.svg",
+        image: "/src/assets/image/about/Candidate10.svg",
         position2: "第 9 屆內政委員會副主席",
           education:["美國史丹佛大學 商學院碩士","政治大學 國際事務學士","國立台灣大學法學院"],    
           exp:["青年黨 副秘書長","第 9 屆內政委員會副主席"],  
           index:21,
         },
         { id: 11, name: "梁偉哲", position: "台南黨部主任",
-        image: "image/about/Candidate10.svg",
+        image: "/src/assets/image/about/Candidate10.svg",
         position2: "第 9 屆內政委員會副主席",
           education:["美國史丹佛大學 商學院碩士","政治大學 國際事務學士","國立台灣大學法學院"],    
           exp:["青年黨 副秘書長","第 9 屆內政委員會副主席"],  
           index:22,
         },
         { id: 12, name: "蔡佳琳", position: "高雄黨部主任",
-        image: "image/about/Candidate10.svg",
+        image: "/src/assets/image/about/Candidate10.svg",
         position2: "第 9 屆內政委員會副主席",
           education:["美國史丹佛大學 商學院碩士","政治大學 國際事務學士","國立台灣大學法學院"],    
           exp:["青年黨 副秘書長","第 9 屆內政委員會副主席"],  
           index:23,
         },
         { id: 13, name: "鄭文彬", position: "屏東黨部主任",
-        image: "image/about/Candidate10.svg",
+        image: "/src/assets/image/about/Candidate10.svg",
         position2: "第 9 屆內政委員會副主席",
           education:["美國史丹佛大學 商學院碩士","政治大學 國際事務學士","國立台灣大學法學院"],    
           exp:["青年黨 副秘書長","第 9 屆內政委員會副主席"],  
           index:24,
         },
         { id: 14, name: "賴宏偉", position: "花蓮黨部主任",
-        image: "image/about/Candidate10.svg",
+        image: "/src/assets/image/about/Candidate10.svg",
         position2: "第 9 屆內政委員會副主席",
           education:["美國史丹佛大學 商學院碩士","政治大學 國際事務學士","國立台灣大學法學院"],    
           exp:["青年黨 副秘書長","第 9 屆內政委員會副主席"],  
           index:25,
         },
         { id: 15, name: "吳偉賢", position: "宜蘭黨部主任",
-        image: "image/about/Candidate10.svg",
+        image: "/src/assets/image/about/Candidate10.svg",
         position2: "第 9 屆內政委員會副主席",
           education:["美國史丹佛大學 商學院碩士","政治大學 國際事務學士","國立台灣大學法學院"],    
           exp:["青年黨 副秘書長","第 9 屆內政委員會副主席"], 
