@@ -268,10 +268,10 @@ export default {
 @import '../assets/scss/base/font';
 @import '../assets/scss/base/color';
 
-#app {
-    background: linear-gradient(-10deg, $green 0% 35%, rgba(255, 255, 255, 0) 35% 50%, $orange 50% 100%) !important;
-    z-index: 0;
-}
+// #app {
+//     background: linear-gradient(-10deg, $green 0% 35%, rgba(255, 255, 255, 0) 35% 50%, $orange 50% 100%) !important;
+//     z-index: 0;
+// }
 
 // ul {
 //     list-style: none;
