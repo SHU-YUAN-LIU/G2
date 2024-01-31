@@ -137,9 +137,6 @@
                 </router-link>
             </CommitButton>
         </div>
-        <div class="bg_green">
-            <!-- <Background_green :height="300" /> -->
-        </div>
     </div>
 </template>
 
@@ -288,6 +285,7 @@ export default {
     padding-top: 280px;
     position: relative;
     border-radius: $border-radius-1;
+
     @media screen and (max-width: 786px) {
         padding-top: 218px;
     }
@@ -389,4 +387,5 @@ export default {
 
 .commit_btn {
     margin: initial;
-}</style>
+}
+</style>
