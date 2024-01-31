@@ -61,7 +61,9 @@ export default {
 .ThreeBookMark {
     /* margin: auto; */
     width: 1100px;
-    @media (width<1400px){
+}
+@media (max-width: 1400px) {
+    .ThreeBookMark{
         width: 100%;    
         margin: auto;
         gap: 15px;
@@ -105,9 +107,5 @@ export default {
     background-color: #fff;
     border-radius: 10px;
     padding: 50px;
-}
-
-.active_tab {
-    /* font-weight: bold; */
 }
 </style>
