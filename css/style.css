@@ -4191,6 +4191,9 @@ form .register_read p {
     padding-left: 5px;
   }
 }
+.elecion_journey .minimap {
+  display: block;
+}
 @media (max-width: 768px) {
   .elecion_journey .minimap {
     display: none;
