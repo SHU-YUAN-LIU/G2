@@ -1,19 +1,20 @@
 <template>
-    <!-- banner -->
-    <div class="banner">
-        <div ref="bannercontent" class="bannercontent">
-            <div class="bannershow">
-                <img v-for="(banner, index) in bannerList" :src="getImageUrl(banner)" class="image">
+    <div class="body">
+        <!-- banner -->
+        <div class="banner">
+            <div ref="bannercontent" class="bannercontent">
+                <div class="bannershow">
+                    <img v-for="(banner, index) in bannerList" :src="getImageUrl(banner)" class="image">
+                </div>
+            </div>
+            <button class="bannerleft" @click="bannerleft">&lt</button>
+            <button class="bannerright" @click="bannerright">></button>
+            <div class="pointwrap">
+                <div class="bannerpoint" v-for="num in bannerList.length" @click="pointchangebanner(num)"
+                    :class="{ 'getdeep': currentBanner === num - 1 }"></div>
             </div>
         </div>
-        <button class="bannerleft" @click="bannerleft">&lt</button>
-        <button class="bannerright" @click="bannerright">></button>
-        <div class="pointwrap">
-            <div class="bannerpoint" v-for="num in bannerList.length" @click="pointchangebanner(num)"
-                :class="{ 'getdeep': currentBanner === num - 1 }"></div>
-        </div>
-    </div>
-    <!-- <button> &lt </button>
+        <!-- <button> &lt </button>
         <div ref="bannercontainer" class="bannercontainer">
             <div class="bannershow">
                 <img v-for="banner in bannerList" :src="getImageUrl(banner)" alt="">
@@ -22,29 +23,67 @@
         </div>
     <button>></button> -->
 
-    <!-- 倒數 -->
-    <CountDown />
-    <!-- 跑馬燈 -->
-    <vueMarquee :marqueeArray="slogan" />
-    <!-- 頁籤 -->
-    <div class="home_container">
-        <div class="row index_news_flex">
-            <div class="col col-12 index_news_title">政策懶人包</div>
-        </div>
-    </div>
-    <bookmark />
-    <div class="home_line_button">
-        <div class="home_line"></div>
-        <CommitButton class="homebutton dog" commitButton="立即前往">
-            <router-link to="/news">
-            </router-link>
-        </CommitButton>
-    </div>
-    <!-- 消息-->
-    <div class="index_news_bg">
+        <!-- 倒數 -->
+        <CountDown />
+        <!-- 跑馬燈 -->
+        <vueMarquee :marqueeArray="slogan" />
+        <!-- 頁籤 -->
         <div class="home_container">
             <div class="row index_news_flex">
-                <div class="col col-12 index_news_title">最新消息</div>
+                <div class="col col-12 index_news_title">政策懶人包</div>
+            </div>
+        </div>
+        <bookmark />
+        <div class="home_line_button">
+            <div class="home_line"></div>
+            <CommitButton class="homebutton dog" commitButton="立即前往">
+                <router-link to="/news">
+                </router-link>
+            </CommitButton>
+        </div>
+        <!-- 消息-->
+        <div class="index_news_bg">
+            <div class="home_container">
+                <div class="row index_news_flex">
+                    <div class="col col-12 index_news_title">最新消息</div>
+                    <a class="col col-4 index_news_card" href="#">
+                        <div>
+                            <img :src="getImageUrl(news_card[0].news_img)">
+                        </div>
+                        <div class="index_news_card_text">
+                            <span>{{ news_card[0].date_time }}</span>
+                            <p class="index_news_card_header">{{ news_card[0].news_title }}</p>
+                            <p>{{ news_card[0].news_script }}</p>
+                        </div>
+                    </a>
+                    <div class="row col col-6 news_index_inner_flex">
+                        <a v-for="(item, index) in get_for_range(news_card, 1, 2)" :key="index" class="col index_news_card"
+                            href="#">
+                            <div>
+                                <img :src="getImageUrl(item.news_img)">
+                            </div>
+                            <div class="index_news_card_text">
+                                <span>{{ item.date_time }}</span>
+                                <p class="index_news_card_header">{{ item.news_title }}</p>
+                                <p>{{ item.news_script }}</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="home_line_button">
+                <div class="home_line"></div>
+                <CommitButton class="homebutton dog" commitButton="立即前往">
+                    <router-link to="/news">
+                    </router-link>
+                </CommitButton>
+            </div>
+        </div>
+
+        <!-- 假消息澄清-->
+        <div class="home_container">
+            <div class="row index_news_flex">
+                <div class="col col-12 index_news_title">假消息澄清</div>
                 <a class="col col-4 index_news_card" href="#">
                     <div>
                         <img :src="getImageUrl(news_card[0].news_img)">
@@ -77,64 +116,30 @@
                 </router-link>
             </CommitButton>
         </div>
-    </div>
+        <!-- 捐款 -->
+        <div class="donate_container">
 
-    <!-- 假消息澄清-->
-    <div class="home_container">
-        <div class="row index_news_flex">
-            <div class="col col-12 index_news_title">假消息澄清</div>
-            <a class="col col-4 index_news_card" href="#">
-                <div>
-                    <img :src="getImageUrl(news_card[0].news_img)">
+            <img v-for="donateImg in donateList" :src="getImageUrl(donateImg)" alt="" class="icon">
+            <div>
+                <h2>小額捐款, 作伙相挺</h2>
+                <div class="donate_content">
+                    <img src="/image/home/donate_img.png" alt="">
+                    <p>2024 總統大選，面對這光榮民主的一戰，我們需要更多社會支持，邀請大家加入 Team Taiwan，一起挺台灣！</p>
                 </div>
-                <div class="index_news_card_text">
-                    <span>{{ news_card[0].date_time }}</span>
-                    <p class="index_news_card_header">{{ news_card[0].news_title }}</p>
-                    <p>{{ news_card[0].news_script }}</p>
-                </div>
-            </a>
-            <div class="row col col-6 news_index_inner_flex">
-                <a v-for="(item, index) in get_for_range(news_card, 1, 2)" :key="index" class="col index_news_card"
-                    href="#">
-                    <div>
-                        <img :src="getImageUrl(item.news_img)">
-                    </div>
-                    <div class="index_news_card_text">
-                        <span>{{ item.date_time }}</span>
-                        <p class="index_news_card_header">{{ item.news_title }}</p>
-                        <p>{{ item.news_script }}</p>
-                    </div>
-                </a>
             </div>
+            <RouterView />
+            <!-- 頁面路由route渲染的位置 -->
         </div>
-    </div>
-    <div class="home_line_button">
-        <div class="home_line"></div>
-        <CommitButton class="homebutton dog" commitButton="立即前往">
-            <router-link to="/news">
-            </router-link>
-        </CommitButton>
-    </div>
-    <!-- 捐款 -->
-    <div class="donate_container">
-
-        <img v-for="donateImg in donateList" :src="getImageUrl(donateImg)" alt="" class="icon">
-        <div>
-            <h2>小額捐款, 作伙相挺</h2>
-            <div class="donate_content">
-                <img src="/image/home/donate_img.png" alt="">
-                <p>2024 總統大選，面對這光榮民主的一戰，我們需要更多社會支持，邀請大家加入 Team Taiwan，一起挺台灣！</p>
-            </div>
+        <div class="home_line_button ">
+            <div class="home_line donate_line"></div>
+            <CommitButton class="homebutton dog" commitButton="立即前往">
+                <router-link to="/news">
+                </router-link>
+            </CommitButton>
         </div>
-        <RouterView />
-        <!-- 頁面路由route渲染的位置 -->
-    </div>
-    <div class="home_line_button ">
-        <div class="home_line donate_line"></div>
-        <CommitButton class="homebutton dog" commitButton="立即前往">
-            <router-link to="/news">
-            </router-link>
-        </CommitButton>
+        <div class="bg_green">
+            <!-- <Background_green :height="300" /> -->
+        </div>
     </div>
 </template>
 
@@ -143,7 +148,7 @@ import CommitButton from '@/components/button/commitButton.vue';
 import bookmark from '../components/BookMark.vue';
 import CountDown from '../components/CountDown.vue';
 import vueMarquee from '@/components/Marquee.vue';
-
+import Background_green from "@/components/Background_green.vue";
 export default {
     data() {
         return {
@@ -253,6 +258,7 @@ export default {
         CommitButton,
         CountDown,
         vueMarquee,
+        Background_green,
     },
     created() {
 
@@ -268,30 +274,13 @@ export default {
 @import '../assets/scss/base/font';
 @import '../assets/scss/base/color';
 
-// #app {
-//     background: linear-gradient(-10deg, $green 0% 35%, rgba(255, 255, 255, 0) 35% 50%, $orange 50% 100%) !important;
-//     z-index: 0;
-// }
-
-// ul {
-//     list-style: none;
-// }
-
-// .banner {
-//     overflow: hidden;
-//     /* width: 1920px; */
-//     position: relative;
-//     margin-top: 85px;
-// }
-
-// .banner>ul {
-//     display: flex;
-//     padding: 0;
-// }
-
-// .banner>ul {
-//     display: flex;
-// }
+.body {
+    background: linear-gradient(-10deg, #D4FF1F 0% 25%, rgba(255, 255, 255, 0) 25% 100%);
+    // height: 1000px;
+    // z-index:-1000;
+    // // position: absolute;
+    // margin-top: 40px;
+}
 
 .donate_container {
     width: 100%;
@@ -302,18 +291,19 @@ export default {
     @media screen and (max-width: 786px) {
         padding-top: 218px;
     }
-   }
+}
 
 .donate_container h2 {
     font-size: 65px;
     height: 100px;
     text-align: center;
+
     @media screen and (max-width: 414px) {
-     @include title_3;
-     margin-top: 20px;
-  
-}
-   
+        @include title_3;
+        margin-top: 20px;
+
+    }
+
 }
 
 .donate_container p {
@@ -321,6 +311,7 @@ export default {
     width: 600px;
     margin: auto;
     line-height: 50px;
+
     @media screen and (max-width: 786px) {
         line-height: 45px;
     }
@@ -334,21 +325,22 @@ export default {
     margin: auto;
     border-radius: 10px;
     display: flex;
+
     @media screen and (max-width: 769px) {
-     display: flex;
-     flex-direction: column;
-     width: 90%;
+        display: flex;
+        flex-direction: column;
+        width: 90%;
 
-     p{
-        width: initial;
-        background-color: #fff;
-        padding: 10px;
-        border-radius: 10px;
-     }
+        p {
+            width: initial;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 10px;
+        }
 
-     img{
-        border-radius: 10px;
-     }
+        img {
+            border-radius: 10px;
+        }
     }
 }
 
@@ -364,6 +356,7 @@ export default {
     margin: auto;
     width: 200px;
     height: 200px;
+
     @media screen and (max-width: 768px) {
         top: -2px;
     }
@@ -375,6 +368,7 @@ export default {
     margin: auto;
     width: 220px;
     height: 220px;
+
     @media screen and (max-width: 769px) {
         display: none;
     }
@@ -387,12 +381,12 @@ export default {
     margin: auto;
     width: 250px;
     height: 250px;
+
     @media screen and (max-width: 769px) {
         display: none;
     }
 }
 
-.commit_btn{
+.commit_btn {
     margin: initial;
-}
-</style>
+}</style>
