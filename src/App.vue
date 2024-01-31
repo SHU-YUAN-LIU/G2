@@ -38,5 +38,10 @@ export default {
 
 </script>
 
-<style scoped></style>
+<style scoped>
+@font-face {
+    font-family: 'Mantou Sans';
+    src: url('@/assets/Mantou_font/MantouSans-Regular.ttf');
+}
+</style>
 
