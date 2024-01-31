@@ -80,20 +80,24 @@
         <li>
           <RouterLink to="/news">最新消息</RouterLink>
         </li>
+        <!-- 關於我們 -->
         <li>
           <RouterLink to="/about">關於我們</RouterLink>
+          <RouterLink to="/organization">組織團隊</RouterLink>
         </li>
-        <li @click="toggleDropDown">
-          <span>選舉資訊</span>
-          <ul v-if="dropDownMenu">
-            <router-link to="/election">候選人資訊</router-link>
-            <router-link to="/election_journey"> 活動資訊 </router-link>
-          </ul>
+        <!-- 選舉資訊 -->
+        <li>
+          <router-link to="/election">候選人資訊</router-link>
+        </li>
+        <li>
+          <router-link to="/election_journey"> 活動資訊 </router-link>
         </li>
         <li>
           <RouterLink to="/product">官方商城</RouterLink>
         </li>
-        <li><router-link to="/contact">聯絡我們</router-link></li>
+        <!-- 聯絡我們 -->
+        <li><router-link to="/contact">我要陳情</router-link></li>
+        <li><router-link to="/contact_searchFinal">陳情進度查詢</router-link></li>
         <li>
           <RouterLink to="/donate">
             <div class="icon"><img src="/image/home/icon_donate.svg" alt="">
