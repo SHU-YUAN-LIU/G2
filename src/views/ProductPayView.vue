@@ -192,6 +192,15 @@ export default {
             if (event.key == 'cart') {
                 [this.cartList, this.cart_total] = show_product();
             }
+        },
+        getpicurl(picname) {
+            if (picname) {
+                var url = `${import.meta.env.VITE_RESOURCE_URL}/image/product/product_data/` + picname;
+            }
+            else {
+                url = `${import.meta.env.VITE_RESOURCE_URL}/image/product/errorpic.png`;
+            }
+            return url;
         }
 
     },

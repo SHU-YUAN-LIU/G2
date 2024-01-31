@@ -1,5 +1,5 @@
 import { products } from '@/assets/local_json/product_data.json';
-import { defineStore } from "pinia";
+// import { defineStore } from "pinia";
 
 
 export function show_product() {

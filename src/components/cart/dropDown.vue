@@ -4,7 +4,8 @@
             <!-- "item"是陣列的每一筆資料 -->
             <!-- 用for迴圈把所有資料找出來 -->
             <div v-for="(item, index) in cartList " class="cart-item" :key="item.product_no">
-                <div class="cart-pic"><img :src="`^/image/product/product_data/${item.product_pic1}`" alt="">
+                <div class="cart-pic">
+                    <img :src="getpicurl(item.product_pic1)" alt="">
                 </div>
                 <div class="cart-info">
                     <div class="cart-text">
@@ -18,7 +19,7 @@
                             <button @click="changeqty($event, item.product_no, 1)"> +</button>
                         </div>
                         <div @click=" changeqty($event, item.product_no, -(item.quantity))" class="trash-can">
-                            <img src="^/image/product/trash.svg" alt="">
+                            <img src="/image/product/trash.svg" alt="">
                         </div>
                     </div>
                 </div>
@@ -60,6 +61,15 @@ export default {
             if (event.key == 'cart') {
                 [this.cartList, this.cart_total] = show_product();
             }
+        },
+        getpicurl(picname) {
+            if (picname) {
+                var url = `${import.meta.env.VITE_RESOURCE_URL}/image/product/product_data/` + picname;
+            }
+            else {
+                url = `${import.meta.env.VITE_RESOURCE_URL}/image/product/errorpic.png`;
+            }
+            return url;
         }
 
     },
