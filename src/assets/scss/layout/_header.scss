@@ -204,8 +204,6 @@ header {
         z-index: 99;
         background-color: #fff;
 
-        .ham-pull-menu {}
-
         .ham-bar-group {
             display: flex;
             flex-direction: column;
@@ -236,6 +234,11 @@ header {
     align-items: center;
     z-index: 6;
 
+    @media screen and (max-width:768px) {
+        transition: 0.5s;
+    }
+
+
     li a {
         color: black;
         list-style: none;
@@ -243,7 +246,6 @@ header {
         font-size: 16px;
         font-weight: 700;
         padding: 17px;
-
         display: block;
         letter-spacing: 2px;
         display: flex;
