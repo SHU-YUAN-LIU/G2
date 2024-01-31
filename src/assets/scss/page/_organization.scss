@@ -1,206 +1,206 @@
 .organization {
-    margin-top: 85px;
-  
-    .contect_banner {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-  
-      h1 {
-        @include title_1;
-        color: $white;
-        font-weight: initial;
-        letter-spacing: 10px;
-        position: absolute;
-      }
-  
-      img {
-        width: 100%;
-        vertical-align: middle;
-      }
-    }
-  }
+  margin-top: 85px;
 
-  .organization-title {
-    color: #000;
-    text-align: center;
-    font-family:  $font_family_2;
-    line-height: 1.5;
-    padding-left: 10px;
-    padding-right: 10px;
-    font-size: $font_size_2;
-    font-weight: initial;
-    margin-top: 100px;
-  }
-  
-  @media (max-width: 991px) {
-    .organization-title {
-      max-width: 100%;
-      font-size: 40px;
-      line-height: 33px;
-    }
-  }
-  .organization_wrap {
+  .contect_banner {
     position: relative;
-    width: 1200px;
-    margin: auto;
-  }
-  
-
-  .organization-title2 {
-    color: #000;
-    text-align: center;
-    font-family:  $font_family_2;
-    line-height: 1.5;
-    padding-left: 10px;
-    padding-right: 10px;
-    font-size: $font_size_2;
-    font-weight: initial;
-
-    position: absolute;
-    /* 設定特定位置的座標 */
-    top: 1300px;
-    left: 38%;
-    /* 根據需求調整其他樣式 */
-  }
-
-  .organization-title3 {
-    color: #000;
-    text-align: center;
-    font-family:  $font_family_2;
-    line-height: 1.5;
-    padding-left: 10px;
-    padding-right: 10px;
-    font-size: $font_size_2;
-    font-weight: initial;
-    margin-top: 100px;
-    margin-bottom: 100px;
-  }
-
-  .card-container {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
-  }
-  
-  .card {
-    margin: 10px;
-    cursor: pointer;
-    width: 200px;
-    box-sizing: border-box; /* 讓 padding 不會改變卡片的寬度 */
-    // background-color: aqua;
-  } 
-  
-  .candidate-image {
-    width: 100%;
-    height: auto;
-  }
-  
-  .candidate-info {
-    text-align: center;
-    line-height: 1.5;
-  }
-  .candidate-name {
-    @include title_6;
-  }
-  .candidate-position {
-    @include title_10;
-  }
-
-  .card:nth-child(1) {
-    margin: 0 calc((100% - 200px)/2);
-    margin-top: 120px;
-  }
-  .card:nth-child(2) {
-    margin-left:  calc((100% - 600px)/2);
-    margin-right: 2.5%;
-  }
-  .card:nth-child(3) {
-    margin-left: 2.5%;
-    margin-right: calc((100% - 600px)/2);
-  }
-  
-  .card:nth-child(4) {
-    margin-left: calc((100% - 750px)/2);
-    margin-right: 2.5%;
-  }
-  .card:nth-child(5) {
-    margin-left: 2.5%;
-    margin-right: 2.5%;
-  }
-
-  .card:nth-child(6) {
-    margin-left: 2.5%;
-    margin-right: calc((100% - 750px)/2);
-  }
-  .card:nth-child(7),
-  .card:nth-child(8), 
-  .card:nth-child(9),
-  .card:nth-child(10),
-  .card:nth-child(11) {
-    margin-left: 1.5%;
-    margin-right: 1.5%;
-    margin-top: 400px;
-  }
-
-  .localcard-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center; /* 居中布局 */
-    margin-bottom: 200px;
-  }
-
-  .localcard {
-    margin: 10px;
-    cursor: pointer;
-    width: 200px;
-    padding: 10px;
-    text-align: center;
-  }
-  
-  .localcandidate-info {
-    margin-bottom: 10px;
-    text-align: center;
-    line-height: 1.5;
-  }
-  
-  .local-span {
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    align-items: center;
-    border-radius: 10px;
-    border: 1px solid #d9d9d9;
-    display: flex;
-    padding: 5px 10px;
-    gap: 10px;
-    cursor: pointer;
-    background-color: white;
-  }
-  .local-span:hover {
-    background-color: #ff892e;
-}
-  .add {
-    color: #ff892e;
-    text-align: center;
-    letter-spacing: 1.5px;
-    font: 500 20px/45px Noto Sans, sans-serif;
-    // transition: color 0.3s ease-in-out;
+    margin: -1px;
 
-    /* 加入過渡效果，使顏色變化更平滑 */
-  }
-  .local-span:hover .add {
-    color: white;
-}
-  
-  .localcandidate-name {
-    @include title_6;
-  }
-  .localcandidate-position{
-    @include title_10;
-  }
+    h1 {
+      @include title_1;
+      color: $white;
+      font-weight: initial;
+      letter-spacing: 10px;
+      position: absolute;
+    }
 
+    img {
+      width: 100%;
+      vertical-align: middle;
+      // display: block;
+    }
+  }
+}
+
+.organization-title {
+  color: #000;
+  text-align: center;
+  font-family: $font_family_2;
+  line-height: 1.5;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: $font_size_2;
+  font-weight: initial;
+  margin-top: 100px;
+}
+
+@media (max-width: 991px) {
+  .organization-title {
+    max-width: 100%;
+    font-size: 40px;
+    line-height: 33px;
+  }
+}
+.organization_wrap {
+  position: relative;
+  width: 1200px;
+  margin: auto;
+}
+
+.organization-title2 {
+  color: #000;
+  text-align: center;
+  font-family: $font_family_2;
+  line-height: 1.5;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: $font_size_2;
+  font-weight: initial;
+
+  position: absolute;
+  /* 設定特定位置的座標 */
+  top: 1300px;
+  left: 38%;
+  /* 根據需求調整其他樣式 */
+}
+
+.organization-title3 {
+  color: #000;
+  text-align: center;
+  font-family: $font_family_2;
+  line-height: 1.5;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: $font_size_2;
+  font-weight: initial;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.card {
+  margin: 10px;
+  cursor: pointer;
+  width: 200px;
+  box-sizing: border-box; /* 讓 padding 不會改變卡片的寬度 */
+  // background-color: aqua;
+}
+
+.candidate-image {
+  width: 100%;
+  height: auto;
+}
+
+.candidate-info {
+  text-align: center;
+  line-height: 1.5;
+}
+.candidate-name {
+  @include title_6;
+}
+.candidate-position {
+  @include title_10;
+}
+
+.card:nth-child(1) {
+  margin: 0 calc((100% - 200px) / 2);
+  margin-top: 120px;
+}
+.card:nth-child(2) {
+  margin-left: calc((100% - 600px) / 2);
+  margin-right: 2.5%;
+}
+.card:nth-child(3) {
+  margin-left: 2.5%;
+  margin-right: calc((100% - 600px) / 2);
+}
+
+.card:nth-child(4) {
+  margin-left: calc((100% - 750px) / 2);
+  margin-right: 2.5%;
+}
+.card:nth-child(5) {
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+}
+
+.card:nth-child(6) {
+  margin-left: 2.5%;
+  margin-right: calc((100% - 750px) / 2);
+}
+.card:nth-child(7),
+.card:nth-child(8),
+.card:nth-child(9),
+.card:nth-child(10),
+.card:nth-child(11) {
+  margin-left: 1.5%;
+  margin-right: 1.5%;
+  margin-top: 400px;
+}
+
+.localcard-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* 居中布局 */
+  margin-bottom: 200px;
+}
+
+.localcard {
+  margin: 10px;
+  cursor: pointer;
+  width: 200px;
+  padding: 10px;
+  text-align: center;
+}
+
+.localcandidate-info {
+  margin-bottom: 10px;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.local-span {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  border: 1px solid #d9d9d9;
+  display: flex;
+  padding: 5px 10px;
+  gap: 10px;
+  cursor: pointer;
+  background-color: white;
+}
+.local-span:hover {
+  background-color: #ff892e;
+}
+.add {
+  color: #ff892e;
+  text-align: center;
+  letter-spacing: 1.5px;
+  font: 500 20px/45px Noto Sans, sans-serif;
+  // transition: color 0.3s ease-in-out;
+
+  /* 加入過渡效果，使顏色變化更平滑 */
+}
+.local-span:hover .add {
+  color: white;
+}
+
+.localcandidate-name {
+  @include title_6;
+}
+.localcandidate-position {
+  @include title_10;
+}
