@@ -16,6 +16,11 @@
             @include title_2;
         }
 
+        @media screen and (max-width:768px) {
+            @include title_3;
+            letter-spacing: 6px;
+        }
+
     }
 
     img {
