@@ -526,6 +526,14 @@ body {
     font-weight: initial;
   }
 }
+@media screen and (max-width: 768px) {
+  .banner h1 {
+    font-family: "Mantou Sans";
+    font-size: 36px;
+    font-weight: initial;
+    letter-spacing: 6px;
+  }
+}
 .banner img {
   width: 100%;
   vertical-align: middle;
@@ -687,6 +695,12 @@ body {
   border-radius: 10px;
   right: -170px;
 }
+@media screen and (max-width: 1280px) {
+  .drop-down-cart {
+    width: 355px;
+    right: -135px;
+  }
+}
 .drop-down-cart .cart-group {
   max-height: 600px;
   display: flex;
@@ -694,6 +708,11 @@ body {
   justify-content: space-between;
   padding: 15px;
   overflow: scroll;
+}
+@media screen and (max-width: 1280px) {
+  .drop-down-cart .cart-group {
+    padding: 0px;
+  }
 }
 .drop-down-cart .cart-group .cart-item {
   display: flex;
@@ -719,6 +738,11 @@ body {
   flex-direction: column;
   justify-content: space-between;
   padding: 15px;
+}
+@media screen and (max-width: 1280px) {
+  .drop-down-cart .cart-group .cart-item .cart-info {
+    padding: 15px 0px;
+  }
 }
 .drop-down-cart .cart-group .cart-item .cart-info .cart-text p {
   font-family: "Mantou Sans";
@@ -782,7 +806,7 @@ body {
 }
 @media screen and (max-width: 414px) {
   .successPop_bg .con_success {
-    width: 400px;
+    width: 325px;
   }
 }
 .successPop_bg .con_success .cross {
@@ -796,7 +820,7 @@ body {
 }
 @media screen and (max-width: 414px) {
   .successPop_bg .con_success .cross {
-    left: 370px;
+    left: 290px;
   }
 }
 .successPop_bg .con_success .cross img {
@@ -828,7 +852,7 @@ body {
 }
 @media screen and (max-width: 414px) {
   .successPop_bg .con_success .con_success_group .success_top {
-    width: 350px;
+    width: 280px;
   }
 }
 .successPop_bg .con_success .con_success_group .success_top h3 {
@@ -863,7 +887,7 @@ body {
 }
 @media screen and (max-width: 414px) {
   .successPop_bg .con_success .con_success_group .success_bottom {
-    width: 350px;
+    width: 280px;
   }
 }
 .successPop_bg .con_success .con_success_group .success_bottom p {
@@ -3826,7 +3850,6 @@ form .register_read p {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 40px;
-  margin-bottom: 200px;
 }
 @media screen and (max-width: 768px) {
   .pro_wrap .product .pro_card_group .card_group {
@@ -3882,7 +3905,7 @@ form .register_read p {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 20px 0;
+  margin: 40px 0;
 }
 .pay-wrap .pay-title p {
   font-family: "Noto Sans TC", sans-serif;
@@ -4130,7 +4153,7 @@ form .register_read p {
   font-size: 16px;
   letter-spacing: 1.5px;
   cursor: pointer;
-  margin: 30px 0 300px;
+  margin: 30px 0;
 }
 
 .pro_info_group {
@@ -4775,6 +4798,13 @@ form .register_read p {
 
 .commit_btn {
   width: 280px;
+  margin-bottom: 0px;
+}
+@media screen and (max-width: 414px) {
+  .commit_btn {
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
 }
 
 .contect_search {
@@ -4786,7 +4816,12 @@ form .register_read p {
   align-items: center;
   gap: 30px;
   margin-top: 150px;
-  margin-bottom: 150px;
+  margin-bottom: 5px;
+}
+@media screen and (max-width: 768px) {
+  .contect_search {
+    margin-bottom: 0px;
+  }
 }
 .contect_search .searchInput {
   display: flex;
@@ -4815,16 +4850,65 @@ form .register_read p {
   font-size: 16px;
 }
 
+.commit_btn {
+  width: 280px;
+  margin-bottom: 0px;
+}
+@media screen and (max-width: 414px) {
+  .commit_btn {
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .bread ul li:last-child:after {
+    width: 100px;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
+}
+
+.ContactSearchFinal_banner {
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 85px;
+}
+.ContactSearchFinal_banner img {
+  width: 100%;
+}
+.ContactSearchFinal_banner h1 {
+  font-family: "Mantou Sans";
+  font-size: 93px;
+  font-weight: initial;
+  color: #FFF;
+  position: absolute;
+}
+@media screen and (max-width: 768px) {
+  .ContactSearchFinal_banner h1 {
+    font-family: "Mantou Sans";
+    font-size: 65px;
+    font-weight: initial;
+  }
+}
+@media screen and (max-width: 414px) {
+  .ContactSearchFinal_banner h1 {
+    font-family: "Mantou Sans";
+    font-size: 36px;
+    font-weight: initial;
+  }
 }
 
 .searchFinal-wrap {
   max-width: 1000px;
   margin: auto;
   margin-top: 150px;
-  margin-bottom: 150px;
   border: 3px solid #FF892E;
   border-radius: 10px;
   background-color: #FFF;
@@ -4885,11 +4969,18 @@ form .register_read p {
   .searchFinal-wrap .searchF-title .text-group {
     border-bottom: 1px solid #565656;
     width: 100%;
-    padding: 15px;
+    padding: 20px;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
+    text-wrap: nowrap;
+  }
+}
+@media screen and (max-width: 414px) {
+  .searchFinal-wrap .searchF-title .text-group {
+    flex-direction: column;
+    gap: 5px;
   }
 }
 .searchFinal-wrap .searchF-title .text-group span {
@@ -4917,6 +5008,12 @@ form .register_read p {
     font-family: "Noto Sans TC", sans-serif;
     font-size: 16px;
     height: 40px;
+    text-wrap: wrap;
+  }
+}
+@media screen and (max-width: 414px) {
+  .searchFinal-wrap .searchF-title .text-group p {
+    line-height: 20px;
   }
 }
 .searchFinal-wrap .searchF-title .text-group .searchF-process {
@@ -4961,6 +5058,11 @@ form .register_read p {
 }
 .searchFinal-wrap .searchF-content {
   padding: 50px;
+}
+@media screen and (max-width: 768px) {
+  .searchFinal-wrap .searchF-content {
+    padding: 30px 15px;
+  }
 }
 .searchFinal-wrap .searchF-content .triangle-group {
   display: flex;
@@ -5075,6 +5177,7 @@ form .register_read p {
   border-radius: 50%;
   background-color: #ccc;
   position: relative;
+  margin-top: 120px;
 }
 .member_wrap .member_profile .edit_icon {
   position: absolute;
