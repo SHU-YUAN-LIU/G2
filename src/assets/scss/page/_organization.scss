@@ -6,7 +6,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: -1px;
+    margin-bottom: -1px;
 
     h1 {
       @include title_1;
@@ -36,17 +36,21 @@
   margin-top: 100px;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 768px) {
   .organization-title {
     max-width: 100%;
-    font-size: 40px;
-    line-height: 33px;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    @include title_3;
   }
 }
 .organization_wrap {
   position: relative;
   width: 1200px;
   margin: auto;
+  @media (width<1400px) {
+    width: 100%;
+  }
 }
 
 .organization-title2 {
@@ -64,6 +68,9 @@
   top: 1300px;
   left: 38%;
   /* 根據需求調整其他樣式 */
+  @media (width<768px) {
+    display: none;
+  }
 }
 
 .organization-title3 {
@@ -113,28 +120,46 @@
 .card:nth-child(1) {
   margin: 0 calc((100% - 200px) / 2);
   margin-top: 120px;
+  @media (width<768px) {
+    margin: auto;
+  }
 }
 .card:nth-child(2) {
   margin-left: calc((100% - 600px) / 2);
   margin-right: 2.5%;
+  @media (width<768px) {
+    margin: auto;
+  }
 }
 .card:nth-child(3) {
   margin-left: 2.5%;
   margin-right: calc((100% - 600px) / 2);
+  @media (width<768px) {
+    margin: auto;
+  }
 }
 
 .card:nth-child(4) {
   margin-left: calc((100% - 750px) / 2);
   margin-right: 2.5%;
+  @media (width<768px) {
+    margin: auto;
+  }
 }
 .card:nth-child(5) {
   margin-left: 2.5%;
   margin-right: 2.5%;
+  @media (width<768px) {
+    margin: auto;
+  }
 }
 
 .card:nth-child(6) {
   margin-left: 2.5%;
   margin-right: calc((100% - 750px) / 2);
+  @media (width<768px) {
+    margin: auto;
+  }
 }
 .card:nth-child(7),
 .card:nth-child(8),
@@ -144,6 +169,9 @@
   margin-left: 1.5%;
   margin-right: 1.5%;
   margin-top: 400px;
+  @media (width<768px) {
+    margin: auto;
+  }
 }
 
 .localcard-container {
