@@ -264,6 +264,11 @@ const router = createRouter({
       name: 'ProductPay',
       component: () => import('../views/ProductPayView.vue')
     },
+    {
+      path: '/signupform',
+      name: 'signupform',
+      component: () => import('../views/SignupformView.vue')
+    },
   ]
 })
 
