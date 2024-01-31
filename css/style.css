@@ -3718,14 +3718,14 @@ form .register_read p {
   color: #FF892E;
   font-weight: 700;
 }
-@media screen and (max-width: 414px) {
-  .pay-wrap .pay-detail span {
-    font-size: 12px;
-  }
-}
 @media screen and (max-width: 768px) {
   .pay-wrap .pay-detail span {
     font-size: 16px;
+  }
+}
+@media screen and (max-width: 414px) {
+  .pay-wrap .pay-detail span {
+    font-size: 12px;
   }
 }
 .pay-wrap .mem-info {
