@@ -40,7 +40,7 @@ header {
                     font-size: $font-basic;
 
                     &:hover {
-                        color: red
+                        color: red;
                     }
                 }
 
@@ -119,8 +119,7 @@ header {
                     a {
                         text-decoration: none;
                         color: $black;
-                        font-size: $font-basic;
-    
+                        font-size: $font-basic;    
                         &:hover {
                             color: red
                         }
