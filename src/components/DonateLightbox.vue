@@ -1,7 +1,7 @@
 <template>
     <div v-if="showLightbox" class="donate_lightbox" @click="closeLightbox">
         <div>
-            <button @click="closeLightbox" class="donate_closelightbox"><img src="../assets/image/donate/icon_close.png"
+            <button @click="closeLightbox" class="donate_closelightbox"><img src="/image/donate/icon_close.png"
                     alt=""></button>
 
             <div class="donate_lightbox_content" @click.stop>
@@ -9,14 +9,14 @@
                     <div class="donate_anonymous">
                         <RouterLink to="/donate/page" @click="storeItemId(1), enableBodyScroll">
                             <h2>匿名捐款</h2>
-                            <img src="../assets/image/donate/donate_card1.png" alt="">
+                            <img src="/image/donate/donate_card1.png" alt="">
                             <p>匿名捐贈：新台幣1萬元以下</p>
                         </RouterLink>
                     </div>
                     <div class="donate_member">
                         <RouterLink to="/donate/page" @click="storeItemId(2)">
                             <h2>會員捐款</h2>
-                            <img src="../assets/image/donate/donate_card1.png" alt="">
+                            <img src="/image/donate/donate_card1.png" alt="">
                         </RouterLink>
                     </div>
                 </div>

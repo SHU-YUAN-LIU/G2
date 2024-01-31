@@ -39,7 +39,7 @@ export default {
     // 使用 Axios 取得資料
     const fetchData = async () => {
       try {
-        const response = await axios.get('/src/assets/local_json/product_data.json');
+        const response = await axios.get(`${import.meta.env.VITE_RESOURCE_URL}` + "/local_json/product_data.json");
         products.value = response.data;  // 確保 response.data 是物件
       } catch (error) {
         console.error('Error loading product data:', error);

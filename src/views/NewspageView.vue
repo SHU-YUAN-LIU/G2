@@ -6,7 +6,7 @@
             <span class="news_date">2024/2/1</span>
         </div>
         <div class="newspage_photo1">
-            <img src="../assets/image/news/news2.png" alt="">
+            <img src="/image/news/news2.png" alt="">
         </div>
         <div class="newspage_content">
             在過去幾十年來，市場改建一直是一項艱巨的任務，因為這牽涉到眾多攤販的利益，很少有人敢於挑戰這個局面。然而，劉緯育不畏麻煩，堅持著「做正確的事」的精神，透過數百場協調會議的辛勤經歷，成功地展開了一系列市場的改建計畫。

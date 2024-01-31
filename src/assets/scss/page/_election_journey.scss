@@ -33,16 +33,12 @@
         }
     }
 
-    // 地圖
     .minimap {
-        display: block;
-
-        @media screen and (max-width:768px) {
+        @media (max-width:768px) {
             display: none;
         }
     }
 
-    // 行程內容
     .election_container {
         display: flex;
         align-items: center;

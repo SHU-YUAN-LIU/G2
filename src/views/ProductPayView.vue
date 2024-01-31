@@ -17,7 +17,7 @@
         <div v-for="(item, index) in cartList " class="pay-info" :key="item.product_no">
             <div class="pay-product">
                 <div class="pay-pic">
-                    <img :src="getpicurl(item.product_pic1)" alt="">
+                    <img :src="`https://tibamef2e.com/chd104/g2/front/image/product/product_data/${item.product_pic1}`" alt="">
                 </div>
                 <span>{{ item.product_name }}</span>
             </div>

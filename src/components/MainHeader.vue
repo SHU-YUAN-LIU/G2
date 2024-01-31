@@ -5,7 +5,7 @@
         <ul>
           <li>
             <!-- 這邊的路由設定要全部和index.js裡面的一致 -->
-            <RouterLink to="/"><img src="@/assets/image/home/logo.svg" alt=""></RouterLink>
+            <RouterLink to="/"><img src="/image/home/logo.svg" alt=""></RouterLink>
           </li>
           <li>
             <div class="nav_items">
@@ -43,14 +43,14 @@
       <div class="nav_icons">
     <li>
       <RouterLink to="/donate">
-        <div class="icon"><img src="@/assets/image/home/icon_donate.svg" alt="">
+        <div class="icon"><img src="/image/home/icon_donate.svg" alt="">
           <p>我要捐款</p>
         </div>
       </RouterLink>
     </li>
     <li style="position:relative;">
 
-      <div class="icon" @click="showDropDown"><img src="@/assets/image/home/icon_cart.svg" alt="">
+      <div class="icon" @click="showDropDown"><img src="/image/home/icon_cart.svg" alt="">
         <p>購物車</p>
       </div>
       <DropDown v-if="isDropDown" />
@@ -58,7 +58,7 @@
 
     <li>
       <RouterLink to="/login">
-        <div class="icon"><img src="@/assets/image/home/icon_login.png" alt="">
+        <div class="icon"><img src="/image/home/icon_login.png" alt="">
           <p>登入</p>
         </div>
       </RouterLink>
@@ -72,7 +72,7 @@
   </header>
   <!-- 漢堡 -->
   <div class="hamburger-menu" :class="{ open: isOpen }" @click="toggleMenu">
-    <RouterLink to="/"><img class="ham-pic" src="@/assets/image/home/logo.svg" alt=""></RouterLink>
+    <RouterLink to="/"><img class="ham-pic" src="/image/home/logo.svg" alt=""></RouterLink>
     <div class="ham-bar-group">
       <div class="ham-bar"></div>
       <div class="ham-bar"></div>
@@ -93,21 +93,21 @@
         <li><router-link to="/contact">我要陳情</router-link></li>
         <li>
           <RouterLink to="/donate">
-            <div class="icon"><img src="@/assets/image/home/icon_donate.svg" alt="">
+            <div class="icon"><img src="/image/home/icon_donate.svg" alt="">
               <p>我要捐款</p>
             </div>
           </RouterLink>
         </li>
         <li>
           <RouterLink to="/productPay">
-            <div class="icon"><img src="@/assets/image/home/icon_cart.svg" alt="">
+            <div class="icon"><img src="/image/home/icon_cart.svg" alt="">
               <p>購物車</p>
             </div>
           </RouterLink>
         </li>
         <li>
           <RouterLink to="/login">
-            <div class="icon"><img src="@/assets/image/home/icon_login.png" alt="">
+            <div class="icon"><img src="/image/home/icon_login.png" alt="">
               <p>登入</p>
             </div>
           </RouterLink>

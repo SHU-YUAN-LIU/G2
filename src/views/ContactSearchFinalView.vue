@@ -1,7 +1,7 @@
 <template>
     <!-- banner -->
     <div class="ContactSearchFinal_banner">
-        <img src="@/assets/image/donate/bg_banner.png" alt="">
+        <img src="/image/donate/bg_banner.png" alt="">
         <h1>我要捐款</h1>
     </div>
     <!-- 麵包屑 -->

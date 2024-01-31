@@ -1,7 +1,7 @@
 <template>
     <button class="commit_btn">
         {{ commitButton }}
-        <img src="@/assets/image/contect/arrow.svg" alt="">
+        <img src="/image/contect/arrow.svg" alt="">
     </button>
 </template>
 <script>

@@ -1,7 +1,7 @@
 <template>
     <div class="member_wrap">
         <div class="member_profile">
-            <div class="edit_icon"><img src="../assets/image/login/camara.png" alt=""></div>
+            <div class="edit_icon"><img src="/image/login/camara.png" alt=""></div>
         </div>
         <!-- 電腦版選單 -->
         <div class="btn_wrap">
@@ -55,7 +55,7 @@
             <div class="searchbar">
                 <div class="search_icon">
                     <input type="text" class="searchnum" placeholder="請輸入訂單編號">
-                    <img src="../assets/image/login/searchicon.svg" alt="">
+                    <img src="/image/login/searchicon.svg" alt="">
                 </div>
                 <div class="orderdatesearch">
                     <input type="date" class="startdate">到
@@ -82,7 +82,7 @@
             <div class="searchbar">
                 <div class="search_icon">
                     <input type="text" class="searchnum" placeholder="請輸入陳情編號">
-                    <img src="../assets/image/login/searchicon.svg" alt="">
+                    <img src="/image/login/searchicon.svg" alt="">
                 </div>
             </div>
             <div class="contentwrap">
@@ -115,7 +115,7 @@
                         <div class="orderstatus">捐款方式:{{ item.donateWay }}</div>
                         <div>捐款金額: <span class="donateTotal">${{ item.donateTotal }}</span></div>
                     </div>
-                    <div class="orderright"><img src="../assets/image/login/pointlogo.png" alt="">進補點數: <span
+                    <div class="orderright"><img src="/image/login/pointlogo.png" alt="">進補點數: <span
                             class="orderTotal">${{ item.donateTotal / 100 }}點</span></div>
                 </div>
             </div>
