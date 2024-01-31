@@ -3590,6 +3590,13 @@ form .register_read p {
   margin: auto;
   margin-top: 150px;
 }
+@media screen and (max-width: 768px) {
+  .pay-wrap {
+    width: initial;
+    padding: 0 30px;
+    margin: auto;
+  }
+}
 .pay-wrap .pay-title {
   width: 100%;
   display: flex;
@@ -3611,7 +3618,7 @@ form .register_read p {
   justify-content: center;
   align-items: center;
   font-family: "Noto Sans TC", sans-serif;
-  font-size: 20px;
+  font-size: 16px;
   gap: 10px;
 }
 .pay-wrap .pay-title .pay-title-group .title-num {
@@ -3711,6 +3718,16 @@ form .register_read p {
   color: #FF892E;
   font-weight: 700;
 }
+@media screen and (max-width: 414px) {
+  .pay-wrap .pay-detail span {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .pay-wrap .pay-detail span {
+    font-size: 16px;
+  }
+}
 .pay-wrap .mem-info {
   border: 2px solid #FF892E;
   border-radius: 10px;
@@ -3736,9 +3753,14 @@ form .register_read p {
   border-radius: 10px;
   text-indent: 20px;
 }
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 768px) {
   .pay-wrap .mem-info .mem-input input {
-    width: 350px;
+    width: 600px;
+  }
+}
+@media screen and (max-width: 415px) {
+  .pay-wrap .mem-info .mem-input input {
+    width: 300px;
   }
 }
 .pay-wrap .mem-info .mem-input input:focus {
@@ -3770,6 +3792,11 @@ form .register_read p {
   font-family: "Noto Sans TC", sans-serif;
   font-size: 16px;
   gap: 20px;
+}
+@media screen and (max-width: 414px) {
+  .pay-wrap .shipping-box-group .shipping-box {
+    width: 300px;
+  }
 }
 .pay-wrap .pay-btn {
   width: 100%;
@@ -3804,6 +3831,8 @@ form .register_read p {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+.pay-wrap .pay-checkbox-group input {
   font-family: "Noto Sans TC", sans-serif;
   font-size: 16px;
   margin: 30px 0;
