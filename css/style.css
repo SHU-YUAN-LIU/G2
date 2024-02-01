@@ -1034,6 +1034,7 @@ header {
   align-items: center;
   justify-content: center;
   z-index: 50;
+  margin-bottom: 20px;
 }
 header .logo {
   width: 120px;
@@ -1421,6 +1422,7 @@ footer {
   padding: 50px 60px;
   margin: auto;
   margin-top: 150px;
+  margin-bottom: 50px;
 }
 
 @media (max-width: 1400px) {
@@ -1430,6 +1432,7 @@ footer {
     display: block;
     width: 90%;
     padding: 20px;
+    margin-bottom: 50px;
   }
 }
 .about_content-2 {
@@ -1690,7 +1693,7 @@ footer {
   justify-content: center;
   align-items: center;
   margin: auto;
-  margin-bottom: 980px;
+  margin-bottom: 100px;
 }
 
 @media (max-width: 991px) {
@@ -2190,27 +2193,95 @@ footer {
   font-size: 16px;
 }
 
-.partyhistory {
-  margin-top: 85px;
+@media (width < 769px) {
+  .organization .contect_banner h1 {
+    font-family: "Mantou Sans";
+    font-size: 65px;
+    font-weight: initial;
+  }
 }
-.partyhistory .contect_banner {
-  position: relative;
+
+.bigstory {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  margin-top: 50px;
 }
-.partyhistory .contect_banner h1 {
-  font-family: "Mantou Sans";
-  font-size: 93px;
-  font-weight: initial;
-  color: #FFF;
-  font-weight: initial;
-  letter-spacing: 10px;
-  position: absolute;
+
+.bigstory-info {
+  display: flex;
+  max-width: 488px;
+  flex-direction: column;
+  padding: 0 20px;
 }
-.partyhistory .contect_banner img {
+
+.bigstory-info-card {
+  margin-bottom: 80px;
+}
+
+.bigstory-info-card-year {
+  color: var(--primary-color, #ff892e);
+  text-align: start;
+  letter-spacing: 10.88px;
   width: 100%;
-  vertical-align: middle;
+  font-family: "Mantou Sans";
+  font-size: 36px;
+  font-weight: initial;
+}
+
+@media (max-width: 991px) {
+  .header {
+    max-width: 100%;
+    font-size: 40px;
+    line-height: 34px;
+  }
+}
+.bigstory-info-card-content {
+  color: #000;
+  text-align: justify;
+  letter-spacing: 2.08px;
+  margin-top: 10px;
+  width: 100%;
+  font: 500 16px/27px Noto Sans, sans-serif;
+}
+
+@media (max-width: 991px) {
+  .content {
+    max-width: 100%;
+  }
+}
+.bigstory-info-card-content-title {
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.bigstory-info-card-content-word {
+  margin-top: 10px;
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 16px;
+}
+
+.bigstory-img {
+  margin: auto;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+}
+@media (width < 769px) {
+  .bigstory-img {
+    display: none;
+  }
+}
+
+.bigstory-img img {
+  width: 100%;
+  padding: 10px;
+}
+
+.bigstory-info-container {
+  overflow-y: auto;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 div.donate .donate_banner {
@@ -4455,7 +4526,7 @@ form .register_read p {
     /* banner */
   }
   .election .election_banner {
-    background-image: url("@/assets/image/election/banner-480px.png");
+    background-image: url("@/assets/image/election/banner-768px.png");
     background-repeat: no-repeat;
   }
   .election .election_info .election_content {
@@ -5688,6 +5759,7 @@ form .register_read p {
   line-height: 4rem;
   letter-spacing: 0.5rem;
   padding: 0 10px;
+  margin-top: 85px;
 }
 .newspage_wrap .type_date {
   display: flex;
