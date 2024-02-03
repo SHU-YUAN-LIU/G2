@@ -11,17 +11,10 @@
       <h1 class="organization-title">青年進補黨<br />大事記</h1>
       <div class="bigstory">
         <div class="bigstory-img">
-          <img
-            :src="cards[activeCardIndex].imgSrc"
-            :alt="`history${activeCardIndex + 1}.svg`"
-          />
+          <img :src="cards[activeCardIndex].imgSrc" :alt="`history${activeCardIndex + 1}.svg`" />
         </div>
         <div class="bigstory-info" ref="infoContainer">
-          <div
-            v-for="(card, index) in cards"
-            :key="index"
-            class="bigstory-info-card"
-          >
+          <div v-for="(card, index) in cards" :key="index" class="bigstory-info-card">
             <div class="bigstory-info-card-year">{{ card.year }}</div>
             <div class="bigstory-info-card-content">
               <div class="bigstory-info-card-content-title">
@@ -37,6 +30,7 @@
 
       <h1 class="organization-title3">宣傳影片</h1>
     </div>
+<<<<<<< HEAD
     <div>
       <iframe
         width="100%"
@@ -48,6 +42,12 @@
         allowfullscreen
       ></iframe>
     </div>
+=======
+    <div><iframe width="100%" height="400px" src="https://www.youtube.com/embed/mKZSMpBmq70?si=neiSwK6fgYp89b_z"
+        title="YouTube video player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe></div>
+>>>>>>> 9959ff8a583994f88afbb37b336ef35e6debe285
   </div>
 </template>
 
