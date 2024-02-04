@@ -2206,7 +2206,8 @@ footer {
 
 .bigstory {
   display: flex;
-  margin-top: 50px;
+  margin-top: 100px;
+  margin-bottom: 200px;
 }
 
 .bigstory-info {
@@ -2214,10 +2215,11 @@ footer {
   max-width: 488px;
   flex-direction: column;
   padding: 0 20px;
+  padding-top: 200px;
 }
 
 .bigstory-info-card {
-  margin-bottom: 80px;
+  margin-bottom: 100px;
 }
 
 .bigstory-info-card-year {
@@ -2226,7 +2228,7 @@ footer {
   letter-spacing: 10.88px;
   width: 100%;
   font-family: "Mantou Sans";
-  font-size: 36px;
+  font-size: 65px;
   font-weight: initial;
 }
 
@@ -2241,7 +2243,7 @@ footer {
   color: #000;
   text-align: justify;
   letter-spacing: 2.08px;
-  margin-top: 10px;
+  margin-top: 30px;
   width: 100%;
   font: 500 16px/27px Noto Sans, sans-serif;
 }
@@ -2253,19 +2255,19 @@ footer {
 }
 .bigstory-info-card-content-title {
   font-family: "Noto Sans TC", sans-serif;
-  font-size: 24px;
+  font-size: 30px;
   font-weight: 500;
 }
 
 .bigstory-info-card-content-word {
-  margin-top: 10px;
+  margin-top: 20px;
   font-family: "Noto Sans TC", sans-serif;
   font-size: 16px;
 }
 
 .bigstory-img {
-  margin: auto;
-  width: 40%;
+  margin: 0 auto;
+  width: 500px;
   display: flex;
   flex-direction: column;
 }
@@ -2277,7 +2279,9 @@ footer {
 
 .bigstory-img img {
   width: 100%;
-  padding: 10px;
+  position: sticky;
+  top: 200px;
+  left: auto;
 }
 
 .bigstory-info-container {
@@ -2333,48 +2337,34 @@ div.donate .donate_main img.icon:nth-child(3) {
 }
 div.donate .donate_main .donate_cards {
   display: flex;
+  position: relative;
+}
+div.donate .donate_main .donate_cards img.icon {
+  position: absolute;
+  z-index: -1;
+}
+div.donate .donate_main .donate_cards img.icon:nth-child(1) {
+  left: -80px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+div.donate .donate_main .donate_cards img.icon:nth-child(2) {
+  right: 200px;
+  top: 0px;
+}
+div.donate .donate_main .donate_cards img.icon:nth-child(3) {
+  right: 100px;
+  bottom: 0px;
+}
+div.donate .donate_main .donate_cards .donate_cards {
+  display: flex;
   width: 100%;
   justify-content: center;
   align-items: center;
 }
-div.donate .donate_main .donate_cards .donate_card1 {
+div.donate .donate_main .donate_cards .donate_cards .donate_card1 {
   width: 550px;
-  border-radius: 10px;
-  border: 3px solid #FF892E;
-  margin-right: 30px;
-}
-div.donate .donate_main .donate_cards .donate_card1 .donate_card1_top {
-  height: 530px;
-  background-color: #FF892E;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-div.donate .donate_main .donate_cards .donate_card1 .donate_card1_top .donate_card1_top > img {
-  width: 240px;
-  height: 195px;
-}
-div.donate .donate_main .donate_cards .donate_card1 .donate_card1_top h2 {
-  font-family: "Mantou Sans";
-  font-size: 65px;
-  font-weight: initial;
-  color: #FFF;
-  font-weight: inherit;
-  height: 120px;
-}
-div.donate .donate_main .donate_cards .donate_card1 .donate_card1_top p {
-  font-family: "Noto Sans TC", sans-serif;
-  font-size: 24px;
-  color: #FFF;
-  margin-bottom: 70px;
-}
-div.donate .donate_main .donate_cards .donate_card1 .donate_card1_bottom {
-  height: 170px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #FFF;
   border-radius: 10px;
 }
 div.donate .donate_main .donate_cards .donate_card2 {
@@ -2559,6 +2549,9 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
   div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li span:first-child {
     height: 50px;
   }
+}
+.donate_page {
+  margin-top: 85px;
 }
 .donate_page h4 {
   margin-bottom: 30px;
