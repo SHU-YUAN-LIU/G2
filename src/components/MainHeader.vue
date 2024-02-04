@@ -190,7 +190,7 @@ export default {
   z-index: 1;
   transform: translateX(-18%);
 
-  @media screen and (max: width 768px) {
+  @media screen and (max-width: 768px) {
     display: block;
   }
 }

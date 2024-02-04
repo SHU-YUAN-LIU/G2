@@ -29,23 +29,41 @@
       </div>
 
       <h1 class="organization-title3">宣傳影片</h1>
-
     </div>
+<<<<<<< HEAD
+    <div>
+      <iframe
+        width="100%"
+        height="400px"
+        src="https://www.youtube.com/embed/mKZSMpBmq70?si=neiSwK6fgYp89b_z"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+      ></iframe>
+    </div>
+=======
     <div><iframe width="100%" height="400px" src="https://www.youtube.com/embed/mKZSMpBmq70?si=neiSwK6fgYp89b_z"
         title="YouTube video player" frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowfullscreen></iframe></div>
+>>>>>>> 9959ff8a583994f88afbb37b336ef35e6debe285
   </div>
 </template>
 
 <script>
 import Bread from "../components/Bread.vue";
 import OrganizationLightbox from "../components/OrganizationLightbox.vue";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default {
   components: {
     Bread,
     OrganizationLightbox,
+    gsap,
   },
   data() {
     return {
@@ -56,64 +74,82 @@ export default {
           title: "緯育黨的雛形與初步理念",
           content:
             "2014年，緯育黨的雛形開始浮現，黨內人士提出了初步的政治理念和發展目標。這一年，緯育黨的成立象徵著政治格局的變遷，並預示了其未來在政治舞台上的重要性。",
-          imgSrc: `${import.meta.env.VITE_RESOURCE_URL}/image/about/history1.svg`,
+          imgSrc: "/image/about/history1.jpg",
         },
         {
           year: "2015年",
           title: "黨的初創與社會參與",
           content:
             "2015年，緯育黨正式成立，開始建立自己的政治體系和組織結構。這一年，黨內人士積極參與社會事務，爭取基層支持。緯育黨的初創歷程成為其後發展的基石，也為其在政治舞台上的崛起埋下種子。",
-          imgSrc: `${import.meta.env.VITE_RESOURCE_URL}/image/about/history2.svg`,
+          imgSrc: "/image/about/history2.jpg",
         },
         {
           year: "2017年",
           title: "緯育黨的環境保護政策",
           content:
             "2017年，緯育黨開始強化對環境保護的承諾，推動了一系列減碳和綠能發展的政策。這一年，緯育黨不僅提出了具體的環境目標，還鼓勵民眾參與綠色生活，推動社會走向可持續發展的方向。",
-          imgSrc: `${import.meta.env.VITE_RESOURCE_URL}/image/about/history1.svg`,
+          imgSrc: "/image/about/history3.jpg",
         },
         {
           year: "2019年",
           title: "緯育黨的教育政策引起矚目",
           content:
             "2019年，緯育黨推出了一系列具有前瞻性的教育政策，引起了社會的廣泛關注。這些政策旨在提高教育品質、鼓勵創新和培養具有國際競爭力的人才。這一年，緯育黨在教育領域的改革成為國內外媒體關注的焦點。",
-          imgSrc: `${import.meta.env.VITE_RESOURCE_URL}/image/about/history2.svg`,
+          imgSrc: "/image/about/history4.jpg",
         },
         {
           year: "2021年",
           title: "選舉的危機與轉機",
           content:
             "2021年，緯育黨在地方選舉中遭遇到一些挑戰，面臨著選民對於政府施政的不滿。這一年成為緯育黨的轉折點，他們開始深入反思政策，加強與基層民眾的溝通，並積極推動改革方案，以重拾民心。",
-          imgSrc: `${import.meta.env.VITE_RESOURCE_URL}/image/about/history1.svg`,
+          imgSrc: "/image/about/history5.jpg",
         },
         {
           year: "2022年",
           title: "緯育黨的民主精神與政治開放",
           content:
             "2022年，緯育黨展現了其深厚的民主精神，成為引領政治開放的重要力量。這一年，緯育黨在推動政策和治理中強調了多元參與、民意尊重的價值觀，使其成為民主制度的倡導者。",
-          imgSrc: `${import.meta.env.VITE_RESOURCE_URL}/image/about/history1.svg`,
+          imgSrc: "/image/about/history6.jpg",
         },
         // ... (其他 bigstory-info-card 的資料)
       ],
     };
   },
-  // mounted() {
-  //   window.addEventListener('scroll', this.handleScroll);
-  // },
-  // beforeDestroy() {
-  //   window.removeEventListener('scroll', this.handleScroll);
-  // },
-  // methods: {
-  //   handleScroll() {
-  //     const containerTop = document.querySelector('.bigstory').getBoundingClientRect().top;
-  //     const windowHeight = window.innerHeight;
-  //     const index = Math.floor((containerTop + windowHeight / 2) / windowHeight);
+  methods: {
+    updateImage(index) {
+      this.activeCardIndex = index;
+      const imgElement = document.querySelector(".bigstory-img img");
+      const newImgSrc = this.cards[this.activeCardIndex].imgSrc;
 
-  //     if (index !== this.activeCardIndex) {
-  //       this.activeCardIndex = index;
-  //     }
-  //   }
-  // },
+      gsap.to(imgElement, {
+        opacity: 0,
+        duration: 0,
+        onComplete: () => {
+          imgElement.src = newImgSrc;
+          gsap.to(imgElement, { opacity: 1, duration: 1 });
+        },
+      });
+    },
+  },
+  mounted() {
+    this.cards.forEach((card, index) => {
+      const cardElement = document.querySelector(
+        `.bigstory-info-card:nth-child(${index + 1})`
+      );
+
+      if (cardElement) {
+        ScrollTrigger.create({
+          trigger: cardElement,
+          start: "center center",
+          onToggle: (self) => {
+            if (self.isActive) {
+              this.updateImage(index);
+            }
+          },
+        });
+      }
+    });
+  },
 };
 </script>
 

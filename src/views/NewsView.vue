@@ -8,12 +8,12 @@
 
     <form action="" class="filter_form">
       <div class="news_filter">
-        <select name="" id="">
+        <select name="" id="" v-model="selectedCategory">
           <option value="" disabled selected>類別</option>
-          <option value="">全部消息</option>
-          <option value="">新聞資訊</option>
-          <option value="">假消息澄清</option>
-          <option value="">演講活動</option>
+          <option value="all">全部消息</option>
+          <option value="新聞資訊">新聞資訊</option>
+          <option value="假消息澄清">假消息澄清</option>
+          <option value="演講活動">演講活動</option>
         </select>
         <input type="date" name="" id=""><span>到</span><input type="date">
         <input type="text" name="" id="" placeholder="請輸入關鍵字" class="news_search">
@@ -22,7 +22,7 @@
       </div>
     </form>
     <div class="news_cards">
-      <div v-for="item in newsCard" class="card_a">
+      <div class="card_a" v-for="item in filteredNewsCard" :key="item.id">
         <router-link :to="item.url">
           <div class="news_card">
             <div class="news_pic">
@@ -47,6 +47,7 @@ import { RouterLink } from 'vue-router';
 export default {
   data() {
     return {
+      selectedCategory: '',
       
       newsCard: [
         { 
@@ -101,6 +102,14 @@ export default {
   },
   components: {
     breadCrumbs,
+  },
+  computed: {
+    filteredNewsCard() {
+      if (!this.selectedCategory || this.selectedCategory === 'all') {
+        return this.newsCard;
+      }
+      return this.newsCard.filter(item => item.type === this.selectedCategory);
+    }
   },
   mounted() {
         document.title = '最新消息';
