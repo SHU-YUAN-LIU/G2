@@ -1,7 +1,7 @@
 <template>
   <div class="organization">
     <div class="contect_banner">
-      <img src="/image/about/PartyHistory.svg" alt="PartyHistory.svg" />
+      <img src="/image/about/PartyHistory.png" alt="PartyHistory.svg" />
       <h1>YWEP黨史</h1>
     </div>
     <!-- 麵包屑 -->

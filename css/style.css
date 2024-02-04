@@ -2193,6 +2193,9 @@ footer {
   font-size: 16px;
 }
 
+.organization .contect_banner h1 {
+  text-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
 @media (width < 769px) {
   .organization .contect_banner h1 {
     font-family: "Mantou Sans";
@@ -2289,6 +2292,7 @@ div.donate .donate_banner {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 85px;
 }
 div.donate .donate_banner h1 {
   font-family: "Mantou Sans";
@@ -2570,6 +2574,7 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 85px;
 }
 .donate_page .donate_page_banner img {
   width: 100%;
@@ -2890,6 +2895,7 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 85px;
 }
 .donate_confirm .donate_confirm_banner img {
   width: 100%;

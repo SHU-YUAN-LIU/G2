@@ -130,8 +130,7 @@ import { ref } from 'vue';
 import DropDown from '../components/cart/dropDown.vue'
 
 export default {
-  setup() {
-  },
+
   components: {
     DropDown,
   },

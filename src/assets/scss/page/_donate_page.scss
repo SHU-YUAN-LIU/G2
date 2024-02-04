@@ -1,16 +1,18 @@
-.donate_page{
-  h4{
-        margin-bottom: 30px;
-        @include title_4;
-        color: $orange;
-        width: 100%;
-        }
-  .donate_page_banner{
+.donate_page {
+  h4 {
+    margin-bottom: 30px;
+    @include title_4;
+    color: $orange;
+    width: 100%;
+  }
+
+  .donate_page_banner {
     width: 100%;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 85px;
 
     img {
       width: 100%;
@@ -39,9 +41,9 @@
     }
 
     // 下一步按鈕
-    button.donate_page_next{
-    @include btn_3;
-    margin: 90px 0;
+    button.donate_page_next {
+      @include btn_3;
+      margin: 90px 0;
     }
 
     // 我要捐款的標題
@@ -67,9 +69,10 @@
       flex-direction: column;
       gap: 40px;
 
-      input{
+      input {
         margin-top: 10px;
       }
+
       // 捐款資料內容_會員資料
       .donate_page_info {
 
@@ -153,29 +156,31 @@
           }
         }
 
-        .chosen{
+        .chosen {
           background-color: $orange;
           color: $white;
         }
       }
 
       // 捐款資料內容_金額選擇
-      .donate_page_amount{
+      .donate_page_amount {
         display: flex;
         flex-direction: column;
         align-items: center;
-        h4{
-            margin-bottom: 60px;
-          }
-        ul{
+
+        h4 {
+          margin-bottom: 60px;
+        }
+
+        ul {
           display: flex;
           gap: 70px;
           flex-wrap: wrap;
           justify-content: space-around;
           align-items: center;
-          
-          
-          li{
+
+
+          li {
             border-radius: $border-radius-1;
             border: 1px solid $gray_3;
             position: relative;
@@ -183,7 +188,7 @@
             height: 160px;
 
             // 點數標籤(黃色圓形)
-            .donate_point{
+            .donate_point {
               border-radius: 50%;
               background: $yellow_2;
               width: 110px;
@@ -196,11 +201,13 @@
               left: -50px;
               letter-spacing: 1px;
               @include title_4;
-              span{
+
+              span {
                 font-size: 18px;
               }
             }
-            .donate_amount_item{
+
+            .donate_amount_item {
               background: $gray_3;
               height: 100px;
               display: flex;
@@ -208,122 +215,130 @@
               justify-content: center;
               gap: 20px;
               border-radius: $border-radius-1 $border-radius-1 0 0;
-              p{
+
+              p {
                 color: $white;
                 text-align: center;
                 margin: 0;
               }
 
-              p:first-child{
+              p:first-child {
                 font-size: $font_size_7;
               }
             }
           }
 
-            p.donate_amount_text{
-              @include title_4;
-              color: $orange;
-              text-align: center;
-              margin: 0;
-              // li: 160px - div(容器上半)100px = 60px
-              line-height: 60px;
-            }
-          }
-          
-        }
-
-        // 了解進補點數按鈕
-        .donate_detail{
-          border: none;
-          border-bottom: 1px solid $orange;
-          @include title_9;
-          color: $orange;
-          background-color: rgba(255,255,255, 0);
-          height: 40px;
-          align-self: flex-end;
-        }
-
-        // 自訂金額區塊
-        .donate_page_inputAmount{
-
-          p:first-child{
-              margin-bottom: 30px;
-              span{
-                color: $orange;
-              }
-            }
-          div{
-            border-radius: $border-radius-1;
-            overflow: hidden;
-
-            table{
-
-              tr{
-                height: 50px;
-                td{
-                  line-height: 50px;
-                }
-
-                td:nth-child(1){
-                  width: 220px;
-                  text-align: center;
-                  background-color: $orange;
-                  color: $white;
-                }
-                td:nth-child(2){
-                  input{
-                    height: 50px;
-                    vertical-align: middle;
-                    margin: 0;
-                    width: 910px;
-                  }
-                }
-                td:nth-child(3){
-                  width: 70px;
-                  text-align: center;
-                  background-color: $orange;
-                  color: $white;
-                }
-              }
-            }
+          p.donate_amount_text {
+            @include title_4;
+            color: $orange;
+            text-align: center;
+            margin: 0;
+            // li: 160px - div(容器上半)100px = 60px
+            line-height: 60px;
           }
         }
+
+      }
+
+      // 了解進補點數按鈕
+      .donate_detail {
+        border: none;
+        border-bottom: 1px solid $orange;
+        @include title_9;
+        color: $orange;
+        background-color: rgba(255, 255, 255, 0);
+        height: 40px;
+        align-self: flex-end;
+      }
+
+      // 自訂金額區塊
+      .donate_page_inputAmount {
+
+        p:first-child {
+          margin-bottom: 30px;
+
+          span {
+            color: $orange;
+          }
+        }
+
+        div {
+          border-radius: $border-radius-1;
+          overflow: hidden;
+
+          table {
+
+            tr {
+              height: 50px;
+
+              td {
+                line-height: 50px;
+              }
+
+              td:nth-child(1) {
+                width: 220px;
+                text-align: center;
+                background-color: $orange;
+                color: $white;
+              }
+
+              td:nth-child(2) {
+                input {
+                  height: 50px;
+                  vertical-align: middle;
+                  margin: 0;
+                  width: 910px;
+                }
+              }
+
+              td:nth-child(3) {
+                width: 70px;
+                text-align: center;
+                background-color: $orange;
+                color: $white;
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
 
-@media(max-width: 768px){
-  .donate_page{
-    h4{
+@media(max-width: 768px) {
+  .donate_page {
+    h4 {
       @include title_4;
       color: $orange;
       width: 100%;
       font-size: 28px;
     }
-    .donate_page_banner{    
+
+    .donate_page_banner {
       width: 100%;
+
       h1 {
         @include title_3;
       }
     }
-  
+
     // 主要內容區塊
     .donate_page_main {
-      max-width: 350px;  
+      max-width: 350px;
 
       // 下一步按鈕
-      button.donate_page_next{
-      margin: 50px 0;
+      button.donate_page_next {
+        margin: 50px 0;
       }
-  
+
       // 我要捐款的標題
       .donate_page_title {
-  
+
         h2 {
           @include title_3;
         }
       }
-  
+
       // 捐款資料內容
       .donate_page_content {
         max-width: 350px;
@@ -338,78 +353,83 @@
             gap: 20px;
             justify-content: start;
           }
-  
+
           li {
             gap: 20px;
             height: 150px;
             align-items: center;
+
             p {
               margin: 0;
             }
           }
         }
-  
+
         // 捐款資料內容_金額選擇
-        .donate_page_amount{
-          ul{
+        .donate_page_amount {
+          ul {
             display: flex;
             gap: 50px;
-               
-            li{
+
+            li {
               width: 300px;
-  
+
               // 點數標籤(黃色圓形)
-              .donate_point{
+              .donate_point {
                 width: 100px;
                 height: 100px;
                 left: -50px;
                 font-size: 24px;
-                span{
+
+                span {
                   font-size: 16px;
                 }
               }
             }
-  
-            }
-            
+
           }
-  
-          // 了解進補點數按鈕
-          .donate_detail{
-           font-size: 16px;
+
+        }
+
+        // 了解進補點數按鈕
+        .donate_detail {
+          font-size: 16px;
+        }
+
+        // 自訂金額區塊
+        .donate_page_inputAmount {
+
+          p:first-child {
+            margin-bottom: 20px;
           }
-  
-          // 自訂金額區塊
-          .donate_page_inputAmount{
-  
-            p:first-child{
-                margin-bottom: 20px;
-              }
-            div{
-              table{
-                tr{  
-                  td:nth-child(1){
-                    width: 80px;
-                  }
-                  td:nth-child(2){
-                    input{
-                      height: 50px;
-                      vertical-align: middle;
-                      margin: 0;
-                      width: 200px;
-                    }
-                  }
-                  td:nth-child(3){
-                    width: 70px;
-                    text-align: center;
-                    background-color: $orange;
-                    color: $white;
+
+          div {
+            table {
+              tr {
+                td:nth-child(1) {
+                  width: 80px;
+                }
+
+                td:nth-child(2) {
+                  input {
+                    height: 50px;
+                    vertical-align: middle;
+                    margin: 0;
+                    width: 200px;
                   }
                 }
+
+                td:nth-child(3) {
+                  width: 70px;
+                  text-align: center;
+                  background-color: $orange;
+                  color: $white;
+                }
               }
-  
             }
+
           }
+        }
       }
     }
   }
