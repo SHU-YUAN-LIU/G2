@@ -55,42 +55,56 @@ div.donate {
     .donate_cards {
       display: flex;
       position: relative;
-
-      // 背景圖片設定
-      img.icon {
-        position: absolute;
-        // 設z-index以免背景圖蓋到卡片
-        z-index: -1;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      gap: 60px;   
+      
+      h2{
+        @include title_2;
+        color: $white;
       }
-
-      img.icon:nth-child(1) {
-        left: -80px;
-        top: 0;
-        bottom: 0;
-        margin: auto;
+      p{
+        @include title_10;
+        color: $white;
+        margin-bottom: 20px;
       }
-
-      img.icon:nth-child(2) {
-        right: 200px;
-        top: 0px;
-      }
-
-      img.icon:nth-child(3) {
-        right: 100px;
-        bottom: 0px;
-      }
-
-      // 卡片區塊
-      .donate_cards {
+      // 卡片1
+      .donate_card1 {
+        width: 500px;
+        height: 705px;
+        padding: 0;
+        margin: 0;
+        border-radius: $border-radius-1;
+        border: 3px solid $orange;
         display: flex;
-        width: 100%;
-        justify-content: center;
-        align-items: center;
+        flex-direction: column;
 
-        // 卡片1
-        .donate_card1 {
-          width: 550px;
-          border-radius: $border-radius-1;
+        // 卡片1上半
+        .donate_card1_top {
+          background-color: $orange;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          height: 530px;
+
+          .donate_card1_top>img {
+            width: 100px;
+          }
+
+          h2 {
+            height: 60px;
+            margin-bottom: 20px;
+          }
+        }
+
+        // 卡片1下半
+        .donate_card1_bottom {
+          background: $white;
+          display: flex;
+          align-items: center;
+          height: 100px;
         }
       }
 
