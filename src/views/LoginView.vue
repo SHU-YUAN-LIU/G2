@@ -180,9 +180,9 @@ export default {
         document.title = '會員登入/註冊';
         addlistener();
 
-        this.login.email = "mor_2314";    ////////////套用的API裡面的帳號密碼
-        this.login.psw = "83r5^_";
-        this.handleLogin();
+        // this.login.email = "mor_2314";    ////////////套用的API裡面的帳號密碼
+        // this.login.psw = "83r5^_";
+        // this.handleLogin();
     },
     
 }
