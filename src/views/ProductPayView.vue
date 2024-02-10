@@ -210,6 +210,9 @@ export default {
 
             //將項目數輛歸零
             this.cart_total[0].listcount = 0;
+
+            //將頁面跳轉至產品頁
+            window.location.href = "/Product";
         },
 
         getpicurl(picname) {

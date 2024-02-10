@@ -4,7 +4,7 @@
 
     //篩選器
     .pro-top {
-        margin: 150px 0;
+        margin: 95px 0;
         display: flex;
         justify-content: center;
         align-items: flex-start;
@@ -65,7 +65,7 @@
             .card_group {
                 display: grid;
                 grid-template-columns: repeat(4, 1fr);
-                gap: 40px;
+                gap: 50px;
                 // margin-bottom: 200px;
 
                 @media screen and (max-width:768px) {
