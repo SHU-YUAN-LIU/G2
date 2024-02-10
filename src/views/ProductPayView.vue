@@ -160,7 +160,7 @@
                 為保障彼此之權益，賣家在收到您的訂單後仍保有決定是否接受訂單及出貨與否之權利
             </div>
         </div>
-        <button class="pay-btn-now">立即結賬</button>
+        <button class="pay-btn-now" @click="clearAllPro">立即結賬</button>
     </div>
     <Background_green :height="100" />
 </template>
@@ -173,7 +173,6 @@ export default {
 
     data() {
         return {
-
             cartList: [],//存購物車資料的陣列
             quantity: 1,//初始數量
             cart_total: [],//存總價格跟總項目陣列
@@ -186,6 +185,7 @@ export default {
     created() {
 
         [this.cartList, this.cart_total] = show_product();
+        console.log(show_product());
         window.addEventListener('storage', this.changecartshow);
     },
     methods: {
@@ -194,8 +194,24 @@ export default {
         changecartshow(event) {
             if (event.key == 'cart') {
                 [this.cartList, this.cart_total] = show_product();
+
             }
         },
+        //清除購物車相關資料
+        clearAllPro() {
+            // 清除 localStorage 中的購物車相關資料
+            localStorage.setItem('cart', JSON.stringify([]));
+
+            //將購物車相關資料重設為空陣列
+            this.cartList = [];
+
+            //將總total歸零
+            this.cart_total[0].total = 0;
+
+            //將項目數輛歸零
+            this.cart_total[0].listcount = 0;
+        },
+
         getpicurl(picname) {
             if (picname) {
                 var url = `${import.meta.env.VITE_RESOURCE_URL}/image/product/product_data/` + picname;
@@ -204,8 +220,7 @@ export default {
                 url = `${import.meta.env.VITE_RESOURCE_URL}/image/product/errorpic.png`;
             }
             return url;
-        }
-
+        },
     },
     mounted() {
         [this.cartList, this.cart_total] = show_product();

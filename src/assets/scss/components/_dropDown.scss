@@ -1,5 +1,6 @@
 .drop-down-cart {
     width: 405px;
+    // height: 80vh;
     position: absolute;
     border: 2px solid $gray_2;
     background-color: $white;
@@ -12,10 +13,11 @@
     }
 
     .cart-group {
-        max-height: 600px;
+        max-height: 70vh;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        align-items: center;
         padding: 15px;
         overflow: scroll;
 
