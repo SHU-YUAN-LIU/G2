@@ -27,7 +27,13 @@ export function show_product() {
         //shownum類似元件概念
         var shownum = products.find(item => item.product_no == element.productId);
         if (shownum) {
-            arrayOfObjects.push({ product_no: shownum.product_no, product_name: shownum.product_name, price: shownum.price, product_pic1: shownum.product_pic1, quantity: element.quantity });
+            arrayOfObjects.push({
+                product_no: shownum.product_no,
+                product_name: shownum.product_name,
+                price: shownum.price,
+                product_pic1: shownum.product_pic1,
+                quantity: element.quantity
+            });
             totalprice = totalprice + (shownum.price * element.quantity);
             totallist = totallist + 1;
         }
@@ -99,6 +105,13 @@ export function changeqty(event, id, qty) {
     // usecartListStore().setCartList()
     // console.log(usecartListStore());
 }
+
+// export function clearAllPro() {
+  
+
+// }
+
+
 
 
 // //會有一個func是清除這個在陣列內的商品

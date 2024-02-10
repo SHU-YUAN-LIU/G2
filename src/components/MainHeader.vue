@@ -50,10 +50,10 @@
     </li>
     <li style="position:relative;">
 
-      <div class="icon" @click="showDropDown"><img src="/image/home/icon_cart.svg" alt="">
+      <div class="icon cartbtn" @click.stop="showDropDown"><img src="/image/home/icon_cart.svg" alt="">
         <p>購物車</p>
       </div>
-      <DropDown v-if="isDropDown" />
+      <DropDown v-if="isDropDown" @click.stop="" class="drop-down" />
     </li>
 
     <li>
@@ -122,8 +122,7 @@ import { ref } from 'vue';
 import DropDown from '../components/cart/dropDown.vue'
 
 export default {
-  setup() {
-  },
+
   components: {
     DropDown,
   },
@@ -140,15 +139,20 @@ export default {
   },
   created() {
   },
-  methods: {
-    //只要是data的物件',都要加this
-    showDropDown() {
-      if (this.isDropDown == true) {
-        this.isDropDown = false;
-      } else {
-        this.isDropDown = true;
-      }
+  mounted() {
+    // 添加點擊事件監聽器到整個頁面上
+    document.addEventListener('click', this.closeDropDown);
 
+  },
+
+  methods: {
+    showDropDown() {
+      this.isDropDown = !this.isDropDown;
+    },
+    //關閉購物車下拉
+    closeDropDown() {
+      // this.isDropDown = !this.isDropDown;//寫這樣,會變成案外面也會打開
+      this.isDropDown = false;
     },
     //漢堡
     toggleMenu() {
@@ -157,6 +161,10 @@ export default {
     }
 
   },
+  beforeUnmount() {
+    // 移除點擊事件監聽器
+    document.removeEventListener('click', this.closeDropDown);
+  }
 }
 </script>
 
