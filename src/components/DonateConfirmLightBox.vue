@@ -25,7 +25,7 @@ export default {
     methods: {
         closeLightbox() {
             this.showLightbox = false;
-            document.body.style.overflow="auto";
+            document.body.style.overflow = "auto";
         }
     },
 }
@@ -63,7 +63,7 @@ export default {
             width: 50px;
             height: 50px;
             top: -25px;
-            right: -25px;
+            right: -15px;
             cursor: pointer;
             position: absolute;
             z-index: 3;
@@ -71,7 +71,9 @@ export default {
 
         .donate_content {
             display: flex;
-            @include title_3;
+            font-size: 46px;
+            font-family: $font_family_2;
+            letter-spacing: $space_letter;
 
             .donate_top {
                 flex-direction: column;
@@ -85,19 +87,22 @@ export default {
                 align-items: center;
                 background-color: $white;
                 border-radius: $border-radius-1;
-                img{
-                    width: 150px;
+
+
+                img {
+                    width: 120px;
                 }
             }
         }
     }
 }
 
-@media (max-width: 768px){
+@media (max-width: 768px) {
     .donate_lightbox {
         .donate_container {
             width: 350px;
             height: 400px;
+
             .donate_content {
                 .donate_top {
                     width: 250px;

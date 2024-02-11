@@ -70,15 +70,20 @@ export default {
                 url = `${import.meta.env.VITE_RESOURCE_URL}/image/product/errorpic.png`;
             }
             return url;
-        }
-
-    },
-    mounted() {
-        [this.cartList, this.cart_total] = show_product();
-    },
-    destroyed() {
-        window.removeEventListener('storage', this.changecartshow);
-    },
+        },
+        //購物車下拉
+        // closeDropDown() {
+        //     this.closeDropDown = false;
+        //     console.log(this.closeDropDown);
+        //     document.body.style.overflow = 'auto';
+        // },
+        mounted() {
+            [this.cartList, this.cart_total] = show_product();
+        },
+        destroyed() {
+            window.removeEventListener('storage', this.changecartshow);
+        },
+    }
 }
 </script>
 

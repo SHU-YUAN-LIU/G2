@@ -1,10 +1,11 @@
 <template>
-  <MainHeader />
-
-  <Loading :key="$route.fullPath" :loadingTime = 500 />
-  <RouterView />
-  <goToTop />
-  <MainFooter />
+  <div class="scrollbar">
+    <MainHeader />
+    <Loading :key="$route.fullPath" :loadingTime=500 />
+    <RouterView />
+    <goToTop />
+    <MainFooter />
+  </div>
 </template>
 
 <script>
@@ -40,8 +41,8 @@ export default {
 
 <style scoped>
 @font-face {
-    font-family: 'Mantou Sans';
-    src: url('@/assets/Mantou_font/MantouSans-Regular.ttf');
+  font-family: 'Mantou Sans';
+  src: url('@/assets/Mantou_font/MantouSans-Regular.ttf');
 }
 </style>
 
