@@ -30,24 +30,12 @@
 
       <h1 class="organization-title3">宣傳影片</h1>
     </div>
-<<<<<<< HEAD
     <div>
-      <iframe
-        width="100%"
-        height="400px"
-        src="https://www.youtube.com/embed/mKZSMpBmq70?si=neiSwK6fgYp89b_z"
-        title="YouTube video player"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen
-      ></iframe>
-    </div>
-=======
-    <div><iframe width="100%" height="400px" src="https://www.youtube.com/embed/mKZSMpBmq70?si=neiSwK6fgYp89b_z"
+      <iframe width="100%" height="400px" src="https://www.youtube.com/embed/mKZSMpBmq70?si=neiSwK6fgYp89b_z"
         title="YouTube video player" frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen></iframe></div>
->>>>>>> 9959ff8a583994f88afbb37b336ef35e6debe285
+        allowfullscreen></iframe>
+    </div>
   </div>
 </template>
 
