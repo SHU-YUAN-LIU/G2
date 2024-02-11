@@ -8,7 +8,7 @@
 
 export default {
     mounted() {
-        mapboxgl.accessToken = 'pk.eyJ1IjoiYW5kcmVhMDIwOSIsImEiOiJjbHNlZzFpdzYxYTBiMmtvMjFsZWl4bnlwIn0.nsD7QMjNY1bLZGltUAehZA';
+        // mapboxgl.accessToken = '';
         this.map = new mapboxgl.Map({
             container: 'map',
             style: 'mapbox://styles/andrea0209/clsg0qbug005m01rbabj37ap4',

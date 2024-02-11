@@ -61,6 +61,7 @@
 
 
 <script>
+import axios from 'axios';
 import Banner from '../components/Banner.vue';
 import breadCrumbs from '../components/Bread.vue';
 import vueMarquee from '@/components/Marquee.vue';
