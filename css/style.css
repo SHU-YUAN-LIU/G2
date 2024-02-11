@@ -2338,34 +2338,53 @@ div.donate .donate_main img.icon:nth-child(3) {
 div.donate .donate_main .donate_cards {
   display: flex;
   position: relative;
-}
-div.donate .donate_main .donate_cards img.icon {
-  position: absolute;
-  z-index: -1;
-}
-div.donate .donate_main .donate_cards img.icon:nth-child(1) {
-  left: -80px;
-  top: 0;
-  bottom: 0;
-  margin: auto;
-}
-div.donate .donate_main .donate_cards img.icon:nth-child(2) {
-  right: 200px;
-  top: 0px;
-}
-div.donate .donate_main .donate_cards img.icon:nth-child(3) {
-  right: 100px;
-  bottom: 0px;
-}
-div.donate .donate_main .donate_cards .donate_cards {
-  display: flex;
   width: 100%;
   justify-content: center;
   align-items: center;
+  gap: 60px;
 }
-div.donate .donate_main .donate_cards .donate_cards .donate_card1 {
-  width: 550px;
+div.donate .donate_main .donate_cards h2 {
+  font-family: "Mantou Sans";
+  font-size: 65px;
+  font-weight: initial;
+  color: #FFF;
+}
+div.donate .donate_main .donate_cards p {
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 16px;
+  color: #FFF;
+  margin-bottom: 20px;
+}
+div.donate .donate_main .donate_cards .donate_card1 {
+  width: 500px;
+  height: 705px;
+  padding: 0;
+  margin: 0;
   border-radius: 10px;
+  border: 3px solid #FF892E;
+  display: flex;
+  flex-direction: column;
+}
+div.donate .donate_main .donate_cards .donate_card1 .donate_card1_top {
+  background-color: #FF892E;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 530px;
+}
+div.donate .donate_main .donate_cards .donate_card1 .donate_card1_top .donate_card1_top > img {
+  width: 100px;
+}
+div.donate .donate_main .donate_cards .donate_card1 .donate_card1_top h2 {
+  height: 60px;
+  margin-bottom: 20px;
+}
+div.donate .donate_main .donate_cards .donate_card1 .donate_card1_bottom {
+  background: #FFF;
+  display: flex;
+  align-items: center;
+  height: 100px;
 }
 div.donate .donate_main .donate_cards .donate_card2 {
   background-color: #FFF;
@@ -4555,6 +4574,9 @@ form .register_read p {
     margin: 0 100px;
   }
 }
+.elecion_journey {
+  z-index: -1;
+}
 .elecion_journey .journey_title {
   display: flex;
   flex-direction: column;
@@ -4584,20 +4606,6 @@ form .register_read p {
     padding-left: 5px;
   }
 }
-.elecion_journey .minimap {
-  display: block;
-}
-@media (max-width: 768px) {
-  .elecion_journey .minimap {
-    display: none;
-  }
-}
-.elecion_journey .election_container {
-  display: flex;
-  align-items: center;
-  position: relative;
-  right: 200px;
-}
 @media screen and (max-width: 768px) {
   .elecion_journey .election_container {
     right: 0px;
@@ -4605,15 +4613,27 @@ form .register_read p {
     padding: 30px;
   }
 }
+.elecion_journey .election_container .mapbox {
+  display: block;
+  z-index: -1;
+}
+@media screen and (max-width: 768px) {
+  .elecion_journey .election_container .mapbox {
+    display: none;
+  }
+}
 .elecion_journey .election_container .journey {
   background-color: #272727;
   border-radius: 10px;
   height: 700px;
-  width: 600px;
+  width: 430px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   overflow: scroll;
+  position: absolute;
+  right: 1.5%;
+  top: 13%;
 }
 .elecion_journey .election_container .journey h3 {
   font-family: "Noto Sans TC", sans-serif;
@@ -4669,6 +4689,22 @@ form .register_read p {
   display: block;
   margin-left: -180px;
   margin-top: 5px;
+}
+
+.count_down {
+  position: relative;
+  bottom: -350px;
+  left: -250px;
+}
+.count_down .countdown {
+  font-family: "Mantou Sans";
+  font-size: 36px;
+  font-weight: initial;
+}
+.count_down .countdown div span:first-child {
+  font-family: "Mantou Sans";
+  font-size: 36px;
+  font-weight: initial;
 }
 
 .contect {

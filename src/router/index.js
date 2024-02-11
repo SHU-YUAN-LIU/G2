@@ -1,6 +1,6 @@
 import { Dropdown } from 'view-ui-plus'
 import { createRouter, createWebHistory } from 'vue-router'
-import Cookies from 'js-cookie';
+// import Cookies from 'js-cookie';
 
 
 // path設定'/'表示將該頁面設置為首頁
@@ -275,11 +275,11 @@ const router = createRouter({
   ]
 })
 router.beforeEach(async (to, from) => { //beforeEach() 接收三個參數：to、from 和 next // async() 聲明函數不同步執行
-  if(to.meta.requiresAuth && to.name !== 'Login'){
+  if (to.meta.requiresAuth && to.name !== 'Login') {
     const isLogin = localStorage.getItem('token')
-    if(isLogin){
+    if (isLogin) {
       return true
-    }else{
+    } else {
       return '/login'
     }
   } else {

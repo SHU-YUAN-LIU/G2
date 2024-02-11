@@ -12,7 +12,6 @@ import "./assets/scss/style.scss"
 //引入饅頭字體
 import '@/assets/Mantou_font/_Mantou_font.scss'
 
-
 import Vue3Marquee from 'vue3-marquee'
 
 

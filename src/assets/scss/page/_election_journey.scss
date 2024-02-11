@@ -1,4 +1,5 @@
 .elecion_journey {
+    z-index: -1;
 
     // 行程站台內容
     .journey_title {
@@ -33,19 +34,9 @@
         }
     }
 
-    .minimap {
-        display: block;
 
-        @media (max-width:768px) {
-            display: none;
-        }
-    }
-
+    // (電腦版)行程站台內容 
     .election_container {
-        display: flex;
-        align-items: center;
-        position: relative;
-        right: 200px;
 
         @media screen and (max-width:768px) {
             right: 0px;
@@ -53,15 +44,28 @@
             padding: 30px;
         }
 
+        // mapbox地圖 
+        .mapbox {
+            display: block;
+            z-index: -1;
+
+            @media screen and (max-width:768px) {
+                display: none;
+            }
+        }
+
         .journey {
             background-color: #272727;
             border-radius: 10px;
             height: 700px;
-            width: 600px;
+            width: 430px;
             display: flex;
             flex-direction: column;
             align-items: flex-end;
             overflow: scroll;
+            position: absolute;
+            right: 1.5%;
+            top: 13%;
 
 
             h3 {
@@ -127,6 +131,23 @@
                     }
                 }
 
+            }
+        }
+    }
+}
+
+// 倒數計時器
+.count_down {
+    position: relative;
+    bottom: -350px;
+    left: -250px;
+
+    .countdown {
+        @include title_3;
+
+        div {
+            span:first-child {
+                @include title_3;
             }
         }
     }
