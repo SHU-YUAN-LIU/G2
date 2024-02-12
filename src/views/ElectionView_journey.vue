@@ -39,11 +39,11 @@
             <div class="journey">
                 <h3>行程</h3>
                 <h3>即將開始</h3>
-                <div v-for="trip in displayTrip " class="journey_card" @change="showLocationInfo">
+                <div v-for="trip in displayTrip" class="journey_card" @change="showLocationInfo">
                     <div>
-                        <p>{{ trip.time }}</p>
-                        <p>{{ trip.slogan }}</p>
-                        <p>{{ trip.position }}</p>
+                        <p>{{ trip.start_date }}</p>
+                        <p>{{ trip.campaign_name }}</p>
+                        <p>{{ trip.address }}</p>
                         <p>{{ trip.add }}</p>
                     </div>
                     <div>
@@ -74,74 +74,10 @@ export default {
             bannerTitle: '候選人行程',
             bannerPic: `${import.meta.env.VITE_RESOURCE_URL}/image/election/journey.png`,
             slogan: '這是一場改變政治文化的社會運動，投給劉緯育，投給自己的未來。',
-            allTrip: [
-                {
-                    time: "2024/01/01(五)18:30-22:00",
-                    slogan: "Team進補召集令 112凱道見",
-                    position: "凱達格蘭大道",
-                    add: "台北市中正區凱達格蘭大道",
-                    country: '桃園',
-                    src: `${import.meta.env.VITE_RESOURCE_URL}/image/election/journey-2.png`,
-                    name: "New Taipei",
-                },
-                {
-                    time: "2024/01/01(五)18:30-22:00",
-                    slogan: "Team進補召集令 112凱道見",
-                    position: "凱達格蘭大道",
-                    add: "台北市中正區凱達格蘭大道",
-                    country: '桃園',
-                    src: `${import.meta.env.VITE_RESOURCE_URL}/image/election/journey-1.png`,
-                    name: "Hsinchu",
-                },
-                {
-                    time: "2024/01/01(五)18:30-22:00",
-                    slogan: "Team進補召集令 112凱道見",
-                    position: "凱達格蘭大道",
-                    add: "台北市中正區凱達格蘭大道",
-                    country: '南投',
-                    src: `${import.meta.env.VITE_RESOURCE_URL}/image/election/journey-1.png`,
-                    name: " Taitung",
-                },
-                {
-                    time: "2024/01/01(五)18:30-22:00",
-                    slogan: "Team進補召集令 112凱道見",
-                    position: "凱達格蘭大道",
-                    add: "台北市中正區凱達格蘭大道",
-                    country: "Taipei",
-                    src: `${import.meta.env.VITE_RESOURCE_URL}/image/election/journey-1.png`,
-                    name: "New Taipei",
-                },
-                {
-                    time: "2024/01/01(五)18:30-22:00",
-                    slogan: "Team進補召集令 112凱道見",
-                    position: "凱達格蘭大道",
-                    add: "台北市中正區凱達格蘭大道",
-                    country: '雲林',
-                    src: `${import.meta.env.VITE_RESOURCE_URL}/image/election/journey-2.png`,
-                    name: " Taitung",
-                },
-                {
-                    time: "2024/01/01(五)18:30-22:00",
-                    slogan: "Team進補召集令 112凱道見",
-                    position: "凱達格蘭大道",
-                    add: "台北市中正區凱達格蘭大道",
-                    country: 'New Taipei',
-                    src: `${import.meta.env.VITE_RESOURCE_URL}/image/election/journey-2.png`,
-                    name: " Taitung",
-                },
-                {
-                    time: "2024/01/01(五)18:30-22:00",
-                    slogan: "Team進補召集令 112凱道見",
-                    position: "凱達格蘭大道",
-                    add: "台北市中正區凱達格蘭大道",
-                    country: 'Taitung',
-                    src: `${import.meta.env.VITE_RESOURCE_URL}/image/election/journey-2.png`,
-                    name: " Taitung",
-                },
-            ],
+            allTrip: [],
+            displayTrip: "",
             currentTitle: "",
             currentPage: "",
-            displayTrip: "",
         }
     },
     components: {
@@ -152,29 +88,53 @@ export default {
         mapbox,
     },
     methods: {
-        //手機版切換行程標題
-        // change(pos) {
-        //     this.currentTitle = pos;
-        //     this.displayTrip = this.allTrip.filter((item) => {
-        //         return item.country === pos;
-        //     });
-        // },
-        // 篩選行程
+        //(手機版) 切換行程標題
+        change(pos) {
+            this.currentTitle = pos;
+            this.displayTrip = this.allTrip.filter((item) => {
+                return item.country === pos;
+            });
+        },
+        // (手機版)篩選行程
         selectLocation() {
             this.displayTrip = this.allTrip.filter((item) => {
                 return item.country === this.name;
             });
         },
+
+        // (電腦版)篩選行程
         showLocationInfo(data) {
             console.log(data);
             const locationInfo = this.allTrip.filter(item => item.name === data.name);
             console.log(locationInfo);
             this.displayTrip = locationInfo;
         },
+
+        // 串資料
+        getCampaign() {
+            axios.get(`${import.meta.env.VITE_PHP_URL}/front_campaign.php`)
+                .then(response => {
+                    // 從回應中取得資料 response.data.products，並將其傳遞給 showProducts()
+                    const campaign = response.data.campaign;
+                    this.showCampaign(campaign);
+                    console.log(response.data)
+                    return campaign;
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+        },
+        showCampaign(campaign) {
+            console.log(campaign);
+            this.allTrip = campaign;
+            this.displayTrip = campaign;
+        }
     },
     mounted() {
         document.title = "候選人行程";
-        this.displayTrip = this.allTrip;
+    },
+    created() {
+        this.getCampaign();
     },
 }
 </script>
