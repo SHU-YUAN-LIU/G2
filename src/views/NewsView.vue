@@ -8,17 +8,17 @@
 
     <form action="" class="filter_form">
       <div class="news_filter">
-        <select name="" id="" v-model="selectedCategory">
+        <select name="" id="" v-model="selectedCategory"> 
           <option value="" disabled selected>類別</option>
           <option value="all">全部消息</option>
           <option value="新聞資訊">新聞資訊</option>
           <option value="假消息澄清">假消息澄清</option>
           <option value="演講活動">演講活動</option>
         </select>
-        <input type="date" name="" id=""><span>到</span><input type="date">
-        <input type="text" name="" id="" placeholder="請輸入關鍵字" class="news_search">
+        <input type="date" name="" v-model="startDate"><span>到</span><input type="date" name="" v-model="endDate">
+        <input type="text" name="" id="newsSearch" placeholder="請輸入關鍵字" class="news_search" v-model="searchKeyword">
         <button class="remove">⟳</button>
-        <button class="btn">搜尋</button>
+        <button type="button" class="btn" @click="searchNews" id="searchBtn">搜尋</button>
       </div>
     </form>
     <div class="news_cards">
@@ -48,7 +48,9 @@ export default {
   data() {
     return {
       selectedCategory: '',
-      
+      startDate: '', 
+      endDate: '',  
+      searchKeyword: '',
       newsCard: [
         { 
           url: '/newspage',
@@ -104,19 +106,64 @@ export default {
     breadCrumbs,
   },
   computed: {
+    
     filteredNewsCard() {
-      if (!this.selectedCategory || this.selectedCategory === 'all') {
-        return this.newsCard;
+      let filteredNews = this.newsCard;
+
+      //篩選類別
+      if (this.selectedCategory && this.selectedCategory !== 'all') {
+        filteredNews = filteredNews.filter(item => item.type === this.selectedCategory);
       }
-      return this.newsCard.filter(item => item.type === this.selectedCategory);
-    }
+
+      // 篩選日期區間
+      if (this.startDate && this.endDate) {
+        filteredNews = filteredNews.filter(news => {
+          const newsDate = new Date(news.date);
+          const startDate = new Date(this.startDate);
+          const endDate = new Date(this.endDate);
+          return newsDate >= startDate && newsDate <= endDate;
+        });
+      }
+
+      if (this.searchKeyword) {
+        const keyword = this.searchKeyword.trim().toLowerCase();
+        filteredNews = filteredNews.filter(news => {
+          return news.title.toLowerCase().includes(keyword) || news.content.toLowerCase().includes(keyword);
+        });
+      }
+
+      return filteredNews;
+    },
   },
+  methods: {
+    searchNews() {    
+      this.filteredNews= this.filterDate();
+    },
+    filterDate() {
+      const startDate = new Date(this.startDate);
+      const endDate = new Date(this.endDate);
+      return this.newsCard.filter(news => {
+        const newsDate = new Date(news.date);
+        return newsDate >= startDate && newsDate <= endDate;
+      });    
+      
+    },
+    filterWord() {
+      const keyword = this.searchKeyword.trim().toLowerCase();
+        filteredNews = filteredNews.filter(news => {
+          return news.title.toLowerCase().includes(keyword) || news.content.toLowerCase().includes(keyword);
+        });    
+    }
+    
+  },
+
   mounted() {
         document.title = '最新消息';
     }
 }
 
 </script>
+
 
 <style scoped lang="scss">
 @import "../assets/scss/style.scss";
