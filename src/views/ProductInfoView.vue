@@ -97,7 +97,26 @@ export default {
                 url = `${import.meta.env.VITE_RESOURCE_URL}/image/product/errorpic.png`;
             }
             return url;
-        }
+        },
+
+
+        //商品串聯資料庫
+        getProducts() {
+            axios.get(`${import.meta.env.VITE_PHP_URL}/front_product.php`)
+                .then(response => {
+                    // 從回應中取得資料 response.data.products，並將其傳遞給 showProducts()
+                    const products = response.data.products;
+                    this.showProducts(products);
+                    console.log(response.data)
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+        },
+        showProducts(products) {
+            console.log(products);
+            this.allProducts = products;
+        },
     },
 
 }

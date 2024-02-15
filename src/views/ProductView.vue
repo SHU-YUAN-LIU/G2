@@ -9,8 +9,8 @@
         <div class="pro-top">
             <!-- 分類篩選 -->
             <select v-model="currentCategory" @change="changeDis" class="pro-class">
-                <option selected value="ALL">類別</option>
-                <option v-for="types in product_class_group" :value="types.product_class_no">{{ types.product_class_name }}
+                <option selected value="全部商品">全部商品</option>
+                <option v-for="types in product_class_group" :value="types.product_class_no">{{ types.product_class }}
                 </option>
             </select>
             <!-- 關鍵字篩選 -->
@@ -55,21 +55,18 @@ export default {
     },
     data() {
         return {
-            // defaultSrc: 'https://tibamef2e.com/chd103/g2/image/ShopImage/',
-            defaultSrc: `${import.meta.env.VITE_RESOURCE_URL}/image/product/product_data/`,
-            search: '',
-            allPro: [],
-            allProducts: [],
-            product_class_group: [],
-            category: [],
-            currentCategory: 'ALL',
-            max: 1000000,
-            min: 0,
             bannerTitle: '官方商城',
             bannerPic: `${import.meta.env.VITE_RESOURCE_URL}/image/product/product_banner.png`,
+            defaultSrc: `${import.meta.env.VITE_RESOURCE_URL}/image/product/product_data/`,
+            search: '',
+            product_class_group: [],// 存儲從資料庫獲取的產品分類資料
+            category: [],//儲存商品的分類編號
+            filterProducts: [],//新增一個暫存變數來存篩選後的商品資料
+            currentCategory: '全部商品',
+            max: 1000000,
+            min: 0,
 
-            // 存儲從資料庫獲取的產品資料
-            allProducts: []
+            allProducts: [] // 存儲從資料庫獲取的產品資料
         }
     },
     mounted() {
@@ -78,18 +75,26 @@ export default {
     },
     created() {
         this.getProducts();
+        this.getProductClass();
     },
     methods: {
+
         changeDis() {
 
-            this.allProducts = this.allProducts.filter((item) => {
-                return item.product_name.includes(this.search) && item.price > this.min && item.price < this.max && (item.product_class_no == this.currentCategory || this.currentCategory == "ALL");
-            })
-            // }
+            // 基於 filteredProducts 進行篩選
+            this.filteredProducts = this.allProducts.filter((item) => {
+                return item.product_name.includes(this.search) && item.price > this.min && item.price < this.max && (item.product_class_no == this.currentCategory || this.currentCategory == "全部商品");
+            });
+
+            // 將篩選結果賦值給 allProducts
+            this.allProducts = this.filteredProducts;
+            // this.allProducts = this.allProducts.filter((item) => {
+            //     return item.product_name.includes(this.search) && item.price > this.min && item.price < this.max && (item.product_class_no == this.currentCategory || this.currentCategory == "全部商品");
+            // })
 
 
         },
-        //分類
+        //把分類加進去
         addCategory() {
             for (let item of this.allProducts) {
                 if (!this.category.includes(item.product_class_no)) {
@@ -98,7 +103,7 @@ export default {
             }
         },
 
-        //串聯資料庫
+        //商品串聯資料庫
         getProducts() {
             axios.get(`${import.meta.env.VITE_PHP_URL}/front_product.php`)
                 .then(response => {
@@ -114,7 +119,21 @@ export default {
         showProducts(products) {
             console.log(products);
             this.allProducts = products;
-        }
+        },
+
+        //商品"分類"串聯資料庫
+        getProductClass() {
+            axios.get(`${import.meta.env.VITE_PHP_URL}/front_product_class.php`)
+                .then(response => {
+
+                    const productClass = response.data.productClass;
+                    this.product_class_group = productClass;
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+        },
+
     },
 
 }
