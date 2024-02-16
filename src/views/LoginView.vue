@@ -23,7 +23,7 @@
                     </div>
                 </div>
             </div>
-            <form action="" class="register" id="registerform">
+            <form action="" class="register" id="registerform" @submit.prevent="submitForm">
                 <div class="register_name">
                     <p>真實姓名<span>*</span><span id="nameerror"></span></p>
                     <input id="name" type="text" placeholder="請輸入您的姓名" v-model="register.name">
@@ -110,7 +110,8 @@ export default {
                 phone: '',
                 id: '',
                 psw: '',
-                check_pswread: '',
+                check_psw: '',
+                read: '',
             },
             login: {
                 email: '',
@@ -121,6 +122,44 @@ export default {
     components: {
         Cookies,
     },
+
+    setup() {
+        const register = ref({
+            name: '',
+            date: '',
+            email: '',
+            phone: '',
+            id: '',
+            psw: '',
+            check_psw: '',
+            read: '',
+        });
+
+        const submitForm = async () => {
+        try {
+            const response = await fetch('https://our-backend.com/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(form.value)
+            });
+            if (!response.ok) throw new Error('Network response was not ok');
+            // 处理你的响应
+            console.log('Success:', response);
+        } catch (error) {
+            // 处理错误情况
+            console.error('Error:', error);
+        }
+        };
+
+        return {
+            register,
+            submitForm
+        };
+    },
+
+
 
     methods: {
         addlistener,
