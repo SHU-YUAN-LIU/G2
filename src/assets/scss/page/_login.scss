@@ -207,13 +207,93 @@ form {
         }
     }
 }
+@media (max-width: 1466px) {
+    .register-active {
+        .register {
+            transform: translateX(72%);
+        }
+    }
+
+}
 @media (max-width: 1440px) {
     .register-active {
         .register {
-            transform: translateX(68%);
+            transform: translateX(70%);
         }
     }
 }
+
+@media (max-width: 1400px) {
+    .register-active {
+        .register {
+            transform: translateX(70%);
+            padding: 40px 100px;
+        }
+    }
+    .container .overlay_left p {
+        font-size: 45px;
+    }
+}
+@media (max-width: 1382px) {
+    form {
+        padding: 40px 100px;
+    }
+}
+@media (max-width: 1358px) {
+    form {
+        padding: 40px 90px;
+    }
+    .register-active {
+        .register {
+            transform: translateX(66%);
+        }
+    }
+}
+@media (max-width: 1335px) {
+    form {
+        padding: 40px 80px;
+    }
+    .register-active {
+        .register {
+            transform: translateX(60%);
+            padding: 40px 100px;
+        }
+    }
+    .container .overlay_left p {
+        font-size: 40px;
+    }
+}
+@media (max-width: 1300px) {
+    form {
+        padding: 40px 70px;
+    }
+    .register-active {
+        .register {
+            transform: translateX(70%);
+            padding: 40px 70px;
+        }
+    }
+}
+@media (max-width: 1285px) {
+    form {
+        padding: 40px 60px;
+    }
+    .register-active {
+        .register {
+            transform: translateX(70%);
+            padding: 40px 60px;
+        }
+    }
+
+}
+@media (max-width: 1285px) {
+    
+    .container .overlay_left p {
+        font-size: 35px;
+    }
+}
+
+
 @media (max-width: 1200px) {
     .login_wrap_lg {
         margin: 100px;
@@ -255,9 +335,7 @@ form {
         }
     }
 }
-@media (max-width: 1099px) {
 
-}
 @media (max-width: 1099px) {
     .login_wrap_lg {
         margin: 50px;
@@ -286,10 +364,10 @@ form {
     .login_wrap_sm {
         display: block;
         max-width: 800px;
-        width: 90%;
+        width: 80%;
         height: auto;
         margin: 100px auto;
-        padding: 30px;
+        padding: 80px;
         border-radius: 10px;
         display: flex;
         flex-direction: column;
@@ -297,10 +375,69 @@ form {
         align-items: center;
         box-shadow: 0 15px 30px rgba(0, 0, 0, .2),
                     0 10px 10px rgba(0, 0, 0, .2);
+        .login_logo {
+            max-width: 280px;
+            img {
+                width: 100%;
+            }
+        }
         form {
             position: inherit;
-            padding: 0;
+            padding: 30px;
             background-color: transparent;
+            display: flex;
+            justify-content: center;
+        }
+        a {
+            padding: 5px;
+            font-size: 14px;
+        }
+    }
+}
+
+
+@media (max-width: 550px) {
+    .login_wrap_sm {
+        form {
+            input {
+                width: 300px;
+            }
+        }
+    }
+}
+
+@media (max-width: 441px) {
+    .login_wrap_sm {
+        form {
+            input {
+                width: 250px;
+                height: 35px;
+            }
+        }
+    }
+}
+@media (max-width: 441px) {
+    .login_wrap_sm {
+        form {
+            input {
+                width: 250px;
+                height: 35px;
+            }
+            .btn {
+                height: 60px;
+                font-size: 20px;
+            }
+        }
+    }
+}
+
+@media (max-width: 400px) {
+    .login_wrap_sm {
+        form {
+            input {
+                width: 200px;
+                height: 35px;
+            }
         }
     }
 }

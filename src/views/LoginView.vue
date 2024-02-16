@@ -82,11 +82,16 @@
         <div class="login_logo"><img src="../assets/image/login/logo.png" alt=""></div>
         <form action="">
         <div class="login_logo"><img src="" alt=""></div>
-        <p>帳號</p>
-        <input type="text">
-        <p>密碼</p>
-        <input type="password">
+        <div class="login_email">
+            <p>帳號</p>
+            <input type="email">
+        </div>
+        <div class="login_psw">
+            <p>密碼</p>
+            <input type="password">
+        </div>
         <router-link to="/signupform">尚未加入會員?</router-link>
+        <router-link to="/forgotpsw">忘記密碼?</router-link>
         <button type="button" class="btn">登入 ➜</button>
         </form>
     </div>
@@ -94,6 +99,7 @@
 <script>
 import { addlistener } from '@/stores/datacheck.js';
 import Cookies from 'js-cookie';
+import { ref } from 'vue';
 export default {
     name: 'login',
     data: () => {
@@ -102,16 +108,6 @@ export default {
             member: {
                 mail: 'youth@party',
                 psw: 'youthparty',
-            },
-            register: {
-                name: '',
-                date: '',
-                email: '',
-                phone: '',
-                id: '',
-                psw: '',
-                check_psw: '',
-                read: '',
             },
             login: {
                 email: '',
@@ -142,13 +138,11 @@ export default {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(form.value)
+            body: JSON.stringify(register.value)
             });
             if (!response.ok) throw new Error('Network response was not ok');
-            // 处理你的响应
             console.log('Success:', response);
         } catch (error) {
-            // 处理错误情况
             console.error('Error:', error);
         }
         };

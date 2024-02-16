@@ -15,7 +15,7 @@
                     </div>
                     <div class="vali_code">
                         <div class="captcha"><img :src="captchaImage" alt="captcha" @click="refreshCaptcha"></div>
-                        <button>重新發送</button>
+                        <button type="button" @click="refreshCaptcha">重新發送</button>
                     </div>
                 </div>
             </div>
