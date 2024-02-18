@@ -10,7 +10,7 @@
                 <div class="cart-info">
                     <div class="cart-text">
                         <p>{{ item.product_name }}</p>
-                        <span>NT{{ item.price }}</span>
+                        <span>NT{{ item.quantity * item.price }}</span>
                     </div>
                     <div class="quality-trashcan">
                         <div id="num">
@@ -32,6 +32,7 @@
     </div>
 </template>    
 <script>
+import axios from 'axios';
 import { RouterLink } from 'vue-router';
 // import { show_product, deleteProduct, usecartListStore, changeqty } from '@/stores/cart.js';
 import { show_product, changeqty } from '@/stores/cart.js';
@@ -50,9 +51,9 @@ export default {
         PayButton,
     },
     created() {
-
         [this.cartList, this.cart_total] = show_product();
         window.addEventListener('storage', this.changecartshow);
+
     },
     methods: {
         changeqty,
@@ -71,6 +72,8 @@ export default {
             }
             return url;
         },
+
+
         //購物車下拉
         // closeDropDown() {
         //     this.closeDropDown = false;
@@ -79,6 +82,7 @@ export default {
         // },
         mounted() {
             [this.cartList, this.cart_total] = show_product();
+            console.log(show_product());
         },
         destroyed() {
             window.removeEventListener('storage', this.changecartshow);

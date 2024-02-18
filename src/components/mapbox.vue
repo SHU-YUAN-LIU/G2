@@ -20,7 +20,7 @@ export default {
             this.map.flyTo({
                 center: [123, 24],
                 zoom: 6.9,
-                speed: 0.3,
+                speed: 0.9,
             });
 
         });
