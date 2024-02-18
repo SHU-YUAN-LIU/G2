@@ -39,10 +39,13 @@
       </div>
     </div>
   </div>
+  <Background_green :height="100" />
+
 </template>
 <script>
 import breadCrumbs from '../components/Bread.vue';
 import { RouterLink } from 'vue-router';
+import Background_green from "@/components/Background_green.vue";
 
 export default {
   data() {
@@ -104,6 +107,7 @@ export default {
   },
   components: {
     breadCrumbs,
+    Background_green,
   },
   computed: {
     
