@@ -1,14 +1,19 @@
-import { products } from '@/assets/local_json/product_data.json';
+// import { products } from '@/assets/local_json/product_data.json';
 // import { defineStore } from "pinia";
 
 
+
 export function show_product() {
+
+    //取得商品頁面存入localstorage的物件
+    const allProducts = JSON.parse(localStorage.getItem('allProducts'));
+   
+
     //因為畫面處理用陣列去顯示資料,所以這邊用陣列
     let arrayOfObjects = [];
     let sumobject = [];
     var totalprice = 0;
     var totallist = 0;
-
     //確保函數執行時localstorage必定有這個陣列
     if (!localStorage.getItem('cart')) {
         localStorage.setItem('cart', JSON.stringify([]));
@@ -25,7 +30,7 @@ export function show_product() {
     cart.forEach(element => {
         // 使用 find 方法用cart的每個productId 去 products json 尋找符合特定 product_no 的商品
         //shownum類似元件概念
-        var shownum = products.find(item => item.product_no == element.productId);
+        var shownum = allProducts.find(item => item.product_no == element.product_no);
         if (shownum) {
             arrayOfObjects.push({
                 product_no: shownum.product_no,
@@ -53,7 +58,6 @@ export function show_product() {
 export function changeqty(event, id, qty) {
     event.preventDefault();// 阻止默認行為，例如超連結
     // alert(id + ' ' + qty);(測試用)
-
     //確保函數執行時localstorage必定有這個陣列
     if (!localStorage.getItem('cart')) {
         localStorage.setItem('cart', JSON.stringify([]));
@@ -64,9 +68,9 @@ export function changeqty(event, id, qty) {
 
     // 將 cart 的 JSON 字串轉換為 JavaScript 陣列
     var cart = JSON.parse(cartJSON);
-
-    // 使用 find 方法尋找符合特定 productId 的商品(判斷原本就在購物車還是新增的商品)
-    var checkproduct = cart.find(item => item.productId == id);
+console.log(cart);
+    // 使用 find 方法尋找符合特定 product_no 的商品(判斷原本就在購物車還是新增的商品)
+    var checkproduct = cart.find(item => item.product_no == id);
 
     // 如果找到了，checkproduct 將是找到的商品，否則為 undefined
     if (checkproduct) {
@@ -80,13 +84,13 @@ export function changeqty(event, id, qty) {
             cart.splice(removeindex, 1);
         }
     } else if (qty > 0) {
-        cart.push({ productId: id, quantity: qty });
+        cart.push({ product_no: id, quantity: qty });//?
     }
 
 
     cart.sort((a, b) => {
         // 讓商品按照順序排列
-        return a.productId - b.productId;
+        return a.product_no - b.product_no;
     });
 
     // 將修改後的 cart 陣列轉換回 JSON 字串

@@ -22,8 +22,8 @@
         <div class="product">
             <div class="pro_card_group">
                 <div class="card_group">
-                    <div v-for="(item, index) in allProducts">
-                        <ProCard :imgSrc="defaultSrc + item.product_pic1" :name="item.product_name" :price="item.price"
+                    <div v-for="(item, index) in allProducts" :key="index">
+                        <ProCard :imgSrc="getproductpic(item.product_pic1)" :name="item.product_name" :price="item.price"
                             :num="index" :id="item.product_no" />
                     </div>
                 </div>
@@ -57,7 +57,7 @@ export default {
         return {
             bannerTitle: '官方商城',
             bannerPic: `${import.meta.env.VITE_RESOURCE_URL}/image/product/product_banner.png`,
-            defaultSrc: `${import.meta.env.VITE_RESOURCE_URL}/image/product/product_data/`,
+            // defaultSrc: `${import.meta.env.VITE_RESOURCE_URL}/image/product/product_data/`,
             search: '',
             product_class_group: [],// 存儲從資料庫獲取的產品分類資料
             category: [],//儲存商品的分類編號
@@ -110,7 +110,11 @@ export default {
                     // 從回應中取得資料 response.data.products，並將其傳遞給 showProducts()
                     const products = response.data.products;
                     this.showProducts(products);
-                    console.log(response.data)
+
+                    //把從資料庫撈到的資料存到localstorage裡
+                    //轉為字串(localStorage只能存字串,不能存陣列)
+                    localStorage.setItem('allProducts', JSON.stringify(this.allProducts));
+
                 })
                 .catch(error => {
                     console.log(error);
@@ -120,6 +124,12 @@ export default {
             console.log(products);
             this.allProducts = products;
         },
+
+        //取商品網址
+        getproductpic(src) {
+            return `${import.meta.env.VITE_RESOURCE_URL}image/product/product_data/` + src;
+        },
+
 
         //商品"分類"串聯資料庫
         getProductClass() {
