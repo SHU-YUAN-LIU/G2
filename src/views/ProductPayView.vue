@@ -61,8 +61,6 @@
             <div class="pay-title-group">
                 <div class="title-num">2</div>
                 <span>會員資料</span>
-                <input type="checkbox" name="approval">
-                以下自動帶入會員資料
             </div>
         </div>
         <div class="mem-info">
@@ -89,8 +87,8 @@
             <div class="pay-title-group">
                 <div class="title-num">3</div>
                 <span>收件人資料</span>
-                <input type="checkbox" name="approval">
-                同會員資料
+                <input type="checkbox" id="same-member-info">
+                <label for="same-member-info">同會員資料</label>
             </div>
         </div>
         <div class="mem-info">
