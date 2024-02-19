@@ -34,7 +34,7 @@
                     <!-- <Pagination /> -->
                 </div>
             </div>
-            <Background_green :height="'200'" />
+            <Background_green :height="'100'" />
         </div>
     </div>
 </template>
@@ -125,11 +125,6 @@ export default {
                     console.log(error);
                 });
         },
-        // showProducts(products) {
-        //     console.log(products);
-            
-        //     console.log(this.filteredProducts);
-        // },
 
         //取商品網址
         getproductpic(src) {
