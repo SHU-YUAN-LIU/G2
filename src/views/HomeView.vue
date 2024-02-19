@@ -93,24 +93,24 @@
                 <div class="col col-12 index_news_title">假消息澄清</div>
                 <a class="col col-4 index_news_card" href="#">
                     <div>
-                        <img :src="getImageUrl(news_card[0].news_img)">
+                        <img :src="getImageUrl(clarifications[0].news_img)">
                     </div>
                     <div class="index_news_card_text">
-                        <span>{{ news_card[0].date_time }}</span>
-                        <p class="index_news_card_header">{{ news_card[0].news_title }}</p>
-                        <p>{{ news_card[0].news_script }}</p>
+                        <span>{{ clarifications[0].date_time }}</span>
+                        <p class="index_news_card_header">{{ clarifications[0].news_title }}</p>
+                        <p>{{ clarifications[0].news_script }}</p>
                     </div>
                 </a>
                 <div class="row col col-6 news_index_inner_flex">
-                    <a v-for="(item, index) in get_for_range(news_card, 1, 2)" :key="index" class="col index_news_card"
+                    <a v-for="(clarification, index) in get_for_range(clarifications, 1, 2)" :key="index" class="col index_news_card"
                         href="#">
                         <div>
-                            <img :src="getImageUrl(item.news_img)">
+                            <img :src="getImageUrl(clarification.news_img)">
                         </div>
                         <div class="index_news_card_text">
-                            <span>{{ item.date_time }}</span>
-                            <p class="index_news_card_header">{{ item.news_title }}</p>
-                            <p>{{ item.news_script }}</p>
+                            <span>{{ clarification.date_time }}</span>
+                            <p class="index_news_card_header">{{ clarification.news_title }}</p>
+                            <p>{{ clarification.news_script }}</p>
                         </div>
                     </a>
                 </div>
@@ -164,36 +164,57 @@ export default {
             bannerList: [
                 'home/banner_1.png',
                 'home/banner_2.png',
+                'home/banner_3.png',
                 'home/banner_1.png',
                 'home/banner_2.png',
-                'home/banner_1.png',
-                'home/banner_2.png',
+                'home/banner_3.png',
             ],
             donateList: [
                 'home/donate_icon_1.png',
                 'home/donate_icon_2.png',
                 'home/donate_icon_3.png',
             ],
+            clarifications: [{
+                id: 1,
+                news_img: "home/index_clarify_pic1.png",
+                date_time: "2023/12/25",
+                news_title: "青年進補黨未支持極端主張",
+                news_script: "近日有關本黨支持極端主張的消息是不實的。本黨一向秉持中庸立場，主張理性政治，並未贊同任何極端觀點。請大眾擇善信訊，不受不實訊息影響。"
+            },
+            {
+                id: 2,
+                news_img: "home/index_clarify_pic2.png",
+                date_time: "2023/12/25",
+                news_title: "青年進補黨未涉及不當金錢交易",
+                news_script: "關於本黨涉及不當金錢交易的謠言純屬虛構。本黨一向遵守法律規定，未參與任何不正當的金錢往來。請大眾保持理性思考，勿輕信未經證實的謠言。"
+            },
+            {
+                id: 3,
+                news_img: "home/index_clarify_pic3.png",
+                date_time: "2023/12/25",
+                news_title: "青年進補黨發表攻擊性言論之指控不實",
+                news_script: "近期有指本黨發表攻擊性言論的指控純屬失實。本黨一直倡導理性辯論，絕非以攻擊性言論為手段。請大眾慎重對待言論，保持公正評價。"
+            }],
             news_card: [{
                 id: 1,
                 news_img: "home/index_news_pic1.png",
-                date_time: "2023/12/25",
-                news_title: "這是一場改變政治文化的社會運動",
-                news_script: "這是一場改變政治文化的社會運動，投給劉緯育，投給自己的未來。躊灣資蚤萌我取要天，枯思揀傳之破裡知？書也等起論都風、看珊妻欒外龍若停"
+                date_time: "2024/3/8",
+                news_title: "民眾參與決定未來",
+                news_script: "2024年3月8日，一場關鍵的投票活動如火如荼地進行。民眾積極行使選舉權，投票所內洋溢著民主的熱情。與此同時，政黨領袖在不同場合發表演說，強調合理討論與政策的重要性。本黨堅持中立、理性的政治立場，期望為國家的明天畫上正義與希望的一筆。"
             },
             {
                 id: 2,
                 news_img: "home/index_news_pic2.png",
                 date_time: "2023/12/25",
-                news_title: "這是一場改變政治文化的社會運動",
-                news_script: "這是一場改變政治文化的社會運動，投給劉緯育，投給自己的未來。躊灣資蚤萌我取要天，枯思揀傳之破裡知？書也等起論都風、看珊妻欒外龍若停衣不凰性燈啡。瑛感今我您給不空風樣。作，鳩體能、具的矜手描"
+                news_title: "青年進補黨領袖擘畫未來藍圖",
+                news_script: "青年進補黨領袖在國旗映襯下發表了振奮人心的演講，承諾將進行重要的政治改革。面對眾多關注的目光，他強調政策的透明度和公正性，呼籲公眾不應輕信未經證實的指控。每個字眼都體現了本黨秉持中立和理性的核心價值，展現出對國家未來的堅定信念和清晰方向。"
             },
             {
                 id: 3,
                 news_img: "home/index_news_pic3.png",
                 date_time: "2023/12/25",
-                news_title: "這是一場改變政治文化的社會運動",
-                news_script: "這是一場改變政治文化的社會運動，投給劉緯育，投給自己的未來。躊灣資蚤萌我取要天，枯思揀傳之破裡知？書也等起論都風、看珊妻欒外龍若停衣不凰性燈啡。瑛感今我您給不空風樣。作，鳩體能、具的矜手描"
+                news_title: "群眾聚焦青年進補黨的願景",
+                news_script: "本黨領袖在晨光中對著龐大的人群發表演說，他的言論充滿了對國家未來的希望與決心，並呼籲群眾團結一致，共同努力實現共同的目標。在這關鍵時刻，本黨展現了連結民心的能力，以及推動社會進步和積極變革的承諾。"
             }],
         }
     },

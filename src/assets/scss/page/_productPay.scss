@@ -1,10 +1,9 @@
-.pay-wrap{
-    position: relative;
-}
-.pay-content {
+.pay-wrap {
     width: 1200px;
     margin: auto;
     margin-top: 150px;
+    position: relative;
+
 
     @media screen and (max-width:768px) {
         width: initial;
