@@ -1,5 +1,6 @@
 <template>
   <div class="con_wrap">
+
     <div class="contect">
       <!-- banner -->
       <banner :bannerTitle="bannerTitle" :bannerPic="bannerPic" />
@@ -58,8 +59,9 @@
       <successPop ref="successPop" />
 
     </div>
+    <Background_green :height="300" />
   </div>
-  <Background_green :height="100" />
+  
 </template>
 
 

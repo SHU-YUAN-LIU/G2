@@ -1,15 +1,17 @@
 <template>
-    <div class="header"></div>
-    <!-- banner -->
-    <banner :bannerTitle="bannerTitle" :bannerPic="bannerPic" />
-    <!-- 麵包屑 -->
-    <Bread :page="pro" />
+    <div class="product">
+        <div class="header"></div>
+        <!-- banner -->
+        <banner :bannerTitle="bannerTitle" :bannerPic="bannerPic" />
+        <!-- 麵包屑 -->
+        <Bread :page="pro" />
 
+<<<<<<< HEAD
     <div class="pro_wrap">
         <div class="pro-top">
             <!-- 分類篩選 -->
             <select v-model="currentCategory" @change="changeDis" class="pro-class">
-                <option selected value="全部商品">全部商品</option>
+                <option value="全部商品">全部商品</option>
                 <option v-for="types in product_class_group" :value="types.product_class_no">{{ types.product_class }}
                 </option>
             </select>
@@ -22,19 +24,43 @@
         <div class="product">
             <div class="pro_card_group">
                 <div class="card_group">
-                    <div v-for="(item, index) in allProducts" :key="index">
+                    <div v-for="(item, index) in filteredProducts" :key="index">
                         <ProCard :imgSrc="getproductpic(item.product_pic1)" :name="item.product_name" :price="item.price"
                             :num="index" :id="item.product_no" />
+=======
+        <div class="pro_wrap">
+            <div class="pro-top">
+                <!-- 分類篩選 -->
+                <select v-model="currentCategory" @change="changeDis" class="pro-class">
+                    <option selected value="全部商品">全部商品</option>
+                    <option v-for="types in product_class_group" :value="types.product_class_no">{{ types.product_class }}
+                    </option>
+                </select>
+                <!-- 關鍵字篩選 -->
+                <input type="text" width="100px" placeholder="搜尋關鍵字" v-model.trim="search" @input="changeDis">
+                <input type="number" width="100px" v-model="min" @input="changeDis">
+                <input type="number" width="100px" v-model="max" @input="changeDis">
+            </div>
+            <!-- 商品卡片 -->
+            <div class="product">
+                <div class="pro_card_group">
+                    <div class="card_group">
+                        <div v-for="(item, index) in allProducts">
+                            <ProCard :imgSrc="defaultSrc + item.product_pic1" :name="item.product_name" :price="item.price"
+                                :num="index" :id="item.product_no" />
+                        </div>
+>>>>>>> 32
                     </div>
                 </div>
             </div>
+            <!-- 分頁 -->
+            <div>
+                <!-- <Pagination /> -->
+            </div>
         </div>
-        <!-- 分頁 -->
-        <div>
-            <!-- <Pagination /> -->
-        </div>
+        <Background_green :height="200" />
     </div>
-    <Background_green :height="100" />
+    
 </template>
   
 <script>
@@ -87,7 +113,7 @@ export default {
             });
 
             // 將篩選結果賦值給 allProducts
-            this.allProducts = this.filteredProducts;
+            // this.allProducts = this.filteredProducts;
             // this.allProducts = this.allProducts.filter((item) => {
             //     return item.product_name.includes(this.search) && item.price > this.min && item.price < this.max && (item.product_class_no == this.currentCategory || this.currentCategory == "全部商品");
             // })
@@ -123,6 +149,8 @@ export default {
         showProducts(products) {
             console.log(products);
             this.allProducts = products;
+            this.filteredProducts = products;
+            console.log(this.filteredProducts);
         },
 
         //取商品網址
@@ -138,6 +166,7 @@ export default {
 
                     const productClass = response.data.productClass;
                     this.product_class_group = productClass;
+                    console.log(this.product_class_group);
                 })
                 .catch(error => {
                     console.log(error);

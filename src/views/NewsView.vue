@@ -38,6 +38,7 @@
         </router-link>
       </div>
     </div>
+    <background :height="300" />
   </div>
   <Background_green :height="100" />
 
@@ -45,7 +46,11 @@
 <script>
 import breadCrumbs from '../components/Bread.vue';
 import { RouterLink } from 'vue-router';
+<<<<<<< HEAD
 import Background_green from "@/components/Background_green.vue";
+=======
+import background from '../components/Background_green.vue';
+>>>>>>> 32
 
 export default {
   data() {
@@ -107,10 +112,14 @@ export default {
   },
   components: {
     breadCrumbs,
+<<<<<<< HEAD
     Background_green,
+=======
+    background,
+>>>>>>> 32
   },
   computed: {
-    
+    // 動態屬性
     filteredNewsCard() {
       let filteredNews = this.newsCard;
 

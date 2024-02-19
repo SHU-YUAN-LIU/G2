@@ -1,3 +1,6 @@
+.con_wrap{
+    position: relative;
+}
 .contect {
     margin-top: 85px;
 }
@@ -7,6 +10,7 @@
     max-width: 1000px;
     margin: auto;
     position: relative;
+    padding-bottom: 60px;
 
     @media screen and (max-width:414px) {
         max-width: 280px;
@@ -18,7 +22,7 @@
         font-weight: initial;
         letter-spacing: 10px;
         margin-top: 80px;
-        margin-bottom: 80px;
+        margin-bottom: 60px;
         text-align: center;
 
         @media screen and (max-width:414px) {
@@ -33,7 +37,7 @@
         display: flex;
         justify-content: space-evenly;
         position: relative;
-        margin-bottom: 100px;
+        margin-bottom: 60px;
 
         @media screen and (max-width:414px) {
             margin-bottom: 40px;
@@ -97,7 +101,7 @@
         background-color: $white;
         border-radius: $border-radius-1 ;
         padding: 60px 80px;
-        margin: 100px;
+        margin: 60px;
 
         @media screen and (max-width:414px) {
             margin: 0px;
@@ -136,7 +140,7 @@
         background-color: $white;
         border-radius: $border-radius-1 ;
         padding: 60px 80px;
-        margin: 100px;
+        margin: 60px;
 
         @media screen and (max-width:414px) {
             margin: 0px;
