@@ -34,7 +34,7 @@
                     <!-- <Pagination /> -->
                 </div>
             </div>
-            <Background_green :height="'100'" />
+            <Background_green :height="'200'" />
         </div>
     </div>
 </template>
@@ -125,6 +125,7 @@ export default {
                     console.log(error);
                 });
         },
+
 
         //取商品網址
         getproductpic(src) {
