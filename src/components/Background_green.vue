@@ -8,9 +8,9 @@
 
 <style scoped>
 .background {
-    position: relative;
-    bottom: 0;
-    z-index: 0;
+    position: absolute;
+    bottom: 0px;
+    z-index: -1;
 }
 
 .triangle {

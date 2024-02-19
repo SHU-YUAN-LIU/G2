@@ -42,6 +42,7 @@
         </div>
       </div>
     </div>
+    <background :height="300" />
   </div>
 
   <!-- 分隔線 -->
@@ -51,10 +52,12 @@
 <script>
 import Bread from '../components/Bread.vue'
 import OrganizationLightbox from "../components/OrganizationLightbox.vue";
+import background from '../components/Background_green.vue';
 export default {
   components: {
     Bread,
     OrganizationLightbox,
+    background,
   },
   data() {
     return {

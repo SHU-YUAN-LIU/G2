@@ -82,8 +82,6 @@
               <img src="@/assets/image/about/small_image_8.svg" alt="small_image_8" @click="showContent(8)" />
             </div>
           </div>
-
-
         </div>
         <div class="Value-column">
           <div class="Value-description">
@@ -98,9 +96,10 @@
         </div>
       </section>
     </div>
+    <!-- <Background_green :height="100" /> -->
   </div>
 
-  <Background_green :height="100" />
+ 
   <!-- 分隔線 -->
   <!-- <div class="IamSpace" style="display: block; width: 100%; height: 1200px;"></div> -->
 </template>

@@ -1,23 +1,25 @@
 <template>
-    <!-- banner -->
-    <!-- 解析度有點低要換 -->
-    <banner :bannerTitle="bannerTitle" :bannerPic="bannerPic" />
-    <!-- 麵包屑 -->
-    <Bread :page="text" />
-    <div class="contect_search">
-        <div class="searchInput">
-            <label for="">請輸入案件編號</label>
-            <input type="text">
+    <div class="contact_search_container">
+        <!-- banner -->
+        <!-- 解析度有點低要換 -->
+        <banner :bannerTitle="bannerTitle" :bannerPic="bannerPic" />
+        <!-- 麵包屑 -->
+        <Bread :page="text" />
+        <div class="contect_search">
+            <div class="searchInput">
+                <label for="">請輸入案件編號</label>
+                <input type="text">
+            </div>
+            <div class="searchInput">
+                <label for="">電子信箱</label>
+                <input type="text" placeholder="請輸入您的電子信箱">
+            </div>
+            <router-link :to="{ path: '/contact_searchFinal' }">
+                <commitButton :commitButton="check" />
+            </router-link>
         </div>
-        <div class="searchInput">
-            <label for="">電子信箱</label>
-            <input type="text" placeholder="請輸入您的電子信箱">
-        </div>
-        <router-link :to="{ path: '/contact_searchFinal' }">
-            <commitButton :commitButton="check" />
-        </router-link>
+        <Background_green :height="100" />
     </div>
-    <Background_green :height="100" />
 </template>
 
 

@@ -1,4 +1,5 @@
 div.donate {
+  position: relative;
   .donate_banner {
     position: relative;
     display: flex;
@@ -25,7 +26,6 @@ div.donate {
     height: 1100px;
     display: flex;
     position: relative;
-    margin: 100px 0;
 
     // 背景圖片設定
     img.icon {
@@ -79,6 +79,7 @@ div.donate {
         border: 3px solid $orange;
         display: flex;
         flex-direction: column;
+        background: $white;
 
         // 卡片1上半
         .donate_card1_top {
@@ -87,7 +88,8 @@ div.donate {
           flex-direction: column;
           justify-content: center;
           align-items: center;
-          height: 530px;
+          height: 70%;
+          overflow: hidden;
 
           .donate_card1_top>img {
             width: 100px;
@@ -101,10 +103,13 @@ div.donate {
 
         // 卡片1下半
         .donate_card1_bottom {
-          background: $white;
           display: flex;
           align-items: center;
-          height: 100px;
+          justify-content: center;
+          height: 30%;
+          button{
+            margin: 0;
+          }
         }
       }
 
