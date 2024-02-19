@@ -31,15 +31,22 @@
         <div class="home_container">
             <div class="row index_news_flex">
                 <div class="col col-12 index_news_title">政策懶人包</div>
+                <div class="policy">
+                    <h3 v-for="policy in policies">
+                        <span>{{ policy.title }}</span>
+                        <span>改革</span>
+                        <span>
+                            <img :src="getImageUrl(policy.img)" alt="">
+                        </span>
+                    </h3>
+                </div>
             </div>
         </div>
-        <bookmark />
         <div class="home_line_button">
             <div class="home_line"></div>
-            <CommitButton class="homebutton dog" commitButton="立即前往">
-                <router-link to="/news">
+                <router-link to="/election">
+                    <CommitButton class="homebutton dog" commitButton="立即前往"></CommitButton>
                 </router-link>
-            </CommitButton>
         </div>
         <!-- 消息-->
         <div class="index_news_bg">
@@ -111,10 +118,9 @@
         </div>
         <div class="home_line_button">
             <div class="home_line"></div>
-            <CommitButton class="homebutton dog" commitButton="立即前往">
                 <router-link to="/news">
+                    <CommitButton class="homebutton dog" commitButton="立即前往"></CommitButton>
                 </router-link>
-            </CommitButton>
         </div>
         <!-- 捐款 -->
         <div class="donate_container">
@@ -132,10 +138,9 @@
         </div>
         <div class="home_line_button ">
             <div class="home_line donate_line"></div>
-            <CommitButton class="homebutton dog" commitButton="立即前往">
-                <router-link to="/news">
+                <router-link to="/donate">
+                    <CommitButton class="homebutton dog" commitButton="立即前往"></CommitButton>
                 </router-link>
-            </CommitButton>
         </div>
     </div>
 </template>
@@ -149,6 +154,11 @@ import Background_green from "@/components/Background_green.vue";
 export default {
     data() {
         return {
+            policies:[
+                {title: '房屋', img:'home/icon_house.png'},
+                {title: '經濟', img:'home/icon_money.png'},
+                {title: '政策', img:'home/icon_taiwan.png'}
+            ],
             currentBanner: 0,
             slogan: '這是一場改變政治文化的社會運動，投給劉緯育，投給自己的未來。',
             bannerList: [
@@ -273,16 +283,11 @@ export default {
 
 .body {
     background: linear-gradient(-10deg, #D4FF1F 0% 25%, rgba(255, 255, 255, 0) 25% 100%);
-    // height: 1000px;
-    // z-index:-1000;
-    // // position: absolute;
-    // margin-top: 40px;
 }
 
 .donate_container {
     width: 100%;
-    height: 800px;
-    padding-top: 280px;
+    margin-top: 100px;
     position: relative;
     border-radius: $border-radius-1;
 
@@ -292,14 +297,14 @@ export default {
 }
 
 .donate_container h2 {
-    font-size: 65px;
+    @include title_2;
     height: 100px;
     text-align: center;
+    position: relative;
 
     @media screen and (max-width: 414px) {
         @include title_3;
         margin-top: 20px;
-
     }
 
 }
@@ -308,8 +313,9 @@ export default {
     font-size: 24px;
     width: 600px;
     margin: auto;
-    line-height: 50px;
-
+    line-height: 40px;
+    padding: 0px 40px;
+    text-align: justify;
     @media screen and (max-width: 786px) {
         line-height: 45px;
     }
@@ -317,7 +323,6 @@ export default {
 
 
 .donate_content {
-    width: 1200px;
     height: 300px;
     background-color: $white;
     margin: auto;
@@ -342,18 +347,22 @@ export default {
     }
 }
 
+.donate_container>div>div{
+    width: 1020px;
+    // 元素前後順序: 有定位 > 沒定位, 如果取消相對定位, container會被背景圖案蓋住
+    position: relative;
+}
 
 .donate_container>img {
     position: absolute;
 }
 
 .donate_container>img:nth-child(1) {
-    top: 60px;
-    left: 0;
-    right: 0;
+    bottom: 20px;
+    right: 20px;
     margin: auto;
-    width: 200px;
-    height: 200px;
+    width: 100px;
+    height: 100px;
 
     @media screen and (max-width: 768px) {
         top: -2px;
@@ -361,11 +370,10 @@ export default {
 }
 
 .donate_container>img:nth-child(2) {
-    right: 0;
-    bottom: 60px;
-    margin: auto;
-    width: 220px;
-    height: 220px;
+    right: 70px;
+    top: -100px;
+    width: 180px;
+    height: 180px;
 
     @media screen and (max-width: 769px) {
         display: none;
@@ -373,17 +381,16 @@ export default {
 }
 
 .donate_container>img:nth-child(3) {
-    left: -70px;
-    top: 0;
-    bottom: 0;
-    margin: auto;
-    width: 250px;
-    height: 250px;
+    left: -30px;
+    top: 30px;
+    width: 200px;
+    height: 200px;
 
     @media screen and (max-width: 769px) {
         display: none;
     }
 }
+
 
 .commit_btn {
     margin: initial;

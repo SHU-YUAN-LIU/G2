@@ -1,10 +1,15 @@
+.product{
+    position: relative;
+    padding-bottom: 60px;
+}
 .pro_wrap {
     max-width: 1200px;
     margin: auto;
+    position: relative;
 
     //篩選器
     .pro-top {
-        margin: 95px 0;
+        margin: 60px 0;
         display: flex;
         justify-content: center;
         align-items: flex-start;

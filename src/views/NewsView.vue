@@ -38,11 +38,13 @@
         </router-link>
       </div>
     </div>
+    <background :height="300" />
   </div>
 </template>
 <script>
 import breadCrumbs from '../components/Bread.vue';
 import { RouterLink } from 'vue-router';
+import background from '../components/Background_green.vue';
 
 export default {
   data() {
@@ -104,9 +106,10 @@ export default {
   },
   components: {
     breadCrumbs,
+    background,
   },
   computed: {
-    
+    // 動態屬性
     filteredNewsCard() {
       let filteredNews = this.newsCard;
 

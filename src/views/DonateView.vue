@@ -8,7 +8,6 @@
     <breadCrumbs :page="currentPage" />
 
     <div class="donate_main">
-      <img v-for="list in imgList" :src="getImageUrl(list)" alt="" class="icon">
       <div class="donate_cards">
         <div class="donate_card1">
           <div class="donate_card1_top">
@@ -45,28 +44,27 @@
         </div>
       </div>
     </div>
+    <background :height="300" />
   </div>
+
 </template>
 <script>
 import DonateLightbox from '../components/DonateLightbox.vue';
 import commitButton from '../components/button/commitButton.vue'
 import breadCrumbs from '../components/Bread.vue';
 import { RouterLink } from 'vue-router';
+import background from '../components/Background_green.vue';
 
 export default {
   components: {
     DonateLightbox,
     commitButton,
     breadCrumbs,
+    background,
   },
   data() {
     return {
       commit: "我要捐款",
-      imgList: [
-        'donate/donate_bgi_1.png',
-        'donate/donate_bgi_2.png',
-        'donate/donate_bgi_3.png'
-      ],
       donateInfo: [
         { type: "銀行臨櫃捐款/戶名", details: "青年進補黨政治獻金專戶" },
         { type: "金融機構代碼", details: "578" },

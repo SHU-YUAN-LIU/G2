@@ -39,8 +39,33 @@ export default {
             this.$emit('showLocationInfo', { name });
         });
 
+        this.map.on('click', (e) => {
+            const coordinates = e.lngLat.toArray();
+            const name = `New Pin at ${coordinates[0]}, ${coordinates[1]}`;
 
-    }
+            // 動態添加新的 Pin
+            this.addPin(coordinates, name);
+
+            // 創建一個 Popup
+            new mapboxgl.Popup()
+                .setLngLat(coordinates)
+                .setHTML(`<h2>${name}</h2>`)
+                .addTo(this.map);
+
+            this.$emit('showLocationInfo', { name });
+        });
+
+
+    },
+    methods: {
+        addPin(coordinates, name) {
+            // 在地圖上動態添加新的 Pin
+            new mapboxgl.Marker()
+                .setLngLat(coordinates)
+                .setPopup(new mapboxgl.Popup().setHTML(`<h2>${name}</h2>`))
+                .addTo(this.map);
+        },
+    },
 }
 </script>
   
