@@ -58,7 +58,7 @@
                 </div>
                 <button class="btn" @onclick="sendRegisterForm">送出 ➜</button>
             </form>
-            <form ref="login" action="" class="login" id="loginform" >
+            <form ref="login"  method="POST" action="" class="login" id="loginform" >
                 <div class="profile">
                     <img src="/image/login/user-solid.svg" alt="">
                 </div>
@@ -71,7 +71,7 @@
                     <input type="password" name="psw" id="psw2" placeholder="請輸入您的密碼" v-model="login.psw">
                 </div>
                 <router-link to="/forgotpsw">忘記密碼?</router-link>
-                <button class="btn" @click="handleLogin">登入 ➜</button>
+                <button class="btn" @click="memberLogin" type="button">登入 ➜</button>
                 <!-- <button class="btn" @click="handleLogin();checkmemdata()"><router-link to="/member">登入 ➜</router-link></button> -->
                 <!-- <button type="reset" @click="removeCookie">clear</button> -->
             </form>
@@ -92,7 +92,7 @@
         </div>
         <router-link to="/signupform">尚未加入會員?</router-link>
         <router-link to="/forgotpsw">忘記密碼?</router-link>
-        <button type="button" class="btn">登入 ➜</button>
+        <button type="button" class="btn" @click="memberLogin">登入 ➜</button>
         </form>
     </div>
 </template>
@@ -100,14 +100,17 @@
 import { addlistener } from '@/stores/datacheck.js';
 import Cookies from 'js-cookie';
 import { ref } from 'vue';
+import axios from 'axios';
 export default {
     name: 'login',
     data: () => {
         return {
             registerBtn: false,
             member: {
-                mail: 'youth@party',
-                psw: 'youthparty',
+                // email: 'youth@party',
+                // psw: 'youthparty',
+                email: '',
+                psw: '',
             },
             login: {
                 email: '',
@@ -171,43 +174,38 @@ export default {
                 event.preventDefault();
             }
         },
-        handleLogin(){
-            let loginEmail = this.login.email;
-            let loginPsw = this.login.psw;
+        memberLogin(){
+            var formData = new FormData();
+            formData.append('account',this.login.email);
+            formData.append('psw',this.login.psw);
 
-            if (loginEmail === '' || loginPsw === '') {
-                alert('帳號及密碼不能為空');
-                return; // 不發送請求，直接返回
-            }
-
-            fetch('https://fakestoreapi.com/auth/login',{  ///////////套用API
-                method:'POST',
-                headers: new Headers({
-                    "Content-Type": "application/json",
-                }),
-                body:JSON.stringify({
-                    username: loginEmail,    //////////username跟password 是API裡面物件的 屬性?，我們是用email跟psw，所以如果到時候用我們的後台API可以改回email跟psw? 不知道會不會運作
-                    password: loginPsw
+            axios({
+                method:"post",
+                url:`${import.meta.env.VITE_PHP_URL}` + "/front_memberLogin.php",
+                data:formData,
+                headers: { "Content-Type": "multipart/form-data" },
+            })
+            .then(res => {
+                    console.log(res.data.member.length);
+                    // console.log(res.data.admin[0].status);
+                    if(res.data.member.length===0){
+                        alert("帳號密碼錯誤");
+                    }else if(res.data.member[0].status=="IA"){
+                        alert("帳戶已停用");
+                    }else{
+                        this.$router.push({ name: 'Home' });
+                        alert('登入成功');
+                    }
                 })
-            })
-            .then(res=>res.json())
-            .then(json=>{
-                if(json.token){
-                    localStorage.setItem('token', json.token)
-                    this.$router.push('/')
-                } else {
-                    alert('帳號或密碼錯誤');
-                }
-            })
             .catch(error => {
-                console.error('登入失敗', error);
+                console.error('Error fetching data:', error);
             });
         }
 	},
     created() {
         // const user = this.checkLogin()
         // addlistener();
-        console.log(this.login)
+        // console.log(this.login)
     },
     mounted() {
         document.title = '會員登入/註冊';
