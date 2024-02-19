@@ -202,6 +202,7 @@ export default {
                 const bannerShow = this.$refs.bannercontent.querySelector('.bannershow');
                 const translateX = -(this.currentBanner * 100);
                 bannerShow.style.transform = `translateX(${translateX}vw)`;
+    
             }
         },
         bannerStart() {
