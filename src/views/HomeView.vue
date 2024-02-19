@@ -154,10 +154,10 @@ export default {
             bannerList: [
                 'home/banner_1.png',
                 'home/banner_2.png',
+                'home/banner_3.png',
                 'home/banner_1.png',
                 'home/banner_2.png',
-                'home/banner_1.png',
-                'home/banner_2.png',
+                'home/banner_3.png',
             ],
             donateList: [
                 'home/donate_icon_1.png',
