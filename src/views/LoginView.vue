@@ -38,7 +38,8 @@
                 </div>
                 <div class="register_phone">
                     <p>手機<span>*</span><span id="phoneerror"></span></p>
-                    <input type="text" name="phone" id="phone" placeholder="請輸入您的手機號碼" maxlength="10" v-model="register.phone">
+                    <input type="text" name="phone" id="phone" placeholder="請輸入您的手機號碼" maxlength="10"
+                        v-model="register.phone">
                 </div>
                 <div class="register_id">
                     <p>身分證<span>*</span></p>
@@ -97,13 +98,19 @@
     </div>
 </template>
 <script>
+
+
+
 import { addlistener } from '@/stores/datacheck.js';
+import { useUserStore } from '@/stores/user'
 import Cookies from 'js-cookie';
 import { ref } from 'vue';
 import axios from 'axios';
 export default {
+
     name: 'login',
     data: () => {
+        
         return {
             registerBtn: false,
             member: {
@@ -116,48 +123,25 @@ export default {
                 email: '',
                 psw: '',
             },
+            register: {
+                name: '',
+                date: '',
+                email: '',
+                phone: '',
+                id: '',
+                psw: '',
+                check_psw: '',
+                read: '',
+            }
+
         }
     },
     components: {
         Cookies,
     },
 
-    setup() {
-        const register = ref({
-            name: '',
-            date: '',
-            email: '',
-            phone: '',
-            id: '',
-            psw: '',
-            check_psw: '',
-            read: '',
-        });
 
-        const submitForm = async () => {
-        try {
-            const response = await fetch('https://our-backend.com/register', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(register.value)
-            });
-            if (!response.ok) throw new Error('Network response was not ok');
-            console.log('Success:', response);
-        } catch (error) {
-            console.error('Error:', error);
-        }
-        };
-
-        return {
-            register,
-            submitForm
-        };
-    },
-
-
-
+    //資料驗證
     methods: {
         addlistener,
         checkmemdata(event) {
@@ -168,7 +152,7 @@ export default {
             if (mailinput == this.member.mail && pswinput == this.member.psw) {
                 alert("success")
                 event.preventDefault();
-                this.$router.push('/news')
+                this.$router.push('/')
             } else {
                 alert("fail")
                 event.preventDefault();
@@ -210,57 +194,11 @@ export default {
     mounted() {
         document.title = '會員登入/註冊';
         addlistener();
-
-        // this.login.email = "mor_2314";    ////////////套用的API裡面的帳號密碼
-        // this.login.psw = "83r5^_";
-        // this.handleLogin();
     },
-    
+
 }
 
 
-
-
-
-
-
-
-
-    //     handleLogin() { 
-    //         const token = 1;
-    //         let loginEmail = this.login.email;
-    //         let loginPsw = this.login.psw;
-    //         if(loginEmail !=='' && loginPsw !=='') {
-    //             // 模拟登录成功
-    //             if (loginEmail == 'user@gmail.com' && loginPsw == 'Ab12345' ) {
-    //                 // 登录成功，设置 token
-    //                 this.login.token = token;
-    //                 // 将登录信息存储在 cookie 中
-    //                 Cookies.set('loginCookies', JSON.stringify(this.login), { expires: 1 });
-    //                 console.log(this.login);
-    //                 // cookie 中有 token 时才进行路由跳转
-    //                 if (Cookies.get('loginCookies') && this.login.token) {
-    //                     this.$router.push({name: 'member'});
-    //                 }
-    //             } else {
-    //                 alert('帳號密碼錯誤');
-    //             }
-    //         } else {
-    //             alert('帳號密碼不能為空');
-    //         }
-    //         //將 this.login 轉換為 JSON 字符串，保存在名為 'loginCookies' 的 Cookie 中，設置 Cookie 的過期時間為 1 天。
-    //         Cookies.set('loginCookies', JSON.stringify(this.login), { expires: 1 })
-    //         console.log(this.login)
-
-    //         // cookie當中有token被設置才能改變路由
-    //         if (Cookies.get('loginCookies') && this.login.token) {
-    //         this.$router.push({name: 'member'})
-    //         }
-    //     },
-    //     removeCookie() {
-    //         Cookies.remove('loginCookies')
-    //     }
-    // },
 </script>
 <style scoped></style>
 
