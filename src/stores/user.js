@@ -1,33 +1,63 @@
-import { defineStore } from 'pinia'
-import axios from 'axios'
+// https://pinia.vuejs.org/core-concepts/state.html
+import { defineStore } from 'pinia';
 
-export const useUserStore = defineStore('user', {
+export const useUserStore = defineStore('userStore', {
+    // 對應 data
     state: () => ({
-        token: null,
-        userEmail: null,
+        token: '',   // 後端僅返回token(通行證/令牌)
+        userData: {} // 可以在login API中返回user資訊
     }),
+
+    // 對應 computed (物件形式)
+    getters: {
+    },
+
+    // 對應 methods (物件形式)
     actions: {
-        async login(email, psw) {
-            try {
-                const response = await axios.post(`${import.meta.env.VITE_PHP_URL}` + "/memberDataGetAll.php", { email, psw })
-                if (response.data.token) {
-                    this.token = response.data.token
-                    this.userEmail = email
-                    localStorage.setItem('token', response.data.token)
-                    // 路由跳轉或其他操作
-                } else {
-                    alert('登入失敗')
-                }
-            } catch (error) {
-                console.error('登入出錯', error)
-                alert('登入出錯')
+        updateToken (payload) {
+            if(payload){
+                this.token = payload
+                localStorage.setItem('userToken', payload)
+            }else{
+                this.token = ''
+                localStorage.removeItem('userToken')
             }
         },
-        logout() {
-            this.token = null
-            this.userEmail = null
-            localStorage.removeItem('token')
-            // 路由跳轉或其他操作
-        }
+        updateUserData(val) {
+            console.log(val);
+            // 不把全部資訊紀錄
+            this.userData = {
+                email: val.email,
+                // 封鎖狀況1|0
+                status: val.status,
+                // // 如果有權限可以把權限角色記載資料庫
+                // role: 'editor'
+            }
+            localStorage.setItem('userData', JSON.stringify(this.userData))
+
+        },
+        checkLogin(){
+            const storageToken = localStorage.getItem('userToken')
+            if(this.token){
+                return this.token
+            }else if(storageToken){
+                this.token = storageToken
+                return storageToken
+            }else{
+                return ''
+            }
+        },
+        checkUserData(){
+            const storageUserData = localStorage.getItem('userData')
+            console.log(Object.keys(this.userData).length);
+            if(Object.keys(this.userData).length > 0){
+                return this.userData
+            }else if(storageUserData){
+                this.userData = JSON.parse(storageUserData)
+                return storageUserData
+            }else{
+                return ''
+            }
+        },
     }
 })
