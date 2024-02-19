@@ -223,20 +223,20 @@
         </div>
         <div class="shipping-box-group">
             <div class="shipping-box">
-                <input type="radio" name="approval">
-                宅配
+                <input type="radio" id="pro-pay-delivery" name="approval">
+                <label for="pro-pay-delivery">宅配</label>
             </div>
             <div class="shipping-box">
-                <input type="radio" name="approval">
-                全家取貨(先付款)
+                <input type="radio" id="pro-pay-family" name="approval">
+                <label for="pro-pay-family">全家取貨(先付款)</label>
             </div>
             <div class="shipping-box">
-                <input type="radio" name="approval">
-                7-11 取貨(先付款)
+                <input type="radio" id="pro-pay-seven" name="approval">
+                <label for="pro-pay-seven">7-11 取貨(先付款)</label>
             </div>
             <div class="shipping-box">
-                <input type="radio" name="approval">
-                萊爾富取貨(先付款)
+                <input type="radio" id="pro-pay-hiLife" name="approval">
+                <label for="pro-pay-hiLife">萊爾富取貨(先付款)</label>
             </div>
         </div>
         <button class="pay-btn">請選擇取貨門市</button>
@@ -253,22 +253,25 @@
         </div>
         <div class="shipping-box-group">
             <div class="shipping-box">
-                <input type="radio" name="approval">
-                信用卡
+                <input type="radio" id="pro-pay-credit" name="approval">
+                <label for="pro-pay-credit">信用卡</label>
             </div>
             <div class="shipping-box">
-                <input type="radio" name="approval">
-                虛擬ATM
+                <input type="radio" id="pro-pay-ATM" name="approval">
+                <label for="pro-pay-ATM">虛擬ATM</label>
             </div>
         </div>
         <div class="pay-checkbox-group">
             <div class="pay-checkbox">
-                <input type="checkbox" name="approval">
-                同意商店服務條款/會員責任規範及個資聲明
+                <input type="checkbox" id="agree-response">
+                <label for="agree-response">同意商店服務條款/會員責任規範及個資聲明</label>
             </div>
             <div class="pay-checkbox">
-                <input type="checkbox" name="approval">
-                為保障彼此之權益，賣家在收到您的訂單後仍保有決定是否接受訂單及出貨與否之權利
+                <input type="checkbox" id="reject-right">
+                <label for="reject-right">
+                    為保障彼此之權益，賣家在收到您的訂單後仍保有決定是否接受訂單及出貨與否之權利
+                </label>
+
             </div>
         </div>
         <button class="pay-btn-now" @click="clearAllPro">立即結賬</button>

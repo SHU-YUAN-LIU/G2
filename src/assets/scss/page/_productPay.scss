@@ -271,11 +271,13 @@
         flex-direction: column;
         justify-content: center;
 
-        input {
+        #agree-response {
             @include title_10;
-            margin: 30px 0;
+            margin: 30px 0 20px;
             gap: 10px;
         }
+
+
     }
 
     .pay-btn-now {
