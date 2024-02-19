@@ -42,7 +42,7 @@
         </div>
       </div>
     </div>
-    <background :height="300" />
+    <background :height="100" />
   </div>
 
   <!-- 分隔線 -->
