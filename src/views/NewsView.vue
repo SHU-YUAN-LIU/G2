@@ -17,8 +17,8 @@
         </select>
         <input type="date" name="" v-model="startDate"><span>到</span><input type="date" name="" v-model="endDate">
         <input type="text" name="" id="newsSearch" placeholder="請輸入關鍵字" class="news_search" v-model="searchKeyword">
-        <button class="remove">⟳</button>
-        <button type="button" class="btn" @click="searchNews" id="searchBtn">搜尋</button>
+        <!-- 因為button在form標籤內, 按下後的預設行為會送出表單, 所以要+一個type=button的屬性 -->
+        <button class="remove" @click="clearFilter" type="button">⟳</button>
       </div>
     </form>
     <div class="news_cards">
@@ -38,6 +38,7 @@
         </router-link>
       </div>
     </div>
+    <background :height="300" />
   </div>
   <Background_green :height="100" />
 
@@ -45,7 +46,7 @@
 <script>
 import breadCrumbs from '../components/Bread.vue';
 import { RouterLink } from 'vue-router';
-import Background_green from "@/components/Background_green.vue";
+import background from '../components/Background_green.vue';
 
 export default {
   data() {
@@ -107,10 +108,10 @@ export default {
   },
   components: {
     breadCrumbs,
-    Background_green,
+    background,
   },
   computed: {
-    
+    // 動態屬性
     filteredNewsCard() {
       let filteredNews = this.newsCard;
 
@@ -157,6 +158,12 @@ export default {
         filteredNews = filteredNews.filter(news => {
           return news.title.toLowerCase().includes(keyword) || news.content.toLowerCase().includes(keyword);
         });    
+    },
+    clearFilter(){
+      this.selectedCategory='';
+      this.startDate='';
+      this.endDate='';
+      this.searchKeyword='';
     }
     
   },
