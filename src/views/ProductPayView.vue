@@ -61,8 +61,6 @@
             <div class="pay-title-group">
                 <div class="title-num">2</div>
                 <span>會員資料</span>
-                <input type="checkbox" name="approval">
-                以下自動帶入會員資料
             </div>
         </div>
         <div class="mem-info">
@@ -89,8 +87,8 @@
             <div class="pay-title-group">
                 <div class="title-num">3</div>
                 <span>收件人資料</span>
-                <input type="checkbox" name="approval">
-                同會員資料
+                <input type="checkbox" name="approval" id="same-as-mem">
+                <label for="same-as-mem">同會員資料</label>
             </div>
         </div>
         <div class="mem-info">
@@ -112,20 +110,20 @@
         </div>
         <div class="shipping-box-group">
             <div class="shipping-box">
-                <input type="radio" name="approval">
-                宅配
+                <input type="radio" name="approval" id="pay-deliver">
+                <label for="pay-deliver">宅配</label>
             </div>
             <div class="shipping-box">
-                <input type="radio" name="approval">
-                全家取貨(先付款)
+                <input type="radio" name="approval" id="pay-family">
+                <label for="pay-family">全家取貨(先付款)</label>
             </div>
             <div class="shipping-box">
-                <input type="radio" name="approval">
-                7-11 取貨(先付款)
+                <input type="radio" name="approval" id="pay-seven">
+                <label for="pay-seven">7-11 取貨(先付款)</label>
             </div>
             <div class="shipping-box">
-                <input type="radio" name="approval">
-                萊爾富取貨(先付款)
+                <input type="radio" name="approval" id="pay-hi-life">
+                <label for="pay-hi-life">萊爾富取貨(先付款)</label>
             </div>
         </div>
         <button class="pay-btn">請選擇取貨門市</button>
@@ -142,22 +140,22 @@
         </div>
         <div class="shipping-box-group">
             <div class="shipping-box">
-                <input type="radio" name="approval">
-                信用卡
+                <input type="radio" name="approval" id="pay-credit">
+                <label for="pay-credit">信用卡</label>
             </div>
             <div class="shipping-box">
-                <input type="radio" name="approval">
-                虛擬ATM
+                <input type="radio" name="approval" id="pay-ATM">
+                <label for="pay-ATM">虛擬ATM</label>
             </div>
         </div>
         <div class="pay-checkbox-group">
             <div class="pay-checkbox">
-                <input type="checkbox" name="approval">
-                同意商店服務條款/會員責任規範及個資聲明
+                <input type="checkbox" name="approval" id="pay-agree-box">
+                <label for="pay-agree-box">同意商店服務條款/會員責任規範及個資聲明</label>
             </div>
             <div class="pay-checkbox">
-                <input type="checkbox" name="approval">
-                為保障彼此之權益，賣家在收到您的訂單後仍保有決定是否接受訂單及出貨與否之權利
+                <input type="checkbox" name="approval" id="pay-order-right">
+                <label for="pay-order-right">為保障彼此之權益，賣家在收到您的訂單後仍保有決定是否接受訂單及出貨與否之權利</label>
             </div>
         </div>
         <button class="pay-btn-now" @click="clearAllPro">立即結賬</button>

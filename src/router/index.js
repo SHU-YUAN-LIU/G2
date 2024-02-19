@@ -232,7 +232,7 @@ const router = createRouter({
       }
     },
     {
-      path: '/product/:productId',
+      path: '/product/:productId',//:productId是變數(類似product的分支)
       name: 'productinfoview',
       component: () => import('../views/ProductInfoView.vue')
     },
