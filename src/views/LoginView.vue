@@ -81,19 +81,19 @@
     </article>
     <div class="login_wrap_sm">
         <div class="login_logo"><img src="../assets/image/login/logo.png" alt=""></div>
-        <form action="">
+        <form method="POST" action="" class="login" id="loginformSm" @submit.prevent="memberLogin">
         <div class="login_logo"><img src="" alt=""></div>
         <div class="login_email">
             <p>帳號</p>
-            <input type="email">
+            <input type="email" v-model="loginForm.email">
         </div>
         <div class="login_psw">
             <p>密碼</p>
-            <input type="password">
+            <input type="password" v-model="loginForm.psw">
         </div>
         <router-link to="/signupform">尚未加入會員?</router-link>
         <router-link to="/forgotpsw">忘記密碼?</router-link>
-        <button type="button" class="btn" @click="memberLogin">登入 ➜</button>
+        <button class="btn" type="submit">登入 ➜</button>
         </form>
     </div>
 </template>
