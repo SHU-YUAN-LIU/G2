@@ -1,6 +1,8 @@
-// .header {
-//     height: 85px;
-// }
+.pro-info-wrap {
+    position: relative;
+    padding-bottom: 280px;
+    padding-top: 30px;
+}
 
 .pro_info_group {
     width: 300px;
@@ -27,7 +29,6 @@
         p {
             @include title_6;
             letter-spacing: 4px;
-            padding-block: 10px;
 
         }
 
@@ -39,7 +40,7 @@
 
         #num {
             display: flex;
-            justify-content: center;
+            justify-content: flex-start;
             margin-block: 10px;
         }
 
@@ -110,6 +111,7 @@
     justify-content: center;
     align-items: center;
 
+
     .product_info_title {
         @include title_4;
         display: flex;
@@ -130,10 +132,14 @@
         letter-spacing: $space_letter;
     }
 
-    img {
-        margin-top: 30px;
-        width: 100%;
-        vertical-align: middle;
+    .product_info_title_pic {
+        width: 80%;
+
+        img {
+            margin-top: 30px;
+            width: 100%;
+            vertical-align: middle;
+        }
     }
 }
 
@@ -145,6 +151,7 @@
         margin-bottom: 80px;
 
         .proText_group {
+
             .proLine {
                 width: 360px;
                 margin-block: 0;
@@ -160,6 +167,20 @@
 
             #num {
                 margin-block: 0;
+
+                div {
+                    background-color: $white;
+                    border: 1px solid $gray_3;
+                    padding: 10px 20px;
+                }
+
+                button {
+
+                    background-color: $white;
+                    border: 1px solid $gray_3;
+                    padding: 10px;
+                    cursor: pointer;
+                }
             }
         }
 
@@ -180,7 +201,8 @@
 
     .pro_info_main {
         width: 700px;
-        margin-bottom: 50px;
+
+
 
         .product_info_title {
             @include title_3;
@@ -217,7 +239,9 @@
             }
 
             p {
-                @include title_3;
+                @include title_6;
+                font-weight: 800;
+                line-height: 1.3;
             }
 
             #num {
@@ -259,11 +283,11 @@
 
     .pro_info_main {
         width: 1000px;
-        margin-bottom: 30px;
+        margin-bottom: 100px;
 
         .product_info_title {
             @include title_2;
-            margin-top: 80px;
+            // margin-top: 80px;
             margin-bottom: 30px;
         }
 
@@ -278,21 +302,22 @@
     }
 }
 
-// .test {
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     gap: 50px;
+@media screen and (min-width: 414px) {
+    #num {
+        margin-block: 0;
 
-//     .right {
-//         display: flex;
-//         justify-content: center;
-//         gap: 20px;
+        div {
+            background-color: $white;
+            border: 1px solid $gray_3;
+            padding: 10px 20px;
+        }
 
-//         div {
-//             display: flex;
-//             flex-direction: column;
-//             justify-content: center;
-//         }
-//     }
-// }
+        button {
+
+            background-color: $white;
+            border: 1px solid $gray_3;
+            padding: 10px;
+            cursor: pointer;
+        }
+    }
+}

@@ -1,5 +1,6 @@
 div.donate {
   position: relative;
+
   .donate_banner {
     position: relative;
     display: flex;
@@ -58,17 +59,19 @@ div.donate {
       width: 100%;
       justify-content: center;
       align-items: center;
-      gap: 60px;   
-      
-      h2{
+      gap: 60px;
+
+      h2 {
         @include title_2;
         color: $white;
       }
-      p{
+
+      p {
         @include title_10;
         color: $white;
         margin-bottom: 20px;
       }
+
       // 卡片1
       .donate_card1 {
         width: 500px;
@@ -107,7 +110,8 @@ div.donate {
           align-items: center;
           justify-content: center;
           height: 30%;
-          button{
+
+          button {
             margin: 0;
           }
         }
@@ -130,6 +134,7 @@ div.donate {
             width: 636px;
             vertical-align: middle;
             border-radius: 5px;
+
           }
 
           div {

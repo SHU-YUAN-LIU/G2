@@ -24,8 +24,8 @@
                 <div class="pro_card_group">
                     <div class="card_group">
                         <div v-for="(item, index) in filteredProducts" :key="index">
-                            <ProCard :imgSrc="getproductpic(item.product_pic1)" :name="item.product_name" :price="item.price"
-                                :num="index" :id="item.product_no" />
+                            <ProCard :imgSrc="getproductpic(item.product_pic1)" :name="item.product_name"
+                                :price="item.price" :num="index" :id="item.product_no" />
                         </div>
                     </div>
                 </div>
