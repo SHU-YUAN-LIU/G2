@@ -381,12 +381,25 @@ form {
                 width: 100%;
             }
         }
-        form {
+        #loginformSm {
             position: inherit;
-            padding: 30px;
             background-color: transparent;
             display: flex;
+            flex-direction: column;
             justify-content: center;
+            width: 280px;
+            padding: 0;
+            div {
+                margin: auto;
+            }
+            input {
+                width: 250px;
+            }
+            .btn {
+                height: 48px;
+                width: 250px;
+                margin: 10px auto;
+            }
         }
         a {
             padding: 5px;
