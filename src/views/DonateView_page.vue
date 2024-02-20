@@ -102,118 +102,21 @@
 
       </div>
 
-      <breadCrumbs />
-
-      <div class="donate_page_main">
-        <!-- 標題 -->
-        <div class="donate_page_title">
-          <img src="/image/donate/icon_info.png">
-          <h2>我要捐款</h2>
-        </div>
-        <div class="donate_page_content">
-          <!-- 基本資料 -->
-          <div v-if="donate_num == 2" class="donate_page_info">
-            <h4>捐款基本資料</h4>
-            <ul>
-              <li>真實姓名: <span>吳聰明</span></li>
-              <li>身分證字號: <span>H224384755</span></li>
-              <li>出生年月日: <span>2024/01/01</span></li>
-            </ul>
-            <p>(依政治獻金法規定須年滿20歲才能捐款)</p>
-          </div>
-
-          <!-- 捐款單位 -->
-          <div v-if="donate_num == 2" class="donate_page_unit">
-            <h4>捐款指定單位</h4>
-            <p>單位類別：中央黨部</p>
-          </div>
-
-          <!-- 聯絡資訊 -->
-          <div v-if="donate_num == 2" class="donate_page_contact">
-            <h4>聯絡資訊</h4>
-            <input type="checkbox" id="donate_pageInfo"><label for="donate_pageInfo">以下自動帶入會員資料</label>
-            <div class="donate_page_email">
-              <label for="donate_pageMail">電子信箱 <span>*</span></label>
-              <input type="email" id="donate_pageMail" placeholder="請輸入您的電子信箱">
-            </div>
-            <div class="donate_page_phone">
-              <label for="donate_pagePhone">行動電話 <span>*</span></label>
-              <input type="tel" id="donate_pagePhone" placeholder="請輸入您的行動電話">
-            </div>
-          </div>
-
-          <!-- 捐款方式 -->
-          <div class="donate_page_method">
-            <h4>捐款方式</h4>
-            <p>請選擇付款方式</p>
-            <ul>
-              <!-- class="{class名稱: 條件式}" -->
-              <li v-for="(method, index_method) in paymentMethods" @click="selectPaymentMethod(index_method)"
-                :key="index_method" :class="{ method_active: currentIndex_method === index_method }">
-                <p>{{ method.text }}</p>
-                <img :src="getImageUrl(method.imgUrl)" alt="" clic>
-              </li>
-            </ul>
-          </div>
-
-          <!-- 捐款金額 -->
-          <div class="donate_page_amount">
-            <h4>捐贈金額</h4>
-            <ul>
-              <li v-for="(amount, index_amount) in donateAmount" :key="index_amount" @click="selectAmount(index_amount)"
-                :class="{ amount_active: currentIndex_amount === index_amount }">
-                <p class="donate_point" v-if="donate_num == 2">{{ amount.point }}<span>點</span></p>
-                <div class="donate_amount_item">
-                  <p>{{ amount.title }}</p>
-                  <p>{{ amount.description }}</p>
-                </div>
-                <p class="donate_amount_text">$ {{ amount.amount }}</p>
-              </li>
-            </ul>
-            <button v-if="donate_num == 2" class="donate_detail" @click="showLightbox">了解進補點數</button>
-          </div>
-
-          <!-- 自訂金額區塊 -->
-          <div class="donate_page_inputAmount">
-            <p v-if="donate_num == 2">自訂金額 <span>獲得: 20點</span></p>
-            <div>
-              <table>
-                <tr>
-                  <td>新台幣</td>
-                  <td><input type="text" placeholder="請自行輸入金額"></td>
-                  <td>元</td>
-                </tr>
-              </table>
-            </div>
-
-            <p>可捐款金額為新台幣 <span v-if="donate_num == 2">300 ~ 300,000</span><span v-else-if="donate_num == 1">300 ~
-                10,000</span> 元</p>
-          </div>
-
-          <div class="donate_page_attention">
-            <h4>捐款須知</h4>
-            <input type="checkbox" id="donate_attention" v-model="isChecked">
-            <label for="donate_attention">本人已年滿20歲並同意遵守政治獻金相關法規於線上捐贈政治獻金 (政治獻金法及捐款須知)</label>
-          </div>
-
-        </div>
-
-        <button class="donate_page_next" @click="goNext">下一步,捐款資料 →</button>
-      </div>
-      <donatePoint ref="donatePoint" />
+      <RouterLink to="/donate/page/confirm"><button class="donate_page_next">下一步,捐款資料 →</button></RouterLink>
     </div>
+    <donatePoint ref="donatePoint" />
+  </div>
 </template>
-
-
+  
+  
 <script>
-// import { RouterLink } from 'vue-router';
+import { RouterLink } from 'vue-router';
 import breadCrumbs from '../components/Bread.vue';
 import donatePoint from '../components/DonateLightbox_point.vue';
 
 export default {
   data() {
     return {
-      isChecked: false,
       donate_num: 0,
       paymentMethods: [
         {
@@ -291,15 +194,7 @@ export default {
       console.log(this.$refs.donatePoint.showLightbox);
       document.body.style.overflow = 'hidden';
     },
-    // 確認任何一個欄位都有填寫後才能提交
-    goNext() {
-      // console.log(this.isChecked);
-      if (this.isChecked) {
-        this.$router.push('/donate/page/confirm')
-      } else {
-        alert("請先勾選捐款須知");
-      }
-    },
+
     // 被選擇的付款方式切換顏色
     selectPaymentMethod(index_method) {
       this.currentIndex_method = index_method;
@@ -309,13 +204,9 @@ export default {
 
     selectAmount(index_amount) {
       this.currentIndex_amount = index_amount;
-<<<<<<< HEAD
       // console.log(index_amount, this.currentIndex_amount)
 
       this.amount_input = this.donateAmount[index_amount].amount;
-=======
-      console.log(index_amount, this.currentIndex_amount)
->>>>>>> fish
     },
     checkEmail() {
       if (this.donate_email.trim() === '') {
@@ -381,7 +272,7 @@ export default {
 }
 
 </script>
-
+  
 <style scoped lang="scss">
 @import '../assets/scss/style.scss';
 
@@ -397,7 +288,7 @@ export default {
   color: $white;
 }
 
-<<<<<<< HEAD .donate_page_amount .amount_active .donate_amount_item {
+.donate_page_amount .amount_active .donate_amount_item {
   background-color: $orange !important;
 }
 
@@ -408,9 +299,4 @@ export default {
   position: relative;
   left: 10px;
 }
-
-=======.donate_page_amount .amount_active .donate_amount_item {
-  background-color: $orange !important;
-}
-
->>>>>>>fish</style>
+</style>
