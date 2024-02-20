@@ -24,7 +24,7 @@ export const useUserStore = defineStore('userStore', {
             }
         },
         updateUserData(val) {
-            console.log(val);
+            // console.log(val);
             // 不把全部資訊紀錄
             this.userData = {
                 email: val.email,
