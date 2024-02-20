@@ -159,7 +159,8 @@ body {
 }
 
 .pro-title {
-  font-family: "Mantou Sans";
+  font-family: "Noto Sans TC", sans-serif;
+  font-weight: 700;
   font-size: 23px;
   color: #000;
 }
@@ -569,6 +570,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 100px;
 }
 .countdown .countdownright div span:first-child {
   color: #FF892E;
@@ -702,10 +704,11 @@ body {
   }
 }
 .drop-down-cart .cart-group {
-  max-height: 600px;
+  max-height: 70vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
   padding: 15px;
   overflow: scroll;
 }
@@ -915,8 +918,6 @@ body {
   border: transparent;
   cursor: pointer;
   margin: auto;
-  margin-top: 80px;
-  margin-bottom: 80px;
 }
 .commit_btn:hover {
   transform: translateX(10px);
@@ -1428,11 +1429,10 @@ footer {
 @media (max-width: 1400px) {
   .about_content {
     margin: auto;
-    margin-top: 150px;
     display: block;
     width: 90%;
     padding: 20px;
-    margin-bottom: 50px;
+    margin: 50px auto;
   }
 }
 .about_content-2 {
@@ -1926,6 +1926,7 @@ footer {
 
 .organization {
   margin-top: 85px;
+  position: relative;
 }
 .organization .contect_banner {
   position: relative;
@@ -2026,7 +2027,8 @@ footer {
   margin: 10px;
   cursor: pointer;
   width: 200px;
-  box-sizing: border-box; /* 讓 padding 不會改變卡片的寬度 */
+  box-sizing: border-box;
+  /* 讓 padding 不會改變卡片的寬度 */
 }
 
 .candidate-image {
@@ -2132,8 +2134,8 @@ footer {
 .localcard-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; /* 居中布局 */
-  margin-bottom: 200px;
+  justify-content: center;
+  padding-bottom: 250px;
 }
 
 .localcard {
@@ -2291,6 +2293,9 @@ footer {
   flex-direction: column;
 }
 
+div.donate {
+  position: relative;
+}
 div.donate .donate_banner {
   position: relative;
   display: flex;
@@ -2315,7 +2320,6 @@ div.donate .donate_main {
   height: 1100px;
   display: flex;
   position: relative;
-  margin: 100px 0;
 }
 div.donate .donate_main img.icon {
   position: absolute;
@@ -2364,6 +2368,7 @@ div.donate .donate_main .donate_cards .donate_card1 {
   border: 3px solid #FF892E;
   display: flex;
   flex-direction: column;
+  background: #FFF;
 }
 div.donate .donate_main .donate_cards .donate_card1 .donate_card1_top {
   background-color: #FF892E;
@@ -2371,7 +2376,8 @@ div.donate .donate_main .donate_cards .donate_card1 .donate_card1_top {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 530px;
+  height: 70%;
+  overflow: hidden;
 }
 div.donate .donate_main .donate_cards .donate_card1 .donate_card1_top .donate_card1_top > img {
   width: 100px;
@@ -2381,10 +2387,13 @@ div.donate .donate_main .donate_cards .donate_card1 .donate_card1_top h2 {
   margin-bottom: 20px;
 }
 div.donate .donate_main .donate_cards .donate_card1 .donate_card1_bottom {
-  background: #FFF;
   display: flex;
   align-items: center;
-  height: 100px;
+  justify-content: center;
+  height: 30%;
+}
+div.donate .donate_main .donate_cards .donate_card1 .donate_card1_bottom button {
+  margin: 0;
 }
 div.donate .donate_main .donate_cards .donate_card2 {
   background-color: #FFF;
@@ -2622,6 +2631,7 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
   color: #FFF;
   border: none;
   margin: 90px 0;
+  cursor: pointer;
 }
 .donate_page .donate_page_main .donate_page_title {
   display: flex;
@@ -2838,6 +2848,7 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
   }
   .donate_page .donate_page_main button.donate_page_next {
     margin: 50px 0;
+    cursor: pointer;
   }
   .donate_page .donate_page_main .donate_page_title h2 {
     font-family: "Mantou Sans";
@@ -2907,7 +2918,6 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 85px;
 }
 .donate_confirm .donate_confirm_banner img {
   width: 100%;
@@ -2918,7 +2928,6 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
   font-weight: initial;
   color: #FFF;
   position: absolute;
-  font-weight: inherit;
 }
 .donate_confirm .donate_container {
   max-width: 1200px;
@@ -2954,7 +2963,7 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
 }
 .donate_confirm .donate_container .donate_info_table table tr {
   height: 50px;
-  line-height: 50px;
+  padding: 0;
 }
 .donate_confirm .donate_container .donate_info_table table tr + tr {
   border-top: 1px solid #565656;
@@ -2968,10 +2977,13 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
 }
 .donate_confirm .donate_container .donate_info_table table td:last-child {
   padding-left: 20px;
+  line-height: 50px;
 }
 .donate_confirm .donate_container .donate_detail_table p {
   margin: 30px 0 20px 0;
   text-align: right;
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 16px;
 }
 .donate_confirm .donate_container .donate_detail_table table {
   width: 100%;
@@ -3016,11 +3028,11 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
 }
 .donate_confirm .donate_container .donete_payment div {
   display: flex;
+  width: 100%;
 }
 .donate_confirm .donate_container .donete_payment div label {
   font-family: "Noto Sans TC", sans-serif;
   font-size: 16px;
-  display: inline-block;
   width: 200px;
 }
 .donate_confirm .donate_container .donete_payment div input {
@@ -3037,6 +3049,11 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
   width: 20px;
   height: 20px;
   flex: initial;
+}
+.donate_confirm .donate_container .donete_payment .credit_card label {
+  width: 240px;
+  margin: 0;
+  padding: 0;
 }
 .donate_confirm .donate_confirm_button {
   max-width: 1200px;
@@ -3057,6 +3074,82 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
   cursor: pointer;
 }
 
+@media (max-width: 768px) {
+  .donate_confirm .donate_confirm_banner img {
+    width: 100%;
+  }
+  .donate_confirm .donate_confirm_banner h1 {
+    font-family: "Mantou Sans";
+    font-size: 36px;
+    font-weight: initial;
+  }
+  .donate_confirm .donate_container {
+    max-width: 350px;
+    margin: auto;
+  }
+  .donate_confirm .donate_container .content {
+    padding: 15px;
+  }
+  .donate_confirm .donate_container .content li {
+    padding: 10px;
+  }
+  .donate_confirm .donate_container .content li + li {
+    border-top: 1px solid black;
+  }
+  .donate_confirm .donate_container .donate_info_table table tr {
+    font-size: 14px;
+  }
+  .donate_confirm .donate_container .donate_info_table table td:first-child {
+    letter-spacing: 2px;
+    width: 120px;
+    line-height: 20px;
+  }
+  .donate_confirm .donate_container .donate_info_table table td:last-child {
+    padding-left: 10px;
+    line-height: 40px;
+  }
+  .donate_confirm .donate_container .donate_detail_table table th {
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: 16px;
+    letter-spacing: 1px;
+  }
+  .donate_confirm .donate_container .donete_payment div label {
+    width: 100px;
+  }
+  .donate_confirm .donate_container .donete_payment div input {
+    height: 30px;
+    flex: 1;
+  }
+  .donate_confirm .donate_container .donete_payment .credit_card label {
+    width: 100px;
+    margin: 0;
+    padding: 0;
+  }
+  .donate_confirm .donate_container .donete_payment .credit_card div {
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+  }
+  .donate_confirm .donate_container .donete_payment .credit_card div input {
+    margin-bottom: 20px;
+    width: 220px;
+  }
+  .donate_confirm .donate_confirm_button {
+    max-width: 350px;
+  }
+  .donate_confirm .donate_confirm_button button {
+    background-color: #FF892E;
+    padding: 13px 30px;
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: 20px;
+    border-radius: 50px;
+    letter-spacing: 1.5px;
+    color: #FFF;
+    border: none;
+    margin: 60px 0;
+    cursor: pointer;
+  }
+}
 .home_container {
   --column-gap: 10px;
   max-width: 1200px;
@@ -3088,7 +3181,8 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
   font-family: "Mantou Sans";
   font-size: 65px;
   font-weight: initial;
-  margin: 145px 0;
+  margin-bottom: 40px;
+  margin-top: 60px;
 }
 @media (width < 768px) {
   .index_news_flex .index_news_title {
@@ -3112,7 +3206,7 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
   text-decoration: none;
   color: #000;
 }
-@media (width < 769px) {
+@media (width < 768px) {
   .index_news_flex .index_news_card {
     display: inline;
   }
@@ -3127,7 +3221,7 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
   }
 }
 .index_news_flex .index_news_card .index_news_card_text {
-  padding: 16px 35px 16px;
+  padding: 16px 20px 16px;
   letter-spacing: 1.5px;
   line-height: 1.5;
   font-family: "Noto Sans TC", sans-serif;
@@ -3217,7 +3311,7 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
 
 .bannerleft {
   position: absolute;
-  left: 0;
+  left: 10px;
   cursor: pointer;
 }
 @media (width <= 767px) {
@@ -3228,7 +3322,7 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
 
 .bannerright {
   position: absolute;
-  right: 0;
+  right: 10px;
   cursor: pointer;
 }
 @media (width <= 767px) {
@@ -3262,8 +3356,8 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
 }
 
 .banner > button {
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   border: 2px solid #fff;
   background-color: rgba(255, 255, 255, 0.5);
@@ -3273,7 +3367,7 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
   top: 0;
   bottom: 0;
   margin: auto;
-  font-size: 40px;
+  font-size: 25px;
 }
 
 .banner > button:first-child {
@@ -3286,6 +3380,68 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
 
 .banner > button:last-child {
   right: 60px;
+}
+
+.policy {
+  width: 100%;
+  max-width: 1020px;
+  display: flex;
+  gap: 100px;
+}
+.policy h3 {
+  font-family: "Mantou Sans";
+  font-size: 36px;
+  font-weight: initial;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  padding-top: 40px;
+  position: relative;
+}
+.policy h3 span:not(span:nth-child(3)) {
+  line-height: 60px;
+}
+.policy h3 span:nth-child(3) {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  position: absolute;
+  z-index: -1;
+  right: -30px;
+  bottom: -30px;
+  opacity: 0.4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.policy h3 span:nth-child(3) img {
+  width: 50px;
+  height: 50px;
+}
+.policy h3:nth-child(1) {
+  background: #FF892E;
+}
+.policy h3:nth-child(1) span:nth-child(3) {
+  background: #FF892E;
+}
+.policy h3:nth-child(2) {
+  background: #D4FF1F;
+}
+.policy h3:nth-child(2) span:nth-child(3) {
+  background: #D4FF1F;
+}
+.policy h3:nth-child(3) {
+  background: #93E6D7;
+}
+.policy h3:nth-child(3) span:nth-child(3) {
+  background: #93E6D7;
+}
+.policy h3:nth-child(3) span:nth-child(3) img {
+  width: 60px;
+  height: 60px;
 }
 
 .login_wrap_sm {
@@ -3512,9 +3668,71 @@ form .register_read p {
     transform: translateX(80%);
   }
 }
+@media (max-width: 1466px) {
+  .register-active .register {
+    transform: translateX(72%);
+  }
+}
 @media (max-width: 1440px) {
   .register-active .register {
-    transform: translateX(68%);
+    transform: translateX(70%);
+  }
+}
+@media (max-width: 1400px) {
+  .register-active .register {
+    transform: translateX(70%);
+    padding: 40px 100px;
+  }
+  .container .overlay_left p {
+    font-size: 45px;
+  }
+}
+@media (max-width: 1382px) {
+  form {
+    padding: 40px 100px;
+  }
+}
+@media (max-width: 1358px) {
+  form {
+    padding: 40px 90px;
+  }
+  .register-active .register {
+    transform: translateX(66%);
+  }
+}
+@media (max-width: 1335px) {
+  form {
+    padding: 40px 80px;
+  }
+  .register-active .register {
+    transform: translateX(60%);
+    padding: 40px 100px;
+  }
+  .container .overlay_left p {
+    font-size: 40px;
+  }
+}
+@media (max-width: 1300px) {
+  form {
+    padding: 40px 70px;
+  }
+  .register-active .register {
+    transform: translateX(70%);
+    padding: 40px 70px;
+  }
+}
+@media (max-width: 1285px) {
+  form {
+    padding: 40px 60px;
+  }
+  .register-active .register {
+    transform: translateX(70%);
+    padding: 40px 60px;
+  }
+}
+@media (max-width: 1285px) {
+  .container .overlay_left p {
+    font-size: 35px;
   }
 }
 @media (max-width: 1200px) {
@@ -3578,10 +3796,10 @@ form .register_read p {
   .login_wrap_sm {
     display: block;
     max-width: 800px;
-    width: 90%;
+    width: 80%;
     height: auto;
     margin: 100px auto;
-    padding: 30px;
+    padding: 80px;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -3589,14 +3807,54 @@ form .register_read p {
     align-items: center;
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2), 0 10px 10px rgba(0, 0, 0, 0.2);
   }
+  .login_wrap_sm .login_logo {
+    max-width: 280px;
+  }
+  .login_wrap_sm .login_logo img {
+    width: 100%;
+  }
   .login_wrap_sm form {
     position: inherit;
-    padding: 0;
+    padding: 30px;
     background-color: transparent;
+    display: flex;
+    justify-content: center;
+  }
+  .login_wrap_sm a {
+    padding: 5px;
+    font-size: 14px;
+  }
+}
+@media (max-width: 550px) {
+  .login_wrap_sm form input {
+    width: 300px;
+  }
+}
+@media (max-width: 441px) {
+  .login_wrap_sm form input {
+    width: 250px;
+    height: 35px;
+  }
+}
+@media (max-width: 441px) {
+  .login_wrap_sm form input {
+    width: 250px;
+    height: 35px;
+  }
+  .login_wrap_sm form .btn {
+    height: 60px;
+    font-size: 20px;
+  }
+}
+@media (max-width: 400px) {
+  .login_wrap_sm form input {
+    width: 200px;
+    height: 35px;
   }
 }
 .news_wrap {
   margin-bottom: 50px;
+  position: relative;
 }
 
 .news_banner {
@@ -3621,14 +3879,17 @@ form .register_read p {
 }
 .filter_form .news_filter {
   display: flex;
+  gap: 20px;
   max-width: 1200px;
   width: 100%;
   height: 100px;
-  padding: 0 50px;
-  margin: 50px auto;
+  margin: auto;
   box-sizing: border-box;
   align-items: center;
   background-color: #ffffff;
+}
+.filter_form .news_filter input[type=date] {
+  padding-right: 10px;
 }
 .filter_form .news_filter span {
   border: none;
@@ -3874,12 +4135,18 @@ form .register_read p {
     font-size: 16px;
   }
 }
+.product {
+  position: relative;
+  padding-bottom: 60px;
+}
+
 .pro_wrap {
   max-width: 1200px;
   margin: auto;
+  position: relative;
 }
 .pro_wrap .pro-top {
-  margin: 150px 0;
+  margin: 60px 0;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -3938,7 +4205,7 @@ form .register_read p {
 .pro_wrap .product .pro_card_group .card_group {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 40px;
+  gap: 50px;
 }
 @media screen and (max-width: 768px) {
   .pro_wrap .product .pro_card_group .card_group {
@@ -3981,6 +4248,7 @@ form .register_read p {
   width: 1200px;
   margin: auto;
   margin-top: 150px;
+  position: relative;
 }
 @media screen and (max-width: 768px) {
   .pay-wrap {
@@ -4707,6 +4975,10 @@ form .register_read p {
   font-weight: initial;
 }
 
+.con_wrap {
+  position: relative;
+}
+
 .contect {
   margin-top: 85px;
 }
@@ -4715,6 +4987,7 @@ form .register_read p {
   max-width: 1000px;
   margin: auto;
   position: relative;
+  padding-bottom: 60px;
 }
 @media screen and (max-width: 414px) {
   .contect_info {
@@ -4729,7 +5002,7 @@ form .register_read p {
   font-weight: initial;
   letter-spacing: 10px;
   margin-top: 80px;
-  margin-bottom: 80px;
+  margin-bottom: 60px;
   text-align: center;
 }
 @media screen and (max-width: 414px) {
@@ -4745,7 +5018,7 @@ form .register_read p {
   display: flex;
   justify-content: space-evenly;
   position: relative;
-  margin-bottom: 100px;
+  margin-bottom: 60px;
 }
 @media screen and (max-width: 414px) {
   .contect_info .con_process_group {
@@ -4812,7 +5085,7 @@ form .register_read p {
   background-color: #FFF;
   border-radius: 10px;
   padding: 60px 80px;
-  margin: 100px;
+  margin: 60px;
 }
 @media screen and (max-width: 414px) {
   .contect_info .con_process_know {
@@ -4853,7 +5126,7 @@ form .register_read p {
   background-color: #FFF;
   border-radius: 10px;
   padding: 60px 80px;
-  margin: 100px;
+  margin: 60px;
 }
 @media screen and (max-width: 414px) {
   .contect_info .con_input_group {
@@ -4913,6 +5186,13 @@ form .register_read p {
   }
 }
 
+.contact_search_container {
+  position: relative;
+  width: 100%;
+  border: 1px solid red;
+  padding-bottom: 100px;
+}
+
 .contect_search {
   max-width: 1000px;
   margin: auto;
@@ -4935,6 +5215,7 @@ form .register_read p {
   justify-content: center;
   align-items: flex-start;
   gap: 10px;
+  margin-bottom: 40px;
 }
 .contect_search .searchInput input {
   width: 600px;
@@ -5488,7 +5769,7 @@ form .register_read p {
 
 .forgot_wrap {
   max-width: 1200px;
-  width: 90%;
+  width: 80%;
   height: 900px;
   display: flex;
   margin: 200px auto;
@@ -5581,8 +5862,11 @@ form .register_read p {
     font-size: 14px;
     margin: 20px auto;
   }
+  .forgot_wrap form .forgot_email {
+    width: 298px;
+  }
   .forgot_wrap form .forgot_email input {
-    width: 250px;
+    width: 240px;
     height: 30px;
     font-size: 12px;
   }
@@ -5600,7 +5884,7 @@ form .register_read p {
     align-items: flex-start;
   }
   .forgot_wrap form .forgot_code .valification input {
-    width: 250px;
+    width: 240px;
     height: 30px;
     font-size: 12px;
   }
@@ -5614,7 +5898,7 @@ form .register_read p {
 
 .new_wrap {
   max-width: 1200px;
-  width: 90%;
+  width: 80%;
   height: 900px;
   display: flex;
   margin: 200px auto;
@@ -5707,8 +5991,11 @@ form .register_read p {
     font-size: 14px;
     margin: 20px auto;
   }
+  .new_wrap form .forgot_email {
+    width: 298px;
+  }
   .new_wrap form .forgot_email input {
-    width: 250px;
+    width: 240px;
     height: 30px;
     font-size: 12px;
   }
@@ -5726,7 +6013,7 @@ form .register_read p {
     align-items: flex-start;
   }
   .new_wrap form .forgot_code .valification input {
-    width: 250px;
+    width: 240px;
     height: 30px;
     font-size: 12px;
   }
