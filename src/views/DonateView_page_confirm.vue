@@ -87,24 +87,24 @@
                     <label for="">信用卡安全碼<br>CVV Code</label>
                     <input type="text">
                 </div>
-                <div>
+                <div v-if="donate_num == 0">
                     <label>※ 持卡人資料 </label>
                     <input type="checkbox">
                     <span>記住本次付款人資訊</span>
                 </div>
-                <div>
+                <div v-if="donate_num == 0">
                     <label for="">持卡人姓名<br>Cardholder name</label>
                     <input type="text">
                 </div>
-                <div>
+                <div v-if="donate_num == 0">
                     <label for="">手機號碼<br>Mobile Number</label>
                     <input type="text">
                 </div>
-                <div>
+                <div v-if="donate_num == 0">
                     <label for="">電子信箱<br>Email address</label>
                     <input type="text">
                 </div>
-                <div>
+                <div v-if="donate_num == 0">
                     <label for="">帳單地址<br>Billing address</label>
                     <input type="text">
                 </div>
