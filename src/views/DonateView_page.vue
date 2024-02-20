@@ -32,16 +32,18 @@
       </div>
 
       <!-- 聯絡資訊 -->
-      <div v-if="donate_num == 2" class="donate_page_contact">
+      <div v-if="donate_num == 2" class="donate_page_contact" id="registerform">
         <h4>聯絡資訊</h4>
         <input type="checkbox" id="donate_pageInfo"><label for="donate_pageInfo">以下自動帶入會員資料</label>
         <div class="donate_page_email">
           <label for="donate_pageMail">電子信箱 <span>*</span></label>
-          <input type="email" id="donate_pageMail" placeholder="請輸入您的電子信箱">
+          <input type="email" id="email" placeholder="請輸入您的電子信箱" v-model="donate_email" @blur="checkEmail">
+          <div v-if="!isEmailValid" class="error-message">電子郵件格式錯誤</div>
         </div>
         <div class="donate_page_phone">
-          <label for="donate_pagePhone">行動電話 <span>*</span></label>
-          <input type="tel" id="donate_pagePhone" placeholder="請輸入您的行動電話">
+          <label for="donate_pagePhone" >行動電話 <span>*</span></label>
+          <input type="tel" id="phone" placeholder="請輸入您的行動電話" v-model="donate_phone" @blur="checkPhone">
+          <div v-if="!isPhoneValid" class="error-message">手機號碼格式錯誤</div>
         </div>
       </div>
 
@@ -50,20 +52,19 @@
         <h4>捐款方式</h4>
         <p>請選擇付款方式</p>
         <ul>
-          <!-- class="{class名稱: 條件式}" -->
           <li v-for="(method,index_method) in paymentMethods" @click="selectPaymentMethod(index_method)" :key="index_method"
           :class="{ method_active: currentIndex_method === index_method}">
             <p>{{ method.text }}</p>
             <img :src="getImageUrl(method.imgUrl)" alt="">
           </li>
         </ul>
-      </div>
+      </div> 
 
       <!-- 捐款金額 -->
       <div class="donate_page_amount">
         <h4>捐贈金額</h4>
         <ul>
-          <li v-for="(amount,index_amount) in donateAmount" :key="index_amount" @click="selectAmount(index_amount)" :class="{ amount_active: currentIndex_amount === index_amount}">
+          <li v-for="(amount,index_amount) in donateAmount" :key="index_amount" @click="selectAmount(index_amount)" :class="{ amount_active: currentIndex_amount === index_amount}" v-if="shouldShowAmount(index_amount)">
             <p class="donate_point" v-if="donate_num == 2">{{ amount.point }}<span>點</span></p>
             <div class="donate_amount_item">
               <p>{{ amount.title }}</p>
@@ -82,7 +83,7 @@
           <table>
             <tr>
               <td>新台幣</td>
-              <td><input type="text" placeholder="請自行輸入金額"></td>
+              <td><input type="text" placeholder="請自行輸入金額" @blur="handleAmount" v-model="amount_input"></td>
               <td>元</td>
             </tr>
           </table>
@@ -111,7 +112,7 @@
 <script>
 import { RouterLink } from 'vue-router';
 import breadCrumbs from '../components/Bread.vue';
-import donatePoint from '../components/DonateLightbox_point.vue'
+import donatePoint from '../components/DonateLightbox_point.vue';
 
 export default {
   data() {
@@ -171,7 +172,15 @@ export default {
           description: '攻守俱佳，震懾全場贏得冠軍',
           amount: 50000,
         },
-      ]
+      ],
+      // 聯絡資訊變數
+      donate_email:'',
+      donate_phone:'',
+      isEmailValid: true,
+      isPhoneValid: true,
+      
+      // 輸入金額變數
+      amount_input:'',
     };
   },
   methods: {
@@ -195,9 +204,62 @@ export default {
 
     selectAmount(index_amount){
       this.currentIndex_amount = index_amount;
+      // console.log(index_amount, this.currentIndex_amount)
 
-      console.log(index_amount, this.currentIndex_amount)
+      this.amount_input = this.donateAmount[index_amount].amount;
     },
+    checkEmail(){
+      if (this.donate_email.trim() === '') {
+        this.isEmailValid = true; // 不顯示錯誤文字
+      } else {
+        let emailPattern = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
+        this.isEmailValid = emailPattern.test(this.donate_email);
+      }
+    },
+    checkPhone(){
+      if (this.donate_phone.trim() === '') {
+        this.isPhoneValid = true; // 不顯示錯誤文字
+      } else {
+        let phonePattern = /^(09)[0-9]{8}$/;
+        this.isPhoneValid = phonePattern.test(this.donate_phone);
+      }
+    },
+    // 輸入金額驗證
+    handleAmount(){
+      if (Number.isInteger(Number(this.amount_input))) {
+        // 判斷為整數
+        if (this.donate_num == 1) {
+          if (parseInt(this.amount_input) > 10000) {
+            alert('匿名捐款金額不得大於新台幣10,000元');
+            this.amount_input = '';
+          } else if (parseInt(this.amount_input) < 300) {
+            alert('單筆捐款金額不得小於新台幣300元');
+            this.amount_input = '';
+          }
+        } else if (this.donate_num == 2) {
+          if (parseInt(this.amount_input) > 300000) {
+            alert('會員捐款金額單筆不得大於新台幣300,000元');
+            this.amount_input = '';
+          } else if (parseInt(this.amount_input) < 300) {
+            alert('單筆捐款金額不得小於新台幣300元');
+            this.amount_input = '';
+          }
+        }
+      } else {
+        // 不是整數，可能是浮點數
+        this.amount_input = '';
+        alert('請輸入正整數');
+      }
+    },
+    shouldShowAmount(index_amount){
+      if(this.donate_num == 1){
+        if (index_amount == 4 || index_amount == 5){
+          return false;
+        }
+      }
+      return true;
+    },
+        
   },
   components: {
     breadCrumbs,
@@ -207,7 +269,7 @@ export default {
     document.title = '青年進補黨 - 捐款';
     this.donate_num = localStorage.getItem('donate_num');
   },
-};
+}
 
 </script>
 
@@ -227,5 +289,12 @@ export default {
 
   .donate_page_amount .amount_active .donate_amount_item{
     background-color: $orange !important;
+  }
+  .error-message{
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+    position: relative;
+    left: 10px;
   }
 </style>

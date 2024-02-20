@@ -193,40 +193,7 @@ export default {
                 })
         },
 
-    // memberLogin(){
-    //     // 創建一個新的FormData物件
-    //     var formData = new FormData();
-    //     // 向FormData物件中添加帳號（email）
-    //     formData.append('account',this.login.email);
-    //     // 向FormData物件中添加密碼（psw）
-    //     formData.append('psw',this.login.psw);
-
-    //     // 使用axios發送post請求
-    //     axios({
-    //         method:"post", // 指定請求方式為post
-    //         url:`${import.meta.env.VITE_PHP_URL}` + "/front_memberLogin.php", // 指定請求的URL
-    //         data:bodyFormData, // 將創建的FormData作為請求體發送
-    //         headers: { "Content-Type": "multipart/form-data" }, // 設置請求頭，指定數據類型為multipart/form-data
-    //     })
-    //     .then(res => { // 請求成功後的處理函數
-    //             console.log(res.data.member.length); // 打印出返回數據中member屬性的長度
-    //             // 檢查帳號和密碼是否為空
-    //             if(!this.login.email && !this.login.psw){
-    //                 alert('帳號密碼不能為空'); // 若為空，則彈出提示
-    //             }else if(res.data.member.length===0){ // 若member長度為0，表示未找到該用戶
-    //                 alert("帳號密碼錯誤"); // 彈出帳號密碼錯誤提示
-    //             }else if(res.data.member[0].status=="IA"){ // 若用戶狀態為IA（停用狀態）
-    //                 alert("帳戶已停用"); // 彈出帳戶已停用提示
-    //             }else{ // 如果以上條件都不滿足，表示登入成功
-    //                 this.$router.push({ name: 'Home' }); // 導航到Home頁面
-    //                 alert('登入成功'); // 彈出登入成功提示
-    //                 localStorage.setItem('member', JSON.stringify(res.data.member)); // 將用戶數據保存到localStorage中
-    //             }
-    //         })
-    //     .catch(error => { // 請求失敗後的處理函數
-    //         console.error('Error fetching data:', error); // 打印出錯誤信息
-    //     });
-    // }
+    
 	},
     created() {
         // const user = this.checkLogin()
