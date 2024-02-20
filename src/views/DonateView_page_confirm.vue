@@ -72,51 +72,25 @@
                 <div class="credit_card">
                     <label for="">信用卡卡號<br>Credit card number</label>
                     <div>
-                        <input type="text">
-                        <input type="text">
-                        <input type="text">
-                        <input type="text">
+                        <input v-for="(input, index) in inputs" :key="index" v-model="input.value" @input="doChange(index)"
+                            :maxlength="input.maxLength" placeholder="XXXX" ref="inputs" />
                     </div>
-
                 </div>
                 <div>
                     <label for="">卡片有效期限<br>Card valid thru</label>
-                    <input type="text">
+                    <input type="text" v-model="expiryDate">
                 </div>
                 <div>
                     <label for="">信用卡安全碼<br>CVV Code</label>
-                    <input type="text">
-                </div>
-                <div v-if="donate_num == 0">
-                    <label>※ 持卡人資料 </label>
-                    <input type="checkbox">
-                    <span>記住本次付款人資訊</span>
-                </div>
-                <div v-if="donate_num == 0">
-                    <label for="">持卡人姓名<br>Cardholder name</label>
-                    <input type="text">
-                </div>
-                <div v-if="donate_num == 0">
-                    <label for="">手機號碼<br>Mobile Number</label>
-                    <input type="text">
-                </div>
-                <div v-if="donate_num == 0">
-                    <label for="">電子信箱<br>Email address</label>
-                    <input type="text">
-                </div>
-                <div v-if="donate_num == 0">
-                    <label for="">帳單地址<br>Billing address</label>
-                    <input type="text">
+                    <input type="text" v-model="cvvCode">
                 </div>
             </div>
         </div>
         <!-- 按鈕 -->
         <div class="donate_confirm_button">
-            <RouterLink to="/donate/page">
-                <button class="donate_confirm_button">←返回上頁 </button>
-            </RouterLink>
+            <button class="donate_confirm_button">←返回上頁 </button>
             <!-- 彈窗 -->
-            <button class="donate_confirm_button" @click="donatePayment">立即付款→</button>
+            <button class="donate_confirm_button" @click="donatePayment, checkInputs()">立即付款→</button>
             <DonateConfirmLightBox ref="DonateConfirmLightBox" />
         </div>
     </div>
@@ -127,7 +101,6 @@ import commitButton from '../components/button/commitButton.vue'
 import breadCrumbs from '../components/Bread.vue';
 import DonateConfirmLightBox from '../components/DonateConfirmLightBox.vue';
 
-
 export default {
     components: {
         commitButton,
@@ -137,17 +110,57 @@ export default {
     data() {
         return {
             donate_num: 0,
+            expiryDate: '',
+            cvvCode: '',
+            inputs: [
+                { value: '', maxLength: 4 },
+                { value: '', maxLength: 4 },
+                { value: '', maxLength: 4 },
+                { value: '', maxLength: 4 }
+            ]
         }
     },
     created() {
 
     },
     methods: {
-        donatePayment() {
-            this.$refs.DonateConfirmLightBox.showLightbox = true;
-            document.body.style.overflow = "hidden";
-        }
+        // 輸入信用卡卡號時，自動跳下一個輸入格
+        doChange(index) {
+            if (this.inputs[index].value.length === this.inputs[index].maxLength) {
+                if (index < this.inputs.length - 1) {
+                    this.$refs.inputs[index + 1].focus();
+                }
+            }
+        },
+        // 檢查輸入框是否填寫
+        checkInputs() {
+            let emptyFields = [];
 
+            // 檢查信用卡卡號輸入框
+            for (let i = 0; i < this.inputs.length; i++) {
+                if (!this.inputs[i].value.trim()) {
+                    emptyFields.push(`信用卡卡號 - 第${i + 1}個欄位`);
+                }
+            }
+
+            // 檢查卡片有效期限輸入框+資料格式
+            if (!/^\d{2}\/\d{2}$/.test(this.expiryDate.trim())) {
+                emptyFields.push('卡片有效期限');
+            }
+
+            // 檢查信用卡安全碼輸入框 + 資料格式
+            if (!/^\d{3}$/.test(this.cvvCode.trim())) {
+                emptyFields.push('信用卡安全碼');
+            }
+
+            // 判斷是否有未填寫得輸入框，都有填寫的話才會跳出燈箱
+            if (emptyFields.length > 0) {
+                alert(`請填寫以下輸入欄位: \n*${emptyFields.join('\n*')}`);
+            } else {
+                this.$refs.DonateConfirmLightBox.showLightbox = true;
+                document.body.style.overflow = "hidden";
+            }
+        }
     },
     mounted() {
         this.donate_num = localStorage.getItem('donate_num');
@@ -156,307 +169,3 @@ export default {
 </script>
 
 
-<style scoped lang="scss">
-@import "../assets/scss/style.scss";
-.donate_confirm {
-
-    // banner
-    .donate_confirm_banner {
-        width: 100%;
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        img {
-            width: 100%;
-        }
-
-        h1 {
-            @include title_1;
-            color: $white;
-            position: absolute;
-        }
-    }
-
-    // 捐款確認資料
-    .donate_container {
-        max-width: 1200px;
-        margin: auto;
-
-        // 捐款確認資料的標題
-        h3 {
-            @include title_3;
-            color: $orange;
-            text-align: center;
-            margin: 135px 0 35px 0;
-        }
-
-        // 捐款確認資料的內容
-        .content {
-            border: 2px solid $orange;
-            border-radius: $border-radius-1;
-            padding: 30px;
-
-            li {
-                padding: 10px;
-
-                +li {
-                    border-top: 1px solid black;
-                }
-            }
-        }
-
-        // 捐款資訊
-        .donate_info_table {
-            border-radius: $border-radius-1;
-            overflow: hidden;
-            border: 1px solid $gray_3;
-
-            table {
-                border: none;
-                width: 100%;
-
-                tr {
-                    height: 50px;
-                    padding: 0;
-                }
-
-                tr+tr {
-                    border-top: 1px solid $gray_3;
-                }
-
-                td:first-child {
-                    text-align: center;
-                    background-color: $orange;
-                    color: aliceblue;
-                    letter-spacing: 2px;
-                    width: 390px;
-                }
-
-                td:last-child {
-                    padding-left: 20px;
-                    line-height: 50px;
-                }
-            }
-        }
-
-        // 捐款明細
-        .donate_detail_table {
-
-            p {
-                margin: 30px 0 20px 0;
-                text-align: right;
-                @include title_10;
-            }
-
-
-            table {
-                width: 100%;
-
-                th {
-                    @include title_9;
-                    background-color: $orange;
-                    color: #fff;
-                    height: 50px;
-                    line-height: 50px;
-                    border-radius: $border-radius-1;
-                    letter-spacing: 2px;
-                }
-
-                tr:last-child {
-                    border-top: 1px solid black;
-                }
-
-                td {
-                    height: 40px;
-                }
-
-                td:last-child {
-                    text-align: right;
-                    padding-top: 20px;
-                }
-
-            }
-        }
-
-        // 捐款方式
-        .donete_payment {
-            display: flex;
-            flex-direction: column;
-
-            p {
-                background-color: $orange;
-                color: #fff;
-                @include title_9;
-                border-radius: $border-radius-1;
-                padding-left: 10px;
-                line-height: 50px;
-            }
-
-            img {
-                margin: 30px 0;
-                width: 175px;
-                height: 26px;
-            }
-
-            div {
-                display: flex;
-
-                label {
-                    @include title_10;
-                    width: 200px;
-                }
-
-                input {
-                    margin: 0 0 30px 30px;
-                    border-radius: $border-radius-1;
-                    height: 40px;
-                    flex: 1;
-                }
-
-                span {
-                    line-height: 20px;
-                    padding-left: 10px;
-                }
-            }
-
-            input[type="checkbox"] {
-                width: 20px;
-                height: 20px;
-                flex: initial;
-            }
-
-            .credit_card{
-                label{
-                    width: 200px;
-                    margin: 0;
-                    padding: 0;
-                }
-            }
-        }
-    }
-
-    // 捐款按鈕
-    .donate_confirm_button {
-        max-width: 1200px;
-        margin: auto;
-        display: flex;
-        justify-content: space-between;
-
-        button {
-            @include btn_3;
-            margin: 90px 0;
-            cursor: pointer;
-        }
-    }
-}
-
-
-@media(max-width: 768px){
-.donate_confirm {
-// banner
-    .donate_confirm_banner {
-        img {
-            width: 100%;
-        }
-        h1 {
-            @include title_3;
-        }
-    }
-
-// 捐款確認資料
-    .donate_container {
-        max-width: 350px;
-        margin: auto;
-
-        // 捐款確認資料的標題
-
-        // 捐款確認資料的內容
-        .content {
-            padding: 15px;
-
-            li {
-                padding: 10px;
-
-                +li {
-                    border-top: 1px solid black;
-                }
-            }
-        }
-        // 捐款資訊
-        .donate_info_table {
-            table {
-                tr {
-                    font-size: 14px;
-                }
-
-                td:first-child {
-                    letter-spacing: 2px;
-                    width: 120px;
-                    line-height: 20px;
-                }
-
-                td:last-child {
-                    padding-left: 10px;
-                    line-height: 40px;
-                }
-            }
-        }
-
-        // 捐款明細
-        .donate_detail_table {
-
-            table {
-                th {
-                    @include title_10;
-                    letter-spacing: 1px;
-                }
-            }
-        }
-
-        // 捐款方式
-        .donete_payment {
-            div {
-                label {
-                    width: 100px;
-                }
-
-                input {
-                    height: 30px;
-                    flex: 1;
-                }
-            }
-
-            .credit_card{
-                label{
-                    width: 100px;
-                    margin: 0;
-                    padding: 0;
-                }
-                div{
-                    display: flex;
-                    flex-direction: column;
-                    height: 200px;
-                    input{
-                        margin-bottom: 20px;
-                        width: 220px;
-
-                    }
-                }
-            }
-        }
-    }
-
-// 捐款按鈕
-        .donate_confirm_button {
-            max-width: 350px;
-            button {
-                @include btn_3;
-                margin: 60px 0;
-                cursor: pointer;
-            }
-        }
-    }
-}
-</style>
