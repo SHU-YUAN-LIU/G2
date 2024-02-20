@@ -24,8 +24,13 @@
                 <div class="pro_card_group">
                     <div class="card_group">
                         <div v-for="(item, index) in filteredProducts" :key="index">
+<<<<<<< HEAD
                             <ProCard :imgSrc="getproductpic(item.product_pic1)" :name="item.product_name"
                                 :price="item.price" :num="index" :id="item.product_no" />
+=======
+                            <ProCard :imgSrc="getproductpic(item.product_pic1)" :name="item.product_name" :price="item.price"
+                                :num="index" :id="item.product_no" />
+>>>>>>> 32
                         </div>
                     </div>
                 </div>
@@ -34,7 +39,10 @@
                     <!-- <Pagination /> -->
                 </div>
             </div>
+<<<<<<< HEAD
             <Background_green :height="'200'" />
+=======
+>>>>>>> 32
         </div>
     </div>
 </template>

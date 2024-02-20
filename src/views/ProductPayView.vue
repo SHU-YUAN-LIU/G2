@@ -34,6 +34,7 @@
                         src="/image/product/trash.svg" alt="">
                 </div>
             </div>
+<<<<<<< HEAD
         </div>
         <!-- -------------------------------------------------------------------------------->
         <hr>
@@ -61,8 +62,16 @@
             <div class="pay-title-group">
                 <div class="title-num">2</div>
                 <span>會員資料</span>
+=======
+            <!-- -------------------------------------------------------------------------------->
+            <hr>
+            <div class="pay-detail">
+                <span>訂單金額</span>
+                <span>$ {{ cart_total[0].total }}</span>
+>>>>>>> 32
             </div>
         </div>
+<<<<<<< HEAD
         <div class="mem-info">
             <div class="mem-input">
                 <label for="">會員名稱</label>
@@ -159,6 +168,8 @@
             </div>
         </div>
         <button class="pay-btn-now" @click="clearAllPro">立即結賬</button>
+=======
+>>>>>>> 32
         <Background_green :height="100" />
     </div>
 </template>
