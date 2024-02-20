@@ -7,7 +7,7 @@ export function show_product() {
 
     //取得商品頁面存入localstorage的物件
     const allProducts = JSON.parse(localStorage.getItem('allProducts'));
-   
+
 
     //因為畫面處理用陣列去顯示資料,所以這邊用陣列
     let arrayOfObjects = [];
@@ -68,7 +68,7 @@ export function changeqty(event, id, qty) {
 
     // 將 cart 的 JSON 字串轉換為 JavaScript 陣列
     var cart = JSON.parse(cartJSON);
-console.log(cart);
+    console.log(cart);
     // 使用 find 方法尋找符合特定 product_no 的商品(判斷原本就在購物車還是新增的商品)
     var checkproduct = cart.find(item => item.product_no == id);
 
@@ -109,66 +109,3 @@ console.log(cart);
     // usecartListStore().setCartList()
     // console.log(usecartListStore());
 }
-
-// export function clearAllPro() {
-  
-
-// }
-
-
-
-
-// //會有一個func是清除這個在陣列內的商品
-// export function deleteProduct(id) {
-//     event.preventDefault();// 阻止默認行為，例如超連結
-
-//     // 從 localStorage 中獲取 cart 的值
-//     var cartJSON = localStorage.getItem('cart');
-
-//     // 將 cart 的 JSON 字串轉換為 JavaScript 陣列
-//     var cart = JSON.parse(cartJSON);
-
-//     // 使用 findIndex 方法找到需刪除購物車商品目前的"索引值"
-//     var findProductIndex = cart.findIndex(item => item.productId == id);
-//     cart.splice(findProductIndex, 1);
-
-
-//     cart.sort((a, b) => {
-//         // 讓商品按照順序排列
-//         return a.productId - b.productId;
-//     });
-
-//     // 將修改後的 cart 陣列轉換回 JSON 字串
-//     var newCartJSON = JSON.stringify(cart);
-
-//     // 將更新後的值存回 localStorage
-//     localStorage.setItem('cart', newCartJSON);
-
-//     // 把local storage的資料重新rander到畫面中
-//     usecartListStore().setCartList()
-// }
-
-// //會有一個func是刷新購物車頁面陣列顯示的部分
-// export function Product(id) { }
-// //計算總金額也預計在這裡做
-
-// //之後會接PHP開關資料庫並insert跟update
-
-
-
-// export const usecartListStore = defineStore({
-//     id: "cart",
-//     state: () => ({
-//         cartList: [],
-//     }),
-
-//     actions: {
-//         setCartList() {
-
-//             console.log(show_product());
-//             this.cartList = show_product()[0];
-
-//         },
-
-//     },
-// });

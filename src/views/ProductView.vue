@@ -34,8 +34,8 @@
                     <!-- <Pagination /> -->
                 </div>
             </div>
-            <Background_green :height="'200'" />
         </div>
+        <Background_green :height="'50'" />
     </div>
 </template>
   
