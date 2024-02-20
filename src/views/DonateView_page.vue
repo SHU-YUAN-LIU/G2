@@ -51,7 +51,7 @@
         <div class="donate_page_method">
           <h4>捐款方式</h4>
           <p>請選擇付款方式</p>
-          <ul>
+          <ul class="list_container">
             <li v-for="(method, index_method) in paymentMethods" @click="selectPaymentMethod(index_method)"
               :key="index_method" :class="{ method_active: currentIndex_method === index_method }">
               <p>{{ method.text }}</p>
@@ -63,9 +63,10 @@
         <!-- 捐款金額 -->
         <div class="donate_page_amount">
           <h4>捐贈金額</h4>
-          <ul>
-            <li v-for="(amount, index_amount) in donateAmount" :key="index_amount" @click="selectAmount(index_amount)"
-              :class="{ amount_active: currentIndex_amount === index_amount }" v-if="shouldShowAmount(index_amount)">
+          <ul class="list_container">
+            <li v-for="(amount, index_amount) in donateAmount" :key="index_amount"
+            @click="selectAmount(index_amount)"
+            :class="{ amount_active: currentIndex_amount === index_amount }">
               <p class="donate_point" v-if="donate_num == 2">{{ amount.point }}<span>點</span></p>
               <div class="donate_amount_item">
                 <p>{{ amount.title }}</p>
@@ -96,13 +97,14 @@
 
         <div class="donate_page_attention">
           <h4>捐款須知</h4>
-          <input type="checkbox" id="donate_attention">
+          <input type="checkbox" id="donate_attention" v-model="isAgreeToTerms">
           <label for="donate_attention">本人已年滿20歲並同意遵守政治獻金相關法規於線上捐贈政治獻金 (政治獻金法及捐款須知)</label>
         </div>
 
       </div>
 
-      <RouterLink to="/donate/page/confirm"><button class="donate_page_next">下一步,捐款資料 →</button></RouterLink>
+      <!-- <RouterLink to="/donate/page/confirm"><button class="donate_page_next">下一步,捐款資料 →</button></RouterLink> -->
+      <button class="donate_page_next" @click="checkAndNavigate">下一步,捐款資料 →</button>
     </div>
     <donatePoint ref="donatePoint" />
   </div>
@@ -181,6 +183,11 @@ export default {
 
       // 輸入金額變數
       amount_input: '',
+
+      alert_info:[],
+
+      // 判斷捐款須知checkbox
+      isAgreeToTerms: false,
     };
   },
   methods: {
@@ -251,14 +258,42 @@ export default {
         alert('請輸入正整數');
       }
     },
-    shouldShowAmount(index_amount) {
+    // 判斷匿名捐款和會員捐款顯示的金額li
+    shouldShowAmount() {
       if (this.donate_num == 1) {
-        if (index_amount == 4 || index_amount == 5) {
-          return false;
+        // 如果是匿名捐款, 捐款li最後兩個元素刪除
+       this.donateAmount.splice(4,2);
+      }
+    },
+    checkAndNavigate(){
+      this.alert_info = [];
+      if (this.currentIndex_method === -1) {
+      this.alert_info.push('請選擇付款方式');
+      }
+
+      if (this.currentIndex_amount === -1 && !this.amount_input.trim()) {
+        this.alert_info.push('請選擇捐款金額, 或自行填寫捐款金額');
+      }
+
+      if ( this.donate_num==2 && (!this.isEmailValid || !this.isPhoneValid || this.donate_email=='' || this.donate_phone=='')) {
+        this.alert_info.push('請填寫正確的連絡資訊');
+      }
+
+      if (!this.isAgreeToTerms){
+        this.alert_info.push('請閱讀捐款須知並勾選同意');
+      }
+
+      if (this.alert_info.length > 0){
+        alert(`請填寫以下欄位: \n*${this.alert_info.join('\n*')}`);
+      }else{
+        this.$router.push('/donate/page/confirm');
+        if(this.amount_input){
+          localStorage.setItem('donateAmount', this.amount_input);
+        } else if (this.currentIndex_amount !== -1){
+          localStorage.setItem('donateAmount', this.donateAmount[this.currentIndex_amount].amount);
         }
       }
-      return true;
-    },
+    },   
 
   },
   components: {
@@ -267,7 +302,9 @@ export default {
   },
   mounted() {
     document.title = '青年進補黨 - 捐款';
-    this.donate_num = localStorage.getItem('donate_num');
+    this.donate_num = Number(localStorage.getItem('donate_num'));
+    console.log(this.donate_num);
+    this.shouldShowAmount();
   },
 }
 
