@@ -26,10 +26,13 @@ export default {
         closeLightbox() {
             this.showLightbox = false;
             document.body.style.overflow = "auto";
+            this.$router.push({ name: 'Home' });
         }
     },
 }
 </script>
+
+
 <style lang="scss">
 @import '../assets/scss/base/color';
 @import '../assets/scss/base/font';

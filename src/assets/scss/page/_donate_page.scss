@@ -46,6 +46,7 @@
     button.donate_page_next {
       @include btn_3;
       margin: 90px 0;
+      cursor: pointer;
     }
 
     // 我要捐款的標題
@@ -331,6 +332,7 @@
       // 下一步按鈕
       button.donate_page_next {
         margin: 50px 0;
+        cursor: pointer;
       }
 
       // 我要捐款的標題
