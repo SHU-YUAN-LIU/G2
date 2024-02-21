@@ -179,6 +179,7 @@
           display: flex;
           gap: 60px;
           flex-wrap: wrap;
+
           li {
             border-radius: $border-radius-1;
             border: 1px solid $gray_3;
@@ -243,6 +244,9 @@
       .donate_detail {
         border: none;
         border-bottom: 1px solid $orange;
+        cursor: pointer;
+        margin-right: 10px;
+        margin-top: 10px;
         @include title_9;
         color: $orange;
         background-color: rgba(255, 255, 255, 0);

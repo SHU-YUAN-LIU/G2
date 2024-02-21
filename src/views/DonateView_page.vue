@@ -64,9 +64,8 @@
         <div class="donate_page_amount">
           <h4>捐贈金額</h4>
           <ul class="list_container">
-            <li v-for="(amount, index_amount) in donateAmount" :key="index_amount"
-            @click="selectAmount(index_amount)"
-            :class="{ amount_active: currentIndex_amount === index_amount }">
+            <li v-for="(amount, index_amount) in donateAmount" :key="index_amount" @click="selectAmount(index_amount)"
+              :class="{ amount_active: currentIndex_amount === index_amount }">
               <p class="donate_point" v-if="donate_num == 2">{{ amount.point }}<span>點</span></p>
               <div class="donate_amount_item">
                 <p>{{ amount.title }}</p>
@@ -95,12 +94,12 @@
               10,000</span> 元</p>
         </div>
 
+        <!-- 捐款須知 -->
         <div class="donate_page_attention">
           <h4>捐款須知</h4>
           <input type="checkbox" id="donate_attention" v-model="isAgreeToTerms">
           <label for="donate_attention">本人已年滿20歲並同意遵守政治獻金相關法規於線上捐贈政治獻金 (政治獻金法及捐款須知)</label>
         </div>
-
       </div>
 
       <!-- <RouterLink to="/donate/page/confirm"><button class="donate_page_next">下一步,捐款資料 →</button></RouterLink> -->
@@ -184,7 +183,7 @@ export default {
       // 輸入金額變數
       amount_input: '',
 
-      alert_info:[],
+      alert_info: [],
 
       // 判斷捐款須知checkbox
       isAgreeToTerms: false,
@@ -262,38 +261,39 @@ export default {
     shouldShowAmount() {
       if (this.donate_num == 1) {
         // 如果是匿名捐款, 捐款li最後兩個元素刪除
-       this.donateAmount.splice(4,2);
+        this.donateAmount.splice(4, 2);
       }
     },
-    checkAndNavigate(){
+    checkAndNavigate() {
       this.alert_info = [];
       if (this.currentIndex_method === -1) {
-      this.alert_info.push('請選擇付款方式');
+        this.alert_info.push('請選擇付款方式');
       }
 
       if (this.currentIndex_amount === -1 && !this.amount_input.trim()) {
         this.alert_info.push('請選擇捐款金額, 或自行填寫捐款金額');
       }
 
-      if ( this.donate_num==2 && (!this.isEmailValid || !this.isPhoneValid || this.donate_email=='' || this.donate_phone=='')) {
+      if (this.donate_num == 2 && (!this.isEmailValid || !this.isPhoneValid || this.donate_email == '' || this.donate_phone == '')) {
         this.alert_info.push('請填寫正確的連絡資訊');
       }
 
-      if (!this.isAgreeToTerms){
+      if (!this.isAgreeToTerms) {
         this.alert_info.push('請閱讀捐款須知並勾選同意');
       }
 
-      if (this.alert_info.length > 0){
+      if (this.alert_info.length > 0) {
         alert(`請填寫以下欄位: \n*${this.alert_info.join('\n*')}`);
-      }else{
+      } else {
         this.$router.push('/donate/page/confirm');
-        if(this.amount_input){
+        if (this.amount_input) {
           localStorage.setItem('donateAmount', this.amount_input);
-        } else if (this.currentIndex_amount !== -1){
-          localStorage.setItem('donateAmount', this.donateAmount[this.currentIndex_amount].amount);
         }
+        // else if (this.currentIndex_amount !== -1) {
+        //   localStorage.setItem('donateAmount', this.donateAmount[this.currentIndex_amount].amount);
+        // }
       }
-    },   
+    },
 
   },
   components: {
