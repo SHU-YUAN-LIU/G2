@@ -19,6 +19,7 @@
           <div class="donate_card1_bottom">
             <!-- <button @click="showLightbox" class="donate_showLightbox">我要捐款 → </button> -->
             <commitButton :commitButton="commit" @click="showLightbox" />
+
             <!-- 要加上ref屬性, script裡的$refs才能抓到變數 -->
             <DonateLightbox ref="DonateLightbox" />
 
@@ -46,7 +47,6 @@
     </div>
     <background :height="300" />
   </div>
-
 </template>
 <script>
 import DonateLightbox from '../components/DonateLightbox.vue';
@@ -99,5 +99,4 @@ export default {
 
 <style scoped lang="scss">
 @import "../assets/scss/style.scss";
-
 </style>
