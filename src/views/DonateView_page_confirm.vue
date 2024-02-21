@@ -134,28 +134,42 @@ export default {
         },
         // 檢查輸入框是否填寫
         checkInputs() {
-            let emptyFields = [];
+            let emptyFields = []; //存未填寫的欄位
+            let invalidFields = []; // 存無效的資料格式
 
             // 檢查信用卡卡號輸入框
             for (let i = 0; i < this.inputs.length; i++) {
                 if (!this.inputs[i].value.trim()) {
                     emptyFields.push(`信用卡卡號 - 第${i + 1}個欄位`);
+                } else if (!/^\d{4}$/.test(this.inputs[i].value.trim())) {
+                    invalidFields.push(`第${i + 1}個欄位 - 請輸入有效的數字格式，例如：1234`);
                 }
             }
 
             // 檢查卡片有效期限輸入框+資料格式
-            if (!/^\d{2}\/\d{2}$/.test(this.expiryDate.trim())) {
+            if (!this.expiryDate.trim()) {
                 emptyFields.push('卡片有效期限');
+            } else if (!/^\d{2}\/\d{2}$/.test(this.expiryDate)) {
+                invalidFields.push('請輸入有效的卡片有效期限，例如：MM/YY');
             }
 
             // 檢查信用卡安全碼輸入框 + 資料格式
-            if (!/^\d{3}$/.test(this.cvvCode.trim())) {
+            if (!this.cvvCode.trim()) {
                 emptyFields.push('信用卡安全碼');
+            } else if (!/^\d{3}$/.test(this.cvvCode.trim())) {
+                invalidFields.push('請輸入有效的信用卡安全碼，例如：787');
             }
 
             // 判斷是否有未填寫得輸入框，都有填寫的話才會跳出燈箱
+            let message = '';
             if (emptyFields.length > 0) {
-                alert(`請填寫以下輸入欄位: \n*${emptyFields.join('\n*')}`);
+                message += `請填寫以下空白的輸入欄位: \n*${emptyFields.join('\n*')}\n\n`;
+            }
+            if (invalidFields.length > 0) {
+                message += `以下輸入欄位格式不正確，請輸入正確格式: \n*${invalidFields.join('\n*')}`;
+            }
+            if (message !== '') {
+                alert(message);
             } else {
                 this.$refs.DonateConfirmLightBox.showLightbox = true;
                 document.body.style.overflow = "hidden";

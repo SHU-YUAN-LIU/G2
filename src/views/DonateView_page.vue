@@ -94,15 +94,17 @@
               10,000</span> 元</p>
         </div>
 
+        <!-- 捐款須知 -->
         <div class="donate_page_attention">
           <h4>捐款須知</h4>
           <input type="checkbox" id="donate_attention">
           <label for="donate_attention">本人已年滿20歲並同意遵守政治獻金相關法規於線上捐贈政治獻金 (政治獻金法及捐款須知)</label>
         </div>
-
       </div>
 
-      <RouterLink to="/donate/page/confirm"><button class="donate_page_next">下一步,捐款資料 →</button></RouterLink>
+      <!-- 捐款按鈕 -->
+      <RouterLink to="/donate/page/confirm"><button class="donate_page_next" @blur="saveLocalSorage">下一步,捐款資料 →</button>
+      </RouterLink>
     </div>
     <donatePoint ref="donatePoint" />
   </div>
