@@ -67,10 +67,10 @@ export default {
         },
         getpicurl(picname) {
             if (picname) {
-                var url = `${import.meta.env.VITE_RESOURCE_URL}/image/product/product_data/` + picname;
+                var url = `${import.meta.env.VITE_IMG_URL}/product/product_data/` + picname;
             }
             else {
-                url = `${import.meta.env.VITE_RESOURCE_URL}/image/product/errorpic.png`;
+                url = `${import.meta.env.VITE_IMG_URL}/product/errorpic.png`;
             }
             return url;
         },

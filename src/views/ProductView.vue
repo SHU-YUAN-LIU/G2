@@ -59,7 +59,6 @@ export default {
         return {
             bannerTitle: '官方商城',
             bannerPic: `${import.meta.env.VITE_RESOURCE_URL}/image/product/product_banner.png`,
-            // defaultSrc: `${import.meta.env.VITE_RESOURCE_URL}/image/product/product_data/`,
             search: '',
             product_class_group: [],// 存儲從資料庫獲取的產品分類資料
             category: [],//儲存商品的分類編號
@@ -129,7 +128,7 @@ export default {
 
         //取商品網址
         getproductpic(src) {
-            return `${import.meta.env.VITE_RESOURCE_URL}image/product/product_data/` + src;
+            return `${import.meta.env.VITE_IMG_URL}/product/product_data/` + src;
         },
 
 
