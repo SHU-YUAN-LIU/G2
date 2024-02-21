@@ -35,7 +35,7 @@ export default {
         };
     },
     mounted() {
-        this.refreshCaptcha();
+        // this.refreshCaptcha();
     },
     methods: {
         refreshCaptcha() {
