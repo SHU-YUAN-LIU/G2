@@ -209,6 +209,14 @@
                     @include title_10;
                 }
 
+                .error-message {
+                    color: red;
+                    font-size: 14px;
+                    position: relative;
+                    left: 10px;
+                    letter-spacing: $space_letter;
+                }
+
             }
 
         }
@@ -277,6 +285,14 @@
                 height: 48px;
                 border-radius: $border-radius-1;
                 text-indent: 20px;
+            }
+
+            .error-message {
+                color: red;
+                font-size: 14px;
+                position: relative;
+                left: 10px;
+                letter-spacing: $space_letter;
             }
         }
 
