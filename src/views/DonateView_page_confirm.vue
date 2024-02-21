@@ -74,8 +74,7 @@
                     <div>
                         <template v-for="(input, index) in inputs" :key="index">
                             <input v-model="input.value" @input="doChange(index)" :maxlength="input.maxLength"
-                                placeholder="XXXX" class="credit-input" />
-                            <!-- 只在非最后一个输入框后添加破折号 -->
+                                placeholder="XXXX" class="credit-input" ref="inputs" />
                             <span v-if="index < inputs.length - 1" class="credit_dash">–</span>
                         </template>
                     </div>
