@@ -73,8 +73,6 @@
                 </div>
                 <router-link to="/forgotpsw">忘記密碼?</router-link>
                 <button class="btn" type="submit">登入 ➜</button>
-                <!-- <button class="btn" @click="handleLogin();checkmemdata()"><router-link to="/member">登入 ➜</router-link></button> -->
-                <!-- <button type="reset" @click="removeCookie">clear</button> -->
             </form>
 
         </div>
@@ -178,14 +176,13 @@ export default {
                         data:bodyFormData,
                         // headers: { "Content-Type": "multipart/form-data" },
                 }).then(res=>{
-                    console.log(res.data.member);
+                    console.log(res.data);
                     if (res.data.error) {
                         // 登錄失敗，顯示錯誤消息
                         alert(res.data.msg); // 或進行本地化處理顯示給用戶
                     } else {
                         // 登錄成功，處理 token 和用戶資料
-                        // this.updateToken(res.data.session_id);
-                        this.updateUserData(res.data.member);
+                        localStorage.setItem('userToken', res.data.token);
                         this.$router.push('/');
                     }
                 }).catch(error=>{
@@ -211,5 +208,5 @@ export default {
 <style scoped></style>
 
 
-
+// this.updateToken(res.data.session_id);
 
