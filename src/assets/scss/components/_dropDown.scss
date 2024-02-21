@@ -23,6 +23,7 @@
 
         @media screen and (max-width:1280px) {
             padding: 0px;
+
         }
 
         .cart-item {
@@ -32,9 +33,8 @@
             padding: 10px;
 
             .cart-pic {
-                width: 175px;
-                min-width: 175px;
-                height: 175px;
+                // min-width: 175px;
+                // height: 175px;
                 overflow: hidden;
 
                 img {
@@ -43,27 +43,33 @@
                     object-fit: cover;
                     vertical-align: middle;
                 }
+
+                @media screen and (max-width:1280px) {
+                    width: 150px;
+
+                }
+
             }
 
             .cart-info {
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
-                padding: 15px;
+                padding: 0px 10px;
 
-                @media screen and (max-width:1280px) {
-                    padding: 15px 0px;
-                }
 
                 .cart-text p {
-                    font-family: $font_family_2;
+                    font-family: $font_family_1;
                     letter-spacing: $space_letter;
-                    font-size: 24px;
-                    margin: 10px 0;
+                    line-height: $line_height;
+                    font-weight: 700;
+                    font-size: 16px;
+                    margin: 0px 0px 10px;
+                    text-align: justify;
                 }
 
                 .cart-text span {
-                    @include title_7;
+                    @include title_9;
                     color: $orange;
 
                 }

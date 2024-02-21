@@ -28,9 +28,9 @@
             </div>
         </div>
         <!-- 結帳按鈕 -->
-        <router-link to="/ProductPay">
+        <div @click="checkCartNotEmpty">
             <PayButton />
-        </router-link>
+        </div>
     </div>
 </template>    
 <script>
@@ -67,10 +67,10 @@ export default {
         },
         getpicurl(picname) {
             if (picname) {
-                var url = `${import.meta.env.VITE_RESOURCE_URL}/image/product/product_data/` + picname;
+                var url = `${import.meta.env.VITE_IMG_URL}/product/product_data/` + picname;
             }
             else {
-                url = `${import.meta.env.VITE_RESOURCE_URL}/image/product/errorpic.png`;
+                url = `${import.meta.env.VITE_IMG_URL}/product/errorpic.png`;
             }
             return url;
         },
@@ -82,6 +82,19 @@ export default {
         destroyed() {
             window.removeEventListener('storage', this.changecartshow);
         },
+        checkCartNotEmpty() {
+            //從local storage中獲取'cart'
+            const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+
+            //檢查'cart'是否為空
+            if (cart.length === 0) {
+                //就跳出警告
+                alert('您的購物車是空的喔!');
+            } else {
+                //如果不是空的,就跳轉頁面
+                this.$router.push('/productPay');
+            }
+        }
     }
 }
 </script>

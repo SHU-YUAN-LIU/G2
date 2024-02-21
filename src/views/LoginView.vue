@@ -73,27 +73,25 @@
                 </div>
                 <router-link to="/forgotpsw">忘記密碼?</router-link>
                 <button class="btn" type="submit">登入 ➜</button>
-                <!-- <button class="btn" @click="handleLogin();checkmemdata()"><router-link to="/member">登入 ➜</router-link></button> -->
-                <!-- <button type="reset" @click="removeCookie">clear</button> -->
             </form>
 
         </div>
     </article>
     <div class="login_wrap_sm">
         <div class="login_logo"><img src="../assets/image/login/logo.png" alt=""></div>
-        <form action="">
+        <form method="POST" action="" class="login" id="loginformSm" @submit.prevent="memberLogin">
         <div class="login_logo"><img src="" alt=""></div>
         <div class="login_email">
             <p>帳號</p>
-            <input type="email">
+            <input type="email" v-model="loginForm.email">
         </div>
         <div class="login_psw">
             <p>密碼</p>
-            <input type="password">
+            <input type="password" v-model="loginForm.psw">
         </div>
         <router-link to="/signupform">尚未加入會員?</router-link>
         <router-link to="/forgotpsw">忘記密碼?</router-link>
-        <button type="button" class="btn" @click="memberLogin">登入 ➜</button>
+        <button class="btn" type="submit">登入 ➜</button>
         </form>
     </div>
 </template>
@@ -178,14 +176,13 @@ export default {
                         data:bodyFormData,
                         // headers: { "Content-Type": "multipart/form-data" },
                 }).then(res=>{
-                    console.log(res.data.member);
+                    console.log(res.data);
                     if (res.data.error) {
                         // 登錄失敗，顯示錯誤消息
                         alert(res.data.msg); // 或進行本地化處理顯示給用戶
                     } else {
                         // 登錄成功，處理 token 和用戶資料
-                        // this.updateToken(res.data.session_id);
-                        this.updateUserData(res.data.member);
+                        localStorage.setItem('userToken', res.data.token);
                         this.$router.push('/');
                     }
                 }).catch(error=>{
@@ -211,5 +208,5 @@ export default {
 <style scoped></style>
 
 
-
+// this.updateToken(res.data.session_id);
 

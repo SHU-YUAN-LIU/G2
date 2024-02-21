@@ -23,7 +23,7 @@
                         <li>通訊地址:宜蘭縣壯圍鄉中央路24號</li>
                         <li>捐款單位:中央黨部</li>
                         <li>捐款方式:信用卡</li>
-                        <li>捐款金額:新台幣 100 元</li>
+                        <li>捐款金額:新台幣 <span>{{ donate_amount }}</span> 元</li>
                     </ul>
                 </div>
             </div>
@@ -49,19 +49,19 @@
             </div>
             <!-- 捐款明細 -->
             <div class="donate_detail_table">
+                <p>單位 Unit：新台幣 NTD</p>
                 <table>
-                    <p>單位 Unit：新台幣 NTD</p>
                     <th colspan="2">
                         捐款明細 Merchandise detail
                         小計
-                        <tr colspan="2">
-                            <td>100</td>
-                            <td>100</td>
-                        </tr>
-                        <tr colspan="2">
-                            <td colspan="2">實際付款金額 NT$100</td>
-                        </tr>
                     </th>
+                    <tr colspan="2">
+                            <td><span>{{ donate_amount }}</span></td>
+                            <td><span>{{ donate_amount }}</span></td>
+                        </tr>
+                        <tr colspan="2">
+                            <td colspan="2">實際付款金額 NT$<span>{{ donate_amount }}</span></td>
+                        </tr>
                 </table>
             </div>
             <!-- 捐款方式 -->
@@ -178,6 +178,15 @@ export default {
     },
     mounted() {
         this.donate_num = localStorage.getItem('donate_num');
+    },
+    computed:{
+        donate_amount() {
+            if(localStorage.getItem('donateAmount')){
+                let amount = localStorage.getItem('donateAmount');
+                return amount;
+            };
+
+        },
     },
 }
 </script>
