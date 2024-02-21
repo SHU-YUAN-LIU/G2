@@ -56,12 +56,12 @@
                         小計
                     </th>
                     <tr colspan="2">
-                            <td><span>{{ donate_amount }}</span></td>
-                            <td><span>{{ donate_amount }}</span></td>
-                        </tr>
-                        <tr colspan="2">
-                            <td colspan="2">實際付款金額 NT$<span>{{ donate_amount }}</span></td>
-                        </tr>
+                        <td><span>{{ donate_amount }}</span></td>
+                        <td><span>{{ donate_amount }}</span></td>
+                    </tr>
+                    <tr colspan="2">
+                        <td colspan="2">實際付款金額 NT$<span>{{ donate_amount }}</span></td>
+                    </tr>
                 </table>
             </div>
             <!-- 捐款方式 -->
@@ -88,7 +88,9 @@
         </div>
         <!-- 按鈕 -->
         <div class="donate_confirm_button">
-            <button class="donate_confirm_button">←返回上頁 </button>
+            <RouterLink to="/donate/page">
+                <button class="donate_confirm_button">←返回上頁 </button>
+            </RouterLink>
             <!-- 彈窗 -->
             <button class="donate_confirm_button" @click="donatePayment, checkInputs()">立即付款→</button>
             <DonateConfirmLightBox ref="DonateConfirmLightBox" />
@@ -179,9 +181,9 @@ export default {
     mounted() {
         this.donate_num = localStorage.getItem('donate_num');
     },
-    computed:{
+    computed: {
         donate_amount() {
-            if(localStorage.getItem('donateAmount')){
+            if (localStorage.getItem('donateAmount')) {
                 let amount = localStorage.getItem('donateAmount');
                 return amount;
             };
