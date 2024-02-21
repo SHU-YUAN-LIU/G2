@@ -2724,7 +2724,7 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
 }
 .donate_page .donate_page_main .donate_page_content .donate_page_amount ul {
   display: flex;
-  gap: 100px;
+  gap: 60px;
   flex-wrap: wrap;
 }
 .donate_page .donate_page_main .donate_page_content .donate_page_amount ul li {
@@ -3041,7 +3041,7 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
   width: 200px;
 }
 .donate_confirm .donate_container .donete_payment div input {
-  margin: 0 0 30px 30px;
+  margin: 0 0 30px 15px;
   border-radius: 10px;
   height: 40px;
   flex: 1;
@@ -3059,6 +3059,10 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
   width: 240px;
   margin: 0;
   padding: 0;
+}
+.donate_confirm .donate_container .donete_payment .credit_card .credit_dash {
+  line-height: 40px;
+  padding-left: 15px;
 }
 .donate_confirm .donate_confirm_button {
   max-width: 1200px;
