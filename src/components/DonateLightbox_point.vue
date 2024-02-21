@@ -5,8 +5,10 @@
                     alt=""></button>
 
             <div class="point_lightbox_content">
-                <h2>您的支持</h2>
-                <h2>是我們進補的力量</h2>
+                <h2>
+                    <span>您的支持</span>
+                    <span>是我們進補的力量</span>
+                </h2>
 
                 <ul class="point_lightbox_list">
                     <li>
@@ -99,7 +101,7 @@ export default {
 
     .point_lightbox_content {
         width: 1000px;
-        height: 650px;
+        height: 500px;
         background: $orange;
         overflow-y: scroll;
         padding: 40px;
@@ -108,7 +110,10 @@ export default {
             @include title_2;
             color: $white;
             text-align: center;
-            margin-bottom: 30px;
+            display: flex;
+            flex-direction: column;
+            padding-bottom: 40px;
+            
         }
         .point_lightbox_list{
 

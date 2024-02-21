@@ -103,8 +103,9 @@ export default {
 
     div {
         width: 100%;
-        max-width: 1200px;
+        max-width: 1000px;
         position: relative;
+        max-height: 500px;
 
         button {
             position: absolute;
