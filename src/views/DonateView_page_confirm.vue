@@ -72,8 +72,11 @@
                 <div class="credit_card">
                     <label for="">信用卡卡號<br>Credit card number</label>
                     <div>
-                        <input v-for="(input, index) in inputs" :key="index" v-model="input.value" @input="doChange(index)"
-                            :maxlength="input.maxLength" placeholder="XXXX" ref="inputs" />
+                        <template v-for="(input, index) in inputs" :key="index">
+                            <input v-model="input.value" @input="doChange(index)" :maxlength="input.maxLength"
+                                placeholder="XXXX" class="credit-input" ref="inputs" />
+                            <span v-if="index < inputs.length - 1" class="credit_dash">–</span>
+                        </template>
                     </div>
                 </div>
                 <div>

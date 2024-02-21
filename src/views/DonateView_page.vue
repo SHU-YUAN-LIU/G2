@@ -295,9 +295,6 @@ export default {
         if (this.amount_input) {
           localStorage.setItem('donateAmount', this.amount_input);
         }
-        // else if (this.currentIndex_amount !== -1) {
-        //   localStorage.setItem('donateAmount', this.donateAmount[this.currentIndex_amount].amount);
-        // }
       }
     },
 
