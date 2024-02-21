@@ -126,7 +126,7 @@
                 </div>
             </div>
             <!-- <button class="pay-btn">請選擇取貨門市</button> -->
-            <div class="receive-address">
+            <div class="receive-address" v-if="shipping === 'deliver'">
                 <label for="">收件人地址(如果是超商取貨則免填)</label>
                 <input type="text" placeholder="購買人地址" v-model="orderData.receiver_address">
             </div>
@@ -215,7 +215,22 @@ export default {
             }
             return url;
         },
+        getpicurl(picname) {
+            if (picname) {
+                var url = `${import.meta.env.VITE_IMG_URL}/product/product_data/` + picname;
+            }
+            else {
+                url = `${import.meta.env.VITE_IMG_URL}/product/errorpic.png`;
+            }
+            return url;
+        },
 
+
+        //清空購物車並將資料儲存到資料庫
+        clearAndSavePro() {
+            this.clearAllPro();
+            this.saveOrderToDatabase();
+        },
         //清除購物車相關資料
         clearAllPro() {
             // 清除 localStorage 中的購物車相關資料
@@ -234,25 +249,28 @@ export default {
             window.location.href = "/Product";
         },
 
-        getpicurl(picname) {
-            if (picname) {
-                var url = `${import.meta.env.VITE_IMG_URL}/product/product_data/` + picname;
-            }
-            else {
-                url = `${import.meta.env.VITE_IMG_URL}/product/errorpic.png`;
-            }
-            return url;
-        },
+
         //將獲取的資料存入資料庫
         saveOrderToDatabase() {
 
-            const memberNo = localStorage.getItem('memeber_no');//從localstorage拿memeber_no
-            const insertOrderData = {
-                ...this.orderData,//寫...等於orderData裡面所有東西
-                member_no: memberNo,//添加從localstorage取得的memeber_no
+            const tokenStr = localStorage.getItem('token');//從localstorage拿token
+            let memberNo;//在if外面也宣告,以便在外部也能使用
+
+            //檢查tokenStr是否存在
+            if (tokenStr) {
+                //將字串轉成json對象
+                const tokenobj = JSON.parse(tokenStr);
+
+                //從轉換過得json對象取得member_no
+                memberNo = tokenobj.member_no;
             }
 
-            axios.post(`${import.meta.env.VITE_PHP_URL}` + "/front_productOrderInsert.php", this.insertOrderData)
+            const insertOrderData = {
+                ...this.orderData,//寫...等於orderData裡面所有東西
+                member_no: memberNo,//添加從localstorage的token取得的memeber_no
+            }
+
+            axios.post(`${import.meta.env.VITE_PHP_URL}` + "/front_productOrderInsert.php", insertOrderData)
                 .then(res => {
                     //請求成功的處理
                     alert('您的訂單已送出')
