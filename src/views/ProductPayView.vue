@@ -66,7 +66,7 @@
             <div class="mem-info">
                 <div class="mem-input">
                     <label for="">會員名稱</label>
-                    <input type="text" placeholder="王大明">
+                    <input type="text" value="王大明">
                 </div>
                 <div class="mem-input">
                     <label for="">會員電話</label>
