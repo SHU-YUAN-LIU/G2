@@ -84,7 +84,8 @@
             <table>
               <tr>
                 <td>新台幣</td>
-                <td><input type="text" placeholder="請自行輸入金額" @blur="handleAmount" v-model="amount_input"></td>
+                <td><input type="text" placeholder="請自行輸入金額" @blur="handleAmount" @input="cancelAmount"
+                    v-model="amount_input"></td>
                 <td>元</td>
               </tr>
             </table>
@@ -230,6 +231,11 @@ export default {
         this.isPhoneValid = phonePattern.test(this.donate_phone);
       }
     },
+    // 改用輸入框填寫金額時，取消捐贈金額欄位的資訊
+    cancelAmount() {
+      this.currentIndex_amount = -1;
+    },
+
     // 輸入金額驗證
     handleAmount() {
       if (Number.isInteger(Number(this.amount_input))) {
