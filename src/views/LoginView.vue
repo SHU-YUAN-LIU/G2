@@ -110,12 +110,12 @@ export default {
 
     name: 'login',
     data: () => {
-        
         return {
             registerBtn: false,
             member: {
                 email: '',
                 psw: '',
+                userToken: '',
             },
             loginForm: {
                 email: '',
@@ -176,7 +176,7 @@ export default {
                         data:bodyFormData,
                         // headers: { "Content-Type": "multipart/form-data" },
                 }).then(res=>{
-                    console.log(res.data);
+                    console.log(res.data); // 打印 data 属性
                     if (res.data.error) {
                         // 登錄失敗，顯示錯誤消息
                         alert(res.data.msg); // 或進行本地化處理顯示給用戶
