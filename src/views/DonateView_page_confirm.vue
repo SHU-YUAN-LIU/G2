@@ -20,7 +20,6 @@
                         <li>行動電話: 0912345678</li>
                         <li>市內電話:</li>
                         <li>電子郵件:</li>
-                        <li>通訊地址:宜蘭縣壯圍鄉中央路24號</li>
                         <li>捐款單位:中央黨部</li>
                         <li>捐款方式:信用卡</li>
                         <li>捐款金額:新台幣 <span>{{ donate_amount }}</span> 元</li>
@@ -75,6 +74,7 @@
                         <template v-for="(input, index) in inputs" :key="index">
                             <input v-model="input.value" @input="doChange(index)" :maxlength="input.maxLength"
                                 placeholder="XXXX" class="credit-input" ref="inputs" />
+                            <!-- 新增破折號 -->
                             <span v-if="index < inputs.length - 1" class="credit_dash">–</span>
                         </template>
                     </div>
@@ -95,13 +95,14 @@
                 <button class="donate_confirm_button">←返回上頁 </button>
             </RouterLink>
             <!-- 彈窗 -->
-            <button class="donate_confirm_button" @click="donatePayment, checkInputs()">立即付款→</button>
+            <button class="donate_confirm_button" @click="donatePayment, checkInputs(), submitData()">立即付款→</button>
             <DonateConfirmLightBox ref="DonateConfirmLightBox" />
         </div>
     </div>
 </template>
 
 <script>
+import axios from 'axios';
 import commitButton from '../components/button/commitButton.vue'
 import breadCrumbs from '../components/Bread.vue';
 import DonateConfirmLightBox from '../components/DonateConfirmLightBox.vue';
@@ -165,7 +166,7 @@ export default {
                 invalidFields.push('請輸入有效的信用卡安全碼，例如：787');
             }
 
-            // 判斷是否有未填寫得輸入框，都有填寫的話才會跳出燈箱
+            // 判斷是否有未填寫的輸入框，都有填寫的話才會跳出燈箱
             let message = '';
             if (emptyFields.length > 0) {
                 message += `請填寫以下空白的輸入欄位: \n*${emptyFields.join('\n*')}\n\n`;
@@ -179,7 +180,27 @@ export default {
                 this.$refs.DonateConfirmLightBox.showLightbox = true;
                 document.body.style.overflow = "hidden";
             }
-        }
+        },
+        // 將捐款資料存到資料庫
+        submitData() {
+            const donateformdata = new FormData();
+            donateformdata.append('donateAmount', this.donate_amount)
+            console.log(this.donate_amount);
+            // 連結php
+            axios({
+                method: "post",
+                url: `${import.meta.env.VITE_PHP_URL}` + "/front_donate.php",
+                data: donateformdata,
+            }).then(res => {
+                console.log('insert data:', res.data.msg);
+            })
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+                });
+
+            // axios.post(`${import.meta.env.VITE_PHP_URL}` + "/front_donate.php", this.inserdonatedata)
+
+        },
     },
     mounted() {
         this.donate_num = localStorage.getItem('donate_num');
