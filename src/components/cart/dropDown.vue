@@ -12,15 +12,15 @@
                         <!-- 品名 -->
                         <p>{{ item.product_name }}</p>
                         <!-- 數量*價格 -->
-                        <span>NT{{ item.quantity * item.price }}</span>
+                        <span>NT{{ item.qty * item.price }}</span>
                     </div>
                     <div class="quality-trashcan">
                         <div id="num">
                             <button @click="changeqty($event, item.product_no, -1)"> -</button>
-                            <div>{{ item.quantity }}</div>
+                            <div>{{ item.qty }}</div>
                             <button @click="changeqty($event, item.product_no, 1)"> +</button>
                         </div>
-                        <div @click=" changeqty($event, item.product_no, -(item.quantity))" class="trash-can">
+                        <div @click=" changeqty($event, item.product_no, -(item.qty))" class="trash-can">
                             <img src="/image/product/trash.svg" alt="">
                         </div>
                     </div>
@@ -45,7 +45,7 @@ export default {
     data() {
         return {
             cartList: [],//存購物車資料的陣列
-            quantity: 1,//初始數量
+            qty: 1,//初始數量
             cart_total: [],//存總價格跟總項目陣列
         }
     },
