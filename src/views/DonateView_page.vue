@@ -315,9 +315,12 @@ export default {
   computed:{
     donate_point(){
       let point = this.donatePoint;
-      point = Math.floor(parseInt(this.amount_input) / 100);
+      if(this.donate_num == 2){
+        point = Math.floor(parseInt(this.amount_input) / 100);
+      }else if(this.donate_num == 1){
+        point = null;
+      }     
       return point;
-
     }
   }
 }
