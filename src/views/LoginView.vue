@@ -71,7 +71,7 @@
                     <p>密碼<span>*</span></p>
                     <input type="password" name="psw" id="psw2" placeholder="請輸入您的密碼" v-model="loginForm.psw">
                 </div>
-                <router-link to="/forgotpsw">忘記密碼?</router-link>
+                <router-link to="/member">忘記密碼?</router-link>
                 <button class="btn" type="submit">登入 ➜</button>
             </form>
 
@@ -209,5 +209,5 @@ export default {
 <style scoped></style>
 
 
-// this.updateToken(res.data.session_id);
+
 
