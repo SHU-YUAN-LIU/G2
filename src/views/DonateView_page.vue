@@ -296,6 +296,7 @@ export default {
         this.$router.push('/donate/page/confirm');
         if (this.amount_input) {
           localStorage.setItem('donateAmount', this.amount_input);
+          localStorage.setItem('donatePoint', this.donate_point);
         }
       }
     },
