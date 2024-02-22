@@ -5,7 +5,7 @@
   <div v-for="item in cart_info_show" :key="item.product_no">
     <div> 商品ID : <span>{{ item.product_no }}</span></div>
     <div> 名稱 : <span>{{ item.product_name }}</span></div>
-    <div> 數量 : <span>{{ item.quantity }}</span></div>
+    <div> 數量 : <span>{{ item.qty }}</span></div>
     <div> 價格 : <span>{{ item.price }}</span></div>
     <div> 圖片名稱 : <span>{{ item.product_pic1 }}</span></div>
   </div>

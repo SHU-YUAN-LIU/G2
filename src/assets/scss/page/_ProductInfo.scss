@@ -2,10 +2,17 @@
     position: relative;
     padding-bottom: 280px;
     padding-top: 30px;
+
+    @media screen and (min-width: 768px) {
+        .pro-info-wrap {
+            padding-bottom: 170px;
+        }
+
+    }
 }
 
 .pro_info_group {
-    width: 300px;
+    // width: 300px;
     margin: auto;
     display: flex;
     flex-direction: column-reverse;
@@ -144,11 +151,11 @@
 }
 
 @media screen and (min-width: 768px) {
+
     .pro_info_group {
-        width: 700px;
+        // width: 700px;
         flex-direction: row-reverse;
         margin-top: 80px;
-        margin-bottom: 80px;
 
         .proText_group {
 
@@ -158,11 +165,14 @@
             }
 
             span {
+                @include title_10;
                 padding: 0
             }
 
             p {
-                @include title_3;
+                @include title_7;
+                font-weight: 700;
+                line-height: $line_height;
             }
 
             #num {
@@ -320,4 +330,5 @@
             cursor: pointer;
         }
     }
+
 }
