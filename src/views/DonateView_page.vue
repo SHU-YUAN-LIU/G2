@@ -112,7 +112,6 @@
   
   
 <script>
-import { RouterLink } from 'vue-router';
 import breadCrumbs from '../components/Bread.vue';
 import donatePoint from '../components/DonateLightbox_point.vue';
 

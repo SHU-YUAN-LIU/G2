@@ -2919,6 +2919,7 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 80px;
 }
 .donate_confirm .donate_confirm_banner img {
   width: 100%;
@@ -2953,33 +2954,6 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
 .donate_confirm .donate_container .content li + li {
   border-top: 1px solid black;
 }
-.donate_confirm .donate_container .donate_info_table {
-  border-radius: 10px;
-  overflow: hidden;
-  border: 1px solid #565656;
-}
-.donate_confirm .donate_container .donate_info_table table {
-  border: none;
-  width: 100%;
-}
-.donate_confirm .donate_container .donate_info_table table tr {
-  height: 50px;
-  padding: 0;
-}
-.donate_confirm .donate_container .donate_info_table table tr + tr {
-  border-top: 1px solid #565656;
-}
-.donate_confirm .donate_container .donate_info_table table td:first-child {
-  text-align: center;
-  background-color: #FF892E;
-  color: aliceblue;
-  letter-spacing: 2px;
-  width: 390px;
-}
-.donate_confirm .donate_container .donate_info_table table td:last-child {
-  padding-left: 20px;
-  line-height: 50px;
-}
 .donate_confirm .donate_container .donate_detail_table {
   display: flex;
   flex-direction: column;
@@ -2989,6 +2963,14 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
   text-align: right;
   font-family: "Noto Sans TC", sans-serif;
   font-size: 16px;
+}
+.donate_confirm .donate_container .donate_detail_table h3 {
+  font-family: "Mantou Sans";
+  font-size: 36px;
+  font-weight: initial;
+  color: #FF892E;
+  text-align: center;
+  margin: 0;
 }
 .donate_confirm .donate_container .donate_detail_table table {
   width: 100%;
@@ -3002,6 +2984,8 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
   line-height: 50px;
   border-radius: 10px;
   letter-spacing: 2px;
+  text-align: left;
+  padding-left: 0.5em;
 }
 .donate_confirm .donate_container .donate_detail_table table tr:last-child {
   border-top: 1px solid black;
@@ -3012,6 +2996,9 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
 .donate_confirm .donate_container .donate_detail_table table td:last-child {
   text-align: right;
   padding-top: 20px;
+}
+.donate_confirm .donate_container .donate_detail_table .donate_name span {
+  padding-left: 0.5em;
 }
 .donate_confirm .donate_container .donete_payment {
   display: flex;
@@ -3120,6 +3107,9 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
   .donate_confirm .donate_container .donate_detail_table table th {
     font-family: "Noto Sans TC", sans-serif;
     font-size: 16px;
+    letter-spacing: 1px;
+  }
+  .donate_confirm .donate_container .donate_detail_table table td span {
     letter-spacing: 1px;
   }
   .donate_confirm .donate_container .donete_payment div label {
