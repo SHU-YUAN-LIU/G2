@@ -25,12 +25,12 @@
                 <span>NT{{ item.price }}</span>
                 <div id="num">
                     <button @click="changeqty($event, item.product_no, -1)"> -</button>
-                    <div>{{ item.quantity }}</div>
+                    <div>{{ item.qty }}</div>
                     <button @click="changeqty($event, item.product_no, 1)"> +</button>
                 </div>
                 <div class="pay-delete">
-                    <span>${{ item.quantity * item.price }}</span>
-                    <div @click=" changeqty($event, item.product_no, -(item.quantity))" class="trash-can"><img
+                    <span>${{ item.qty * item.price }}</span>
+                    <div @click=" changeqty($event, item.product_no, -(item.qty))" class="trash-can"><img
                             src="/image/product/trash.svg" alt="">
                     </div>
                 </div>
@@ -177,11 +177,11 @@ export default {
         return {
 
             cartList: [],//存購物車資料的陣列
-            quantity: 1,//初始數量
+            qty: 1,//初始數量
             cart_total: [],//存總價格跟總項目陣列
             alert_info: [],//拿來做檢查的陣列
 
-            //把要送去資料庫存的物件用v-model放在orderInfo
+            //把要送去"訂單"資料庫存的物件用v-model放在orderInfo
             orderData: {
                 // member_no: '',//?
                 receiver_name: '',
@@ -217,6 +217,8 @@ export default {
 
             // 判斷商店服務須知checkbox
             AgreeAll: false,
+
+            pk: '',
         }
     },
     watch: {
@@ -256,7 +258,6 @@ export default {
     created() {
 
         [this.cartList, this.cart_total] = show_product();
-        console.log(show_product());
         window.addEventListener('storage', this.changecartshow);
     },
     methods: {
@@ -297,11 +298,14 @@ export default {
                 return;
             }
 
-            //執行保存訂單到資料庫
+            //執行保存"訂單"到資料庫
             this.saveOrderToDb();
 
+            //執行保存"訂單項目"到資料庫
+            // this.saveOrderItemToDb();
+
             //清除所有產品
-            this.clearAllPro();
+            // this.clearAllPro();
 
             // //將頁面跳轉至產品頁
             // window.location.href = "/Product";
@@ -356,39 +360,37 @@ export default {
             axios.post(`${import.meta.env.VITE_PHP_URL}` + "/front_productOrderInsert.php", insertOrderData)
                 .then(res => {
                     //請求成功的處理
-                    alert('您的訂單已送出')
-                    console.log('您的訂單已送出');
+                    alert('您的訂單已送出');
+
+                    // 然後將pk加到cartList裡面
+                    console.log(this.cartList);
+                    this.cartList = this.cartList.map(item => {
+                        // 將每個元素都加上pk
+                        return { ...item, orders_no: res.data.PK };
+                    });
+                    console.log(this.cartList);
+                    this.saveOrderItemToDb();//要執行完商品訂單,才能執行存取訂單細項!
                 })
                 .catch(error => {
                     console.error('您的訂單無法成功送出,請撥打03-0857878', error);
                 });
         },
-        //將獲取的資料存入"訂單細項!"的資料庫//還沒寫完!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        // saveOrderItemToDb() {
 
-        //     const final_price = this.cart_total[0].total + 60 - 10;
-        //     // 整包需要的資料
-        //     const insertOrderData = {
-        //         ...this.orderData,//寫...等於orderData裡面所有東西
-        //         final_price,
-        //         // member_no: memberNo,//添加從localstorage的token取得的memeber_no
-        //     }
+        //將獲取的資料存入"訂單細項!"的資料庫
+        saveOrderItemToDb() {
+            console.log(this.cartList);
+            //把整包東西傳去資料庫
 
-
-        //     //因為從表單獲取時是字串 必須全部換回int欄位(因為php有規定他是int這邊才要做)
-        //     this.orderData.receiver_phone = parseInt(this.orderData.receiver_phone);
-
-        //     //把整包東西傳去資料庫
-        //     axios.post(`${import.meta.env.VITE_PHP_URL}` + "/front_productOrderItemInsert.php", insertOrderData)
-        //         .then(res => {
-        //             //請求成功的處理
-        //             alert('您的訂單已送出')
-        //             console.log('您的訂單已送出');
-        //         })
-        //         .catch(error => {
-        //             console.error('您的訂單無法成功送出,請撥打03-0857878', error);
-        //         });
-        // },
+            axios.post(`${import.meta.env.VITE_PHP_URL}` + "/front_productOrderItemInsert.php", this.cartList)
+                .then(res => {
+                    //請求成功的處理
+                    alert('您的訂單已送出')
+                    this.clearAllPro();
+                })
+                .catch(error => {
+                    console.error('您的訂單無法成功送出,請撥打03-0857878', error);
+                });
+        },
 
 
         //檢查:收件人姓名

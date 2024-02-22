@@ -79,7 +79,7 @@
 
         <!-- 自訂金額區塊 -->
         <div class="donate_page_inputAmount">
-          <p v-if="donate_num == 2">自訂金額 <span>獲得: 20點</span></p>
+          <p v-if="donate_num == 2">自訂金額 <span v-if="this.donate_point && this.donate_point>=1">獲得: {{ donate_point }}點</span></p>
           <div>
             <table>
               <tr>
@@ -187,6 +187,8 @@ export default {
 
       // 判斷捐款須知checkbox
       isAgreeToTerms: false,
+
+      donatePoint:0,
     };
   },
   methods: {
@@ -293,6 +295,7 @@ export default {
         this.$router.push('/donate/page/confirm');
         if (this.amount_input) {
           localStorage.setItem('donateAmount', this.amount_input);
+          localStorage.setItem('donatePoint', this.donate_point);
         }
       }
     },
@@ -308,6 +311,14 @@ export default {
     console.log(this.donate_num);
     this.shouldShowAmount();
   },
+  computed:{
+    donate_point(){
+      let point = this.donatePoint;
+      point = Math.floor(parseInt(this.amount_input) / 100);
+      return point;
+
+    }
+  }
 }
 
 </script>

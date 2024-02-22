@@ -37,9 +37,9 @@ export function show_product() {
                 product_name: shownum.product_name,
                 price: shownum.price,
                 product_pic1: shownum.product_pic1,
-                quantity: element.quantity
+                qty: element.qty
             });
-            totalprice = totalprice + (shownum.price * element.quantity);
+            totalprice = totalprice + (shownum.price * element.qty);
             totallist = totallist + 1;
         }
     });
@@ -74,8 +74,8 @@ export function changeqty(event, id, qty) {
 
     // 如果找到了，checkproduct 將是找到的商品，否則為 undefined
     if (checkproduct) {
-        if (checkproduct.quantity + qty > 0) {
-            checkproduct.quantity += qty;
+        if (checkproduct.qty + qty > 0) {
+            checkproduct.qty += qty;
         }
         else {
             //要刪除的索引值
@@ -84,7 +84,7 @@ export function changeqty(event, id, qty) {
             cart.splice(removeindex, 1);
         }
     } else if (qty > 0) {
-        cart.push({ product_no: id, quantity: qty });//?
+        cart.push({ product_no: id, qty: qty });//?
     }
 
 

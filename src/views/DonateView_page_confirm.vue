@@ -166,7 +166,9 @@ export default {
         submitData() {
             const donateformdata = new FormData();
             donateformdata.append('donateAmount', this.donate_amount)
-            console.log(this.donate_amount);
+            donateformdata.append('donateClass', this.donate_class)
+            donateformdata.append('donatePoint', this.donate_point)
+            console.log(this.donate_point);
             // 連結php
             axios({
                 method: "post",
@@ -190,8 +192,21 @@ export default {
                 let amount = localStorage.getItem('donateAmount');
                 return amount;
             };
-
         },
+
+        donate_class(){
+            let msg='';
+            if(localStorage.getItem('donate_num')==1){
+                msg = '匿名';
+            } else if (localStorage.getItem('donate_num')==2){
+                msg =  '具名';
+            }
+            return msg;
+        },
+        donate_point(){
+            let point = localStorage.getItem('donatePoint');
+            return point;
+        }
     },
 }
 </script>

@@ -240,7 +240,7 @@ const router = createRouter({
       path: '/member',
       name: 'member',
       component: () => import('../views/MemberView.vue'),
-      meta: { requiresAuth: true }  // 加入meta屬性
+      // meta: { requiresAuth: true }  // 加入meta屬性
     },
     {
       path: '/forgotpsw',
