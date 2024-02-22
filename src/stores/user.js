@@ -33,7 +33,6 @@ export const useUserStore = defineStore('userStore', {
                 // // 如果有權限可以把權限角色記載資料庫
                 // role: 'editor'
             }
-            localStorage.setItem('userData', JSON.stringify(this.userData))
 
         },
         checkLogin(){
