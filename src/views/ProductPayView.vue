@@ -116,15 +116,15 @@
                     <label for="pay-deliver">宅配</label>
                 </div>
                 <div class="shipping-box">
-                    <input type="radio" name="shiping" id="pay-family" value="family" v-model="orderData.shipping">
+                    <input type="radio" name="shiping" id="pay-family" value="全家" v-model="orderData.shipping">
                     <label for="pay-family">全家(緯育門市)<span>桃園市中壢區復興路46號</span></label>
                 </div>
                 <div class="shipping-box">
-                    <input type="radio" name="shiping" id="pay-seven" value="seven" v-model="orderData.shipping">
+                    <input type="radio" name="shiping" id="pay-seven" value="7-11" v-model="orderData.shipping">
                     <label for="pay-seven">7-11 (緯育門市)<span>桃園市中壢區復興路46號</span></label>
                 </div>
                 <div class="shipping-box">
-                    <input type="radio" name="shiping" id="pay-hi-life" value="hi-life" v-model="orderData.shipping">
+                    <input type="radio" name="shiping" id="pay-hi-life" value="萊爾富" v-model="orderData.shipping">
                     <label for="pay-hi-life">萊爾富(緯育門市)<span>桃園市中壢區復興路46號</span></label>
                 </div>
             </div>
@@ -189,7 +189,7 @@ export default {
                 shipping: '',
                 receiver_address: '',
                 payment_method: '',
-                shipping: '',
+
             },
 
             //會員資料
@@ -216,7 +216,7 @@ export default {
             alert_info: [],
 
             // 判斷商店服務須知checkbox
-            // AgreeAll: false,
+            AgreeAll: false,
         }
     },
     watch: {
@@ -230,7 +230,24 @@ export default {
                 this.orderData.receiver_name = '';
                 this.orderData.receiver_phone = '';
             }
+        },
+        'orderData.shipping'(newVal) {
+
+            // 檢查運送方式，如果不是宅配，則自動填入特定地址
+            const nonDeliveryAddress = ['全家', '7-11', '萊爾富']; // 定義非宅配選項
+
+            //include()用法:檢查陣列中是否ㄅㄠ檢查陣列中是否包含次陣列
+            if (nonDeliveryAddress.includes(newVal)) {
+
+                // 如果選擇了非宅配運送方式，自動填入預設地址
+                this.orderData.receiver_address = '桃園市中壢區復興路46號';
+
+            } else if (newVal === '宅配') {
+                // 如果用戶切換回宅配，則清空地址欄位
+                this.orderData.receiver_address = '';
+            }
         }
+
     },
     components: {
         PayButton,
@@ -272,15 +289,25 @@ export default {
         },
 
 
-        //清空購物車並將資料儲存到資料庫
+        //全部功能:清空購物車並將資料儲存到資料庫
         clearAndSavePro() {
-            // this.saveOrderToDatabase();
+            //檢查所有輸入
+            if (!this.checkAllInput()) {
+                //如果表單尚未填寫完畢,就不執行後續操作
+                return;
+            }
+
+            //執行保存訂單到資料庫
+            this.saveOrderToDb();
+
+            //清除所有產品
             this.clearAllPro();
-            this.checkAllInput();
-            //將頁面跳轉至產品頁
+
+            // //將頁面跳轉至產品頁
             // window.location.href = "/Product";
 
         },
+
         //清除購物車相關資料
         clearAllPro() {
             // 清除 localStorage 中的購物車相關資料
@@ -298,8 +325,8 @@ export default {
         },
 
 
-        //將獲取的資料存入資料庫
-        saveOrderToDatabase() {
+        //將獲取的資料存入"訂單"的資料庫
+        saveOrderToDb() {
 
             // const tokenStr = localStorage.getItem('token');//從localstorage拿token
             // let memberNo;//在if外面也宣告,以便在外部也能使用
@@ -313,14 +340,16 @@ export default {
             //     memberNo = tokenobj.member_no;
             // }
 
+            const final_price = this.cart_total[0].total + 60 - 10;
             // 整包需要的資料
             const insertOrderData = {
                 ...this.orderData,//寫...等於orderData裡面所有東西
+                final_price,
                 // member_no: memberNo,//添加從localstorage的token取得的memeber_no
             }
             console.log(insertOrderData);
 
-            //因為從表單獲取時是字串 必須全部換回int欄位
+            //因為從表單獲取時是字串 必須全部換回int欄位(因為php有規定他是int這邊才要做)
             this.orderData.receiver_phone = parseInt(this.orderData.receiver_phone);
 
             //把整包東西傳去資料庫
@@ -334,7 +363,32 @@ export default {
                     console.error('您的訂單無法成功送出,請撥打03-0857878', error);
                 });
         },
+        //將獲取的資料存入"訂單細項!"的資料庫//還沒寫完!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        // saveOrderItemToDb() {
 
+        //     const final_price = this.cart_total[0].total + 60 - 10;
+        //     // 整包需要的資料
+        //     const insertOrderData = {
+        //         ...this.orderData,//寫...等於orderData裡面所有東西
+        //         final_price,
+        //         // member_no: memberNo,//添加從localstorage的token取得的memeber_no
+        //     }
+
+
+        //     //因為從表單獲取時是字串 必須全部換回int欄位(因為php有規定他是int這邊才要做)
+        //     this.orderData.receiver_phone = parseInt(this.orderData.receiver_phone);
+
+        //     //把整包東西傳去資料庫
+        //     axios.post(`${import.meta.env.VITE_PHP_URL}` + "/front_productOrderItemInsert.php", insertOrderData)
+        //         .then(res => {
+        //             //請求成功的處理
+        //             alert('您的訂單已送出')
+        //             console.log('您的訂單已送出');
+        //         })
+        //         .catch(error => {
+        //             console.error('您的訂單無法成功送出,請撥打03-0857878', error);
+        //         });
+        // },
 
 
         //檢查:收件人姓名
@@ -384,53 +438,55 @@ export default {
         },
         checkAllInput() {
             this.alert_info = [];
+            //給一個布林值,表示表單是否填寫完畢,方便在上方功能取用
+            let allFormOk = true;
+
             //收件人姓名
             if (!this.orderData.receiver_name) {
                 this.alert_info.push('請填寫收件人姓名');
+                allFormOk = false; //表單不完整,將布林值改為false
             }
 
             //收件人電話不為空值
             if (!this.orderData.receiver_name || !this.orderData.receiver_phone) {
                 this.alert_info.push('請填寫收件人電話');
+                allFormOk = false; //表單不完整,將布林值改為false
             }
 
 
             //檢查是否有選擇除了宅配的運送方式
             if (!this.orderData.shipping) {
                 this.alert_info.push('請填寫運送方式');
+                allFormOk = false; //表單不完整,將布林值改為false
             }
 
             //檢查假如是宅配,有沒有寫地址
             if (this.orderData.shipping === '宅配' && !this.orderData.receiver_address.trim()) {
                 this.alert_info.push('請填寫收件人地址');
+                allFormOk = false; //表單不完整,將布林值改為false
             }
 
             //檢查是否有選擇付款方式
             if (!this.orderData.payment_method) {
                 //沒有就跳出警告
                 this.alert_info.push('請選擇支付方式');
+                allFormOk = false; //表單不完整,將布林值改為false
             }
 
             //同意都要勾選
             if (!this.AgreeAll) {
                 this.alert_info.push('請閱讀商店服務須知並勾選同意');
+                allFormOk = false; //表單不完整,將布林值改為false
             }
 
             if (this.alert_info.length > 0) {
                 alert(`請填寫以下欄位: \n*${this.alert_info.join('\n*')}`);
-            } else {
-                console.log('訂單成功');
             }
+
+            return allFormOk;
         },
 
     },
-
-
-    // 檢查輸入框是否都填寫
-    //
-
-
-
 
     mounted() {
         [this.cartList, this.cart_total] = show_product();
