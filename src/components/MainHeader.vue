@@ -55,12 +55,16 @@
       </div>
       <DropDown v-if="isDropDown" @click.stop="" class="drop-down" />
     </li>
-    <li>
+    <li class="dropdown">
       <RouterLink to="/login">
         <div class="icon"><img src="/image/home/icon_login.png" alt="">
           <p>登入</p>
         </div>
       </RouterLink>
+      <div class="dropdown-content">
+        <RouterLink to="/member">會員中心</RouterLink>
+        <button class="logout_btn" @click="memberLogout">登出</button>
+      </div>
     </li>
     </div>
     </li>
@@ -114,7 +118,7 @@
           </RouterLink>
         </li>
         <li>
-          <RouterLink to="/login">
+          <RouterLink to="/login" class="login_info_btn" @click="toggleLogin">
             <div class="icon"><img src="/image/home/icon_login.png" alt="">
               <p>登入</p>
             </div>
@@ -129,6 +133,8 @@
 import { RouterLink } from 'vue-router';
 import { ref } from 'vue';
 import DropDown from '../components/cart/dropDown.vue'
+import axios from 'axios';
+
 
 export default {
 
@@ -152,6 +158,8 @@ export default {
   mounted() {
     // 添加點擊事件監聽器到整個頁面上
     document.addEventListener('click', this.closeDropDown);
+    // document.addEventListener('click', this.toggleLogin)
+
 
   },
 
@@ -168,8 +176,26 @@ export default {
     toggleMenu() {
       this.isOpen = !this.isOpen;
       this.isMenuOpen = !this.isMenuOpen;
-    }
+    },
 
+    //login_info_btn 
+    memberLogout() {
+      // 檢查localStorage是否有userToken
+      if(localStorage.getItem('userToken')) {
+        // 已登入，執行登出
+        axios.get(`${import.meta.env.VITE_PHP_URL}/logout.php`)
+          .then(response => {
+            // 登出成功，移除本地存储的userToken
+            console.log(123);
+            localStorage.removeItem('userToken');
+            // 重定向到登录页面或主页
+            this.$router.push('/login');
+          })
+          .catch(error => {
+            console.error('發生錯誤', error);
+          });
+      }
+    }
   },
   beforeUnmount() {
     // 移除點擊事件監聽器

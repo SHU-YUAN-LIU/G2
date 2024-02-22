@@ -222,6 +222,29 @@ export default {
         }
     },
     methods: {
+        logines() {
+            const bodyFormData = new FormData();
+            bodyFormData.append('email', this.loginForm.email);
+            bodyFormData.append('psw', this.loginForm.psw);
+            axios({
+                        method:"post",
+                        url:`${import.meta.env.VITE_PHP_URL}` + "/front_memberInfo.php",
+                        data:bodyFormData,
+                        // headers: { "Content-Type": "multipart/form-data" },
+                }).then(res=>{
+                    console.log(res.data); // 打印 data 属性
+                    if (res.data.error) {
+                        // 登錄失敗，顯示錯誤消息
+                        alert(res.data.msg); // 或進行本地化處理顯示給用戶
+                    } else {
+                        // 登錄成功，處理 token 和用戶資料
+                        localStorage.setItem('userToken', res.data.token);
+                        this.$router.push('/');
+                    }
+                }).catch(error=>{
+                    console.log(error);
+                })
+        }
 
     },
 
