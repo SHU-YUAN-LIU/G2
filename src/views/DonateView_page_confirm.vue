@@ -26,40 +26,21 @@
                     </ul>
                 </div>
             </div>
-            <!-- 捐款資訊 -->
-            <h3>捐款資訊</h3>
-            <div class="donate_info_table">
-                <table>
-                    <tr>
-                        <td>
-                            捐款編號
-                            Order number
-                        </td>
-                        <td>DO20231228000010</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            帳戶名稱
-                            Merchant'name
-                        </td>
-                        <td>青年進補黨政治獻金專戶</td>
-                    </tr>
-                </table>
-            </div>
             <!-- 捐款明細 -->
+            <h3>捐款明細</h3>
             <div class="donate_detail_table">
                 <p>單位 Unit：新台幣 NTD</p>
                 <table>
                     <th colspan="2">
-                        捐款明細 Merchandise detail
+                        Merchandise detail
                         小計
                     </th>
-                    <tr colspan="2">
-                        <td><span>{{ donate_amount }}</span></td>
-                        <td><span>{{ donate_amount }}</span></td>
+                    <tr colspan="2" class="donate_name">
+                        <td><span>捐款金額</span></td>
+                        <td><span>${{ donate_amount }}</span></td>
                     </tr>
                     <tr colspan="2">
-                        <td colspan="2">實際付款金額 NT$<span>{{ donate_amount }}</span></td>
+                        <td colspan="2" v-if="donate_num == 2">獲得點數 NT$<span>{{ donate_amount }}</span></td>
                     </tr>
                 </table>
             </div>
@@ -155,7 +136,7 @@ export default {
             // 檢查卡片有效期限輸入框+資料格式
             if (!this.expiryDate.trim()) {
                 emptyFields.push('卡片有效期限');
-            } else if (!/^\d{2}\/\d{2}$/.test(this.expiryDate)) {
+            } else if (!/^(0[1-9]|1[0-2])\/(0[1-9]|[1-9][0-9])$/.test(this.expiryDate)) {
                 invalidFields.push('請輸入有效的卡片有效期限，例如：MM/YY');
             }
 
@@ -197,8 +178,6 @@ export default {
                 .catch(error => {
                     console.error('Error fetching data:', error);
                 });
-
-            // axios.post(`${import.meta.env.VITE_PHP_URL}` + "/front_donate.php", this.inserdonatedata)
 
         },
     },

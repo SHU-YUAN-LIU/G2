@@ -7,6 +7,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        margin-top: 80px;
 
         img {
             width: 100%;
@@ -47,40 +48,6 @@
             }
         }
 
-        // 捐款資訊
-        .donate_info_table {
-            border-radius: $border-radius-1;
-            overflow: hidden;
-            border: 1px solid $gray_3;
-
-            table {
-                border: none;
-                width: 100%;
-
-                tr {
-                    height: 50px;
-                    padding: 0;
-                }
-
-                tr+tr {
-                    border-top: 1px solid $gray_3;
-                }
-
-                td:first-child {
-                    text-align: center;
-                    background-color: $orange;
-                    color: aliceblue;
-                    letter-spacing: 2px;
-                    width: 390px;
-                }
-
-                td:last-child {
-                    padding-left: 20px;
-                    line-height: 50px;
-                }
-            }
-        }
-
         // 捐款明細
         .donate_detail_table {
             display: flex;
@@ -90,6 +57,13 @@
                 margin: 30px 0 20px 0;
                 text-align: right;
                 @include title_10;
+            }
+
+            h3 {
+                @include title_3;
+                color: $orange;
+                text-align: center;
+                margin: 0;
             }
 
 
@@ -104,6 +78,8 @@
                     line-height: 50px;
                     border-radius: $border-radius-1;
                     letter-spacing: 2px;
+                    text-align: left;
+                    padding-left: 0.5em;
                 }
 
                 tr:last-child {
@@ -119,6 +95,12 @@
                     padding-top: 20px;
                 }
 
+            }
+
+            .donate_name {
+                span {
+                    padding-left: 0.5em;
+                }
             }
         }
 
@@ -222,8 +204,6 @@
             max-width: 350px;
             margin: auto;
 
-            // 捐款確認資料的標題
-
             // 捐款確認資料的內容
             .content {
                 padding: 15px;
@@ -264,6 +244,12 @@
                     th {
                         @include title_10;
                         letter-spacing: 1px;
+                    }
+
+                    td {
+                        span {
+                            letter-spacing: 1px;
+                        }
                     }
                 }
             }
