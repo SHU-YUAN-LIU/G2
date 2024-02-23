@@ -256,7 +256,7 @@ export default {
         Background_green
     },
     created() {
-        this.getMemberData();
+        // this.getMemberData();
         [this.cartList, this.cart_total] = show_product();
         window.addEventListener('storage', this.changecartshow);
     },
@@ -483,32 +483,33 @@ export default {
             return allFormOk;
         },
         //或去後端的會員資料
-        getMemberData() {
-            //發出請求道後端
-            axios.get(`${import.meta.env.VITE_PHP_URL}` + "/front_memberLogin.php", {
-                email: '',
-                psw: '',
-            })
-                .then(res => {
-                    //獲取會員資訊
-                    const memberData = res.data;
-                    console.log(memberData);
-                    //獲取會員的名字,電話,信箱,地址
-                    const name = memberData.name;
-                    const phone = memberData.phone;
-                    const email = memberData.email;
-                    const address = memberData.address;
-                    //在頁面上顯示會員訊息
-                    // document.getElementById('name').innerText = name;
-                    // document.getElementById('phone').innerText = phone;
-                    // document.getElementById('email').innerText = email;
-                    // document.getElementById('address').innerText = address;
+        // getMemberData() {
+        //     //發出請求道後端
+        //     axios.get(`${import.meta.env.VITE_PHP_URL}` + "/front_getMemberData.php", {
+        //         params: {
+        //             member_no: member_no
+        //         }
+        //     })
+        //         .then(res => {
+        //             //獲取會員資訊
+        //             const memberData = res.data;
+        //             console.log(memberData);
+        //             //獲取會員的名字,電話,信箱,地址
+        //             // const name = memberData.name;
+        //             // const phone = memberData.phone;
+        //             // const email = memberData.email;
+        //             // const address = memberData.address;
+        //             //在頁面上顯示會員訊息
+        //             // document.getElementById('name').innerText = name;
+        //             // document.getElementById('phone').innerText = phone;
+        //             // document.getElementById('email').innerText = email;
+        //             // document.getElementById('address').innerText = address;
 
-                })
-                .catch(error => {
-                    console.error('您的訂單無法成功送出,請撥打03-0857878', error);
-                });
-        }
+        //         })
+        //         .catch(error => {
+        //             console.error('您的訂單無法成功送出,請撥打03-0857878', error);
+        //         });
+        // }
 
     },
 

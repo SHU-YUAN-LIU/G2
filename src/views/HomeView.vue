@@ -44,9 +44,9 @@
         </div>
         <div class="home_line_button">
             <div class="home_line"></div>
-                <router-link to="/election">
-                    <CommitButton class="homebutton dog" commitButton="立即前往"></CommitButton>
-                </router-link>
+            <router-link to="/election">
+                <CommitButton class="homebutton dog" commitButton="立即前往"></CommitButton>
+            </router-link>
         </div>
         <!-- 消息-->
         <div class="index_news_bg">
@@ -102,8 +102,8 @@
                     </div>
                 </a>
                 <div class="row col col-6 news_index_inner_flex">
-                    <a v-for="(clarification, index) in get_for_range(clarifications, 1, 2)" :key="index" class="col index_news_card"
-                        href="#">
+                    <a v-for="(clarification, index) in get_for_range(clarifications, 1, 2)" :key="index"
+                        class="col index_news_card" href="#">
                         <div>
                             <img :src="getImageUrl(clarification.news_img)">
                         </div>
@@ -118,9 +118,9 @@
         </div>
         <div class="home_line_button">
             <div class="home_line"></div>
-                <router-link to="/news">
-                    <CommitButton class="homebutton dog" commitButton="立即前往"></CommitButton>
-                </router-link>
+            <router-link to="/news">
+                <CommitButton class="homebutton dog" commitButton="立即前往"></CommitButton>
+            </router-link>
         </div>
         <!-- 捐款 -->
         <div class="donate_container">
@@ -138,9 +138,9 @@
         </div>
         <div class="home_line_button ">
             <div class="home_line donate_line"></div>
-                <router-link to="/donate">
-                    <CommitButton class="homebutton dog" commitButton="立即前往"></CommitButton>
-                </router-link>
+            <router-link to="/donate">
+                <CommitButton class="homebutton dog" commitButton="立即前往"></CommitButton>
+            </router-link>
         </div>
     </div>
 </template>
@@ -154,20 +154,20 @@ import Background_green from "@/components/Background_green.vue";
 export default {
     data() {
         return {
-            policies:[
-                {title: '房屋', img:'home/icon_house.png'},
-                {title: '經濟', img:'home/icon_money.png'},
-                {title: '政策', img:'home/icon_taiwan.png'}
+            policies: [
+                { title: '房屋', img: 'home/icon_house.png' },
+                { title: '經濟', img: 'home/icon_money.png' },
+                { title: '政策', img: 'home/icon_taiwan.png' }
             ],
             currentBanner: 0,
             slogan: '這是一場改變政治文化的社會運動，投給劉緯育，投給自己的未來。',
             bannerList: [
                 'home/banner_1.png',
                 'home/banner_2.png',
-                'home/banner_3.png',
                 'home/banner_1.png',
                 'home/banner_2.png',
-                'home/banner_3.png',
+                'home/banner_1.png',
+                'home/banner_2.png',
             ],
             donateList: [
                 'home/donate_icon_1.png',
@@ -233,7 +233,7 @@ export default {
                 const bannerShow = this.$refs.bannercontent.querySelector('.bannershow');
                 const translateX = -(this.currentBanner * 100);
                 bannerShow.style.transform = `translateX(${translateX}vw)`;
-    
+
             }
         },
         bannerStart() {
@@ -338,6 +338,7 @@ export default {
     line-height: 40px;
     padding: 0px 40px;
     text-align: justify;
+
     @media screen and (max-width: 786px) {
         line-height: 45px;
     }
@@ -369,7 +370,7 @@ export default {
     }
 }
 
-.donate_container>div>div{
+.donate_container>div>div {
     width: 1020px;
     // 元素前後順序: 有定位 > 沒定位, 如果取消相對定位, container會被背景圖案蓋住
     position: relative;
