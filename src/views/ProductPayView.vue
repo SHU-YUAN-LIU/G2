@@ -66,19 +66,19 @@
             <div class="mem-info">
                 <div class="mem-input">
                     <label for="">會員名稱</label>
-                    <input type="text" v-model="memberData.name">
+                    <input type="text" v-model="memberData.name" disabled>
                 </div>
                 <div class="mem-input">
                     <label for="">會員電話</label>
-                    <input type="text" v-model="memberData.phone">
+                    <input type="text" v-model="memberData.phone" disabled>
                 </div>
                 <div class="mem-input">
                     <label for="">會員信箱</label>
-                    <input type="text" value="8787@yahoo.com.tw">
+                    <input type="text" v-model="memberData.email" disabled>
                 </div>
                 <div class="mem-input">
                     <label for="">會員地址</label>
-                    <input type="text" value="桃園市中壢區復興路46號9樓">
+                    <input type="text" v-model="memberData.address" disabled>
                 </div>
             </div>
             <!-- 3.收件人資料 -->
@@ -151,10 +151,10 @@
                 </div>
             </div>
             <div class="pay-checkbox-group">
-                <div class="pay-checkbox">
+                <!-- <div class="pay-checkbox">
                     <input type="checkbox" name="agree-check" id="pay-agree-box" v-model="AgreeAll">
                     <label for="pay-agree-box">同意商店服務條款/會員責任規範及個資聲明</label>
-                </div>
+                </div> -->
                 <div class="pay-checkbox">
                     <input type="checkbox" name="agree-check" id="pay-order-right" v-model="AgreeAll">
                     <label for="pay-order-right">為保障彼此之權益，賣家在收到您的訂單後仍保有決定是否接受訂單及出貨與否之權利</label>
@@ -194,10 +194,10 @@ export default {
 
             //會員資料
             memberData: {
-                name: '王大明',
-                phone: '0927384773',
-                email: '8787@gmail.com',
-                address: '桃園市中壢區復興路46號9樓'
+                name: '',
+                phone: '',
+                email: '',
+                address: ''
 
             },
 
@@ -256,7 +256,7 @@ export default {
         Background_green
     },
     created() {
-        // this.getMemberData();
+        this.getMemberData();
         [this.cartList, this.cart_total] = show_product();
         window.addEventListener('storage', this.changecartshow);
     },
@@ -299,10 +299,10 @@ export default {
             }
 
             //執行保存"訂單"到資料庫
-            // this.saveOrderToDb();
+            this.saveOrderToDb();
 
             // //將頁面跳轉至產品頁
-            // window.location.href = "/Product";
+            window.location.href = "/Product";
 
         },
 
@@ -482,34 +482,31 @@ export default {
 
             return allFormOk;
         },
-        //或去後端的會員資料
-        // getMemberData() {
-        //     //發出請求道後端
-        //     axios.get(`${import.meta.env.VITE_PHP_URL}` + "/front_getMemberData.php", {
-        //         params: {
-        //             member_no: member_no
-        //         }
-        //     })
-        //         .then(res => {
-        //             //獲取會員資訊
-        //             const memberData = res.data;
-        //             console.log(memberData);
-        //             //獲取會員的名字,電話,信箱,地址
-        //             // const name = memberData.name;
-        //             // const phone = memberData.phone;
-        //             // const email = memberData.email;
-        //             // const address = memberData.address;
-        //             //在頁面上顯示會員訊息
-        //             // document.getElementById('name').innerText = name;
-        //             // document.getElementById('phone').innerText = phone;
-        //             // document.getElementById('email').innerText = email;
-        //             // document.getElementById('address').innerText = address;
+        //發送請求去後端,獲取member的資料
+        getMemberData() {
+            //發出請求道後端
+            axios.post(`${import.meta.env.VITE_PHP_URL}` + "/front_getMemberData.php",
+                {
+                    member_no: 1
+                })
+                .then(res => {
+                    //獲取會員資訊
+                    const memberData = res.data;
+                    // console.log(memberData);
+                    // console.log(memberData.member[0].member_name);
 
-        //         })
-        //         .catch(error => {
-        //             console.error('您的訂單無法成功送出,請撥打03-0857878', error);
-        //         });
-        // }
+                    //把會員姓名帶入上面表格
+                    this.memberData.name = memberData.member[0].member_name
+                    this.memberData.phone = memberData.member[0].cellphone
+                    this.memberData.email = memberData.member[0].email
+                    this.memberData.address = memberData.member[0].address
+
+
+                })
+                .catch(error => {
+                    console.error('您的訂單無法成功送出,請撥打03-0857878', error);
+                });
+        }
 
     },
 

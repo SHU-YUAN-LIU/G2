@@ -1,5 +1,5 @@
 <template>
-    <div class="drop-down-cart">
+    <div class="drop-down-cart" v-if="isDropDown">
         <div class="cart-group">
             <!-- "item"是陣列的每一筆資料 -->
             <!-- 用for迴圈把所有資料找出來 -->
@@ -47,6 +47,7 @@ export default {
             cartList: [],//存購物車資料的陣列
             qty: 1,//初始數量
             cart_total: [],//存總價格跟總項目陣列
+            isDropDown: false,
         }
     },
     components: {
@@ -94,6 +95,7 @@ export default {
                 //如果不是空的,就跳轉頁面
                 this.$router.push('/productPay');
             }
+            this.isDropDown = false;
         }
     }
 }
