@@ -7,15 +7,17 @@
             <div class="donate_lightbox_content" @click.stop>
                 <div class="donate_lightbox_top">
                     <div class="donate_anonymous">
-                        <RouterLink to="/donate/page" @click="storeItemId(1), enableBodyScroll">
+                        <RouterLink to="/donate/page" @click="storeItemId(1)">
                             <h2>匿名捐款</h2>
                             <img src="/image/donate/donate_card1.png" alt="">
                             <p>匿名捐贈：新台幣1萬元以下</p>
                         </RouterLink>
                     </div>
-                    <div class="donate_member" @click="storeItemId(2)">
+                    <div class="donate_member" >
+                        <RouterLink to="/donate/page" @click="storeItemId(2)">
                             <h2>會員捐款</h2>
                             <img src="/image/donate/donate_card1.png" alt="">
+                        </RouterLink>                            
                     </div>
                 </div>
                 <div class="donate_lightbox_bottom">
@@ -67,14 +69,14 @@ export default {
         },
 
         storeItemId(control_num) {
-            if(localStorage.getItem('userToken')){
-                localStorage.setItem('donate_num', control_num);
-                this.$router.push('/donate/page');
-            }else if (!localStorage.getItem('userToken')){
-                alert('請先登入會員');
-                this.$router.push('/login');
-            }
-            
+            // if(localStorage.getItem('userToken')){
+            //     localStorage.setItem('donate_num', control_num);
+            //     this.$router.push('/donate/page');
+            // }else if (!localStorage.getItem('userToken')){
+            //     alert('請先登入會員');
+            //     this.$router.push('/login');
+            // }
+            localStorage.setItem('donate_num', control_num);
             this.enableBodyScroll();
         },
 

@@ -45,7 +45,7 @@
         </div>
       </div>
     </div>
-    <background :height="300" />
+    <background :height="'300'" />
   </div>
 </template>
 <script>

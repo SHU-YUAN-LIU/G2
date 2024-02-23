@@ -273,7 +273,6 @@ export default {
     },
     checkAndNavigate() {
       this.alert_info = [];
-      if(localStorage.getItem('userToken')){
         if (this.currentIndex_method === -1) {
           this.alert_info.push('請選擇付款方式');
         }
@@ -299,10 +298,6 @@ export default {
             localStorage.setItem('donatePoint', this.donate_point);
           }
         }
-      }else{
-        alert('請先登入會員');
-        this.$router.push('/login');
-      }
       
     },
 
