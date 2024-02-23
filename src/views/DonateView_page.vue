@@ -25,12 +25,6 @@
           <p>(依政治獻金法規定須年滿20歲才能捐款)</p>
         </div>
 
-        <!-- 捐款單位 -->
-        <div v-if="donate_num == 2" class="donate_page_unit">
-          <h4>捐款指定單位</h4>
-          <p>單位類別：中央黨部</p>
-        </div>
-
         <!-- 聯絡資訊 -->
         <div v-if="donate_num == 2" class="donate_page_contact" id="registerform">
           <h4>聯絡資訊</h4>
@@ -52,8 +46,12 @@
           <h4>捐款方式</h4>
           <p>請選擇付款方式</p>
           <ul class="list_container">
-            <li v-for="(method, index_method) in paymentMethods" @click="selectPaymentMethod(index_method)"
-              :key="index_method" :class="{ method_active: currentIndex_method === index_method }">
+            <li 
+              v-for="(method, index_method) in paymentMethods" 
+              @click="selectPaymentMethod(index_method)"
+              :key="index_method" 
+              :class="{ method_active: currentIndex_method === index_method }"
+              >
               <p>{{ method.text }}</p>
               <img :src="getImageUrl(method.imgUrl)" alt="">
             </li>
@@ -331,15 +329,25 @@ export default {
 @import '../assets/scss/style.scss';
 
 .donate_page_method .method_active {
-  box-shadow: 0px 1px 0px #666,
-    0px 1px 0px #777,
-    0px 2px 0px #888,
-    0px 2px 0px #999,
-    0px 3px 0px #aaa,
-    0px 3px 0px #bbb !important;
-  transform: translate(0px, 3px);
-  background: $orange;
-  color: $white;
+  box-shadow: 0px 1px 0px rgba(255,137,46,1),
+    0px 1px 0px rgba(255,137,46,0.9),
+    0px 2px 0px rgba(255,137,46,0.8),
+    0px 2px 0px rgba(255,137,46,0.7),
+    0px 3px 0px rgba(255,137,46,0.6),
+    0px 3px 0px rgba(255,137,46,0.5),
+    0px 4px 0px rgba(255,137,46,0.4),
+    0px 4px 0px rgba(255,137,46,0.3) !important;
+  transform: translate(0px, 4px);
+  transition:.3s;
+  position: relative;
+  border: 1.5px solid $orange !important;
+  // p{
+  //   background: $orange;
+  //   color: $white;
+  //   width: 100%;
+  //   text-align: center;
+  //   padding:20px 0;
+  // }
 }
 
 .donate_page_amount .amount_active .donate_amount_item {

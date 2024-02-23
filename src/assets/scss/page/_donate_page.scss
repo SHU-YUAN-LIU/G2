@@ -88,14 +88,6 @@
         }
       }
 
-      // 捐款資料內容_捐款單位
-      .donate_page_unit {
-
-        p {
-          @include title_10;
-        }
-      }
-
       // 捐款資料內容_聯絡資訊
       .donate_page_contact {
 
@@ -152,6 +144,7 @@
 
           p {
             text-align: center;
+            margin: 0;
           }
 
           img {

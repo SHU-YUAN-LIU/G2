@@ -26,7 +26,7 @@ export default {
         closeLightbox() {
             this.showLightbox = false;
             document.body.style.overflow = "auto";
-            this.$router.push({ name: 'Home' });
+            this.$router.push({ name: 'donate' });
         }
     },
 }

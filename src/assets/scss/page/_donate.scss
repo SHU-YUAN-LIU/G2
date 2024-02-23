@@ -24,7 +24,8 @@ div.donate {
   // 主要區塊
   .donate_main {
     width: 100%;
-    height: 1100px;
+    margin-top: 60px;
+    padding-bottom: 60px;
     display: flex;
     position: relative;
 
@@ -110,7 +111,6 @@ div.donate {
           align-items: center;
           justify-content: center;
           height: 30%;
-
           button {
             margin: 0;
           }
@@ -122,6 +122,7 @@ div.donate {
         background-color: $white;
         border-radius: $border-radius-1;
         border: 3px solid $orange;
+        overflow: hidden;
 
         // 卡片2上半
         .donate_card2_top {
@@ -131,12 +132,9 @@ div.donate {
           height: 320px;
 
           img {
-            width: 636px;
+
             vertical-align: middle;
-            border-radius: 5px;
-
           }
-
           div {
             position: absolute;
             display: flex;
@@ -160,6 +158,7 @@ div.donate {
           position: relative;
 
           ul {
+            width: 570px;
             height: 100%;
             display: flex;
             flex-direction: column;
@@ -168,12 +167,13 @@ div.donate {
           }
 
           li {
-            width: 570px;
             line-height: 55px;
+            width: 450px;
             display: flex;
             justify-content: center;
             border: 1px solid $gray_2;
             border-radius: $border-radius-1;
+            @include title_10;
 
             span {
               display: inline-block;
@@ -223,7 +223,8 @@ div.donate {
 
     // 主要區塊
     .donate_main {
-
+      height: 100%;
+      margin: 40px 0;
       // 背景圖片設定
       img.icon:nth-child(1) {
         width: 170px;
@@ -260,6 +261,7 @@ div.donate {
         // 卡片1
         .donate_card1 {
           width: 350px;
+          height: 500px;
           padding: 0;
           margin: 0;
           border-radius: $border-radius-1;
@@ -299,17 +301,20 @@ div.donate {
         .donate_card2 {
           max-width: 350px;
           height: 500px;
-
+          
           // 卡片2上半
           .donate_card2_top {
             max-width: 350px;
             height: 200px;
 
-            img {
-              width: 350px;
+            div:first-child{
+              img {
+                width: 350px;
+                height: 100%;
+                vertical-align: top;
+              }
             }
-
-            div {
+            div:last-child {
               position: absolute;
               display: flex;
               flex-direction: column;
@@ -337,9 +342,9 @@ div.donate {
               width: 90%;
               height: 50px;
               line-height: 50px;
-
+              @include title_10;
               span {
-                @include title_10;
+                
                 font-size: 12px;
               }
 
