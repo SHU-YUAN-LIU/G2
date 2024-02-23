@@ -273,31 +273,37 @@ export default {
     },
     checkAndNavigate() {
       this.alert_info = [];
-      if (this.currentIndex_method === -1) {
-        this.alert_info.push('請選擇付款方式');
-      }
-
-      if (this.currentIndex_amount === -1 && !this.amount_input.trim()) {
-        this.alert_info.push('請選擇捐款金額, 或自行填寫捐款金額');
-      }
-
-      if (this.donate_num == 2 && (!this.isEmailValid || !this.isPhoneValid || this.donate_email == '' || this.donate_phone == '')) {
-        this.alert_info.push('請填寫正確的連絡資訊');
-      }
-
-      if (!this.isAgreeToTerms) {
-        this.alert_info.push('請閱讀捐款須知並勾選同意');
-      }
-
-      if (this.alert_info.length > 0) {
-        alert(`請填寫以下欄位: \n*${this.alert_info.join('\n*')}`);
-      } else {
-        this.$router.push('/donate/page/confirm');
-        if (this.amount_input) {
-          localStorage.setItem('donateAmount', this.amount_input);
-          localStorage.setItem('donatePoint', this.donate_point);
+      if(localStorage.getItem('userToken')){
+        if (this.currentIndex_method === -1) {
+          this.alert_info.push('請選擇付款方式');
         }
+
+        if (this.currentIndex_amount === -1 && !this.amount_input.trim()) {
+          this.alert_info.push('請選擇捐款金額, 或自行填寫捐款金額');
+        }
+
+        if (this.donate_num == 2 && (!this.isEmailValid || !this.isPhoneValid || this.donate_email == '' || this.donate_phone == '')) {
+          this.alert_info.push('請填寫正確的連絡資訊');
+        }
+
+        if (!this.isAgreeToTerms) {
+          this.alert_info.push('請閱讀捐款須知並勾選同意');
+        }
+
+        if (this.alert_info.length > 0) {
+          alert(`請填寫以下欄位: \n*${this.alert_info.join('\n*')}`);
+        } else {
+          this.$router.push('/donate/page/confirm');
+          if (this.amount_input) {
+            localStorage.setItem('donateAmount', this.amount_input);
+            localStorage.setItem('donatePoint', this.donate_point);
+          }
+        }
+      }else{
+        alert('請先登入會員');
+        this.$router.push('/login');
       }
+      
     },
 
   },

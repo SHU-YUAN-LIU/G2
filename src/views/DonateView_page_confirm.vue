@@ -176,11 +176,11 @@ export default {
                 data: donateformdata,
             }).then(res => {
                 console.log('insert data:', res.data.msg);
-            })
-                .catch(error => {
-                    console.error('Error fetching data:', error);
-                });
-
+            }).catch(error => {
+                console.error('Error fetching data:', error);
+            });
+            localStorage.removeItem('donateAmount');
+            localStorage.removeItem('donatePoint');
         },
     },
     mounted() {
