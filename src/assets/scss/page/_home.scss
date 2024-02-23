@@ -1,6 +1,7 @@
 .home_container {
     --column-gap: 10px;
-    max-width: 1200px;
+    // max-width: 1200px;
+    width: 80%;
     margin: auto;
     padding-left: var(--column-gap);
     padding-right: var(--column-gap);
@@ -220,7 +221,9 @@
         padding-top: 40px;
         position: relative;
         span:not(span:nth-child(3)){
-            line-height: 60px;
+            line-height: 50px;
+            position: relative;
+            top: 10px;
         }
         // &::after{
         //     content: '';

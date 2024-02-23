@@ -80,10 +80,9 @@
             </div>
             <div class="home_line_button">
                 <div class="home_line"></div>
-                <CommitButton class="homebutton dog" commitButton="立即前往">
                     <router-link to="/news">
+                        <CommitButton class="homebutton dog" commitButton="立即前往"></CommitButton>
                     </router-link>
-                </CommitButton>
             </div>
         </div>
 
