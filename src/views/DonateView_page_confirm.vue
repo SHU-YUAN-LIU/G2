@@ -179,8 +179,11 @@ export default {
             }).catch(error => {
                 console.error('Error fetching data:', error);
             });
+
+            // 刪除localstorage的捐款資料
             localStorage.removeItem('donateAmount');
             localStorage.removeItem('donatePoint');
+            localStorage.removeItem('donate_num');
         },
     },
     mounted() {
