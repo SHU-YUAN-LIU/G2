@@ -121,8 +121,20 @@ const router = createRouter({
         {
           name: '基本資料',
         }]
+      },
+
+      beforeEnter: (to, from, next) => {
+        const userStatus = localStorage.getItem('donate_num');
+        if (userStatus === '2' && !localStorage.getItem('userToken')) {
+          alert('請先登入會員');
+          next('/login'); // 或重定向到其他頁面
+        } else {
+          next(); // 允許訪問
+        }
       }
     },
+
+
     {
       path: '/donate/page/confirm',
       name: 'donate_page_confirm',
@@ -265,7 +277,17 @@ const router = createRouter({
     {
       path: '/ProductPay',
       name: 'ProductPay',
-      component: () => import('../views/ProductPayView.vue')
+      component: () => import('../views/ProductPayView.vue'),
+
+      beforeEnter: (to, from, next) => {
+        if (localStorage.getItem('userToken')) {
+          next(); // 允許訪問
+        } else {
+          alert('請先登入會員');
+          next('/login'); // 或重定向到其他頁面
+        }
+      }
+
     },
     {
       path: '/signupform',

@@ -40,7 +40,7 @@
                         <td><span>${{ donate_amount }}</span></td>
                     </tr>
                     <tr colspan="2">
-                        <td colspan="2" v-if="donate_num == 2">獲得點數 NT$<span>{{ donate_amount }}</span></td>
+                        <td colspan="2" v-if="donate_num == 2">獲得點數: <span>{{ donate_point }}點</span></td>
                     </tr>
                 </table>
             </div>
@@ -176,11 +176,11 @@ export default {
                 data: donateformdata,
             }).then(res => {
                 console.log('insert data:', res.data.msg);
-            })
-                .catch(error => {
-                    console.error('Error fetching data:', error);
-                });
-
+            }).catch(error => {
+                console.error('Error fetching data:', error);
+            });
+            localStorage.removeItem('donateAmount');
+            localStorage.removeItem('donatePoint');
         },
     },
     mounted() {
