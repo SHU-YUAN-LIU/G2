@@ -664,10 +664,11 @@ body {
   .bookmark_content li {
     line-height: 30px;
     padding: 50px;
-    line-height: 50px;
+    line-height: 40px;
+    text-align: justify;
   }
   .bookmark_content li p {
-    padding: 50px;
+    padding: 20px;
   }
 }
 .marq {
@@ -677,6 +678,7 @@ body {
   font-size: 16px;
   line-height: 75px;
   font-family: "Noto Sans TC", sans-serif;
+  padding-right: 20px;
 }
 
 .marqbtn {
@@ -1091,6 +1093,16 @@ header nav .nav_items {
   width: 660px;
   display: flex;
   justify-content: space-evenly;
+}
+
+.logout_btn {
+  width: 100%;
+  height: 40px;
+  border: none;
+  border-top: 1px solid rgba(102, 102, 102, 0.4);
+  background-color: white;
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 16px;
 }
 
 @media (max-width: 768px) {
@@ -4446,6 +4458,13 @@ form .register_read p {
   font-family: "Noto Sans TC", sans-serif;
   font-size: 16px;
 }
+.product-pay-wrap .pay-wrap .mem-info .mem-input .error-message {
+  color: red;
+  font-size: 14px;
+  position: relative;
+  left: 10px;
+  letter-spacing: 1.5px;
+}
 .product-pay-wrap .pay-wrap .shipping-box-group {
   display: flex;
   justify-content: center;
@@ -4508,6 +4527,13 @@ form .register_read p {
   border-radius: 10px;
   text-indent: 20px;
 }
+.product-pay-wrap .pay-wrap .receive-address .error-message {
+  color: red;
+  font-size: 14px;
+  position: relative;
+  left: 10px;
+  letter-spacing: 1.5px;
+}
 .product-pay-wrap .pay-wrap .pay-checkbox-group {
   display: flex;
   flex-direction: column;
@@ -4538,9 +4564,13 @@ form .register_read p {
   padding-bottom: 280px;
   padding-top: 30px;
 }
+@media screen and (min-width: 768px) {
+  .pro-info-wrap .pro-info-wrap {
+    padding-bottom: 170px;
+  }
+}
 
 .pro_info_group {
-  width: 300px;
   margin: auto;
   display: flex;
   flex-direction: column-reverse;
@@ -4668,22 +4698,24 @@ form .register_read p {
 
 @media screen and (min-width: 768px) {
   .pro_info_group {
-    width: 700px;
     flex-direction: row-reverse;
     margin-top: 80px;
-    margin-bottom: 80px;
   }
   .pro_info_group .proText_group .proLine {
     width: 360px;
     margin-block: 0;
   }
   .pro_info_group .proText_group span {
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: 16px;
     padding: 0;
   }
   .pro_info_group .proText_group p {
-    font-family: "Mantou Sans";
-    font-size: 36px;
-    font-weight: initial;
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    font-weight: 700;
+    line-height: 1.5;
   }
   .pro_info_group .proText_group #num {
     margin-block: 0;
@@ -4853,12 +4885,11 @@ form .register_read p {
   background-color: #D4FF1F;
 }
 .election .policy {
-  display: flex;
-  justify-content: center;
   font-family: "Mantou Sans";
   font-size: 65px;
   font-weight: initial;
-  margin: 60px 0;
+  margin: 60px auto;
+  text-align: center;
 }
 
 /*平板 */
@@ -5244,8 +5275,7 @@ form .register_read p {
 .contact_search_container {
   position: relative;
   width: 100%;
-  border: 1px solid red;
-  padding-bottom: 100px;
+  padding-bottom: 230px;
 }
 
 .contect_search {
@@ -5314,9 +5344,13 @@ form .register_read p {
   padding: 0;
 }
 
+.searchFinal-wrap-group {
+  position: relative;
+  padding-bottom: 150px;
+}
+
 .ContactSearchFinal_banner {
   width: 100%;
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;

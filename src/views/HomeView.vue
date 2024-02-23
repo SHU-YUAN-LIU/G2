@@ -160,7 +160,9 @@ export default {
                 { title: '政策', img: 'home/icon_taiwan.png' }
             ],
             currentBanner: 0,
-            slogan: '這是一場改變政治文化的社會運動，投給劉緯育，投給自己的未來。',
+            slogan: ['這是一場改變政治文化的社會運動，投給劉緯育，投給自己的未來。',
+                '為了更美好的明天，讓我們一起行動起來，為改革而投票',
+            ],
             bannerList: [
                 'home/banner_1.png',
                 'home/banner_2.png',

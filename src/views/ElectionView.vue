@@ -35,7 +35,10 @@ import bookmark from "@/components/BookMark.vue"
 export default {
   data() {
     return {
-      slogan: '這是一場改變政治文化的社會運動，投給劉緯育，投給自己的未來。',
+      slogan: [
+        '這是一場改變政治文化的社會運動，投給劉緯育，投給自己的未來。',
+        '為了更美好的明天，讓我們一起行動起來，為改革而投票',
+      ],
       candidates: [
         {
           // 第一位候選人
