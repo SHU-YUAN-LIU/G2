@@ -183,14 +183,13 @@ export default {
 
         .donate_lightbox_bottom {
             width: 100%;
-
+            margin-bottom: 60px;
             h3 {
                 color: $orange;
                 width: 100%;
                 text-align: center;
                 @include title_3;
                 margin-top: 60px;
-                margin-bottom: 20px;
             }
 
             p {
