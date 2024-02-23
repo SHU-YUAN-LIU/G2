@@ -59,10 +59,11 @@ div.donate {
     .donate_cards {
       display: flex;
       position: relative;
-      width: 100%;
+      margin: auto;
+      width: 80%;
       justify-content: center;
       align-items: center;
-      gap: 60px;
+      gap: 30px;
 
       h2 {
         @include title_2;
@@ -146,10 +147,12 @@ div.donate {
 
             h3 {
               @include title_2;
+              width: 100%;
+              text-align: center;
               color: $white;
               font-weight: inherit;
               line-height: 60px;
-              letter-spacing: 10px;
+              letter-spacing: 5px;
             }
           }
         }
