@@ -26,13 +26,16 @@
             <!-- 左邊圖片區 -->
             <div class="proPic_group">
                 <div class="bigPic">
-                    <img :src="getpicurl(iteminfo[0].product_pic1)" alt="">
+                    <img v-if="showBig == 1" :src="getpicurl(iteminfo[0].product_pic1)" alt="">
+                    <img v-if="showBig == 2" :src="getpicurl(iteminfo[0].product_pic2)" alt="">
+                    <img v-if="showBig == 3" :src="getpicurl(iteminfo[0].product_pic3)" alt="">
+                    <img v-if="showBig == 4" :src="getpicurl(iteminfo[0].product_pic4)" alt="">
                 </div>
                 <div class="littlePic">
-                    <div><img :src="getpicurl(iteminfo[0].product_pic1)" alt=""></div>
-                    <div><img :src="getpicurl(iteminfo[0].product_pic2)" alt=""></div>
-                    <div><img :src="getpicurl(iteminfo[0].product_pic3)" alt=""></div>
-                    <div><img :src="getpicurl(iteminfo[0].product_pic4)" alt=""></div>
+                    <div @click="showBig = 1"><img :src="getpicurl(iteminfo[0].product_pic1)" alt=""></div>
+                    <div @click="showBig = 2"><img :src="getpicurl(iteminfo[0].product_pic2)" alt=""></div>
+                    <div @click="showBig = 3"><img :src="getpicurl(iteminfo[0].product_pic3)" alt=""></div>
+                    <div @click="showBig = 4"><img :src="getpicurl(iteminfo[0].product_pic4)" alt=""></div>
                 </div>
             </div>
         </div>
@@ -74,7 +77,7 @@ export default {
             count: 1,
             iteminfo: [],
             addCart: "加入購物車",
-
+            showBig: 1,
         }
     },
     computed: {

@@ -53,7 +53,7 @@
       <div class="icon cartbtn" @click.stop="showDropDown"><img src="/image/home/icon_cart.svg" alt="">
         <p>購物車</p>
       </div>
-      <DropDown v-if="isDropDown" @click.stop="" class="drop-down" />
+      <DropDown ref="dropDown" class="drop-down" />
     </li>
     <li class="dropdown">
       <RouterLink to="/login">
@@ -144,7 +144,7 @@ export default {
   data() {
     return {
       //購物車下拉
-      isDropDown: false,
+      // isDropDown: false,
       //漢堡
       isOpen: false,
       //漢堡選單
@@ -158,19 +158,19 @@ export default {
   mounted() {
     // 添加點擊事件監聽器到整個頁面上
     document.addEventListener('click', this.closeDropDown);
-    // document.addEventListener('click', this.toggleLogin)
-
 
   },
 
   methods: {
     showDropDown() {
-      this.isDropDown = !this.isDropDown;
+      //$refs(可以想像成可以拿子元件的變數方法),dropDown(在這頁要同一個名字),isDropDown(子元件的方法)
+      this.$refs.dropDown.isDropDown = !this.$refs.dropDown.isDropDown;
     },
     //關閉購物車下拉
     closeDropDown() {
       // this.isDropDown = !this.isDropDown;//寫這樣,會變成案外面也會打開
-      this.isDropDown = false;
+      // this.isDropDown = false;
+      this.$refs.dropDown.isDropDown = false;
     },
     //漢堡
     toggleMenu() {
@@ -181,7 +181,7 @@ export default {
     //login_info_btn 
     memberLogout() {
       // 檢查localStorage是否有userToken
-      if(localStorage.getItem('userToken')) {
+      if (localStorage.getItem('userToken')) {
         // 已登入，執行登出
         axios.get(`${import.meta.env.VITE_PHP_URL}/logout.php`)
           .then(response => {
