@@ -256,7 +256,7 @@ export default {
         Background_green
     },
     created() {
-
+        this.getMemberData();
         [this.cartList, this.cart_total] = show_product();
         window.addEventListener('storage', this.changecartshow);
     },
@@ -299,13 +299,7 @@ export default {
             }
 
             //執行保存"訂單"到資料庫
-            this.saveOrderToDb();
-
-            //執行保存"訂單項目"到資料庫
-            // this.saveOrderItemToDb();
-
-            //清除所有產品
-            // this.clearAllPro();
+            // this.saveOrderToDb();
 
             // //將頁面跳轉至產品頁
             // window.location.href = "/Product";
@@ -438,6 +432,7 @@ export default {
                 this.isAddressOk = true;
             }
         },
+        //檢查全部輸入框,並alert警告
         checkAllInput() {
             this.alert_info = [];
             //給一個布林值,表示表單是否填寫完畢,方便在上方功能取用
@@ -487,6 +482,33 @@ export default {
 
             return allFormOk;
         },
+        //或去後端的會員資料
+        getMemberData() {
+            //發出請求道後端
+            axios.get(`${import.meta.env.VITE_PHP_URL}` + "/front_memberLogin.php", {
+                email: '',
+                psw: '',
+            })
+                .then(res => {
+                    //獲取會員資訊
+                    const memberData = res.data;
+                    console.log(memberData);
+                    //獲取會員的名字,電話,信箱,地址
+                    const name = memberData.name;
+                    const phone = memberData.phone;
+                    const email = memberData.email;
+                    const address = memberData.address;
+                    //在頁面上顯示會員訊息
+                    // document.getElementById('name').innerText = name;
+                    // document.getElementById('phone').innerText = phone;
+                    // document.getElementById('email').innerText = email;
+                    // document.getElementById('address').innerText = address;
+
+                })
+                .catch(error => {
+                    console.error('您的訂單無法成功送出,請撥打03-0857878', error);
+                });
+        }
 
     },
 
