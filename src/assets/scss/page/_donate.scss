@@ -10,9 +10,11 @@ div.donate {
 
     h1 {
       @include title_1;
+      font-size: 80px;
       color: $white;
       font-weight: initial;
       position: absolute;
+      letter-spacing: 2px;
     }
 
     img {
@@ -178,6 +180,7 @@ div.donate {
             span {
               display: inline-block;
               text-align: center;
+              letter-spacing: 1px;
             }
 
             span:first-child {

@@ -113,7 +113,6 @@ export default {
         max-width: 1000px;
         position: relative;
         max-height: 500px;
-
         button {
             position: absolute;
             top: -35px;

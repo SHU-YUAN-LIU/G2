@@ -144,8 +144,9 @@ export default {
             } else if (!/^(0[1-9]|1[0-2])\/(0[1-9]|[1-9][0-9])$/.test(this.expiryDate)) {
                 invalidFields.push('請輸入有效的卡片有效期限，例如：MM/YY');
             } else {
-                // 解析expiryDate來獲得月份和年份
-                const [month, year] = this.expiryDate.split('/').map(num => parseInt(num, 10));
+                // 把expiryDate拆分以獲得月份和年份
+                // 用.map方法把陣列裡的字串都轉換成整數
+                const [month, year] = this.expiryDate.split('/').map(num => parseInt(num));
                 const expiryDateObj = new Date(year + 2000, month - 1); // 假設"yy"是從2000年開始的
                 const currentDate = new Date();
                 const currentYear = currentDate.getFullYear();
@@ -153,7 +154,7 @@ export default {
 
                 // 比較expiryDate與當前日期
                 if (expiryDateObj.getFullYear() < currentYear || (expiryDateObj.getFullYear() === currentYear && expiryDateObj.getMonth() < currentMonth - 1)) {
-                    invalidFields.push('卡片有效期限已過，請輸入有效的有效期限');
+                    invalidFields.push('卡片有效期限已過，請輸入有效的期限');
                 }
             }
 
