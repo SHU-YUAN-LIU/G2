@@ -105,16 +105,15 @@ export default {
         // (電腦版)篩選行程
         showLocationInfo(data) {
             console.log(data);
-            const locationInfo = this.allTrip.filter(item => item.name === data.name);
+            const locationInfo = this.allTrip.filter(item => item.campaign_name === data.campaign_name);
             console.log(locationInfo);
             this.displayTrip = locationInfo;
         },
 
-        // 串資料
+        // 串資料-右邊資訊欄位
         getCampaign() {
             axios.get(`${import.meta.env.VITE_PHP_URL}/front_campaign.php`)
                 .then(response => {
-                    // 從回應中取得資料 response.data.products，並將其傳遞給 showProducts()
                     const campaign = response.data.campaign;
                     this.showCampaign(campaign);
                     console.log(response.data)
