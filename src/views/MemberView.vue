@@ -66,15 +66,25 @@
             <div class="contentwrap">
                 <div v-for="item in order" class="memberorder">
                     <div class="ordermore">
-                        More
+                        orders
                     </div>
                     <div class="triangle"></div>
                     <div class="orderleft">
-                        <div>訂單編號: {{ item.orderId }}</div>
-                        <div>訂單日期: {{ item.orderDate }}</div>
-                        <div class="orderstatus">訂單狀態: <span>{{ item.orderStatus }}</span></div>
+                        <div>訂單編號: {{ this.order.orderId }} </div>
+                        <div>訂單日期: {{ this.order.orderDate }}</div>
+                        <div>運送方式: {{ this.order.shipping }}</div>
+                        <div>付款方式: {{ this.order.payment_method }}</div>
+                        <div class="orderstatus">
+                            訂單狀態: <span>{{ this.order.orderStatus }}</span>
+                        </div>
+
                     </div>
-                    <div class="orderright">金額: <span class="orderTotal">${{ item.orderTotal }}</span></div>
+                    <div class="orderleft">
+                        <div>收件人姓名: {{ this.order.receiver_name }}</div>
+                        <div>收件人電話: {{ this.order.receiver_phone }}</div>
+                        <div>收件人地址: {{ this.order.receiver_address }}</div>
+                        <div>金額: {{ this.order.final_price }}</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -88,7 +98,7 @@
             <div class="contentwrap">
                 <div v-for="item in petition" class="memberorder">
                     <div class="ordermore">
-                        More
+                        Petitions
                     </div>
                     <div class="triangle"></div>
                     <div class="orderleft">
@@ -115,8 +125,8 @@
                         <div class="orderstatus">捐款方式:{{ item.donateWay }}</div>
                         <div>捐款金額: <span class="donateTotal">${{ item.donateTotal }}</span></div>
                     </div>
-                    <div class="orderright"><img src="/image/login/pointlogo.png" alt="">進補點數: <span
-                            class="orderTotal">${{ item.donateTotal / 100 }}點</span></div>
+                    <div class="orderright"><img src="/image/login/pointlogo.png" alt="">進補點數: <span class="orderTotal">${{
+                        item.donateTotal / 100 }}點</span></div>
                 </div>
             </div>
         </div>
@@ -124,102 +134,58 @@
     </div>
 </template>
 <script>
+import axios from 'axios';
 export default {
     data() {
         return {
             currentPage: 0,
             order: {
-                order1: {
-                    orderId: 123321,
-                    orderDate: '2023/11/11',
-                    orderStatus: '已完成',
-                    orderTotal: 1000,
-                },
-                order2: {
-                    orderId: 123761,
-                    orderDate: '2023/10/12',
-                    orderStatus: '已完成',
-                    orderTotal: 500,
-                },
-                order3: {
-                    orderId: 136356,
-                    orderDate: '2023/10/10',
-                    orderStatus: '已完成',
-                    orderTotal: 12000,
-                },
-                order4: {
-                    orderId: 749239,
-                    orderDate: '2023/09/22',
-                    orderStatus: '已完成',
-                    orderTotal: 700,
-                },
-                order5: {
-                    orderId: 184923,
-                    orderDate: '2023/09/01',
-                    orderStatus: '已完成',
-                    orderTotal: 1432,
-                }
+                orderId: '',
+                orderDate: '',
+                orderStatus: '',
+                orderTotal: '',
+                receiver_name: '',
+                receiver_phone: '',
+                receiver_address: '',
+                shipping: '',
+                payment_method: '',
+                final_price: '',
             },
+            //陳情寫死
             petition: {
                 petition1: {
-                    petitionId: 123321,
+                    petitionId: '提高公共交通質量，方便民眾出行',
                     petitionDate: '2023/11/11',
                     petitionStatus: '已回覆',
                 },
                 petition2: {
-                    petitionId: 123761,
+                    petitionId: '環境保護大家事，政府需更積極',
                     petitionDate: '2023/10/12',
                     petitionStatus: '已回覆',
                 },
                 petition3: {
-                    petitionId: 136356,
+                    petitionId: '給教育更多資源，讓下一代更有未來',
                     petitionDate: '2023/10/10',
                     petitionStatus: '已回覆',
                 },
                 petition4: {
-                    petitionId: 749239,
+                    petitionId: '改善醫療制度，讓每個人都能得到幫助',
                     petitionDate: '2023/09/22',
                     petitionStatus: '已回覆',
                 },
-                petition5: {
-                    petitionId: 184923,
-                    petitionDate: '2023/09/01',
-                    petitionStatus: '已回覆',
-                }
+
             },
             donate: {
-                donate1: {
-                    donateId: 123321,
-                    donateDate: '2023/11/11',
-                    donateWay: '現金匯款',
-                    donateTotal: 2200,
-                },
-                donate2: {
-                    donateId: 123761,
-                    donateDate: '2023/10/12',
-                    donateWay: '現金匯款',
-                    donateTotal: 1200,
-                },
-                donate3: {
-                    donateId: 136356,
-                    donateDate: '2023/10/10',
-                    donateWay: '現金匯款',
-                    donateTotal: 3200,
-                },
-                donate4: {
-                    donateId: 749239,
-                    donateDate: '2023/09/22',
-                    donateWay: '現金匯款',
-                    donateTotal: 4000,
-                },
-                donate5: {
-                    donateId: 184923,
-                    donateDate: '2023/09/01',
-                    donateWay: '現金匯款',
-                    donateTotal: 5200,
-                }
-            }
+                donateId: 123321,
+                donateDate: '2023/11/11',
+                donateWay: '現金匯款',
+                donateTotal: 2200,
+
+            },
         }
+    },
+    created() {
+        this.getProductOrders();
     },
     methods: {
         logines() {
@@ -227,24 +193,64 @@ export default {
             bodyFormData.append('email', this.loginForm.email);
             bodyFormData.append('psw', this.loginForm.psw);
             axios({
-                        method:"post",
-                        url:`${import.meta.env.VITE_PHP_URL}` + "/front_memberInfo.php",
-                        data:bodyFormData,
-                        // headers: { "Content-Type": "multipart/form-data" },
-                }).then(res=>{
-                    console.log(res.data); // 打印 data 属性
-                    if (res.data.error) {
-                        // 登錄失敗，顯示錯誤消息
-                        alert(res.data.msg); // 或進行本地化處理顯示給用戶
-                    } else {
-                        // 登錄成功，處理 token 和用戶資料
-                        localStorage.setItem('userToken', res.data.token);
-                        this.$router.push('/');
-                    }
-                }).catch(error=>{
-                    console.log(error);
+                method: "post",
+                url: `${import.meta.env.VITE_PHP_URL}` + "/front_memberInfo.php",
+                data: bodyFormData,
+                // headers: { "Content-Type": "multipart/form-data" },
+            }).then(res => {
+                console.log(res.data); // 打印 data 属性
+                if (res.data.error) {
+                    // 登錄失敗，顯示錯誤消息
+                    alert(res.data.msg); // 或進行本地化處理顯示給用戶
+                } else {
+                    // 登錄成功，處理 token 和用戶資料
+                    localStorage.setItem('userToken', res.data.token);
+                    this.$router.push('/');
+                }
+            }).catch(error => {
+                console.log(error);
+            })
+        },
+        //帶入會員商品訂單資料
+        getProductOrders() {
+            axios.post(`${import.meta.env.VITE_PHP_URL}` + "/front_getOrdersData.php", { orders_no: 1 })
+                .then(res => {
+                    //取得商品訂單資訊
+                    const ordersData = res.data;
+                    console.log(ordersData);
+                    //把商品帶入上面表格
+                    this.order.orderId = ordersData.orders[0].orders_no;
+                    this.order.orderDate = ordersData.orders[0].orders_date;
+                    this.order.shipping = ordersData.orders[0].shipping;
+                    this.order.orderStatus = ordersData.orders[0].status;
+
+                    this.order.payment_method = ordersData.orders[0].payment_method;
+                    this.order.receiver_name = ordersData.orders[0].receiver_name;
+                    this.order.receiver_phone = ordersData.orders[0].receiver_phone;
+                    this.order.receiver_address = ordersData.orders[0].receiver_address;
+                    this.order.final_price = ordersData.orders[0].final_price;
+
                 })
-        }
+                .catch(error => {
+                    console.error('您的訂單無法成功送出,請撥打03-0857878', error);
+                })
+        },
+        //帶入會員捐款資料
+        // getMemberData() {
+        //     axios.post(`${import.meta.env.VITE_PHP_URL}` + "/front_getDonateData.php", { donate_no: 1 })
+        //         .then(res => {
+        //             //取得捐款訂單資訊
+        //             const donateData = res.data;
+        //             console.log(donateData);
+        //             //把捐款紀錄帶入上面表格
+        //             // this.order.orderId = donateData.orders[0].orders_no;
+
+
+        //         })
+        //         .catch(error => {
+        //             console.error('您的訂單無法成功送出,請撥打03-0857878', error);
+        //         })
+        // }
 
     },
 
