@@ -54,8 +54,8 @@
         <div class="membercontent" v-show="currentPage == 1">
             <div class="searchbar">
                 <div class="search_icon">
-                    <input type="text" class="searchnum" placeholder="請輸入訂單編號">
-                    <img src="/image/login/searchicon.svg" alt="">
+                    <input type="text" placeholder="請輸入訂單編號">
+                    <div class="big-mir"><img src="/image/login/searchicon.svg" alt=""></div>
                 </div>
                 <div class="orderdatesearch">
                     <input type="date" class="startdate">到
@@ -91,8 +91,8 @@
         <div class="membercontent" v-show="currentPage == 2">
             <div class="searchbar">
                 <div class="search_icon">
-                    <input type="text" class="searchnum" placeholder="請輸入陳情編號">
-                    <img src="/image/login/searchicon.svg" alt="">
+                    <input type="text" placeholder="請輸入訂單編號">
+                    <div class="big-mir"><img src="/image/login/searchicon.svg" alt=""></div>
                 </div>
             </div>
             <div class="contentwrap">
@@ -114,22 +114,23 @@
                 <input type="date" class="startdate">到
                 <input type="date" class="enddate">
                 <button class="searchbtn">搜尋</button>
-                <span class="havepoints">持有進補點數: 999</span>
+                <span class="havepoints">持有進補點數:<span class="point-orange"> 999</span></span>
             </div>
             <div class="contentwrap">
                 <div v-for="item in donate" class="memberorder">
 
                     <div class="orderleft">
-                        <div><span>捐款編號: </span>{{ item.donateId }}</div>
-                        <div><span>捐款日期: </span>{{ item.donateDate }}</div>
-                        <div class="orderstatus">捐款方式:{{ item.donateWay }}</div>
-                        <div style="color:#FF892E;"><span class="donateTotal">捐款金額: ${{ item.donateTotal }}</span></div>
+                        <div><span>捐款編號: </span>{{ this.donate.donateId }}</div>
+                        <div><span>捐款日期: </span>{{ this.donate.donateDate }}</div>
+                        <div class="orderstatus">捐款方式:{{ this.donate.donateWay }}</div>
+                        <div style="color:#FF892E;"><span class="donateTotal">捐款金額: ${{ this.donate.donateTotal }}</span>
+                        </div>
                     </div>
                     <div class="orderright">
                         <img src="/image/login/pointlogo.png" alt="">
                         進補點數:
                         <span class="orderTotal">
-                            ${{ item.donateTotal / 100 }}點
+                            ${{ this.donate.point / 100 }}點
                         </span>
                     </div>
                 </div>
@@ -174,12 +175,12 @@ export default {
                 petition2: {
                     petitionId: '環境保護大家事，政府需更積極',
                     petitionDate: '2023/10/12',
-                    petitionStatus: '已回覆',
+                    petitionStatus: '處理中',
                 },
                 petition3: {
                     petitionId: '給教育更多資源，讓下一代更有未來',
                     petitionDate: '2023/10/10',
-                    petitionStatus: '已回覆',
+                    petitionStatus: '處理中',
                 },
                 petition4: {
                     petitionId: '改善醫療制度，讓每個人都能得到幫助',
@@ -189,11 +190,11 @@ export default {
 
             },
             donate: {
-                donateId: 123321,
-                donateDate: '2023/11/11',
-                donateWay: '現金匯款',
-                donateTotal: 2200,
-
+                donateId: '',
+                donateDate: '',
+                donateWay: '',
+                donateTotal: '',
+                point: '',
             },
         }
     },
@@ -203,6 +204,7 @@ export default {
         }
 
         this.getProductOrders();
+        this.getMemberData();
     },
     methods: {
         //帶入會員商品訂單資料
@@ -212,6 +214,7 @@ export default {
                     //取得商品訂單資訊
                     const ordersData = res.data;
                     console.log(ordersData);
+
                     //把商品帶入上面表格
                     this.order.orderId = ordersData.orders[0].orders_no;
                     this.order.orderDate = ordersData.orders[0].orders_date;
@@ -226,28 +229,31 @@ export default {
 
                 })
                 .catch(error => {
-                    console.error('您的訂單無法成功送出,請撥打03-0857878', error);
+                    console.log(error);
                 })
         },
         //帶入會員捐款資料
-        // getMemberData() {
-        //     axios.post(`${import.meta.env.VITE_PHP_URL}` + "/front_getDonateData.php", { donate_no: 1 })
-        //         .then(res => {
-        //             //取得捐款訂單資訊
-        //             const donateData = res.data;
-        //             console.log(donateData);
-        //             //把捐款紀錄帶入上面表格
-        //             // this.order.orderId = donateData.orders[0].orders_no;
+        getMemberData() {
+            axios.post(`${import.meta.env.VITE_PHP_URL}` + "/front_getDonateData.php", { donate_no: 2 })
+                .then(res => {
+                    //取得捐款訂單資訊
+                    const donateData = res.data;
+                    console.log(donateData);
+                    //把捐款紀錄帶入上面表格
+                    this.donate.donateId = donateData.donate[0].donate_no;
+                    this.donate.donateDate = donateData.donate[0].donate_date;
+                    this.donate.donateWay = donateData.donate[0].donate_method;
+                    this.donate.donateTotal = donateData.donate[0].donate_amount;
+                    this.donate.point = donateData.donate[0].point;
 
-
-        //         })
-        //         .catch(error => {
-        //             console.error('您的訂單無法成功送出,請撥打03-0857878', error);
-        //         })
-        // }
+                })
+                .catch(error => {
+                    console.log(error);
+                })
+        },
         memberInfo() {
             // 假設在登入時，您已經將用戶資料保存在localStorage中，鍵是'memberData'
-            let memberData = localStorage.getItem('member'); 
+            let memberData = localStorage.getItem('member');
 
             // 由於localStorage中保存的是字符串，所以需要將其解析為JSON對象
             memberData = JSON.parse(memberData);
@@ -255,9 +261,9 @@ export default {
             this.member.birth = memberData.birthday;
             this.member.cell = memberData.cellphone;
             this.member.phone = memberData.phone;
-            this.member.email= memberData.email;
+            this.member.email = memberData.email;
             this.member.addr = memberData.address;
-            
+
         }
     }
 }

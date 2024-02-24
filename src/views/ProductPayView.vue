@@ -353,7 +353,7 @@ export default {
                     this.saveOrderItemToDb();//要執行完商品訂單,才能執行存取訂單細項!
                 })
                 .catch(error => {
-                    console.error('您的訂單無法成功送出,請撥打03-0857878', error);
+                    console.log(error);
                 });
         },
 
@@ -369,7 +369,7 @@ export default {
                     this.clearAllPro();
                 })
                 .catch(error => {
-                    console.error('您的訂單無法成功送出,請撥打03-0857878', error);
+                    console.log(error);
                 });
         },
 
@@ -488,10 +488,9 @@ export default {
                     this.memberData.email = memberData.member[0].email
                     this.memberData.address = memberData.member[0].address
 
-
                 })
                 .catch(error => {
-                    console.error('您的訂單無法成功送出,請撥打03-0857878', error);
+                    console.log(error);
                 });
         }
 
