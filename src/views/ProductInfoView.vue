@@ -133,7 +133,7 @@ export default {
                 });
         },
     },
-
+    //refs有點像是綁定id
 }
 </script>
 
