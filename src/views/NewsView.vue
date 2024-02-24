@@ -38,7 +38,7 @@
         </router-link>
       </div>
     </div>
-    <background :height="300" />
+    <background :height="100" />
   </div>
   <Background_green :height="100" />
 
@@ -72,17 +72,17 @@ export default {
           typeClass: "fake_news",
           title: "傳言：劉緯育高傲自大，對庶民經濟有什麼貢獻？",
           content: "傳言：劉緯育高傲自大，對庶民經濟有什麼貢獻？ 事實：改變成真！傳統市場改頭換面，菜籃族都說讚！",
-          date: "2024/2/1",
+          date: "2024/1/11",
           imageUrl: `${import.meta.env.VITE_RESOURCE_URL}/image/news/news2_s.png`
         },
         {
           url: '/newspage',
-          type: "新聞資訊",
-          typeClass: "news_info",
-          title: "2024，選擇劉緯育，改變台灣的未來!",
-          content: "我們站在一個新的開始之前，面對著選擇台灣未來的重要時刻。劉緯育，一位堅定認為台灣需要改變的領袖，宣佈參選2024年總統選舉。他的政策和願景將帶領台灣走向更美好的未來。",
-          date: "2024/1/11",
-          imageUrl: `${import.meta.env.VITE_RESOURCE_URL}/image/news/news3_s.png`
+          type: "假消息澄清",
+          typeClass: "fake_news",
+          title: "傳言：劉緯育是不是歧視少數族群？",
+          content: "傳言：劉緯育是不是歧視少數族群？事實：錯誤！劉緯育主張尊重多元，創造共榮。",
+          date: "2024/2/1",
+          imageUrl: `${import.meta.env.VITE_RESOURCE_URL}/image/news/news6_s.png`
         },
         {
           url: '/newspage',
@@ -101,6 +101,15 @@ export default {
           content: "今天，台灣政治迎來一場顛覆性的社會運動，青年進補黨正式宣佈成立，以改變政治文化並帶來新希望。該黨的黨主席是劉緯育，一位決心重塑台灣政治的嶄新領袖。",
           date: "2020/5/20",
           imageUrl: `${import.meta.env.VITE_RESOURCE_URL}/image/news/news5_s.png`
+        },
+        {
+          url: '/newspage',
+          type: "演講活動",
+          typeClass: "speech",
+          title: "2023/12/4 老年之聲 嘉義開講",
+          content: "作為青年進補黨的總統候選人，劉緯育將於四日在嘉義這個高齡化城市，舉行一場為年老年族群打造合適工作環境的重要演講。這次演講聚焦於老年人的就業機會、工作環境以及相關政策。",
+          date: "2023/12/4",
+          imageUrl: `${import.meta.env.VITE_RESOURCE_URL}/image/news/news3_s.png`
         },
       ]
 
