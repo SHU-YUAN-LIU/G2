@@ -29,6 +29,9 @@
     .membercontent {
         width: 100%;
         margin: auto;
+        padding-top: 30px;
+        padding-bottom: 30px;
+
         .contentwrap {
             display: flex;
             flex-direction: column;
@@ -194,16 +197,18 @@
     position: relative;
     @include title_10;
     display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
+    justify-content: flex-start;
+    align-items: flex-start;
     border: 1px solid $black;
     overflow: hidden;
     letter-spacing: $space_letter;
     border-radius: $border-radius-1;
+    padding: 10px;
+    gap: 20px;
 
     .ordermore {
         position: absolute;
-        top: -1px;
+        top: -8px;
         right: -1px;
         padding: 10px;
         color: $white;
@@ -214,8 +219,8 @@
         position: absolute;
         width: 0;
         height: 0;
-        border-top: 50px solid $orange;
-        border-left: 150px solid transparent;
+        border-top: 60px solid $orange;
+        border-left: 180px solid transparent;
         top: -1px;
         right: -1px;
     }
