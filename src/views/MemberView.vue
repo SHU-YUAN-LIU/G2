@@ -21,30 +21,30 @@
         <form class="membercontent" v-show="currentPage == 0">
             <div class="member_name">
                 <label for="name">真實姓名： </label>
-                <input type="text" id="name">
+                <input type="text" id="name" value="王陽明" v-model="memberFill.memberName" disabled>
             </div>
             <div class="member_idno">
                 <p>身分證字號： <span class="member_idno_text">H224729803</span></p>
             </div>
             <div class="member_birth">
                 <label for="birthday">出生日期：</label>
-                <input type="date" id="birthday">
+                <input type="date" id="birthday" value="" v-model="memberFill.memberBirth">
             </div>
             <div class="member_tel">
                 <label for="cellphone">行動電話：</label>
-                <input type="text" id="cellphone">
+                <input type="text" id="cellphone" value="" v-model="memberFill.memberCell">
             </div>
             <div class="member_phone">
                 <label for="phone">市內電話：</label>
-                <input type="text" id="phone">
+                <input type="text" id="phone" value="" v-model="memberFill.memberPhone">
             </div>
             <div class="member_email">
                 <label for="email">電子信箱：</label>
-                <input type="email" id="email">
+                <input type="email" id="email" value="" v-model="memberFill.memberEmail">
             </div>
             <div class="member_addr">
                 <label for="address">通訊地址：</label>
-                <input type="text" id="address">
+                <input type="text" id="address" value="" v-model="memberFill.memberAddr">
             </div>
             <div class="member_point">
                 <p>進補點數：<span class="member_point_text">9999點</span></p>
@@ -115,8 +115,8 @@
                         <div class="orderstatus">捐款方式:{{ item.donateWay }}</div>
                         <div>捐款金額: <span class="donateTotal">${{ item.donateTotal }}</span></div>
                     </div>
-                    <div class="orderright"><img src="/image/login/pointlogo.png" alt="">進補點數: <span
-                            class="orderTotal">${{ item.donateTotal / 100 }}點</span></div>
+                    <div class="orderright"><img src="/image/login/pointlogo.png" alt="">進補點數: <span class="orderTotal">${{
+                        item.donateTotal / 100 }}點</span></div>
                 </div>
             </div>
         </div>
@@ -124,10 +124,29 @@
     </div>
 </template>
 <script>
+import axios from 'axios';
+
 export default {
     data() {
         return {
             currentPage: 0,
+            memberFill: {
+                memberName: '',
+                memberBirth: '',
+                memberCell: '',
+                memberPhone: '',
+                memberEmail: '',
+                memberAddr: ''
+            },
+
+            member: {
+                neme: '',
+                birth: '',
+                cell: '',
+                phone: '',
+                email: '',
+                addr: '',
+            },
             order: {
                 order1: {
                     orderId: 123321,
@@ -221,31 +240,31 @@ export default {
             }
         }
     },
-    methods: {
-        logines() {
-            const bodyFormData = new FormData();
-            bodyFormData.append('email', this.loginForm.email);
-            bodyFormData.append('psw', this.loginForm.psw);
-            axios({
-                        method:"post",
-                        url:`${import.meta.env.VITE_PHP_URL}` + "/front_memberInfo.php",
-                        data:bodyFormData,
-                        // headers: { "Content-Type": "multipart/form-data" },
-                }).then(res=>{
-                    console.log(res.data); // 打印 data 属性
-                    if (res.data.error) {
-                        // 登錄失敗，顯示錯誤消息
-                        alert(res.data.msg); // 或進行本地化處理顯示給用戶
-                    } else {
-                        // 登錄成功，處理 token 和用戶資料
-                        localStorage.setItem('userToken', res.data.token);
-                        this.$router.push('/');
-                    }
-                }).catch(error=>{
-                    console.log(error);
-                })
+    created() {
+        if (localStorage.getItem('userToken')) {
+            this.memberInfo();
         }
 
+    },
+    methods: {
+        memberInfo() {
+            axios.post(`${import.meta.env.VITE_PHP_URL}/front_memberInfo.php`,{},{withCredentials: true})
+                .then(response => {
+                    if (response.data.memberData) {
+                        // 如果成功获取到会员信息，则将其填充到对应的输入框中
+                        const { member } = response.data.memberData;
+                        this.memberName = member.member_name;
+                        this.memberBirth = member.birthday;
+                        this.memberCell = member.cellphone;
+                        this.memberPhone = member.phone;
+                        this.memberEmail = member.email;
+                        this.memberAddr = member.address;
+                    }
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+        }
     },
 
 }
