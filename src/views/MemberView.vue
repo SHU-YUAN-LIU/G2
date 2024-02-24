@@ -21,30 +21,30 @@
         <form class="membercontent" v-show="currentPage == 0">
             <div class="member_name">
                 <label for="name">真實姓名： </label>
-                <input type="text" id="name" value="王陽明" v-model="memberFill.memberName" disabled>
+                <input type="text" id="name" value="王陽明" v-model="member.name" disabled>
             </div>
             <div class="member_idno">
                 <p>身分證字號： <span class="member_idno_text">H224729803</span></p>
             </div>
             <div class="member_birth">
                 <label for="birthday">出生日期：</label>
-                <input type="date" id="birthday" value="" v-model="memberFill.memberBirth">
+                <input type="date" id="birthday" value="" v-model="member.birth" disabled>
             </div>
             <div class="member_tel">
                 <label for="cellphone">行動電話：</label>
-                <input type="text" id="cellphone" value="" v-model="memberFill.memberCell">
+                <input type="text" id="cellphone" value="" v-model="member.cell" disabled>
             </div>
             <div class="member_phone">
                 <label for="phone">市內電話：</label>
-                <input type="text" id="phone" value="" v-model="memberFill.memberPhone">
+                <input type="text" id="phone" value="" v-model="member.phone" disabled>
             </div>
             <div class="member_email">
                 <label for="email">電子信箱：</label>
-                <input type="email" id="email" value="" v-model="memberFill.memberEmail">
+                <input type="email" id="email" value="" v-model="member.email" disabled>
             </div>
             <div class="member_addr">
                 <label for="address">通訊地址：</label>
-                <input type="text" id="address" value="" v-model="memberFill.memberAddr">
+                <input type="text" id="address" value="" v-model="member.addr" disabled>
             </div>
             <div class="member_point">
                 <p>進補點數：<span class="member_point_text">9999點</span></p>
@@ -139,15 +139,6 @@ export default {
     data() {
         return {
             currentPage: 0,
-            memberFill: {
-                memberName: '',
-                memberBirth: '',
-                memberCell: '',
-                memberPhone: '',
-                memberEmail: '',
-                memberAddr: ''
-            },
-
             member: {
                 neme: '',
                 birth: '',
@@ -209,29 +200,6 @@ export default {
         this.getProductOrders();
     },
     methods: {
-        logines() {
-            const bodyFormData = new FormData();
-            bodyFormData.append('email', this.loginForm.email);
-            bodyFormData.append('psw', this.loginForm.psw);
-            axios({
-                method: "post",
-                url: `${import.meta.env.VITE_PHP_URL}` + "/front_memberInfo.php",
-                data: bodyFormData,
-                // headers: { "Content-Type": "multipart/form-data" },
-            }).then(res => {
-                console.log(res.data); // 打印 data 属性
-                if (res.data.error) {
-                    // 登錄失敗，顯示錯誤消息
-                    alert(res.data.msg); // 或進行本地化處理顯示給用戶
-                } else {
-                    // 登錄成功，處理 token 和用戶資料
-                    localStorage.setItem('userToken', res.data.token);
-                    this.$router.push('/');
-                }
-            }).catch(error => {
-                console.log(error);
-            })
-        },
         //帶入會員商品訂單資料
         getProductOrders() {
             axios.post(`${import.meta.env.VITE_PHP_URL}` + "/front_getOrdersData.php", { orders_no: 1 })
@@ -273,7 +241,50 @@ export default {
         //         })
         // }
         memberInfo() {
-            axios.post(`${import.meta.env.VITE_PHP_URL}/front_memberInfo.php`, {}, { withCredentials: true })
+            // 假設在登入時，您已經將用戶資料保存在localStorage中，鍵是'memberData'
+            let memberData = localStorage.getItem('member'); 
+
+            // 由於localStorage中保存的是字符串，所以需要將其解析為JSON對象
+            memberData = JSON.parse(memberData);
+            this.member.name = memberData.member_name;
+            this.member.birth = memberData.birthday;
+            this.member.cell = memberData.cellphone;
+            this.member.phone = memberData.phone;
+            this.member.email= memberData.email;
+            this.member.addr = memberData.address;
+            
+        }
+    }
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- axios.post(`${import.meta.env.VITE_PHP_URL}/front_memberInfo.php`, {}, { withCredentials: true })
                 .then(response => {
                     if (response.data.memberData) {
                         // 如果成功获取到会员信息，则将其填充到对应的输入框中
@@ -288,8 +299,4 @@ export default {
                 })
                 .catch(error => {
                     console.error(error);
-                });
-        }
-    }
-}
-</script>
+                }); -->
