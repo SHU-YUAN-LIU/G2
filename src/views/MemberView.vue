@@ -70,20 +70,20 @@
                     </div>
                     <div class="triangle"></div>
                     <div class="orderleft">
-                        <div>訂單編號: {{ this.order.orderId }} </div>
-                        <div>訂單日期: {{ this.order.orderDate }}</div>
-                        <div>運送方式: {{ this.order.shipping }}</div>
-                        <div>付款方式: {{ this.order.payment_method }}</div>
+                        <div><span>訂單編號: </span>{{ this.order.orderId }} </div>
+                        <div><span>訂單日期:</span> {{ this.order.orderDate }}</div>
+                        <div><span>運送方式: </span>{{ this.order.shipping }}</div>
+                        <div><span>付款方式:</span> {{ this.order.payment_method }}</div>
                         <div class="orderstatus">
-                            訂單狀態: <span>{{ this.order.orderStatus }}</span>
+                            <span>訂單狀態:{{ this.order.orderStatus }}</span>
                         </div>
 
                     </div>
                     <div class="orderleft">
-                        <div>收件人姓名: {{ this.order.receiver_name }}</div>
-                        <div>收件人電話: {{ this.order.receiver_phone }}</div>
-                        <div>收件人地址: {{ this.order.receiver_address }}</div>
-                        <div>金額: {{ this.order.final_price }}</div>
+                        <div><span>收件人姓名: </span>{{ this.order.receiver_name }}</div>
+                        <div><span>收件人電話:</span> {{ this.order.receiver_phone }}</div>
+                        <div><span>收件人地址:</span> {{ this.order.receiver_address }}</div>
+                        <div style="color:#FF892E;"><span>金額: {{ this.order.final_price }}</span></div>
                     </div>
                 </div>
             </div>
@@ -102,9 +102,9 @@
                     </div>
                     <div class="triangle"></div>
                     <div class="orderleft">
-                        <div>陳情主旨: {{ item.petitionId }}</div>
-                        <div>陳情日期: {{ item.petitionDate }}</div>
-                        <div class="orderstatus">陳情狀態: <span>{{ item.petitionStatus }}</span></div>
+                        <div><span>陳情主旨: </span>{{ item.petitionId }}</div>
+                        <div><span>陳情日期: </span>{{ item.petitionDate }}</div>
+                        <div class="orderstatus"><span>陳情狀態: {{ item.petitionStatus }}</span></div>
                     </div>
                 </div>
             </div>
@@ -120,13 +120,18 @@
                 <div v-for="item in donate" class="memberorder">
 
                     <div class="orderleft">
-                        <div>捐款編號: {{ item.donateId }}</div>
-                        <div>捐款日期: {{ item.donateDate }}</div>
+                        <div><span>捐款編號: </span>{{ item.donateId }}</div>
+                        <div><span>捐款日期: </span>{{ item.donateDate }}</div>
                         <div class="orderstatus">捐款方式:{{ item.donateWay }}</div>
-                        <div>捐款金額: <span class="donateTotal">${{ item.donateTotal }}</span></div>
+                        <div style="color:#FF892E;"><span class="donateTotal">捐款金額: ${{ item.donateTotal }}</span></div>
                     </div>
-                    <div class="orderright"><img src="/image/login/pointlogo.png" alt="">進補點數: <span class="orderTotal">${{
-                        item.donateTotal / 100 }}點</span></div>
+                    <div class="orderright">
+                        <img src="/image/login/pointlogo.png" alt="">
+                        進補點數:
+                        <span class="orderTotal">
+                            ${{ item.donateTotal / 100 }}點
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>
