@@ -70,6 +70,8 @@
 
         input {
             height: 48px;
+            border-radius: $border-radius-1;
+            padding: 10px;
 
             @media screen and (max-width:414px) {
                 width: 300px;
@@ -227,7 +229,11 @@
 
     .orderleft {
         div {
-            margin: 10px;
+            margin: 7px;
+        }
+
+        span {
+            font-weight: 500;
         }
     }
 
@@ -244,8 +250,9 @@
     .orderstatus {
         span {
             background-color: $green;
-            border-radius: $border-radius-1;
-            padding: 4px;
+            border-radius: 5px;
+            padding: 5px 8px;
+            font-size: 13px;
         }
     }
 
