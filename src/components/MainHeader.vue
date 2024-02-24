@@ -194,8 +194,8 @@ export default {
         axios.get(`${import.meta.env.VITE_PHP_URL}/logout.php`)
           .then(response => {
             // 登出成功，移除本地存储的userToken
-            console.log(123);
             localStorage.removeItem('userToken');
+            localStorage.removeItem('member');
             // 重定向到登录页面或主页
             this.$router.push('/login');
           })
