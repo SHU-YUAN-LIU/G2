@@ -225,13 +225,11 @@ const router = createRouter({
     {
       path: '/election',
       name: 'election',
-
       component: () => import('../views/ElectionView.vue')
     },
     {
       path: '/election_journey',
       name: 'election_journey',
-
       component: () => import('../views/ElectionView_journey.vue'),
       meta: {
         breadcrumb: [{

@@ -19,8 +19,10 @@
     <vueMarquee :marqueeArray="slogan" />
     <!-- 政策懶人包 -->
     <div>
-      <span class="policy">政策懶人包</span>
-      <bookmark />
+      <div class="election_policy">
+        <span class="policy_title">政策懶人包</span>
+      </div>
+      <RotateCard />
     </div>
   </div>
 </template>
@@ -28,8 +30,7 @@
 
 <script>
 import vueMarquee from "@/components/Marquee.vue";
-import bookmark from "@/components/BookMark.vue"
-
+import RotateCard from "@/components/RotateCard.vue"
 
 
 export default {
@@ -37,7 +38,7 @@ export default {
     return {
       slogan: [
         '這是一場改變政治文化的社會運動，投給劉緯育，投給自己的未來。',
-        '為了更美好的明天，讓我們一起行動起來，為改革而投票',
+        '為了更美好的明天，讓我們一起行動起來，為改革而投票。',
       ],
       candidates: [
         {
@@ -85,7 +86,7 @@ export default {
   },
   components: {
     vueMarquee,
-    bookmark,
+    RotateCard,
   },
   mounted() {
     document.title = "候選人資訊";

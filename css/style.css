@@ -787,6 +787,68 @@ body {
   cursor: pointer;
 }
 
+#scened {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  perspective: 2000px;
+  width: 500px;
+  margin: -300px auto 0;
+}
+
+#scene {
+  width: 400px;
+  height: 100px;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+  transform-origin: center center;
+  transform: perspective(2000px) rotateX(-5deg) rotateY(0deg);
+}
+
+.election_card {
+  position: absolute;
+  width: 400px;
+  background-color: #D4FF1F;
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  transform: perspective(3000px) translateX(10px) translateZ(50px);
+  padding: 0px 20px 20px;
+}
+.election_card h2 {
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 30px;
+  font-weight: 500;
+  color: #fff;
+  text-align: center;
+  padding: 15px 0;
+}
+.election_card div {
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #fff;
+}
+.election_card div p {
+  letter-spacing: 1.5px;
+  line-height: 1.5;
+}
+
+.rotate_button {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 3% 0 3%;
+}
+.rotate_button #rotateLeftBtn,
+.rotate_button #rotateRightBtn {
+  cursor: pointer;
+  color: #FF892E;
+}
+.rotate_button #rotateLeftBtn:hover,
+.rotate_button #rotateRightBtn:hover {
+  color: #D4FF1F;
+}
+
 .successPop_bg {
   width: 100%;
   height: 100%;
@@ -2319,9 +2381,11 @@ div.donate .donate_banner h1 {
   font-family: "Mantou Sans";
   font-size: 93px;
   font-weight: initial;
+  font-size: 80px;
   color: #FFF;
   font-weight: initial;
   position: absolute;
+  letter-spacing: 2px;
 }
 div.donate .donate_banner img {
   width: 100%;
@@ -2329,7 +2393,8 @@ div.donate .donate_banner img {
 }
 div.donate .donate_main {
   width: 100%;
-  height: 1100px;
+  margin-top: 60px;
+  padding-bottom: 60px;
   display: flex;
   position: relative;
 }
@@ -2354,10 +2419,11 @@ div.donate .donate_main img.icon:nth-child(3) {
 div.donate .donate_main .donate_cards {
   display: flex;
   position: relative;
-  width: 100%;
+  margin: auto;
+  width: 80%;
   justify-content: center;
   align-items: center;
-  gap: 60px;
+  gap: 30px;
 }
 div.donate .donate_main .donate_cards h2 {
   font-family: "Mantou Sans";
@@ -2411,6 +2477,7 @@ div.donate .donate_main .donate_cards .donate_card2 {
   background-color: #FFF;
   border-radius: 10px;
   border: 3px solid #FF892E;
+  overflow: hidden;
 }
 div.donate .donate_main .donate_cards .donate_card2 .donate_card2_top {
   display: flex;
@@ -2419,9 +2486,7 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_top {
   height: 320px;
 }
 div.donate .donate_main .donate_cards .donate_card2 .donate_card2_top img {
-  width: 636px;
   vertical-align: middle;
-  border-radius: 5px;
 }
 div.donate .donate_main .donate_cards .donate_card2 .donate_card2_top div {
   position: absolute;
@@ -2434,16 +2499,19 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_top div h3 {
   font-family: "Mantou Sans";
   font-size: 65px;
   font-weight: initial;
+  width: 100%;
+  text-align: center;
   color: #FFF;
   font-weight: inherit;
   line-height: 60px;
-  letter-spacing: 10px;
+  letter-spacing: 5px;
 }
 div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom {
   height: 380px;
   position: relative;
 }
 div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom ul {
+  width: 570px;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -2451,16 +2519,19 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom ul {
   align-items: center;
 }
 div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li {
-  width: 570px;
   line-height: 55px;
+  width: 450px;
   display: flex;
   justify-content: center;
   border: 1px solid #D8D8D8;
   border-radius: 10px;
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 16px;
 }
 div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li span {
   display: inline-block;
   text-align: center;
+  letter-spacing: 1px;
 }
 div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li span:first-child {
   width: 270px;
@@ -2485,6 +2556,10 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
     font-family: "Mantou Sans";
     font-size: 36px;
     font-weight: initial;
+  }
+  div.donate .donate_main {
+    height: 100%;
+    margin: 40px 0;
   }
   div.donate .donate_main img.icon:nth-child(1) {
     width: 170px;
@@ -2516,6 +2591,7 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
   }
   div.donate .donate_main .donate_cards .donate_card1 {
     width: 350px;
+    height: 500px;
     padding: 0;
     margin: 0;
     border-radius: 10px;
@@ -2552,17 +2628,19 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
     max-width: 350px;
     height: 200px;
   }
-  div.donate .donate_main .donate_cards .donate_card2 .donate_card2_top img {
+  div.donate .donate_main .donate_cards .donate_card2 .donate_card2_top div:first-child img {
     width: 350px;
+    height: 100%;
+    vertical-align: top;
   }
-  div.donate .donate_main .donate_cards .donate_card2 .donate_card2_top div {
+  div.donate .donate_main .donate_cards .donate_card2 .donate_card2_top div:last-child {
     position: absolute;
     display: flex;
     flex-direction: column;
     justify-content: center;
     height: 100%;
   }
-  div.donate .donate_main .donate_cards .donate_card2 .donate_card2_top div h3 {
+  div.donate .donate_main .donate_cards .donate_card2 .donate_card2_top div:last-child h3 {
     font-family: "Mantou Sans";
     font-size: 28px;
     font-weight: initial;
@@ -2580,10 +2658,10 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
     width: 90%;
     height: 50px;
     line-height: 50px;
-  }
-  div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li span {
     font-family: "Noto Sans TC", sans-serif;
     font-size: 16px;
+  }
+  div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li span {
     font-size: 12px;
   }
   div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li span:first-child {
@@ -2674,10 +2752,6 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
 .donate_page .donate_page_main .donate_page_content .donate_page_info li {
   margin-top: 30px;
 }
-.donate_page .donate_page_main .donate_page_content .donate_page_unit p {
-  font-family: "Noto Sans TC", sans-serif;
-  font-size: 16px;
-}
 .donate_page .donate_page_main .donate_page_content .donate_page_contact input[type=checkbox] {
   width: 15px;
   height: 15px;
@@ -2718,6 +2792,7 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
 }
 .donate_page .donate_page_main .donate_page_content .donate_page_method li p {
   text-align: center;
+  margin: 0;
 }
 .donate_page .donate_page_main .donate_page_content .donate_page_method li img {
   width: 70px;
@@ -2951,7 +3026,6 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
   font-family: "Mantou Sans";
   font-size: 36px;
   font-weight: initial;
-  color: #FF892E;
   text-align: center;
   margin: 135px 0 35px 0;
 }
@@ -3163,7 +3237,7 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
 }
 .home_container {
   --column-gap: 10px;
-  max-width: 1200px;
+  width: 80%;
   margin: auto;
   padding-left: var(--column-gap);
   padding-right: var(--column-gap);
@@ -3413,7 +3487,9 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
   position: relative;
 }
 .policy h3 span:not(span:nth-child(3)) {
-  line-height: 60px;
+  line-height: 50px;
+  position: relative;
+  top: 10px;
 }
 .policy h3 span:nth-child(3) {
   width: 100px;
@@ -4884,12 +4960,18 @@ form .register_read p {
 .election .election_marquee {
   background-color: #D4FF1F;
 }
-.election .policy {
+.election .election_policy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5%;
+  position: relative;
+  margin-bottom: 8%;
+}
+.election .election_policy .policy_title {
   font-family: "Mantou Sans";
   font-size: 65px;
   font-weight: initial;
-  margin: 60px auto;
-  text-align: center;
 }
 
 /*平板 */

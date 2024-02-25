@@ -15,17 +15,6 @@
 <script>
 import commitButton from './button/commitButton.vue';
 export default {
-  methods: {
-    stopMarquee() {
-      // 假设 marqueeControl 是 vue3-marquee 组件提供的用于控制滚动的方法
-      // 请替换为实际的停止滚动的方法
-      this.$refs.marquee.marqueeControl('stop');
-    },
-    startMarquee() {
-      // 同上，替换为实际的开始滚动的方法
-      this.$refs.marquee.marqueeControl('start');
-    },
-  },
   components: {
     commitButton,
   },
