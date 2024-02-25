@@ -30,8 +30,6 @@ export const useUserStore = defineStore('userStore', {
                 email: val.email,
                 // 封鎖狀況1|0
                 status: val.status,
-                // // 如果有權限可以把權限角色記載資料庫
-                // role: 'editor'
             }
 
         },

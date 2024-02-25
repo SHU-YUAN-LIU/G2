@@ -53,7 +53,8 @@
       <div class="icon cartbtn" @click.stop="showDropDown"><img src="/image/home/icon_cart.svg" alt="">
         <p>購物車</p>
       </div>
-      <DropDown ref="dropDown" class="drop-down" />
+      <DropDown v-if="isDropDown" @click.stop="" class="drop-down" />
+      <!-- <DropDown ref="dropDown" @click.stop="" class="drop-down" /> -->
     </li>
     <li class="dropdown">
       <RouterLink to="/login">
@@ -144,7 +145,7 @@ export default {
   data() {
     return {
       //購物車下拉
-      // isDropDown: false,
+      isDropDown: false,
       //漢堡
       isOpen: false,
       //漢堡選單
@@ -160,17 +161,24 @@ export default {
     document.addEventListener('click', this.closeDropDown);
 
   },
-
+  watch: {
+    $route(to, from) {
+      console.log(to.path);
+      this.isDropDown = false;
+    }
+  },
   methods: {
     showDropDown() {
+      this.isDropDown = !this.isDropDown;
+
       //$refs(可以想像成可以拿子元件的變數方法),dropDown(在這頁要同一個名字),isDropDown(子元件的方法)
-      this.$refs.dropDown.isDropDown = !this.$refs.dropDown.isDropDown;
+      // this.$refs.dropDown.isDropDown = !this.$refs.dropDown.isDropDown;
     },
     //關閉購物車下拉
     closeDropDown() {
       // this.isDropDown = !this.isDropDown;//寫這樣,會變成案外面也會打開
-      // this.isDropDown = false;
-      this.$refs.dropDown.isDropDown = false;
+      this.isDropDown = false;
+      // this.$refs.dropDown.isDropDown = false;
     },
     //漢堡
     toggleMenu() {
@@ -186,8 +194,8 @@ export default {
         axios.get(`${import.meta.env.VITE_PHP_URL}/logout.php`)
           .then(response => {
             // 登出成功，移除本地存储的userToken
-            console.log(123);
             localStorage.removeItem('userToken');
+            localStorage.removeItem('member');
             // 重定向到登录页面或主页
             this.$router.push('/login');
           })

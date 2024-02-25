@@ -1,5 +1,5 @@
 .news_wrap {
-    margin-bottom: 50px;
+    padding-bottom: 100px;
     position: relative;
 }
 .news_banner {
@@ -14,6 +14,7 @@
 .news_banner h1 {
     font-weight: inherit;
     @include title_1;
+    letter-spacing: 10px;
 }
 .filter_form {
     position: inherit;
@@ -27,7 +28,12 @@
         box-sizing: border-box;
         align-items: center;
         background-color: #ffffff;
-
+        .remove {
+            cursor: pointer;
+        }
+        select {
+            padding: 0 10px;
+        }
         input[type="date"]{
             padding-right: 10px;
         }

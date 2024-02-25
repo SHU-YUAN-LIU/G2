@@ -80,9 +80,9 @@
             </div>
             <div class="home_line_button">
                 <div class="home_line"></div>
-                    <router-link to="/news">
-                        <CommitButton class="homebutton dog" commitButton="立即前往"></CommitButton>
-                    </router-link>
+                <router-link to="/news">
+                    <CommitButton class="homebutton dog" commitButton="立即前往"></CommitButton>
+                </router-link>
             </div>
         </div>
 
@@ -163,10 +163,10 @@ export default {
                 '為了更美好的明天，讓我們一起行動起來，為改革而投票',
             ],
             bannerList: [
-                'home/banner_1.png',
+                'home/banner_3.png',
                 'home/banner_2.png',
                 'home/banner_1.png',
-                'home/banner_2.png',
+                'home/banner_3.png',
                 'home/banner_1.png',
                 'home/banner_2.png',
             ],

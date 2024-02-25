@@ -302,7 +302,7 @@ export default {
             this.saveOrderToDb();
 
             // //將頁面跳轉至產品頁
-            window.location.href = "/Product";
+            // window.location.href = "/Product";
 
         },
 
@@ -326,24 +326,11 @@ export default {
         //將獲取的資料存入"訂單"的資料庫
         saveOrderToDb() {
 
-            // const tokenStr = localStorage.getItem('token');//從localstorage拿token
-            // let memberNo;//在if外面也宣告,以便在外部也能使用
-
-            //檢查tokenStr是否存在
-            // if (tokenStr) {
-            //     //將字串轉成json對象
-            //     const tokenobj = JSON.parse(tokenStr);
-
-            //     //從轉換過得json對象取得member_no
-            //     memberNo = tokenobj.member_no;
-            // }
-
             const final_price = this.cart_total[0].total + 60 - 10;
             // 整包需要的資料
             const insertOrderData = {
                 ...this.orderData,//寫...等於orderData裡面所有東西
                 final_price,
-                // member_no: memberNo,//添加從localstorage的token取得的memeber_no
             }
             console.log(insertOrderData);
 
@@ -354,7 +341,7 @@ export default {
             axios.post(`${import.meta.env.VITE_PHP_URL}` + "/front_productOrderInsert.php", insertOrderData)
                 .then(res => {
                     //請求成功的處理
-                    alert('您的訂單已送出');
+                    // alert('您的訂單已送出');
 
                     // 然後將pk加到cartList裡面
                     console.log(this.cartList);
@@ -366,7 +353,7 @@ export default {
                     this.saveOrderItemToDb();//要執行完商品訂單,才能執行存取訂單細項!
                 })
                 .catch(error => {
-                    console.error('您的訂單無法成功送出,請撥打03-0857878', error);
+                    console.log(error);
                 });
         },
 
@@ -382,7 +369,7 @@ export default {
                     this.clearAllPro();
                 })
                 .catch(error => {
-                    console.error('您的訂單無法成功送出,請撥打03-0857878', error);
+                    console.log(error);
                 });
         },
 
@@ -501,10 +488,9 @@ export default {
                     this.memberData.email = memberData.member[0].email
                     this.memberData.address = memberData.member[0].address
 
-
                 })
                 .catch(error => {
-                    console.error('您的訂單無法成功送出,請撥打03-0857878', error);
+                    console.log(error);
                 });
         }
 
