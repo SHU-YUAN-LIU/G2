@@ -36,7 +36,7 @@ export default {
     position: fixed;
     z-index: 10;
     right: 50px;
-    bottom: 90px;
+    bottom: 50px;
     transition: bottom 0.3s ease-in-out;
 
 }

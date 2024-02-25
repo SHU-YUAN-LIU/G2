@@ -22,7 +22,7 @@
                     </div>
                     <span>{{ item.product_name }}</span>
                 </div>
-                <span>NT{{ item.price }}</span>
+                <div class="pay-price"><span>${{ item.price }}</span></div>
                 <div id="num">
                     <button @click="changeqty($event, item.product_no, -1)"> -</button>
                     <div>{{ item.qty }}</div>
@@ -46,13 +46,13 @@
                 <span>+$60</span>
             </div>
             <div class="pay-detail">
-                <span>使用點數折抵(持有點數：10點)</span>
+                <span>(持有點數：10點)</span>
                 <span>點數折抵</span>
                 <span>-$10</span>
             </div>
             <hr>
             <div class="pay-detail">
-                <span>購物車合計{{ cart_total[0].listcount }}項商品</span>
+                <span>購物車合計<span style="color:#FF892E ;">&nbsp;{{ cart_total[0].listcount }}&nbsp;</span>項商品</span>
                 <span>應付總額</span>
                 <span class="final-num">${{ cart_total[0].total + 60 - 10 }}</span>
             </div>
@@ -111,23 +111,37 @@
                 </div>
             </div>
             <div class="shipping-box-group">
-                <div class="shipping-box">
-                    <input type="radio" name="shiping" id="pay-deliver" value="宅配" v-model="orderData.shipping">
-                    <label for="pay-deliver">宅配</label>
-                </div>
-                <div class="shipping-box">
-                    <input type="radio" name="shiping" id="pay-family" value="全家" v-model="orderData.shipping">
-                    <label for="pay-family">全家(緯育門市)<span>桃園市中壢區復興路46號</span></label>
-                </div>
-                <div class="shipping-box">
-                    <input type="radio" name="shiping" id="pay-seven" value="7-11" v-model="orderData.shipping">
-                    <label for="pay-seven">7-11 (緯育門市)<span>桃園市中壢區復興路46號</span></label>
-                </div>
-                <div class="shipping-box">
-                    <input type="radio" name="shiping" id="pay-hi-life" value="萊爾富" v-model="orderData.shipping">
-                    <label for="pay-hi-life">萊爾富(緯育門市)<span>桃園市中壢區復興路46號</span></label>
+                <div class="shipping-box-wrap">
+                    <div class="box">
+                        <label for="pay-deliver" class="shipping-box">
+                            <input type="radio" name="shiping" id="pay-deliver" value="宅配" v-model="orderData.shipping"
+                                class="pay-deliver">
+                            &nbsp;&nbsp;宅配
+                        </label>
+                        <label for="pay-family" class="shipping-box">
+                            <input type="radio" name="shiping" id="pay-family" value="全家" v-model="orderData.shipping"
+                                class="pay-deliver">
+                            &nbsp;&nbsp;全家(緯育門市)
+                            <span class="waiyu">桃園市中壢區復興路46號</span>
+                        </label>
+                    </div>
+                    <div class="box">
+                        <label for="pay-seven" class="shipping-box">
+                            <input type="radio" name="shiping" id="pay-seven" value="7-11" v-model="orderData.shipping"
+                                class="pay-deliver">
+                            &nbsp;&nbsp;7-11 (緯育門市)<span>桃園市中壢區復興路46號</span>
+                        </label>
+                        <label for="pay-hi-life" class="shipping-box">
+                            <input type="radio" name="shiping" id="pay-hi-life" value="萊爾富" v-model="orderData.shipping"
+                                class="pay-deliver">
+                            &nbsp;&nbsp;萊爾富(緯育門市)<span>桃園市中壢區復興路46號</span>
+                        </label>
+                    </div>
                 </div>
             </div>
+
+
+
             <div class="receive-address" v-if="orderData.shipping === '宅配'">
                 <label for="">收件人地址(如果是超商取貨則免填)</label>
                 <input type="text" placeholder="收件人地址" v-model="orderData.receiver_address" @blur="checkReceiver_address">
@@ -141,28 +155,32 @@
                 </div>
             </div>
             <div class="shipping-box-group">
-                <div class="shipping-box">
-                    <input type="radio" name="payment" id="pay-credit" value="信用卡" v-model="orderData.payment_method">
-                    <label for="pay-credit">信用卡</label>
-                </div>
-                <div class="shipping-box">
-                    <input type="radio" name="payment" id="pay-ATM" value="虛擬ATM" v-model="orderData.payment_method">
-                    <label for="pay-ATM">虛擬ATM</label>
+                <div class="shipping-box-wrap">
+                    <div class="box">
+                        <label for="pay-credit" class="shipping-box">
+                            <input type="radio" name="payment" id="pay-credit" value="信用卡"
+                                v-model="orderData.payment_method" class="pay-deliver">
+                            信用卡
+                        </label>
+                    </div>
+                    <div class="box">
+                        <label for="pay-ATM" class="shipping-box">
+                            <input type="radio" name="payment" id="pay-ATM" value="虛擬ATM" v-model="orderData.payment_method"
+                                class="pay-deliver">
+                            虛擬ATM
+                        </label>
+                    </div>
                 </div>
             </div>
             <div class="pay-checkbox-group">
-                <!-- <div class="pay-checkbox">
-                    <input type="checkbox" name="agree-check" id="pay-agree-box" v-model="AgreeAll">
-                    <label for="pay-agree-box">同意商店服務條款/會員責任規範及個資聲明</label>
-                </div> -->
                 <div class="pay-checkbox">
                     <input type="checkbox" name="agree-check" id="pay-order-right" v-model="AgreeAll">
-                    <label for="pay-order-right">為保障彼此之權益，賣家在收到您的訂單後仍保有決定是否接受訂單及出貨與否之權利</label>
+                    <label for="pay-order-right">&nbsp;&nbsp;為保障彼此之權益，賣家在收到您的訂單後仍保有是否接受訂單及出貨與否之權利</label>
                 </div>
             </div>
             <button class="pay-btn-now" @click="clearAndSavePro">立即結帳</button>
         </div>
-        <Background_green :height="80" />
+        <Background_green :height="50" />
     </div>
 </template>
 
