@@ -3953,7 +3953,7 @@ form .register_read p {
   }
 }
 .news_wrap {
-  margin-bottom: 50px;
+  padding-bottom: 100px;
   position: relative;
 }
 
@@ -3972,6 +3972,7 @@ form .register_read p {
   font-family: "Mantou Sans";
   font-size: 93px;
   font-weight: initial;
+  letter-spacing: 10px;
 }
 
 .filter_form {
@@ -3987,6 +3988,12 @@ form .register_read p {
   box-sizing: border-box;
   align-items: center;
   background-color: #ffffff;
+}
+.filter_form .news_filter .remove {
+  cursor: pointer;
+}
+.filter_form .news_filter select {
+  padding: 0 10px;
 }
 .filter_form .news_filter input[type=date] {
   padding-right: 10px;
@@ -4922,7 +4929,8 @@ form .register_read p {
 }
 .election .election_banner {
   background-image: url("@/assets/image/election/banner-480px.png");
-  height: 1540px;
+  height: 700px;
+  margin-top: 80px;
 }
 .election .election_info .election_content {
   display: flex;
@@ -5679,10 +5687,10 @@ form .register_read p {
   }
 }
 .member_wrap .membercontent {
-  display: flex;
-  flex-direction: column;
-  align-content: center;
   width: 100%;
+  margin: auto;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 .member_wrap .membercontent .contentwrap {
   display: flex;
@@ -5720,6 +5728,8 @@ form .register_read p {
 }
 .member_wrap .membercontent input {
   height: 48px;
+  border-radius: 10px;
+  padding: 10px;
 }
 @media screen and (max-width: 414px) {
   .member_wrap .membercontent input {
@@ -5837,12 +5847,21 @@ form .register_read p {
 .search_icon {
   display: flex;
   align-items: center;
-  border: 1px solid #ccc;
+  position: relative;
+}
+.search_icon input {
   padding: 3px;
   border-radius: 10px;
 }
+.search_icon .big-mir {
+  width: 20px;
+  position: absolute;
+  top: 55%;
+  left: 85%;
+  transform: translate(-50%, -50%);
+}
 .search_icon img {
-  margin-right: 10px;
+  width: 100%;
 }
 
 .memberorder {
@@ -5852,17 +5871,19 @@ form .register_read p {
   font-family: "Noto Sans TC", sans-serif;
   font-size: 16px;
   display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
+  justify-content: flex-start;
+  align-items: flex-start;
   border: 1px solid #000;
   overflow: hidden;
   letter-spacing: 1.5px;
   border-radius: 10px;
+  padding: 10px;
+  gap: 20px;
   line-height: 1.5;
 }
 .memberorder .ordermore {
   position: absolute;
-  top: -1px;
+  top: -8px;
   right: -1px;
   padding: 10px;
   color: #FFF;
@@ -5872,13 +5893,16 @@ form .register_read p {
   position: absolute;
   width: 0;
   height: 0;
-  border-top: 50px solid #FF892E;
-  border-left: 150px solid transparent;
+  border-top: 60px solid #FF892E;
+  border-left: 180px solid transparent;
   top: -1px;
   right: -1px;
 }
 .memberorder .orderleft div {
-  margin: 10px;
+  margin: 7px;
+}
+.memberorder .orderleft span {
+  font-weight: 500;
 }
 .memberorder .orderright {
   margin: 10px;
@@ -5889,8 +5913,9 @@ form .register_read p {
 }
 .memberorder .orderstatus span {
   background-color: #D4FF1F;
-  border-radius: 10px;
-  padding: 4px;
+  border-radius: 5px;
+  padding: 5px 8px;
+  font-size: 13px;
 }
 .memberorder .orderTotal {
   color: #FF892E;
@@ -5901,9 +5926,16 @@ form .register_read p {
 }
 
 .havepoints {
-  color: #FF892E;
+  color: #000;
   position: absolute;
   right: 10px;
+  letter-spacing: 1.5px;
+  font-weight: 500;
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 16px;
+}
+.havepoints .point-orange {
+  color: #FF892E;
 }
 
 .orderdatesearch {
