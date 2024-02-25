@@ -24,6 +24,9 @@
       </div>
       <RotateCard />
     </div>
+    <div class="election_background">
+      <Background_green :height="50" />
+    </div>
   </div>
 </template>
 
@@ -31,7 +34,7 @@
 <script>
 import vueMarquee from "@/components/Marquee.vue";
 import RotateCard from "@/components/RotateCard.vue"
-
+import Background_green from "@/components/Background_green.vue";
 
 export default {
   data() {
@@ -58,7 +61,6 @@ export default {
             "立法院司法委員會召集委員",
             "立法院跨黨派厚生會會長",
             "第4、5、6、7屆立法委員",
-            "幼稚園園長",
           ],
         },
         {
@@ -73,12 +75,11 @@ export default {
           experiences: [
             "總統府顧問",
             "進補黨國際事務部主任",
-            "國際自由政黨聯盟（LI）副主席",
+            "國際自由政黨聯盟副主席",
             "臺灣民主基金會董事",
-            "幼稚園園長",
-            "幼稚園園長",
-            "幼稚園園長",
-            "幼稚園園長",
+            "立法院司法委員會召集委員",
+            "立法院跨黨派厚生會會長",
+            "第4、5、6、7屆立法委員",
           ]
         },
       ],
@@ -87,6 +88,7 @@ export default {
   components: {
     vueMarquee,
     RotateCard,
+    Background_green
   },
   mounted() {
     document.title = "候選人資訊";

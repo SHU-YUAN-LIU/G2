@@ -1,7 +1,7 @@
 <template>
   <div class="scrollbar">
     <MainHeader />
-    <Loading :key="$route.fullPath" :loadingTime=500 />
+    <Loading :key="$route.fullPath" :loadingTime=1000 />
     <RouterView />
     <goToTop />
     <MainFooter v-if="!$route.meta.hideFooter" />

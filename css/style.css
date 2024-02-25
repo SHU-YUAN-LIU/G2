@@ -846,7 +846,7 @@ body {
 }
 .rotate_button #rotateLeftBtn:hover,
 .rotate_button #rotateRightBtn:hover {
-  color: #D4FF1F;
+  color: #93E6D7;
 }
 
 .successPop_bg {
@@ -4980,6 +4980,9 @@ form .register_read p {
   font-family: "Mantou Sans";
   font-size: 65px;
   font-weight: initial;
+}
+.election .election_background .background {
+  bottom: -1650px;
 }
 
 /*平板 */
