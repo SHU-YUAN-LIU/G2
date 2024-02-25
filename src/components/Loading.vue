@@ -22,7 +22,7 @@ export default {
     props: {
         loadingTime: {
             type: Number,
-            default: 2000 // 預設顯示時間為 2000 毫秒
+            default: 1000 // 預設顯示時間為 2000 毫秒
         }
     },
     mounted() {
