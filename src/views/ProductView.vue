@@ -35,7 +35,7 @@
                 </div>
             </div>
         </div>
-        <Background_green :height="'100'" />
+        <Background_green :height="'10'" />
     </div>
 </template>
   

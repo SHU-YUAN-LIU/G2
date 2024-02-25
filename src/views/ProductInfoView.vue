@@ -6,22 +6,28 @@
         <div class="pro_info_group">
             <!-- 右邊文字區 -->
             <div class="proText_group">
-                <p>{{ iteminfo[0].product_name }}</p>
-                <div class="proLine"></div>
-                <span>
-                    {{ iteminfo[0].product_intro }}
-                </span>
-                <div class="pro-info-price">
-                    <span>建議售價</span>
-                    <span class="pro-nt">NT$ <span class="iteminfo-price">{{ iteminfo[0].price }}</span></span>
+                <div class="proText-title">
+                    <p>{{ iteminfo[0].product_name }}</p>
+                    <div class="proLine"></div>
+                    <span>
+                        {{ iteminfo[0].product_intro }}
+                    </span>
                 </div>
-                <div class="pro-num-state">供貨狀況: 尚有庫存</div>
-                <div id="num">
-                    <button @click="if (count >= 1) { count -= 1 };"> -</button>
-                    <div>{{ count }}</div>
-                    <button @click="count += 1"> +</button>
+                <div class="proText-content">
+                    <div class="pro-info-price">
+                        <span>建議售價</span>
+                        <span class="pro-nt">NT$ <span class="iteminfo-price">{{ iteminfo[0].price }}</span></span>
+                    </div>
+                    <div class="have-pro">
+                        <div class="pro-num-state">供貨狀況: 尚有庫存</div>
+                        <div id="num">
+                            <button @click="if (count >= 1) { count -= 1 };"> -</button>
+                            <div>{{ count }}</div>
+                            <button @click="count += 1"> +</button>
+                        </div>
+                    </div>
+                    <CartButton :text="addCart" :id=iteminfo[0].product_no :qty=count />
                 </div>
-                <CartButton :text="addCart" :id=iteminfo[0].product_no :qty=count />
             </div>
             <!-- 左邊圖片區 -->
             <div class="proPic_group">
