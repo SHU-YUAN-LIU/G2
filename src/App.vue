@@ -4,7 +4,7 @@
     <Loading :key="$route.fullPath" :loadingTime=500 />
     <RouterView />
     <goToTop />
-    <MainFooter />
+    <MainFooter v-if="!$route.meta.hideFooter" />
   </div>
 </template>
 

@@ -57,7 +57,7 @@
         .journey {
             background-color: #272727;
             border-radius: 10px;
-            height: 700px;
+            height: 450px;
             width: 430px;
             display: flex;
             flex-direction: column;
@@ -65,7 +65,7 @@
             overflow: scroll;
             position: absolute;
             right: 1.5%;
-            top: 13%;
+            top: 18%;
 
 
             h3 {
@@ -139,11 +139,14 @@
 // 倒數計時器
 .count_down {
     position: relative;
-    bottom: -350px;
-    left: -250px;
+    max-width: 100%;
 
     .countdown {
         @include title_3;
+        position: absolute;
+        top: 244px;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.5);
 
         div {
             span:first-child {

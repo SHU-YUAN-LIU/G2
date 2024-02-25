@@ -232,14 +232,18 @@ const router = createRouter({
       name: 'election_journey',
       component: () => import('../views/ElectionView_journey.vue'),
       meta: {
-        breadcrumb: [{
-          name: '首頁 / ',
-          link: '/',
-        },
-        {
-          name: ' 選舉資訊',
-        }]
+        breadcrumb: [
+          {
+            name: '首頁 / ',
+            link: '/',
+          },
+          {
+            name: ' 選舉資訊',
+          }
+        ],
+        hideFooter: true,
       }
+
     },
     {
       path: '/product/:productId',//:productId是變數(類似product的分支)

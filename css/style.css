@@ -5069,7 +5069,7 @@ form .register_read p {
 .elecion_journey .election_container .journey {
   background-color: #272727;
   border-radius: 10px;
-  height: 700px;
+  height: 450px;
   width: 430px;
   display: flex;
   flex-direction: column;
@@ -5077,7 +5077,7 @@ form .register_read p {
   overflow: scroll;
   position: absolute;
   right: 1.5%;
-  top: 13%;
+  top: 18%;
 }
 .elecion_journey .election_container .journey h3 {
   font-family: "Noto Sans TC", sans-serif;
@@ -5137,13 +5137,16 @@ form .register_read p {
 
 .count_down {
   position: relative;
-  bottom: -350px;
-  left: -250px;
+  max-width: 100%;
 }
 .count_down .countdown {
   font-family: "Mantou Sans";
   font-size: 36px;
   font-weight: initial;
+  position: absolute;
+  top: 244px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
 }
 .count_down .countdown div span:first-child {
   font-family: "Mantou Sans";
