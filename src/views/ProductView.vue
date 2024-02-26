@@ -35,7 +35,7 @@
                 </div>
             </div>
         </div>
-        <Background_green :height="'100'" />
+        <Background_green :height="'10'" />
     </div>
 </template>
   
@@ -76,7 +76,6 @@ export default {
     },
     created() {
         this.getProducts();
-        // this.getProductClass();
     },
     methods: {
 
@@ -86,13 +85,6 @@ export default {
             this.filteredProducts = this.allProducts.filter((item) => {
                 return item.product_name.includes(this.search) && item.price > this.min && item.price < this.max && (item.product_class_no == this.currentCategory || this.currentCategory == "全部商品");
             });
-            // console.log(this.filteredProducts);
-            // 將篩選結果賦值給 allProducts
-            // this.allProducts = this.filteredProducts;
-            // this.allProducts = this.allProducts.filter((item) => {
-            //     return item.product_name.includes(this.search) && item.price > this.min && item.price < this.max && (item.product_class_no == this.currentCategory || this.currentCategory == "全部商品");
-            // })
-
 
         },
         //把分類加進去
@@ -118,7 +110,6 @@ export default {
                     //轉為字串(localStorage只能存字串,不能存陣列)
                     localStorage.setItem('allProducts', JSON.stringify(this.allProducts));
                     this.getProductClass();
-
                 })
                 .catch(error => {
                     console.log(error);

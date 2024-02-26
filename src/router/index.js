@@ -8,7 +8,7 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   //跳轉頁面後,會回到最上成
   scrollBehavior(to, from, savedPosition) {
-    // 如果有 savedPosition，使用它，否则滚动到页面顶部
+    // 如果有 savedPosition，使用它，不然滾動到頁面最上面
     if (savedPosition) {
       return savedPosition;
     } else {
@@ -225,23 +225,25 @@ const router = createRouter({
     {
       path: '/election',
       name: 'election',
-
       component: () => import('../views/ElectionView.vue')
     },
     {
       path: '/election_journey',
       name: 'election_journey',
-
       component: () => import('../views/ElectionView_journey.vue'),
       meta: {
-        breadcrumb: [{
-          name: '首頁 / ',
-          link: '/',
-        },
-        {
-          name: ' 選舉資訊',
-        }]
+        breadcrumb: [
+          {
+            name: '首頁 / ',
+            link: '/',
+          },
+          {
+            name: ' 選舉資訊',
+          }
+        ],
+        hideFooter: true,
       }
+
     },
     {
       path: '/product/:productId',//:productId是變數(類似product的分支)

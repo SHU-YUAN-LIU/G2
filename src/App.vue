@@ -1,10 +1,10 @@
 <template>
   <div class="scrollbar">
     <MainHeader />
-    <Loading :key="$route.fullPath" :loadingTime=500 />
+    <Loading :key="$route.fullPath" :loadingTime=1000 />
     <RouterView />
     <goToTop />
-    <MainFooter />
+    <MainFooter v-if="!$route.meta.hideFooter" />
   </div>
 </template>
 

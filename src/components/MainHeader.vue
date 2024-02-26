@@ -54,6 +54,7 @@
         <p>購物車</p>
       </div>
       <DropDown v-if="isDropDown" @click.stop="" class="drop-down" />
+      <!-- <DropDown ref="dropDown" @click.stop="" class="drop-down" /> -->
     </li>
     <li class="dropdown">
       <RouterLink to="/login">
@@ -158,19 +159,26 @@ export default {
   mounted() {
     // 添加點擊事件監聽器到整個頁面上
     document.addEventListener('click', this.closeDropDown);
-    // document.addEventListener('click', this.toggleLogin)
-
 
   },
-
+  watch: {
+    $route(to, from) {
+      console.log(to.path);
+      this.isDropDown = false;
+    }
+  },
   methods: {
     showDropDown() {
       this.isDropDown = !this.isDropDown;
+
+      //$refs(可以想像成可以拿子元件的變數方法),dropDown(在這頁要同一個名字),isDropDown(子元件的方法)
+      // this.$refs.dropDown.isDropDown = !this.$refs.dropDown.isDropDown;
     },
     //關閉購物車下拉
     closeDropDown() {
       // this.isDropDown = !this.isDropDown;//寫這樣,會變成案外面也會打開
       this.isDropDown = false;
+      // this.$refs.dropDown.isDropDown = false;
     },
     //漢堡
     toggleMenu() {
@@ -181,13 +189,13 @@ export default {
     //login_info_btn 
     memberLogout() {
       // 檢查localStorage是否有userToken
-      if(localStorage.getItem('userToken')) {
+      if (localStorage.getItem('userToken')) {
         // 已登入，執行登出
         axios.get(`${import.meta.env.VITE_PHP_URL}/logout.php`)
           .then(response => {
             // 登出成功，移除本地存储的userToken
-            console.log(123);
             localStorage.removeItem('userToken');
+            localStorage.removeItem('member');
             // 重定向到登录页面或主页
             this.$router.push('/login');
           })

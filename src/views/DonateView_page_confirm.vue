@@ -76,7 +76,7 @@
                 <button class="donate_confirm_button">←返回上頁 </button>
             </RouterLink>
             <!-- 彈窗 -->
-            <button class="donate_confirm_button" @click="donatePayment, checkInputs(), submitData()">立即付款→</button>
+            <button class="donate_confirm_button" @click="handleClick">立即付款→</button>
             <DonateConfirmLightBox ref="DonateConfirmLightBox" />
         </div>
     </div>
@@ -111,6 +111,11 @@ export default {
 
     },
     methods: {
+        handleClick(){
+            this.donatePayment;
+            this.checkInputs();
+            this.submitData()
+        },
         // 輸入信用卡卡號時，自動跳下一個輸入格
         doChange(index) {
             if (this.inputs[index].value.length === this.inputs[index].maxLength) {
@@ -138,7 +143,22 @@ export default {
                 emptyFields.push('卡片有效期限');
             } else if (!/^(0[1-9]|1[0-2])\/(0[1-9]|[1-9][0-9])$/.test(this.expiryDate)) {
                 invalidFields.push('請輸入有效的卡片有效期限，例如：MM/YY');
+            } else {
+                // 把expiryDate拆分以獲得月份和年份
+                // 用.map方法把陣列裡的字串都轉換成整數
+                const [month, year] = this.expiryDate.split('/').map(num => parseInt(num));
+                const expiryDateObj = new Date(year + 2000, month - 1); // 假設"yy"是從2000年開始的
+                const currentDate = new Date();
+                const currentYear = currentDate.getFullYear();
+                const currentMonth = currentDate.getMonth() + 1; // getMonth()返回的月份是從0開始的，所以加1
+
+                // 比較expiryDate與當前日期
+                if (expiryDateObj.getFullYear() < currentYear || (expiryDateObj.getFullYear() === currentYear && expiryDateObj.getMonth() < currentMonth - 1)) {
+                    invalidFields.push('卡片有效期限已過，請輸入有效的期限');
+                }
             }
+
+            // 判斷日期
 
             // 檢查信用卡安全碼輸入框 + 資料格式
             if (!this.cvvCode.trim()) {
@@ -179,8 +199,6 @@ export default {
             }).catch(error => {
                 console.error('Error fetching data:', error);
             });
-            localStorage.removeItem('donateAmount');
-            localStorage.removeItem('donatePoint');
         },
     },
     mounted() {

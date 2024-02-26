@@ -4,7 +4,8 @@
     // banner圖
     .election_banner {
         background-image: url('@/assets/image/election/banner-480px.png');
-        height: 1540px;
+        height: 700px;
+        margin-top: 80px;
     }
 
     /* 候選人資訊 */
@@ -47,16 +48,34 @@
 
     /* 跑馬燈 */
     .election_marquee {
-        background-color: #D4FF1F;
+        background-color: $green;
     }
 
     // 政策懶人包
-    .policy {
-        @include title_2;
-        margin: 60px auto;
-        text-align: center;
+    .election_policy {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 5%;
+        position: relative;
+        margin-bottom: 8%;
+
+        // 標題
+        .policy_title {
+            @include title_2;
+        }
     }
+
+    // 三角形
+    .election_background {
+        .background {
+            bottom: -1650px;
+        }
+    }
+
 }
+
+
 
 /*平板 */
 @media screen and (min-width: 768px) {

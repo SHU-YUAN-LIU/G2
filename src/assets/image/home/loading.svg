@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1200px" height="211px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" style="margin: auto; background: rgba(255, 255, 255, 0); display: block; shape-rendering: auto;">
+  <!-- 第一個人物 -->
+
+  
+ <g>
+    <circle cx="25" cy="30" r="10" fill="#ff892e"/> 
+    <ellipse cx="25" cy="55" rx="10" ry="15" fill="#ff892e"/> 
+
+    <rect x="15" y="35" width="2" height="10" fill="#ff892e">
+    <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="-45 25 45" to="0 25 45" dur="0.5s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="25" y="35" width="2" height="10" fill="#ff892e">
+    <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="45 35 60" to="0 35 60" dur="0.5s" repeatCount="indefinite"/>
+    </rect>
+
+
+    <line x1="20" y1="70" x2="20" y2="80" stroke="#ff892e" stroke-width="2">
+    <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="45 20 70" to="-45 20 70" dur="1s" repeatCount="indefinite"/>
+    </line>
+    <line x1="30" y1="70" x2="30" y2="80" stroke="#ff892e" stroke-width="2">
+    <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="-45 30 70" to="45 30 70" dur="1s" repeatCount="indefinite" begin="0.5s"/>
+    </line>
+
+
+    <circle cx="25" cy="29" r="1.5" fill="white"/> 
+    <circle cx="25" cy="29" r="0.75" fill="black"/> 
+    <circle cx="30" cy="29" r="1.5" fill="white"/> 
+    <circle cx="30" cy="29" r="0.75" fill="black"/> 
+    <animateTransform attributeName="transform" attributeType="XML" type="translate" from="-150 0" to="150 0" dur="3s" repeatCount="indefinite"/>
+</g>
+
+
+  <!-- 第二個人物 -->
+  <g>
+  <circle cx="75" cy="30" r="10" fill="#d4ff1f"/> 
+  <ellipse cx="75" cy="55" rx="10" ry="15" fill="#d4ff1f"/> 
+
+  <rect x="70" y="33" width="2" height="10" fill="#d4ff1f">
+  <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="-45 85 60" to="0 85 60" dur="0.5s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="75" y="35" width="2" height="10" fill="#d4ff1f">
+  <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="45 85 60" to="0 85 60" dur="0.5s" repeatCount="indefinite"/>
+  </rect>
+
+  <line x1="70" y1="70" x2="70" y2="80" stroke="#d4ff1f" stroke-width="2">
+  <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="45 70 70" to="-45 70 70" dur="1s" repeatCount="indefinite"/>
+  </line>
+  <line x1="80" y1="70" x2="80" y2="80" stroke="#d4ff1f" stroke-width="2">
+  <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="45 80 70" to="-45 80 70" dur="1s" repeatCount="indefinite" begin="0.5s"/>
+  </line>
+
+  <circle cx="75" cy="29" r="1.5" fill="white"/> 
+  <circle cx="75" cy="29" r="0.75" fill="black"/> 
+  <circle cx="80" cy="29" r="1.5" fill="white"/> 
+  <circle cx="80" cy="29" r="0.75" fill="black"/> 
+  <animateTransform attributeName="transform" attributeType="XML" type="translate" from="-150 0" to="150 0" dur="3s" repeatCount="indefinite"/>
+  </g>
+
+
+  
+</svg>

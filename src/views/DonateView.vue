@@ -27,7 +27,10 @@
         </div>
         <div class="donate_card2">
           <div class="donate_card2_top">
-            <img src="/image/donate/donate_card2.png" alt="">
+            <div>
+              <img src="/image/donate/donate_card2.png" alt="">
+            </div>
+            
             <div>
               <h3>支持青年進補黨</h3>
               <h3>給台灣新的選擇</h3>

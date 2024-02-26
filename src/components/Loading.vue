@@ -1,8 +1,15 @@
 <template>
+    <!-- 用gif圖檔 -->
     <div v-if="isLoading" class="loading-container">
         <div class="loading-spinner"></div>
-        <p>Loading...</p>
+        <img src="../assets/image/home/loading.svg" alt="">
     </div>
+
+    <!-- 原本的 -->
+    <!-- <div v-if="isLoading" class="loading-container">
+        <div class="loading-spinner"></div>
+        <p>Loading...</p>
+    </div> -->
 </template>
 
 <script>
@@ -15,7 +22,7 @@ export default {
     props: {
         loadingTime: {
             type: Number,
-            default: 2000 // 預設顯示時間為 2000 毫秒
+            default: 1000 // 預設顯示時間為 2000 毫秒
         }
     },
     mounted() {
@@ -41,16 +48,16 @@ export default {
     z-index: 9999;
 }
 
-.loading-spinner {
+/* .loading-spinner {
     border: 8px solid #f3f3f3;
     border-top: 8px solid #3498db;
     border-radius: 50%;
     width: 50px;
     height: 50px;
     animation: spin 1s linear infinite;
-}
+} */
 
-@keyframes spin {
+/* @keyframes spin {
     0% {
         transform: rotate(0deg);
     }
@@ -58,4 +65,5 @@ export default {
     100% {
         transform: rotate(360deg);
     }
-}</style>
+} */
+</style>

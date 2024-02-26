@@ -6,33 +6,42 @@
         <div class="pro_info_group">
             <!-- 右邊文字區 -->
             <div class="proText_group">
-                <p>{{ iteminfo[0].product_name }}</p>
-                <div class="proLine"></div>
-                <span>
-                    {{ iteminfo[0].product_intro }}
-                </span>
-                <div class="pro-info-price">
-                    <span>建議售價</span>
-                    <span class="pro-nt">NT$ <span class="iteminfo-price">{{ iteminfo[0].price }}</span></span>
+                <div class="proText-title">
+                    <p>{{ iteminfo[0].product_name }}</p>
+                    <div class="proLine"></div>
+                    <span>
+                        {{ iteminfo[0].product_intro }}
+                    </span>
                 </div>
-                <div class="pro-num-state">供貨狀況: 尚有庫存</div>
-                <div id="num">
-                    <button @click="if (count >= 1) { count -= 1 };"> -</button>
-                    <div>{{ count }}</div>
-                    <button @click="count += 1"> +</button>
+                <div class="proText-content">
+                    <div class="pro-info-price">
+                        <span>建議售價</span>
+                        <span class="pro-nt">NT$ <span class="iteminfo-price">{{ iteminfo[0].price }}</span></span>
+                    </div>
+                    <div class="have-pro">
+                        <div class="pro-num-state">供貨狀況: 尚有庫存</div>
+                        <div id="num">
+                            <button @click="if (count >= 1) { count -= 1 };"> -</button>
+                            <div>{{ count }}</div>
+                            <button @click="count += 1"> +</button>
+                        </div>
+                    </div>
+                    <CartButton :text="addCart" :id=iteminfo[0].product_no :qty=count />
                 </div>
-                <CartButton :text="addCart" :id=iteminfo[0].product_no :qty=count />
             </div>
             <!-- 左邊圖片區 -->
             <div class="proPic_group">
                 <div class="bigPic">
-                    <img :src="getpicurl(iteminfo[0].product_pic1)" alt="">
+                    <img v-if="showBig == 1" :src="getpicurl(iteminfo[0].product_pic1)" alt="">
+                    <img v-if="showBig == 2" :src="getpicurl(iteminfo[0].product_pic2)" alt="">
+                    <img v-if="showBig == 3" :src="getpicurl(iteminfo[0].product_pic3)" alt="">
+                    <img v-if="showBig == 4" :src="getpicurl(iteminfo[0].product_pic4)" alt="">
                 </div>
                 <div class="littlePic">
-                    <div><img :src="getpicurl(iteminfo[0].product_pic1)" alt=""></div>
-                    <div><img :src="getpicurl(iteminfo[0].product_pic2)" alt=""></div>
-                    <div><img :src="getpicurl(iteminfo[0].product_pic3)" alt=""></div>
-                    <div><img :src="getpicurl(iteminfo[0].product_pic4)" alt=""></div>
+                    <div @click="showBig = 1"><img :src="getpicurl(iteminfo[0].product_pic1)" alt=""></div>
+                    <div @click="showBig = 2"><img :src="getpicurl(iteminfo[0].product_pic2)" alt=""></div>
+                    <div @click="showBig = 3"><img :src="getpicurl(iteminfo[0].product_pic3)" alt=""></div>
+                    <div @click="showBig = 4"><img :src="getpicurl(iteminfo[0].product_pic4)" alt=""></div>
                 </div>
             </div>
         </div>
@@ -74,7 +83,7 @@ export default {
             count: 1,
             iteminfo: [],
             addCart: "加入購物車",
-
+            showBig: 1,
         }
     },
     computed: {
@@ -130,7 +139,7 @@ export default {
                 });
         },
     },
-
+    //refs有點像是綁定id
 }
 </script>
 

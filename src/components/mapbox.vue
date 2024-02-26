@@ -41,16 +41,16 @@ export default {
         addPin(coordinates, location) {
             const el = document.createElement('div');
             el.className = 'custom-marker';
-            el.style.backgroundImage = `url('https://docs.mapbox.com/mapbox-gl-js/assets/cat.png')`;
-            el.style.width = '50px';
-            el.style.height = '50px';
+            el.style.backgroundImage = `url('/src/assets/image/election/mappin.png')`;
+            el.style.width = '51px';
+            el.style.height = '68px';
             el.style.backgroundSize = 'cover';
             el.style.borderRadius = '50%';
 
-            // 貓貓pin放到地圖上
+            // 換pin圖案&放到地圖上
             var newMarker = new mapboxgl.Marker(el)
                 .setLngLat(coordinates)
-                .setPopup(new mapboxgl.Popup().setHTML(`<h2>${location.address}</h2>`))
+                .setPopup(new mapboxgl.Popup().setHTML(`<h2>${location.address.substr(0, 3)}</h2>`))
                 .addTo(this.map);
 
             // Marker點擊事件
@@ -90,6 +90,7 @@ body {
     top: 0;
     bottom: 0;
     width: 100%;
+    height: 100vh;
 }
 </style>
   

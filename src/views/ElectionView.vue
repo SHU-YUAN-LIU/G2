@@ -19,8 +19,13 @@
     <vueMarquee :marqueeArray="slogan" />
     <!-- 政策懶人包 -->
     <div>
-      <span class="policy">政策懶人包</span>
-      <bookmark />
+      <div class="election_policy">
+        <span class="policy_title">政策懶人包</span>
+      </div>
+      <RotateCard />
+    </div>
+    <div class="election_background">
+      <Background_green :height="50" />
     </div>
   </div>
 </template>
@@ -28,14 +33,16 @@
 
 <script>
 import vueMarquee from "@/components/Marquee.vue";
-import bookmark from "@/components/BookMark.vue"
-
-
+import RotateCard from "@/components/RotateCard.vue"
+import Background_green from "@/components/Background_green.vue";
 
 export default {
   data() {
     return {
-      slogan: '這是一場改變政治文化的社會運動，投給劉緯育，投給自己的未來。',
+      slogan: [
+        '這是一場改變政治文化的社會運動，投給劉緯育，投給自己的未來。',
+        '為了更美好的明天，讓我們一起行動起來，為改革而投票。',
+      ],
       candidates: [
         {
           // 第一位候選人
@@ -54,7 +61,6 @@ export default {
             "立法院司法委員會召集委員",
             "立法院跨黨派厚生會會長",
             "第4、5、6、7屆立法委員",
-            "幼稚園園長",
           ],
         },
         {
@@ -69,12 +75,11 @@ export default {
           experiences: [
             "總統府顧問",
             "進補黨國際事務部主任",
-            "國際自由政黨聯盟（LI）副主席",
+            "國際自由政黨聯盟副主席",
             "臺灣民主基金會董事",
-            "幼稚園園長",
-            "幼稚園園長",
-            "幼稚園園長",
-            "幼稚園園長",
+            "立法院司法委員會召集委員",
+            "立法院跨黨派厚生會會長",
+            "第4、5、6、7屆立法委員",
           ]
         },
       ],
@@ -82,7 +87,8 @@ export default {
   },
   components: {
     vueMarquee,
-    bookmark,
+    RotateCard,
+    Background_green
   },
   mounted() {
     document.title = "候選人資訊";

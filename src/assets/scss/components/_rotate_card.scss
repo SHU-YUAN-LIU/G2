@@ -1,0 +1,64 @@
+#scened {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    perspective: 2000px;
+    width: 500px;
+    margin: -300px auto 0;
+}
+
+#scene {
+    width: 400px;
+    height: 100px;
+    transform-style: preserve-3d;
+    transition: transform 1s;
+    transform-origin: center center;
+    transform: perspective(2000px) rotateX(-5deg) rotateY(0deg);
+
+}
+
+.election_card {
+    position: absolute;
+    width: 400px;
+    background-color: #D4FF1F;
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    transform: perspective(3000px) translateX(10px) translateZ(50px);
+    padding: 0px 20px 20px;
+
+    h2 {
+        @include title_6;
+        color: #fff;
+        text-align: center;
+        padding: 15px 0;
+    }
+
+    div {
+        padding: 15px;
+        border-radius: $border-radius-1;
+        background-color: #fff;
+
+        p {
+            letter-spacing: $space_letter;
+            line-height: $line_height;
+        }
+    }
+}
+
+.rotate_button {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 3% 0 3%;
+
+    #rotateLeftBtn,
+    #rotateRightBtn {
+        cursor: pointer;
+        color: $orange;
+
+        &:hover {
+            color: $blue;
+        }
+    }
+}

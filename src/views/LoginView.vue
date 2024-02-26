@@ -177,13 +177,14 @@ export default {
                         data:bodyFormData,
                         // headers: { "Content-Type": "multipart/form-data" },
                 }).then(res=>{
-                    console.log(res.data); // 打印 data 属性
+                    // console.log(res.data); // 打印 data 属性
                     if (res.data.error) {
                         // 登錄失敗，顯示錯誤消息
                         alert(res.data.msg); // 或進行本地化處理顯示給用戶
                     } else {
                         // 登錄成功，處理 token 和用戶資料
                         localStorage.setItem('userToken', res.data.token);
+                        localStorage.setItem('member', JSON.stringify(res.data.member));
                         this.$router.push('/');
                     }
                 }).catch(error=>{
