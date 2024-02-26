@@ -86,31 +86,20 @@ export default {
   mounted() {
     document.title = "候選人資訊";
 
-
-    // 获取每个候选人的容器元素
     let candidates = gsap.utils.toArray(".election_info_slide");
 
-    // 创建滚动触发器，控制候选人的动画
     gsap.to(candidates, {
       xPercent: -100 * (candidates.length - 1),
-      ease: "none", //設置動畫的過渡效果
+      ease: "Power1.easeInOut",
       scrollTrigger: {
-        trigger: ".horizontal-sliders", //觸發滾動基準點
-        pin: ".election", //選擇要被固定的element，直到觸發器結束
-        pinSpacing: true, //保留其原來的佔位空間
-        scrub: 0.5, //滾動速度
-        end: "+=6000", //滾動觸發器的結束位置，將在滾動到目標元素的上邊緣後終止，距離1000px
+        trigger: ".horizontal-sliders",
+        pin: ".election",
+        pinSpacing: true,
+        scrub: 0.5,
+        end: "+=1000",
       }
     });
 
-    gsap.to('.marquee', {
-      scrollTrigger: {
-        trigger: '.next-block',
-        pinnedContainer: ".main",
-        start: 'top 50%',
-        toggleActions: 'play pause resume pause',
-      }
-    })
   },
   methods: {
 
