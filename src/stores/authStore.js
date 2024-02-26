@@ -23,13 +23,18 @@ export const useAuthStore = defineStore('auth', {
     // 登入的方法
     login() {
       // 實際登入邏輯，例如 API 請求，這裡簡化為直接使用 localStorage
-      this.isLoggedIn = true;
-      this.member = '會員中心';
+      if(localStorage.getItem('userToken')){
+        this.isLoggedIn = true;
+        this.member = '會員中心';
+      }
+      
     },
     // 登出的方法
     logout() {
-      this.isLoggedIn = false;
-      this.member = '登入';
+        if(!localStorage.getItem('userToken')){
+            this.isLoggedIn = false;
+            this.member = '登入';
+        }
     }
   }
 })

@@ -255,6 +255,14 @@ const router = createRouter({
       name: 'member',
       component: () => import('../views/MemberView.vue'),
       // meta: { requiresAuth: true }  // 加入meta屬性
+      beforeEnter: (to, from, next) => {
+        if (localStorage.getItem('userToken')) {
+          next(); // 允許訪問
+        } else {
+          alert('請先登入會員');
+          next('/login'); // 或重定向到其他頁面
+        }
+      }
     },
     {
       path: '/forgotpsw',

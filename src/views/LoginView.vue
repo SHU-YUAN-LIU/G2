@@ -191,7 +191,7 @@ export default {
                     if (res.data.error) {
                         // 登錄失敗，顯示錯誤消息
                         alert(res.data.msg); // 或進行本地化處理顯示給用戶
-                    } else if(res.data.member.status = 'IA') {
+                    } else if(res.data.member.status == 'IA') {
                         alert('帳號已停權'); // 或進行本地化處理顯示給用戶
                         return;
                     }
@@ -200,11 +200,12 @@ export default {
                         localStorage.setItem('userToken', res.data.token);
                         localStorage.setItem('member', JSON.stringify(res.data.member));
                         this.$router.push('/');
+                        this.$store.login();
                     }
                 }).catch(error=>{
                     console.log(error);
                 })
-                this.$store.login();
+                
         },
 
     
