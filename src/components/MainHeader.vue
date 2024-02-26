@@ -211,7 +211,7 @@ export default {
             localStorage.removeItem('member');
             // 重定向到登录页面或主页
             this.$router.push('/login');
-            this.$store.logout();
+            this.$store.checkLoginStatus();
           })
           .catch(error => {
             console.error('發生錯誤', error);
