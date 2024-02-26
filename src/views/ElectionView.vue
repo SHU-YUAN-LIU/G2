@@ -25,7 +25,7 @@
       <RotateCard />
     </div>
     <div class="election_background">
-      <Background_green :height="50" />
+      <Background_green :height="'50'" />
     </div>
   </div>
 </template>
