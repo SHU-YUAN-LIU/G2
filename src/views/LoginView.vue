@@ -161,11 +161,11 @@ export default {
         },
 
         memberLogin(){
-            if (!this.loginForm.email || !this.loginForm.psw) {
+            if(!this.loginForm.email || !this.loginForm.psw) {
                 alert('請填寫電子郵件和密碼。');
                 return;
             }
-
+            
             // 創建一個新的FormData物件
             const bodyFormData = new FormData();
             bodyFormData.append('email', this.loginForm.email);
@@ -181,7 +181,11 @@ export default {
                     if (res.data.error) {
                         // 登錄失敗，顯示錯誤消息
                         alert(res.data.msg); // 或進行本地化處理顯示給用戶
-                    } else {
+                    } else if(res.data.member.status = 'IA') {
+                        alert('帳號已停權'); // 或進行本地化處理顯示給用戶
+                        return;
+                    }
+                    else {
                         // 登錄成功，處理 token 和用戶資料
                         localStorage.setItem('userToken', res.data.token);
                         localStorage.setItem('member', JSON.stringify(res.data.member));
