@@ -59,7 +59,7 @@
     <li class="dropdown">
       <RouterLink to="/login">
         <div class="icon"><img src="/image/home/icon_login.png" alt="">
-          <p>登入</p>
+          <p>{{ member }}</p>
         </div>
       </RouterLink>
       <div class="dropdown-content">
@@ -152,6 +152,9 @@ export default {
       isMenuOpen: false,
       //漢堡選單下拉
       dropDownMenu: false,
+
+      // 會員登入
+      member:'',
     }
   },
   created() {
@@ -166,6 +169,7 @@ export default {
       console.log(to.path);
       this.isDropDown = false;
     }
+    
   },
   methods: {
     showDropDown() {
