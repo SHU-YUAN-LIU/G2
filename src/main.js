@@ -5,6 +5,7 @@ import { Button } from 'view-ui-plus'
 import App from './App.vue'
 import router from './router'
 
+import { useAuthStore } from './stores/authStore'
 
 //引入sass
 import "./assets/scss/style.scss"
@@ -20,6 +21,10 @@ const app = createApp(App)
 const pinia = createPinia()
 app.component('Button', Button)
 app.use(pinia)
+
+const authStore = useAuthStore()
+authStore.checkLoginStatus()
+
 app.use(router)
 app.use(Vue3Marquee);
 // 渲染在index.html裡面的div#app

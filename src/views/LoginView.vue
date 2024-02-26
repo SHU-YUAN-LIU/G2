@@ -104,9 +104,11 @@ import { addlistener } from '@/stores/datacheck.js';
 import Cookies from 'js-cookie';
 import { ref } from 'vue';
 import axios from 'axios';
-import { mapActions } from 'pinia'
-import {useUserStore} from '@/stores/user'
-import { RouterView } from 'vue-router'
+import { mapActions } from 'pinia';
+import {useUserStore} from '@/stores/user';
+import { RouterView } from 'vue-router';
+import { useAuthStore } from '@/stores/authStore';
+
 export default {
 
     name: 'login',
@@ -138,7 +140,15 @@ export default {
     components: {
         Cookies,
     },
-
+    computed:{
+        isLoggedIn() {
+            // 從 Pinia store 獲取登入狀態
+            return this.$store.isLoggedIn;
+        },
+        member() {
+            return this.$store.member;
+        }
+    },
 
     //資料驗證
     methods: {
@@ -194,6 +204,7 @@ export default {
                 }).catch(error=>{
                     console.log(error);
                 })
+                this.$store.login();
         },
 
     
@@ -201,6 +212,7 @@ export default {
     created() {
         // const user = this.checkLogin()
         // addlistener();
+        this.$store = useAuthStore();
     },
     mounted() {
         document.title = '會員登入/註冊';

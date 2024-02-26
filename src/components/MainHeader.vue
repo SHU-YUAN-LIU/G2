@@ -57,13 +57,11 @@
       <!-- <DropDown ref="dropDown" @click.stop="" class="drop-down" /> -->
     </li>
     <li class="dropdown">
-      <RouterLink to="/login">
-        <div class="icon"><img src="/image/home/icon_login.png" alt="">
+        <div class="icon" @click="turnPage()">
+          <img src="/image/home/icon_login.png" alt="">
           <p>{{ member }}</p>
         </div>
-      </RouterLink>
       <div class="dropdown-content">
-        <RouterLink to="/member">會員中心</RouterLink>
         <button class="logout_btn" @click="memberLogout">登出</button>
       </div>
     </li>
@@ -135,6 +133,7 @@ import { RouterLink } from 'vue-router';
 import { ref } from 'vue';
 import DropDown from '../components/cart/dropDown.vue'
 import axios from 'axios';
+import { useAuthStore } from '@/stores/authStore';
 
 
 export default {
@@ -158,6 +157,16 @@ export default {
     }
   },
   created() {
+    this.$store = useAuthStore();
+  },
+  computed:{
+    isLoggedIn() {
+      // 從 Pinia store 獲取登入狀態
+      return this.$store.isLoggedIn;
+    },
+    member() {
+      return this.$store.member;
+    }
   },
   mounted() {
     // 添加點擊事件監聽器到整個頁面上
@@ -207,12 +216,20 @@ export default {
             console.error('發生錯誤', error);
           });
       }
-    }
+      this.$store.logout();
+    },
+    turnPage(){
+      if(this.$store.member == '登入'){
+        this.$router.push({ name: 'login' });
+      } else if(this.$store.member == '會員中心'){
+        this.$router.push({ name: 'member' });
+      }
+    },
   },
   beforeUnmount() {
     // 移除點擊事件監聽器
     document.removeEventListener('click', this.closeDropDown);
-  }
+  },
 }
 </script>
 
