@@ -112,7 +112,7 @@ export default {
     },
     methods: {
         handleClick(){
-            this.donatePayment;
+            // this.donatePayment;
             this.checkInputs();
             this.submitData()
         },
