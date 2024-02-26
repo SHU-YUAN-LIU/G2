@@ -3,7 +3,7 @@
     <MainHeader />
     <Loading :key="$route.fullPath" :loadingTime=1000 />
     <RouterView />
-    <goToTop />
+    <goToTop v-if="!$route.meta.hidegoToTop" />
     <MainFooter v-if="!$route.meta.hideFooter" />
   </div>
 </template>

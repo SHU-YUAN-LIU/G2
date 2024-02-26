@@ -58,7 +58,7 @@
         .journey {
             background-color: #272727;
             border-radius: 10px;
-            height: 400px;
+            height: 440px;
             width: 430px;
             display: flex;
             flex-direction: column;
@@ -146,8 +146,14 @@
         bottom: 0px;
         left: 0px;
         width: 100%;
-        background-color: rgba(255, 255, 255, 0.5);
+        background-color: #fff;
         margin: 0;
+
+
+        span {
+            color: #000;
+
+        }
 
         div {
             span:first-child {

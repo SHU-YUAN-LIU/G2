@@ -242,6 +242,8 @@ const router = createRouter({
           }
         ],
         hideFooter: true,
+        hidegoToTop: true,
+
       }
 
     },

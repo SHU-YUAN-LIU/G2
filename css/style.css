@@ -110,6 +110,12 @@ section {
   display: block;
 }
 
+header {
+  height: 1px;
+  background-color: black;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+}
+
 body {
   line-height: 1;
 }
@@ -5125,7 +5131,7 @@ form .register_read p {
 .elecion_journey .election_container .journey {
   background-color: #272727;
   border-radius: 10px;
-  height: 400px;
+  height: 440px;
   width: 430px;
   display: flex;
   flex-direction: column;
@@ -5202,8 +5208,11 @@ form .register_read p {
   bottom: 0px;
   left: 0px;
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: #fff;
   margin: 0;
+}
+.count_down .countdown span {
+  color: #000;
 }
 .count_down .countdown div span:first-child {
   font-family: "Mantou Sans";
