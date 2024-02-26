@@ -107,7 +107,6 @@ export default {
     color: $white;
     z-index: 1000;
     overflow-y: scroll;
-
     div {
         width: 100%;
         max-width: 1000px;
@@ -195,13 +194,14 @@ export default {
                 color: red;
                 line-height: 60px;
                 font-weight: bold;
+                margin: 0;
             }
 
             div {
                 border-radius: $border-radius-1;
                 overflow: hidden;
                 border: 1px solid $gray-3;
-
+                margin-bottom: 60px;
                 p {
                     color: $white;
                     background: $gray-3;
