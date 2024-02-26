@@ -61,8 +61,8 @@
           <img src="/image/home/icon_login.png" alt="">
           <p>{{ member }}</p>
         </div>
-      <div class="dropdown-content">
-        <button class="logout_btn" @click="memberLogout">登出</button>
+      <div class="dropdown-content" v-if="member == '會員中心'">
+        <button class="logout_btn" @click="memberLogout" >登出</button>
       </div>
     </li>
     </div>
