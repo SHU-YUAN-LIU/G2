@@ -837,7 +837,7 @@ body {
 .rotate_button {
   display: flex;
   justify-content: space-evenly;
-  margin: 3% 0 3%;
+  margin: 2% 0 3%;
 }
 .rotate_button #rotateLeftBtn,
 .rotate_button #rotateRightBtn {
@@ -4929,38 +4929,49 @@ form .register_read p {
 }
 .election .election_banner {
   background-image: url("@/assets/image/election/banner-480px.png");
-  height: 700px;
+  height: 600px;
   margin-top: 80px;
 }
-.election .election_info .election_content {
+.election .horizontal-sliders {
   display: flex;
-  flex-direction: column;
-  margin: auto;
-  text-align: center;
+  flex-wrap: no-wrap;
+  width: 200%;
+  overflow-x: hidden;
 }
-.election .election_info .election_content ul li {
+.election .horizontal-sliders .election_info_slide {
+  display: flex;
+  height: 90vh;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+}
+.election .horizontal-sliders .election_info_slide img {
+  height: 90%;
+}
+.election .horizontal-sliders .election_info_slide ul li {
   padding: 10px 10px;
   font-size: 24px;
 }
-.election .election_info .election_content ul li:nth-child(1) {
+.election .horizontal-sliders .election_info_slide ul li:nth-child(1) {
   color: #9D9D9D;
   font-family: "Mantou Sans";
   font-size: 28px;
   font-weight: initial;
 }
-.election .election_info .election_content ul li:nth-child(2) {
+.election .horizontal-sliders .election_info_slide ul li:nth-child(2) {
   color: #FF892E;
   font-family: "Mantou Sans";
   font-size: 65px;
   font-weight: initial;
   border-bottom: 1px solid black;
 }
-.election .election_info .election_content ul li:nth-child(3) {
+.election .horizontal-sliders .election_info_slide ul li:nth-child(3) {
   font-family: "Mantou Sans";
   font-size: 36px;
   font-weight: initial;
 }
-.election .election_info .election_content ul li:nth-child(7) {
+.election .horizontal-sliders .election_info_slide ul li:nth-child(5) {
   font-family: "Mantou Sans";
   font-size: 36px;
   font-weight: initial;
@@ -4982,7 +4993,7 @@ form .register_read p {
   font-weight: initial;
 }
 .election .election_background .background {
-  bottom: -1650px;
+  bottom: -30px;
 }
 
 /*平板 */
@@ -4994,14 +5005,6 @@ form .register_read p {
     background-image: url("@/assets/image/election/banner-768px.png");
     background-repeat: no-repeat;
   }
-  .election .election_info .election_content {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-  }
-  .election .election_info .election_content ul {
-    margin: 0 20px;
-  }
 }
 /*PC板 */
 @media screen and (min-width: 1200px) {
@@ -5011,14 +5014,6 @@ form .register_read p {
   .election .election_banner {
     background-image: url("@/assets/image/election/banner-1920px.png");
     background-repeat: no-repeat;
-  }
-  .election .election_info .election_content {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-  }
-  .election .election_info .election_content ul {
-    margin: 0 100px;
   }
 }
 .elecion_journey {

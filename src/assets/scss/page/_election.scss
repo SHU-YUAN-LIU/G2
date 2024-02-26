@@ -4,18 +4,29 @@
     // banner圖
     .election_banner {
         background-image: url('@/assets/image/election/banner-480px.png');
-        height: 700px;
+        height: 600px;
         margin-top: 80px;
     }
 
     /* 候選人資訊 */
-    .election_info {
 
-        .election_content {
+    .horizontal-sliders {
+        display: flex;
+        flex-wrap: no-wrap;
+        width: 200%;
+        overflow-x: hidden;
+
+        .election_info_slide {
             display: flex;
-            flex-direction: column;
-            margin: auto;
-            text-align: center;
+            height: 90vh;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            gap: 100px;
+
+            img {
+                height: 90%;
+            }
 
             ul {
 
@@ -39,11 +50,14 @@
                     @include title_3;
                 }
 
-                li:nth-child(7) {
+                li:nth-child(5) {
                     @include title_3;
                 }
             }
         }
+
+        .election_info_slide:nth-child(2) {}
+
     }
 
     /* 跑馬燈 */
@@ -69,7 +83,7 @@
     // 三角形
     .election_background {
         .background {
-            bottom: -1650px;
+            bottom: -30px;
         }
     }
 
@@ -86,19 +100,6 @@
             background-image: url('@/assets/image/election/banner-768px.png');
             background-repeat: no-repeat;
         }
-
-        // 候選人資訊
-        .election_info {
-            .election_content {
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-
-                ul {
-                    margin: 0 20px;
-                }
-            }
-        }
     }
 }
 
@@ -114,23 +115,5 @@
             background-repeat: no-repeat;
         }
 
-        // 候選人資訊
-        .election_info {
-            .election_content {
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-
-                ul {
-                    margin: 0 100px;
-
-                }
-            }
-        }
     }
 }
-
-// #app {
-//     background: linear-gradient(-10deg, $green 0% 25%, rgba(255, 255, 255, 0) 25% 100%);
-//     z-index: -1;
-// }
