@@ -18,9 +18,9 @@
         <div v-if="donate_num == 2" class="donate_page_info">
           <h4>捐款基本資料</h4>
           <ul>
-            <li>真實姓名: <span>吳聰明</span></li>
-            <li>身分證字號: <span>H224384755</span></li>
-            <li>出生年月日: <span>2024/01/01</span></li>
+            <li>真實姓名: <span>{{ donate_name }}</span></li>
+            <li>身分證字號: <span>{{ donate_id }}</span></li>
+            <li>出生年月日: <span>{{ donate_birthday }}</span></li>
           </ul>
           <p>(依政治獻金法規定須年滿20歲才能捐款)</p>
         </div>
@@ -28,7 +28,6 @@
         <!-- 聯絡資訊 -->
         <div v-if="donate_num == 2" class="donate_page_contact" id="registerform">
           <h4>聯絡資訊</h4>
-          <input type="checkbox" id="donate_pageInfo"><label for="donate_pageInfo">以下自動帶入會員資料</label>
           <div class="donate_page_email">
             <label for="donate_pageMail">電子信箱 <span>*</span></label>
             <input type="email" id="email" placeholder="請輸入您的電子信箱" v-model="donate_email" @blur="checkEmail">
@@ -172,7 +171,10 @@ export default {
           amount: 50000,
         },
       ],
-      // 聯絡資訊變數
+      // 會員資訊變數
+      donate_name:'',
+      donate_id:'',
+      donate_birthday:'',
       donate_email: '',
       donate_phone: '',
       isEmailValid: true,
@@ -269,6 +271,7 @@ export default {
         this.donateAmount.splice(4, 2);
       }
     },
+    // 驗證input資料, 不符合格式跳出alert彈窗, 符合跳出捐款成功的燈箱
     checkAndNavigate() {
       this.alert_info = [];
         if (this.currentIndex_method === -1) {
@@ -294,10 +297,25 @@ export default {
           if (this.amount_input) {
             localStorage.setItem('donateAmount', this.amount_input);
             localStorage.setItem('donatePoint', this.donate_point);
+            localStorage.setItem('donateEmail', this.donate_email);
+            localStorage.setItem('donatePhone', this.donate_phone);
           }
         }
       
     },
+    // 取得localstorage的會員資訊
+    memberInfo() {
+            // 假設在登入時，您已經將用戶資料保存在localStorage中，鍵是'memberData'
+            let memberData = localStorage.getItem('member');
+
+            // 由於localStorage中保存的是字符串，所以需要將其解析為JSON對象
+            memberData = JSON.parse(memberData);
+            this.donate_name = memberData.member_name;
+            this.donate_birthday = memberData.birthday;
+            this.donate_phone = memberData.cellphone;
+            this.donate_email = memberData.email;
+            this.donate_id = memberData.id_number;
+        }
 
   },
   components: {
@@ -320,7 +338,12 @@ export default {
       }     
       return point;
     }
-  }
+  },
+  created() {
+    if (localStorage.getItem('userToken') && localStorage.getItem('donate_num') == '2') {
+            this.memberInfo();
+        }
+  },
 }
 
 </script>

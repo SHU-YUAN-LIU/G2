@@ -112,7 +112,7 @@ export default {
     },
     methods: {
         handleClick(){
-            this.donatePayment;
+            // this.donatePayment;
             this.checkInputs();
             this.submitData()
         },
@@ -180,6 +180,10 @@ export default {
             } else {
                 this.$refs.DonateConfirmLightBox.showLightbox = true;
                 document.body.style.overflow = "hidden";
+                // localStorage.removeItem('donateAmount');
+                // localStorage.removeItem('donate_num');
+                // localStorage.removeItem('donatePoint');
+                
             }
         },
         // 將捐款資料存到資料庫
@@ -188,7 +192,9 @@ export default {
             donateformdata.append('donateAmount', this.donate_amount)
             donateformdata.append('donateClass', this.donate_class)
             donateformdata.append('donatePoint', this.donate_point)
-            console.log(this.donate_point);
+            donateformdata.append('donateEmail', localStorage.getItem('donateEmail'))
+            donateformdata.append('donatePhone', localStorage.getItem('donatePhone'))
+
             // 連結php
             axios({
                 method: "post",
@@ -217,7 +223,7 @@ export default {
             if(localStorage.getItem('donate_num')==1){
                 msg = '匿名';
             } else if (localStorage.getItem('donate_num')==2){
-                msg =  '具名';
+                msg =  '非匿名';
             }
             return msg;
         },
