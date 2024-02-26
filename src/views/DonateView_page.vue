@@ -28,7 +28,6 @@
         <!-- 聯絡資訊 -->
         <div v-if="donate_num == 2" class="donate_page_contact" id="registerform">
           <h4>聯絡資訊</h4>
-          <input type="checkbox" id="donate_pageInfo"><label for="donate_pageInfo">以下自動帶入會員資料</label>
           <div class="donate_page_email">
             <label for="donate_pageMail">電子信箱 <span>*</span></label>
             <input type="email" id="email" placeholder="請輸入您的電子信箱" v-model="donate_email" @blur="checkEmail">
@@ -294,6 +293,8 @@ export default {
           if (this.amount_input) {
             localStorage.setItem('donateAmount', this.amount_input);
             localStorage.setItem('donatePoint', this.donate_point);
+            localStorage.setItem('donateEmail', this.donate_email);
+            localStorage.setItem('donatePhone', this.donate_phone);
           }
         }
       
