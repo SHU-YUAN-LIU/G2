@@ -1,6 +1,7 @@
 .elecion_journey {
     z-index: -1;
     position: relative;
+
     // 行程站台內容
     .journey_title {
         display: flex;
@@ -66,6 +67,7 @@
             position: absolute;
             right: 1.5%;
             top: 45%;
+
             h3 {
                 @include title_6;
                 color: #fff;
@@ -137,10 +139,12 @@
 // 倒數計時器
 .count_down {
     max-width: 100%;
+
     .countdown {
         @include title_3;
         position: absolute;
         bottom: 0px;
+        left: 0px;
         width: 100%;
         background-color: rgba(255, 255, 255, 0.5);
         margin: 0;
