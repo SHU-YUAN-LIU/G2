@@ -45,9 +45,10 @@
                         <p>{{ trip.campaign_name }}</p>
                         <p>{{ trip.address }}</p>
                         <p>{{ trip.add }}</p>
+                        <!-- <p>{{ trip.pic }}</p> -->
                     </div>
                     <div>
-                        <img :src="trip.src">
+                        <img :src="getPicUrl(trip.pic)">
                     </div>
                 </div>
             </div>
@@ -89,6 +90,9 @@ export default {
     },
     methods: {
         //(手機版) 切換行程標題
+        getPicUrl(index) {
+            return `${import.meta.env.VITE_IMG_URL}/campaign/` + index;
+        },
         change(pos) {
             this.currentTitle = pos;
             this.displayTrip = this.allTrip.filter((item) => {
@@ -127,6 +131,7 @@ export default {
             console.log(campaign);
             this.allTrip = campaign;
             this.displayTrip = campaign;
+            console.log(this.displayTrip);
         }
     },
     mounted() {

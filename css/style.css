@@ -5200,6 +5200,7 @@ form .register_read p {
   font-weight: initial;
   position: absolute;
   bottom: 0px;
+  left: 0px;
   width: 100%;
   background-color: rgba(255, 255, 255, 0.5);
   margin: 0;
