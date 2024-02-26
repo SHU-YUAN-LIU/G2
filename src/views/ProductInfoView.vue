@@ -81,7 +81,7 @@ export default {
         return {
             proInfo: '官方商城',
             count: 1,
-            iteminfo: [],
+            iteminfo: [{}],//初始化第一個物件
             addCart: "加入購物車",
             showBig: 1,
         }
@@ -130,9 +130,7 @@ export default {
             axios.post(`${import.meta.env.VITE_PHP_URL}/front_productDataGetOne.php`, { product_no: productId })
                 .then(response => {
                     // 從回應中取得資料 response.data.products，並將其傳遞給 oneProductData()
-                    const oneProductData = response.data.oneProduct;//oneProduct名字要跟php一樣
-                    this.iteminfo = oneProductData; // 將從資料庫獲取的資料賦值給 iteminfo
-                    console.log(this.iteminfo)
+                    this.iteminfo = response.data.oneProduct;//oneProduct名字要跟php一樣
                 })
                 .catch(error => {
                     console.log(error);
