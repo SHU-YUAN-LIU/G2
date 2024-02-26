@@ -46,9 +46,10 @@
                 <span>+$60</span>
             </div>
             <div class="pay-detail">
-                <span>(持有點數：10點)</span>
+                <span>(持有點數：{{ this.memberData.point }}點)</span>
                 <span>點數折抵</span>
-                <span>-$10</span>
+                <span>-${{ this.memberData.point }}</span>
+                <!-- <span>-$10</span> -->
             </div>
             <hr>
             <div class="pay-detail">
@@ -160,14 +161,14 @@
                         <label for="pay-credit" class="shipping-box">
                             <input type="radio" name="payment" id="pay-credit" value="信用卡"
                                 v-model="orderData.payment_method" class="pay-deliver">
-                            信用卡
+                            &nbsp;&nbsp;信用卡
                         </label>
                     </div>
                     <div class="box">
                         <label for="pay-ATM" class="shipping-box">
                             <input type="radio" name="payment" id="pay-ATM" value="虛擬ATM" v-model="orderData.payment_method"
                                 class="pay-deliver">
-                            虛擬ATM
+                            &nbsp;&nbsp;虛擬ATM
                         </label>
                     </div>
                 </div>
@@ -215,7 +216,8 @@ export default {
                 name: '',
                 phone: '',
                 email: '',
-                address: ''
+                address: '',
+                point: ''
 
             },
 
@@ -505,6 +507,7 @@ export default {
                     this.memberData.phone = memberData.member[0].cellphone
                     this.memberData.email = memberData.member[0].email
                     this.memberData.address = memberData.member[0].address
+                    this.memberData.point = memberData.member[0].point
 
                 })
                 .catch(error => {
