@@ -200,7 +200,7 @@ export default {
                         localStorage.setItem('userToken', res.data.token);
                         localStorage.setItem('member', JSON.stringify(res.data.member));
                         this.$router.push('/');
-                        this.$store.login();
+                        this.$store.checkLoginStatus();
                     }
                 }).catch(error=>{
                     console.log(error);
