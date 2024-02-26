@@ -61,7 +61,7 @@ export default {
 
         // 串資料
         getPin() {
-            axios.get(`${import.meta.env.VITE_PHP_URL} /front_campaign.php`)
+            axios.get(`${import.meta.env.VITE_PHP_URL}/front_campaign.php`)
                 .then(response => {
                     console.log(response.data)
                     this.locations = response.data.campaign;
