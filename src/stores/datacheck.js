@@ -66,7 +66,7 @@ function checkpsw(inputElement) {
 }
 
 function checkdate(inputElement) {
-    console.log(inputElement.value);
+    // console.log(inputElement.value);
     let selectDate = new Date(inputElement.value);
     let today = new Date();
     if (today < selectDate) {
