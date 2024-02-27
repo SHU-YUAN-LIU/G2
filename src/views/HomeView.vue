@@ -64,12 +64,8 @@
                         </div>
                     </a>
                     <div class="row col col-6 news_index_inner_flex">
-                        <a 
-                        v-for="(item, index) in get_for_range(news_card, 1, 2)" 
-                        :key="index" class="col index_news_card"
-                        data-aos="fade-left"
-                        href="#"
-                        >
+                        <a v-for="(item, index) in get_for_range(news_card, 1, 2)" :key="index" class="col index_news_card"
+                            data-aos="fade-left" href="#">
                             <div>
                                 <img :src="getImageUrl(item.news_img)">
                             </div>
@@ -106,7 +102,7 @@
                 </a>
                 <div class="row col col-6 news_index_inner_flex">
                     <a v-for="(clarification, index) in get_for_range(clarifications, 1, 2)" :key="index"
-                        class="col index_news_card" href="#" data-aos="fade-down-left">
+                        class="col index_news_card" href="#" data-aos="fade-up-left">
                         <div>
                             <img :src="getImageUrl(clarification.news_img)">
                         </div>
