@@ -320,6 +320,9 @@ export default {
       console.log(this.nowcandidates[0]);
     }
   },
+  mounted() {
+    document.title="組織團隊";
+  },
 };
 </script>
 

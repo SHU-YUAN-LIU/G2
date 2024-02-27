@@ -2,20 +2,28 @@
     background-color: $green;
     width: 100%;
     height: 75px;
-    font-size: $font_basic;
     line-height: 75px;
-    font-family: $font_family_1;
-    padding-right: 20px;
+    @include title_9;
+    font-weight: 600;
+    letter-spacing: 2px;
+    // padding-right: 20px;
+    overflow: hidden;
 }
 
 .marqbtn {
-    width: 104px;
-    height: 28px;
-    border-radius: 25px;
-    border: 0;
-    font-family: $font_family_1;
+    width: 120px;
+    height: 35px;
+    border-radius: 50px;
+    border: 1px solid rgb(255, 255, 255);
+    background-color: $white;
+    box-shadow: 0 0 10px #b5db1bdc;
+    @include title_10;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin: 0 10px;
 
     a {
+
         color: $black;
     }
 }

@@ -6,7 +6,7 @@
 
     <breadCrumbs />
 
-    <form action="" class="filter_form">
+    <form action="" class="filter_form" @submit.prevent>
       <div class="news_filter">
         <select name="" id="" v-model="selectedCategory"> 
           <option value="" disabled selected>類別</option>

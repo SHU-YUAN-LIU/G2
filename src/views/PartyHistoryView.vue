@@ -2,13 +2,13 @@
   <div class="organization">
     <div class="contect_banner">
       <img src="/image/about/PartyHistory.png" alt="PartyHistory.svg" />
-      <h1>YWEP黨史</h1>
+      <h1>YWTEP黨史</h1>
     </div>
     <!-- 麵包屑 -->
     <Bread :page="dog" />
 
     <div class="organization_wrap">
-      <h1 class="organization-title">青年進補黨<br />大事記</h1>
+      <h1 class="organization-title">青年進補黨<br />大事紀</h1>
       <div class="bigstory">
         <div class="bigstory-img">
           <img :src="cards[activeCardIndex].imgSrc" :alt="`history${activeCardIndex + 1}.svg`" />
@@ -137,6 +137,7 @@ export default {
         });
       }
     });
+    document.title="YWTEP黨史";
   },
 };
 </script>
