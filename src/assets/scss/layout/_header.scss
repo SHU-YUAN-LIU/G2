@@ -44,7 +44,6 @@ header {
                         color: red;
                     }
                 }
-
             }
         }
 
@@ -54,6 +53,7 @@ header {
             justify-content: space-evenly;
 
             .icon {
+                position: relative;
                 display: flex;
                 flex-direction: column;
                 width: 78px;

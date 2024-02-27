@@ -141,13 +141,6 @@ export default {
         Cookies,
     },
     computed:{
-        isLoggedIn() {
-            // 從 Pinia store 獲取登入狀態
-            return this.$store.isLoggedIn;
-        },
-        member() {
-            return this.$store.member;
-        }
     },
 
     //資料驗證

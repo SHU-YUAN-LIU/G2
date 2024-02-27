@@ -20,5 +20,6 @@ export const useAuthStore = defineStore('auth', {
         this.member = '登入';
       }
     },
+
   }
 })

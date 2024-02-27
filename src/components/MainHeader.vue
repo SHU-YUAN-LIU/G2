@@ -9,66 +9,67 @@
           </li>
           <li>
             <div class="nav_items">
+              <li>
+                <RouterLink to="/news">最新消息</RouterLink>
+              </li>
+              <li class="dropdown">
+                <span>關於我們</span>
+                <div class="dropdown-content">
+                  <RouterLink to="/about">核心理念</RouterLink>
+                  <RouterLink to="/organization">組織團隊</RouterLink>
+                  <RouterLink to="/partyhistory">黨史</RouterLink>
+                </div>
+              </li>
+              <li class="dropdown">
+                <span>選舉資訊</span>
+                <div class="dropdown-content">
+                  <router-link to="/election">候選人資訊</router-link>
+                  <router-link to="/election_journey">活動資訊</router-link>
+                </div>
+              </li>
+              <li>
+                <RouterLink to="/product">官方商城</RouterLink>
+              </li>
+              <li class="dropdown">
+                <span>聯絡我們</span>
+                <div class="dropdown-content">
+                  <router-link to="/contact">我要陳情</router-link>
+                  <router-link to="/contact_search">陳情進度查詢</router-link>
+                </div>
+              </li>
+            </div>
+          </li>
           <li>
-            <RouterLink to="/news">最新消息</RouterLink>
-          </li>
-          <li class="dropdown">
-            <span>關於我們</span>
-            <div class="dropdown-content">
-              <RouterLink to="/about">核心理念</RouterLink>
-              <RouterLink to="/organization">組織團隊</RouterLink>
-              <RouterLink to="/partyhistory">黨史</RouterLink>
+            <div class="nav_icons">
+            <li>
+              <RouterLink to="/donate">
+                <div class="icon">
+                  <img src="/image/home/icon_donate.svg" alt="">
+                  <p>我要捐款</p>
+                </div>
+              </RouterLink>
+            </li>
+            <li style="position:relative;">
+              <div class="icon cartbtn" @click.stop="showDropDown">
+                <img src="/image/home/icon_cart.svg" alt="">
+                <p>購物車</p>
+              </div>
+              <DropDown v-if="isDropDown" class="drop-down" />
+              <!-- <DropDown ref="dropDown" @click.stop="" class="drop-down" /> -->
+            </li>
+            <li class="dropdown" @click.stop="turnPage">
+              <div class="icon" >
+                <img src="/image/home/icon_login.png" alt="">
+                <p>{{ memberLink }}</p>
+              </div>
+              <div class="dropdown-content logout" v-show="memberLink == '會員中心'">
+                <button class="logout_btn" @click="memberLogout">登出</button>
+              </div>
+            </li>
             </div>
           </li>
-          <li class="dropdown">
-            <span>選舉資訊</span>
-            <div class="dropdown-content">
-              <router-link to="/election">候選人資訊</router-link>
-              <router-link to="/election_journey">活動資訊</router-link>
-            </div>
-          </li>
-          <li>
-            <RouterLink to="/product">官方商城</RouterLink>
-          </li>
-          <li class="dropdown">
-            <span>聯絡我們</span>
-            <div class="dropdown-content">
-              <router-link to="/contact">我要陳情</router-link>
-              <router-link to="/contact_search">陳情進度查詢</router-link>
-            </div>
-          </li>
-    </div>
-    </li>
-    <li>
-      <div class="nav_icons">
-    <li>
-      <RouterLink to="/donate">
-        <div class="icon"><img src="/image/home/icon_donate.svg" alt="">
-          <p>我要捐款</p>
-        </div>
-      </RouterLink>
-    </li>
-    <li style="position:relative;">
-
-      <div class="icon cartbtn" @click.stop="showDropDown"><img src="/image/home/icon_cart.svg" alt="">
-        <p>購物車</p>
-      </div>
-      <DropDown v-if="isDropDown" @click.stop="" class="drop-down" />
-      <!-- <DropDown ref="dropDown" @click.stop="" class="drop-down" /> -->
-    </li>
-    <li class="dropdown">
-      <div class="icon" @click="turnPage()">
-        <img src="/image/home/icon_login.png" alt="">
-        <p>{{ member }}</p>
-      </div>
-      <div class="dropdown-content" v-if="member == '會員中心'">
-        <button class="logout_btn" @click="memberLogout">登出</button>
-      </div>
-    </li>
-    </div>
-    </li>
-    </ul>
-    </nav>
+        </ul>
+      </nav>
     </div>
   </header>
   <!-- 漢堡 -->
@@ -151,9 +152,6 @@ export default {
       isMenuOpen: false,
       //漢堡選單下拉
       dropDownMenu: false,
-
-      // 會員登入
-      member: '',
     }
   },
   created() {
@@ -164,13 +162,14 @@ export default {
       // 從 Pinia store 獲取登入狀態
       return this.$store.isLoggedIn;
     },
-    member() {
+    memberLink() {
       return this.$store.member;
     }
   },
   mounted() {
     // 添加點擊事件監聽器到整個頁面上
     document.addEventListener('click', this.closeDropDown);
+    console.log(this.isLoggedIn, this.memberLink);
 
   },
   watch: {
@@ -210,7 +209,7 @@ export default {
             localStorage.removeItem('userToken');
             localStorage.removeItem('member');
             // 重定向到登录页面或主页
-            this.$router.push('/login');
+            this.$router.push({ name: 'login' });
             this.$store.checkLoginStatus();
           })
           .catch(error => {
@@ -270,6 +269,10 @@ export default {
   @media screen and (max-width: 768px) {
     display: block;
   }
+}
+
+.logout{
+  top: 60px;
 }
 
 .dropdown-content a {
