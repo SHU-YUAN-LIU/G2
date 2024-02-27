@@ -95,7 +95,6 @@ export default {
                 //如果不是空的,就跳轉頁面
                 this.$router.push('/productPay');
             }
-            this.isDropDown = false;
         }
     }
 }
