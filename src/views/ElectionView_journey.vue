@@ -10,23 +10,25 @@
         <div class="journey_title">
             <h2>行程站台</h2>
             <h2>地點: {{ currentTitle }}</h2>
-            <select v-model="currentPage" @change="selectloaction">
+            <select v-model="currentPage" @change="selectlocation">
                 <option>所有地區</option>
-                <option>宜蘭</option>
-                <option>台北</option>
-                <option>桃園</option>
-                <option>新竹</option>
-                <option>新竹</option>
-                <option>台中</option>
-                <option>彰化</option>
-                <option>雲林</option>
-                <option>嘉義</option>
-                <option>台南</option>
-                <option>高雄</option>
-                <option>屏東</option>
-                <option>花蓮</option>
-                <option>台東</option>
-                <option>南投</option>
+                <option>宜蘭市</option>
+                <option>基隆市</option>
+                <option>台北市</option>
+                <option>桃園市</option>
+                <option>新竹市</option>
+                <option>新竹縣</option>
+                <option>苗栗縣</option>
+                <option>台中市</option>
+                <option>彰化縣</option>
+                <option>雲林縣</option>
+                <option>嘉義市</option>
+                <option>台南市</option>
+                <option>高雄市</option>
+                <option>屏東縣</option>
+                <option>花蓮縣</option>
+                <option>台東縣</option>
+                <option>南投縣</option>
             </select>
         </div>
         <!-- (電腦版)行程站台內容 -->
@@ -78,7 +80,7 @@ export default {
             allTrip: [],
             displayTrip: "",
             currentTitle: "",
-            currentPage: "",
+            currentPage: "所有地區",
         }
     },
     components: {
@@ -100,9 +102,11 @@ export default {
             });
         },
         // (手機版)篩選行程
-        selectLocation() {
+        selectlocation() {
+            // console.log(this.allTrip[0].address.substr(0,3));
+            // console.log(this.currentPage);
             this.displayTrip = this.allTrip.filter((item) => {
-                return item.country === this.name;
+                return item.address.substr(0,3) === this.currentPage||this.currentPage=='所有地區';
             });
         },
 
