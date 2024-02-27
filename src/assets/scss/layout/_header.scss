@@ -56,12 +56,13 @@ header {
                 position: relative;
                 display: flex;
                 flex-direction: column;
+                gap: 3px;
                 width: 78px;
-                height: 58px;
                 align-items: center;
                 border: 2px solid $orange;
                 border-radius: $border-radius-1;
                 cursor: pointer;
+                padding: 5px 0px;
 
                 img {
                     width: 25px;
@@ -122,8 +123,6 @@ header {
                 display: flex;
                 justify-content: space-evenly;
                 align-items: center;
-
-
                 li {
                     a {
                         text-decoration: none;
@@ -142,7 +141,6 @@ header {
                 width: 280px;
                 display: flex;
                 justify-content: space-evenly;
-
                 .icon {
                     display: flex;
                     flex-direction: column;
@@ -152,7 +150,6 @@ header {
                     border: 2px solid $orange;
                     border-radius: $border-radius-1;
                     cursor: pointer;
-
                     img {
                         width: 25px;
                         height: 25px;
