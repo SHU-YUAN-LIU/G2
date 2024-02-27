@@ -45,14 +45,10 @@
           <h4>捐款方式</h4>
           <p>請選擇付款方式</p>
           <ul class="list_container">
-            <li 
-              v-for="(method, index_method) in paymentMethods" 
-              @click="selectPaymentMethod(index_method)"
-              :key="index_method" 
-              :class="{ method_active: currentIndex_method === index_method }"
-              >
+            <li v-for="(method, index_method) in paymentMethods" @click="selectPaymentMethod(index_method)"
+              :key="index_method" :class="{ method_active: currentIndex_method === index_method }">
               <p>{{ method.text }}</p>
-              <img :src="getImageUrl(method.imgUrl)" alt="">
+              <img :src="getImageUrl(method.imgUrl, index_method)" alt="">
             </li>
           </ul>
         </div>
@@ -76,7 +72,8 @@
 
         <!-- 自訂金額區塊 -->
         <div class="donate_page_inputAmount">
-          <p v-if="donate_num == 2">自訂金額 <span v-if="this.donate_point && this.donate_point>=1">獲得: {{ donate_point }}點</span></p>
+          <p v-if="donate_num == 2">自訂金額 <span v-if="this.donate_point && this.donate_point >= 1">獲得: {{ donate_point
+          }}點</span></p>
           <div>
             <table>
               <tr>
@@ -172,9 +169,9 @@ export default {
         },
       ],
       // 會員資訊變數
-      donate_name:'',
-      donate_id:'',
-      donate_birthday:'',
+      donate_name: '',
+      donate_id: '',
+      donate_birthday: '',
       donate_email: '',
       donate_phone: '',
       isEmailValid: true,
@@ -188,11 +185,12 @@ export default {
       // 判斷捐款須知checkbox
       isAgreeToTerms: false,
 
-      donatePoint:0,
+      donatePoint: 0,
     };
   },
   methods: {
-    getImageUrl(paths) {
+    getImageUrl(paths, index) {
+      console.log(index)
       return new URL(`../assets/image/${paths}`, import.meta.url).href
     },
 
@@ -274,48 +272,48 @@ export default {
     // 驗證input資料, 不符合格式跳出alert彈窗, 符合跳出捐款成功的燈箱
     checkAndNavigate() {
       this.alert_info = [];
-        if (this.currentIndex_method === -1) {
-          this.alert_info.push('請選擇付款方式');
-        }
+      if (this.currentIndex_method === -1) {
+        this.alert_info.push('請選擇付款方式');
+      }
 
-        if (this.currentIndex_amount === -1 && !this.amount_input.trim()) {
-          this.alert_info.push('請選擇捐款金額, 或自行填寫捐款金額');
-        }
+      if (this.currentIndex_amount === -1 && !this.amount_input.trim()) {
+        this.alert_info.push('請選擇捐款金額, 或自行填寫捐款金額');
+      }
 
-        if (this.donate_num == 2 && (!this.isEmailValid || !this.isPhoneValid || this.donate_email == '' || this.donate_phone == '')) {
-          this.alert_info.push('請填寫正確的連絡資訊');
-        }
+      if (this.donate_num == 2 && (!this.isEmailValid || !this.isPhoneValid || this.donate_email == '' || this.donate_phone == '')) {
+        this.alert_info.push('請填寫正確的連絡資訊');
+      }
 
-        if (!this.isAgreeToTerms) {
-          this.alert_info.push('請閱讀捐款須知並勾選同意');
-        }
+      if (!this.isAgreeToTerms) {
+        this.alert_info.push('請閱讀捐款須知並勾選同意');
+      }
 
-        if (this.alert_info.length > 0) {
-          alert(`請填寫以下欄位: \n*${this.alert_info.join('\n*')}`);
-        } else {
-          this.$router.push('/donate/page/confirm');
-          if (this.amount_input) {
-            localStorage.setItem('donateAmount', this.amount_input);
-            localStorage.setItem('donatePoint', this.donate_point);
-            localStorage.setItem('donateEmail', this.donate_email);
-            localStorage.setItem('donatePhone', this.donate_phone);
-          }
+      if (this.alert_info.length > 0) {
+        alert(`請填寫以下欄位: \n*${this.alert_info.join('\n*')}`);
+      } else {
+        this.$router.push('/donate/page/confirm');
+        if (this.amount_input) {
+          localStorage.setItem('donateAmount', this.amount_input);
+          localStorage.setItem('donatePoint', this.donate_point);
+          localStorage.setItem('donateEmail', this.donate_email);
+          localStorage.setItem('donatePhone', this.donate_phone);
         }
-      
+      }
+
     },
     // 取得localstorage的會員資訊
     memberInfo() {
-            // 假設在登入時，您已經將用戶資料保存在localStorage中，鍵是'memberData'
-            let memberData = localStorage.getItem('member');
+      // 假設在登入時，您已經將用戶資料保存在localStorage中，鍵是'memberData'
+      let memberData = localStorage.getItem('member');
 
-            // 由於localStorage中保存的是字符串，所以需要將其解析為JSON對象
-            memberData = JSON.parse(memberData);
-            this.donate_name = memberData.member_name;
-            this.donate_birthday = memberData.birthday;
-            this.donate_phone = memberData.cellphone;
-            this.donate_email = memberData.email;
-            this.donate_id = memberData.id_number;
-        }
+      // 由於localStorage中保存的是字符串，所以需要將其解析為JSON對象
+      memberData = JSON.parse(memberData);
+      this.donate_name = memberData.member_name;
+      this.donate_birthday = memberData.birthday;
+      this.donate_phone = memberData.cellphone;
+      this.donate_email = memberData.email;
+      this.donate_id = memberData.id_number;
+    }
 
   },
   components: {
@@ -328,21 +326,21 @@ export default {
     console.log(this.donate_num);
     this.shouldShowAmount();
   },
-  computed:{
-    donate_point(){
+  computed: {
+    donate_point() {
       let point = this.donatePoint;
-      if(this.donate_num == 2){
+      if (this.donate_num == 2) {
         point = Math.floor(parseInt(this.amount_input) / 100);
-      }else if(this.donate_num == 1){
+      } else if (this.donate_num == 1) {
         point = null;
-      }     
+      }
       return point;
     }
   },
   created() {
     if (localStorage.getItem('userToken') && localStorage.getItem('donate_num') == '2') {
-            this.memberInfo();
-        }
+      this.memberInfo();
+    }
   },
 }
 
@@ -352,16 +350,16 @@ export default {
 @import '../assets/scss/style.scss';
 
 .donate_page_method .method_active {
-  box-shadow: 0px 1px 0px rgba(255,137,46,1),
-    0px 1px 0px rgba(255,137,46,0.9),
-    0px 2px 0px rgba(255,137,46,0.8),
-    0px 2px 0px rgba(255,137,46,0.7),
-    0px 3px 0px rgba(255,137,46,0.6),
-    0px 3px 0px rgba(255,137,46,0.5),
-    0px 4px 0px rgba(255,137,46,0.4),
-    0px 4px 0px rgba(255,137,46,0.3) !important;
+  box-shadow: 0px 1px 0px rgba(255, 137, 46, 1),
+    0px 1px 0px rgba(255, 137, 46, 0.9),
+    0px 2px 0px rgba(255, 137, 46, 0.8),
+    0px 2px 0px rgba(255, 137, 46, 0.7),
+    0px 3px 0px rgba(255, 137, 46, 0.6),
+    0px 3px 0px rgba(255, 137, 46, 0.5),
+    0px 4px 0px rgba(255, 137, 46, 0.4),
+    0px 4px 0px rgba(255, 137, 46, 0.3) !important;
   transform: translate(0px, 4px);
-  transition:.3s;
+  transition: .3s;
   position: relative;
   border: 1.5px solid $orange !important;
   // p{

@@ -110,6 +110,12 @@ section {
   display: block;
 }
 
+header {
+  height: 1px;
+  background-color: black;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+}
+
 body {
   line-height: 1;
 }
@@ -4979,15 +4985,39 @@ form .register_read p {
   vertical-align: middle;
 }
 
-/* 手機版 */
 .election {
+  /* banner */
+  /* 手機版 */
   /* 候選人資訊 */
   /* 跑馬燈 */
 }
 .election .election_banner {
-  background-image: url("@/assets/image/election/banner-480px.png");
-  height: 600px;
+  /* 父元素最大寬度設為100%，以適應不同屏幕 */
+  height: 300px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  /* 高度自動調整以保持圖片的比例 */
   margin-top: 80px;
+  /*平板 */
+  /*PC板 */
+}
+.election .election_banner img {
+  max-width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: block;
+}
+@media screen and (min-width: 768px) {
+  .election .election_banner {
+    background-image: url("@/assets/image/election/banner-768px.png");
+    background-repeat: no-repeat;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .election .election_banner {
+    background-image: url("@/assets/image/election/banner-1920px.png");
+    background-repeat: no-repeat;
+  }
 }
 .election .horizontal-sliders {
   display: flex;
@@ -5053,26 +5083,6 @@ form .register_read p {
   bottom: -30px;
 }
 
-/*平板 */
-@media screen and (min-width: 768px) {
-  .election {
-    /* banner */
-  }
-  .election .election_banner {
-    background-image: url("@/assets/image/election/banner-768px.png");
-    background-repeat: no-repeat;
-  }
-}
-/*PC板 */
-@media screen and (min-width: 1200px) {
-  .election {
-    /* banner */
-  }
-  .election .election_banner {
-    background-image: url("@/assets/image/election/banner-1920px.png");
-    background-repeat: no-repeat;
-  }
-}
 .elecion_journey {
   z-index: -1;
   position: relative;
@@ -5125,7 +5135,7 @@ form .register_read p {
 .elecion_journey .election_container .journey {
   background-color: #272727;
   border-radius: 10px;
-  height: 400px;
+  height: 440px;
   width: 430px;
   display: flex;
   flex-direction: column;
@@ -5202,8 +5212,11 @@ form .register_read p {
   bottom: 0px;
   left: 0px;
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: #fff;
   margin: 0;
+}
+.count_down .countdown span {
+  color: #000;
 }
 .count_down .countdown div span:first-child {
   font-family: "Mantou Sans";

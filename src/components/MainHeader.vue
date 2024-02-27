@@ -57,12 +57,12 @@
       <!-- <DropDown ref="dropDown" @click.stop="" class="drop-down" /> -->
     </li>
     <li class="dropdown">
-        <div class="icon" @click="turnPage()">
-          <img src="/image/home/icon_login.png" alt="">
-          <p>{{ member }}</p>
-        </div>
+      <div class="icon" @click="turnPage()">
+        <img src="/image/home/icon_login.png" alt="">
+        <p>{{ member }}</p>
+      </div>
       <div class="dropdown-content" v-if="member == '會員中心'">
-        <button class="logout_btn" @click="memberLogout" >登出</button>
+        <button class="logout_btn" @click="memberLogout">登出</button>
       </div>
     </li>
     </div>
@@ -153,13 +153,13 @@ export default {
       dropDownMenu: false,
 
       // 會員登入
-      member:'',
+      member: '',
     }
   },
   created() {
     this.$store = useAuthStore();
   },
-  computed:{
+  computed: {
     isLoggedIn() {
       // 從 Pinia store 獲取登入狀態
       return this.$store.isLoggedIn;
@@ -178,7 +178,7 @@ export default {
       console.log(to.path);
       this.isDropDown = false;
     }
-    
+
   },
   methods: {
     showDropDown() {
@@ -218,10 +218,10 @@ export default {
           });
       }
     },
-    turnPage(){
-      if(this.$store.member == '登入'){
+    turnPage() {
+      if (this.$store.member == '登入') {
         this.$router.push({ name: 'login' });
-      } else if(this.$store.member == '會員中心'){
+      } else if (this.$store.member == '會員中心') {
         this.$router.push({ name: 'member' });
       }
     },
@@ -236,11 +236,24 @@ export default {
 <style scoped lang="scss">
 @import "@/assets/scss/layout/_header.scss";
 
+
 .dropdown {
   cursor: pointer;
+  position: relative;
 
-  :hover {
+  &:hover {
     color: red;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 50px;
+    height: 50px;
+    background-color: transparent;
   }
 }
 
@@ -248,10 +261,11 @@ export default {
   display: none;
   position: absolute;
   background-color: #fff;
-  border: 2px solid orange;
+  border: 2px solid #ACACAC;
   min-width: 120px;
   z-index: 1;
   transform: translateX(-18%);
+  top: 50px;
 
   @media screen and (max-width: 768px) {
     display: block;
@@ -265,7 +279,7 @@ export default {
   display: block;
 
   +a {
-    border-top: 1px solid #000;
+    border-top: 1px solid #ACACAC;
   }
 }
 

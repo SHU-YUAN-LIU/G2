@@ -1,7 +1,9 @@
 <template>
   <div class="election">
     <!-- banner -->
-    <div class="election_banner"></div>
+    <div class="election_banner">
+      <img src="@/assets/image/election/banner-1920px.png" alt="選舉banner圖">
+    </div>
     <!-- 候選人 -->
     <div class="horizontal-sliders">
       <!-- 第一位候選人 -->
@@ -92,11 +94,12 @@ export default {
       xPercent: -100 * (candidates.length - 1),
       ease: "Power1.easeInOut",
       scrollTrigger: {
-        trigger: ".horizontal-sliders",
+        trigger: ".election_info_slide",
+        start: "top top",
         pin: ".election",
         pinSpacing: true,
-        scrub: 0.5,
-        end: "+=1000",
+        scrub: 1,
+        end: () => "+=" + document.querySelector(".horizontal-sliders").offsetWidth
       }
     });
 

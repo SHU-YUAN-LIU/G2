@@ -1,12 +1,41 @@
-/* 手機版 */
 .election {
 
-    // banner圖
+
+    /* banner */
+    /* 手機版 */
     .election_banner {
-        background-image: url('@/assets/image/election/banner-480px.png');
-        height: 600px;
+        // background-image: url('@/assets/image/election/banner-480px.png');
+        // max-width: 100%;
+        /* 父元素最大寬度設為100%，以適應不同屏幕 */
+        height: 300px;
+        object-fit: cover;
+        /* 高度自動調整以保持圖片的比例 */
         margin-top: 80px;
+
+        img {
+            max-width: 100%;
+            object-fit: cover;
+            display: block;
+
+
+        }
+
+        /*平板 */
+        @media screen and (min-width: 768px) {
+            background-image: url('@/assets/image/election/banner-768px.png');
+            background-repeat: no-repeat;
+        }
+
+
+        /*PC板 */
+        @media screen and (min-width: 1200px) {
+            background-image: url('@/assets/image/election/banner-1920px.png');
+            background-repeat: no-repeat;
+        }
     }
+
+
+
 
     /* 候選人資訊 */
 
@@ -86,33 +115,4 @@
         }
     }
 
-}
-
-
-
-/*平板 */
-@media screen and (min-width: 768px) {
-    .election {
-
-        /* banner */
-        .election_banner {
-            background-image: url('@/assets/image/election/banner-768px.png');
-            background-repeat: no-repeat;
-        }
-    }
-}
-
-
-
-/*PC板 */
-@media screen and (min-width: 1200px) {
-    .election {
-
-        /* banner */
-        .election_banner {
-            background-image: url('@/assets/image/election/banner-1920px.png');
-            background-repeat: no-repeat;
-        }
-
-    }
 }
