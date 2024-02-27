@@ -240,17 +240,22 @@ export default {
             }
         },
         bannerStart() {
+
+
             this.bannerauto = setInterval(() => {
                 const numBanners = this.bannerList.length;
                 this.currentBanner = (this.currentBanner + 1);
                 const newbannerr = document.createElement('img')
                 const now = (((this.currentBanner - 1) % 3) + 1)
                 const newpic = 'home/banner_' + now + '.png'
-                console.log(now);
+                // console.log(now);
                 newbannerr.src = this.getImageUrl(newpic);
-                this.$refs.bannercontent.querySelector('.bannershow').appendChild(newbannerr)
+
+                // this.$refs.bannercontent.querySelector('.bannershow').appendChild(newbannerr)
                 this.move();
+
             }, 3000);
+
         },
         bannerleft() {
             clearInterval(this.bannerauto)
@@ -320,7 +325,7 @@ export default {
     mounted() {
         // 設定網站標題(瀏覽器頁籤上的標題)
         document.title = '青年進補黨 - 首頁';
-        this.loadin()
+        // this.loadin()
         this.bannerStart();
 
 
@@ -332,12 +337,8 @@ export default {
         vueMarquee,
         Background_green,
     },
-    created() {
 
-    },
-    destroyed() {
-        clearInterval(this.bannerauto);
-    },
+    
 }
 </script>
 
