@@ -64,9 +64,13 @@
 
 @media(max-width: 768px){
     .bread{
+        height: 35px;
         ul{
             max-width: 600px;
             padding-left: 20px;
+            li{
+                font-size: 14px;
+            }
 
             li:last-child:after{
                 width: 180px;

@@ -3,15 +3,15 @@
         <!-- banner -->
         <div class="banner">
             <div ref="bannercontent" class="bannercontent">
-                <div class="bannershow">
+                <div class="bannershow" style="transform: translateX(-100vw);">
                     <img v-for="(banner, index) in bannerList" :src="getImageUrl(banner)" class="image">
                 </div>
             </div>
             <button class="bannerleft" @click="bannerleft">&lt</button>
             <button class="bannerright" @click="bannerright">></button>
             <div class="pointwrap">
-                <div class="bannerpoint" v-for="num in bannerList.length" @click="pointchangebanner(num)"
-                    :class="{ 'getdeep': currentBanner === num - 1 }"></div>
+                <div class="bannerpoint" style="display: none;" v-for="num in bannerList.length"
+                    @click="pointchangebanner(num)" :class="{ 'getdeep': currentBanner % 6 === num - 1 }"></div>
             </div>
         </div>
         <!-- <button> &lt </button>
@@ -28,7 +28,7 @@
         <!-- 跑馬燈 -->
         <vueMarquee :marqueeArray="slogan" />
         <!-- 頁籤 -->
-        <div class="home_container">
+        <div class="home_container" data-aos="fade-up">
             <div class="row index_news_flex">
                 <div class="col col-12 index_news_title">政策懶人包</div>
                 <div class="policy">
@@ -53,7 +53,7 @@
             <div class="home_container">
                 <div class="row index_news_flex">
                     <div class="col col-12 index_news_title">最新消息</div>
-                    <a class="col col-4 index_news_card" href="#">
+                    <a class="col col-4 index_news_card" href="#" data-aos="zoom-out-up">
                         <div>
                             <img :src="getImageUrl(news_card[0].news_img)">
                         </div>
@@ -65,7 +65,7 @@
                     </a>
                     <div class="row col col-6 news_index_inner_flex">
                         <a v-for="(item, index) in get_for_range(news_card, 1, 2)" :key="index" class="col index_news_card"
-                            href="#">
+                            data-aos="fade-left" href="#">
                             <div>
                                 <img :src="getImageUrl(item.news_img)">
                             </div>
@@ -90,7 +90,7 @@
         <div class="home_container">
             <div class="row index_news_flex">
                 <div class="col col-12 index_news_title">假消息澄清</div>
-                <a class="col col-4 index_news_card" href="#">
+                <a class="col col-4 index_news_card" href="#" data-aos="fade-down-right">
                     <div>
                         <img :src="getImageUrl(clarifications[0].news_img)">
                     </div>
@@ -102,7 +102,7 @@
                 </a>
                 <div class="row col col-6 news_index_inner_flex">
                     <a v-for="(clarification, index) in get_for_range(clarifications, 1, 2)" :key="index"
-                        class="col index_news_card" href="#">
+                        class="col index_news_card" href="#" data-aos="fade-up-left">
                         <div>
                             <img :src="getImageUrl(clarification.news_img)">
                         </div>
@@ -128,7 +128,7 @@
             <div>
                 <h2>小額捐款, 作伙相挺</h2>
                 <div class="donate_content">
-                    <img src="/image/home/donate_img.png" alt="">
+                    <div class="donate-pic"><img src="/image/home/donate_img.png" alt=""></div>
                     <p>2024 總統大選，面對這光榮民主的一戰，我們需要更多社會支持，邀請大家加入 Team Taiwan，一起挺台灣！</p>
                 </div>
             </div>
@@ -158,17 +158,19 @@ export default {
                 { title: '經濟', img: 'home/icon_money.png' },
                 { title: '政策', img: 'home/icon_taiwan.png' }
             ],
+            index: 4,
             currentBanner: 0,
-            slogan: ['這是一場改變政治文化的社會運動，投給劉緯育，投給自己的未來。',
-                '為了更美好的明天，讓我們一起行動起來，為改革而投票',
+            slogan: [
+                '改變政治文化的社會運動，投給劉緯育，投給自己的未來!',
+                '為了美好的明天，讓我們一起行動起來，為改革而投票!',
+                '青年挺進補,讓台灣永遠好進補!'
             ],
             bannerList: [
                 'home/banner_3.png',
+                'home/banner_4.png',
                 'home/banner_2.png',
                 'home/banner_1.png',
-                'home/banner_3.png',
-                'home/banner_1.png',
-                'home/banner_2.png',
+
             ],
             donateList: [
                 'home/donate_icon_1.png',
@@ -208,14 +210,14 @@ export default {
                 news_img: "home/index_news_pic2.png",
                 date_time: "2023/12/25",
                 news_title: "青年進補黨領袖擘畫未來藍圖",
-                news_script: "青年進補黨領袖在國旗映襯下發表了振奮人心的演講，承諾將進行重要的政治改革。面對眾多關注的目光，他強調政策的透明度和公正性，呼籲公眾不應輕信未經證實的指控。每個字眼都體現了本黨秉持中立和理性的核心價值，展現出對國家未來的堅定信念和清晰方向。"
+                news_script: "青年進補黨領袖發表振奮人心的演講，承諾將進行重要的政治改革。面對眾多關注的目光，每個字眼都體現了本黨秉持中立和理性的核心價值，展現出對國家未來的堅定信念和清晰方向。"
             },
             {
                 id: 3,
                 news_img: "home/index_news_pic3.png",
                 date_time: "2023/12/25",
                 news_title: "群眾聚焦青年進補黨的願景",
-                news_script: "本黨領袖在晨光中對著龐大的人群發表演說，他的言論充滿了對國家未來的希望與決心，並呼籲群眾團結一致，共同努力實現共同的目標。在這關鍵時刻，本黨展現了連結民心的能力，以及推動社會進步和積極變革的承諾。"
+                news_script: "本黨領袖發表演說，他的言論充滿對國家未來的希望與決心，並呼籲群眾團結一致，共同努力實現共同的目標。在這關鍵時刻，本黨展現了連結民心的能力，以及推動社會進步的承諾。"
             }],
         }
     },
@@ -238,31 +240,75 @@ export default {
             }
         },
         bannerStart() {
+
+
             this.bannerauto = setInterval(() => {
                 const numBanners = this.bannerList.length;
-                this.currentBanner = (this.currentBanner + 1) % numBanners;
+                this.currentBanner = (this.currentBanner + 1);
+                const newbannerr = document.createElement('img')
+                const now = (((this.currentBanner - 1) % 3) + 1)
+                const newpic = 'home/banner_' + now + '.png'
+                // console.log(now);
+                newbannerr.src = this.getImageUrl(newpic);
+
+                // this.$refs.bannercontent.querySelector('.bannershow').appendChild(newbannerr)
                 this.move();
+
             }, 3000);
+
         },
         bannerleft() {
             clearInterval(this.bannerauto)
-            const numBanners = this.bannerList.length;
-            if (this.currentBanner == 0) {
-                this.currentBanner = 0;
-            } else {
-                this.currentBanner = (this.currentBanner - 1) % numBanners;
-            }
             this.move();
             this.bannerStart();
+            const numBanners = this.bannerList.length;
+            const firstChild = this.$refs.bannercontent.querySelector('.bannershow').firstChild;
+            const newbannerr = document.createElement('img')
+            const newpic = 'home/banner_' + this.index + '.png'
+            this.index -= 1
+            if (this.index == 0)
+                this.index = 4
+            newbannerr.src = this.getImageUrl(newpic);
+            this.$refs.bannercontent.querySelector('.bannershow').insertBefore(newbannerr, firstChild)
+            if (this.currentBanner == 0) {
+                this.currentBanner = 0;
+                // this.currentBanner = (this.currentBanner - 1);
+            } else {
+                this.currentBanner = (this.currentBanner - 1);
+            }
+
+        },
+        loadin() {
+            const numBanners = this.bannerList.length;
+            const firstChild = this.$refs.bannercontent.querySelector('.bannershow').firstChild;
+            const newbannerr = document.createElement('img')
+            const newpic = 'home/banner_' + this.index + '.png'
+            this.index -= 1
+            if (this.index == 0)
+                this.index = 3
+            newbannerr.src = this.getImageUrl(newpic);
+            this.$refs.bannercontent.querySelector('.bannershow').insertBefore(newbannerr, firstChild)
+            if (this.currentBanner == 0) {
+                this.currentBanner = 0;
+                // this.currentBanner = (this.currentBanner - 1);
+            } else {
+                this.currentBanner = (this.currentBanner - 1);
+            }
         },
         bannerright() {
             clearInterval(this.bannerauto)
             const numBanners = this.bannerList.length;
-            if (this.currentBanner == numBanners - 1) {
-                this.currentBanner = numBanners - 1;
-            } else {
-                this.currentBanner = (this.currentBanner + 1) % numBanners;
-            }
+            // if (this.currentBanner == numBanners - 1) {
+            //     this.currentBanner = numBanners - 1;
+            // } else {
+            this.currentBanner = (this.currentBanner + 1);
+            // }
+            console.log(this.currentBanner);
+            const newbannerr = document.createElement('img')
+            const now = (((this.currentBanner - 1) % 4) + 1)
+            const newpic = 'home/banner_' + now + '.png'
+            newbannerr.src = this.getImageUrl(newpic);
+            this.$refs.bannercontent.querySelector('.bannershow').appendChild(newbannerr)
             this.move();
             this.bannerStart();
         },
@@ -279,6 +325,7 @@ export default {
     mounted() {
         // 設定網站標題(瀏覽器頁籤上的標題)
         document.title = '青年進補黨 - 首頁';
+        // this.loadin()
         this.bannerStart();
 
 
@@ -290,12 +337,8 @@ export default {
         vueMarquee,
         Background_green,
     },
-    created() {
 
-    },
-    destroyed() {
-        clearInterval(this.bannerauto);
-    },
+    
 }
 </script>
 
@@ -305,7 +348,7 @@ export default {
 @import '../assets/scss/base/color';
 
 .body {
-    background: linear-gradient(-10deg, #D4FF1F 0% 25%, rgba(255, 255, 255, 0) 25% 100%);
+    background: linear-gradient(-10deg, #D4FF1F 0% 15%, rgba(255, 255, 255, 0) 15% 100%);
 }
 
 .donate_container {
@@ -315,7 +358,8 @@ export default {
     border-radius: $border-radius-1;
 
     @media screen and (max-width: 786px) {
-        padding-top: 218px;
+        // padding-top: 218px;
+        padding-bottom: 200px;
     }
 }
 
@@ -324,6 +368,8 @@ export default {
     height: 100px;
     text-align: center;
     position: relative;
+    margin-top: 105px;
+    margin-bottom: 60px;
 
     @media screen and (max-width: 414px) {
         @include title_3;
@@ -333,8 +379,7 @@ export default {
 }
 
 .donate_container p {
-    font-size: 24px;
-    width: 600px;
+    @include title_7;
     margin: auto;
     line-height: 40px;
     padding: 0px 40px;
@@ -353,28 +398,43 @@ export default {
     border-radius: 10px;
     display: flex;
 
-    @media screen and (max-width: 769px) {
+
+    @media screen and (max-width: 768px) {
         display: flex;
         flex-direction: column;
-        width: 90%;
+
+        align-items: center;
+        height: 330px;
+
+        .donate-pic {
+            width: 70%;
+
+            img {
+                border-radius: 10px;
+            }
+        }
 
         p {
-            width: initial;
+            // width: initial;
+
+
             background-color: #fff;
-            padding: 10px;
+            // padding: 10px;
             border-radius: 10px;
         }
 
-        img {
-            border-radius: 10px;
-        }
+
     }
 }
 
 .donate_container>div>div {
-    width: 1020px;
+    width: 70%;
     // 元素前後順序: 有定位 > 沒定位, 如果取消相對定位, container會被背景圖案蓋住
     position: relative;
+
+    @media screen and (max-width: 768px) {
+        width: 70%;
+    }
 }
 
 .donate_container>img {
@@ -405,8 +465,8 @@ export default {
 }
 
 .donate_container>img:nth-child(3) {
-    left: -30px;
-    top: 30px;
+    left: 60px;
+    top: -25px;
     width: 200px;
     height: 200px;
 

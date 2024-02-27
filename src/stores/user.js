@@ -4,7 +4,7 @@ import { defineStore } from 'pinia';
 export const useUserStore = defineStore('userStore', {
     // 對應 data
     state: () => ({
-        token: '',   // 後端僅返回token(通行證/令牌)
+        userToken: '',   // 後端僅返回token(通行證/令牌)
         userData: {} // 可以在login API中返回user資訊
     }),
 

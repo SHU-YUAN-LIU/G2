@@ -4,7 +4,7 @@
         <div class="ThreeBookMark_tab">
             <ul>
                 <li class="" v-for="(tab, index) in tabs" :class="{ active_tab: currentIndex == index }"
-                    :style="{ ...getTabStyle(tab), width: '400px' }" @click="currentIndex = index">
+                    :style="{ ...getTabStyle(tab), width: '230px' }" @click="currentIndex = index">
                     {{ tab }}
                 </li>
             </ul>
@@ -91,21 +91,23 @@ export default {
     border-radius: 10px 10px 0 0;
     text-align: center;
     cursor: pointer;
-    padding: 7px;
-    line-height: 50px;
-    padding: 30px;
+    line-height: 20px;
+    /* letter-spacing: 20px; */
+    text-align: center;
+    padding: 20px;
 }
 
 
 .ThreeBookMark_content li {
-    border-radius: 10 0px;
+    border-radius: 0px 0px 10px 10px;
     line-height: 50px;
-    padding: 50px;
+    padding: 30px;
 }
 
 .ThreeBookMark_content li p {
     background-color: #fff;
     border-radius: 10px;
-    padding: 50px;
+    padding: 30px;
+    height: 250px;
 }
 </style>

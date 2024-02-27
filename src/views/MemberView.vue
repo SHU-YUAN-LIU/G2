@@ -130,7 +130,7 @@
                         <img src="/image/login/pointlogo.png" alt="">
                         進補點數:
                         <span class="orderTotal">
-                            ${{ item.point / 100 }}點
+                            {{ item.point }}點
                         </span>
                     </div>
                 </div>

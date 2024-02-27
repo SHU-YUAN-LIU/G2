@@ -87,7 +87,6 @@
           <div class="Value-description">
             <!-- 內容將在這裡動態更新 -->
             <h2 class="Value-sub-title" ref="ValueSubtitle">DEMOCRACY</h2>
-            <div class="Value-divider"></div>
             <div class="Value-content" ref="ValueDescription">
               <p class="Value-word">政治為人民所共有，人民有平等的權利來參與政治，不受限於黨派意識型態、性別、族群、階級，開放政府、全民參與，是我們的目標。
               </p>
@@ -142,16 +141,16 @@ export default {
   },
   methods: {
     showContent(index) {
-      this.applyCustomStyle = true;
       // 在這個方法中更新 Value-description 的內容
       this.$refs.ValueDescription.innerHTML = this.contents[index - 1];
-      this.applyCustomStyle = true;
       // 在這個方法中更新 Value-sub-title 的內容
       this.$refs.ValueSubtitle.innerHTML = this.titles[index - 1];
 
     },
   },
-
+  mounted() {
+    document.title="核心理念";
+  },
 };
 
 </script>
