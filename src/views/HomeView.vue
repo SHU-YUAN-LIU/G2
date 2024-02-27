@@ -44,9 +44,9 @@
         </div>
         <div class="home_line_button">
             <div class="home_line"></div>
-            <router-link to="/election">
-                <CommitButton class="homebutton dog" commitButton="立即前往"></CommitButton>
-            </router-link>
+                <router-link to="/election">
+                    <CommitButton class="homebutton dog" commitButton="立即前往"></CommitButton>
+                </router-link>
         </div>
         <!-- 消息-->
         <div class="index_news_bg">
@@ -80,9 +80,10 @@
             </div>
             <div class="home_line_button">
                 <div class="home_line"></div>
-                <router-link to="/news">
-                    <CommitButton class="homebutton dog" commitButton="立即前往"></CommitButton>
-                </router-link>
+                <CommitButton class="homebutton dog" commitButton="立即前往">
+                    <router-link to="/news">
+                    </router-link>
+                </CommitButton>
             </div>
         </div>
 
@@ -117,9 +118,9 @@
         </div>
         <div class="home_line_button">
             <div class="home_line"></div>
-            <router-link to="/news">
-                <CommitButton class="homebutton dog" commitButton="立即前往"></CommitButton>
-            </router-link>
+                <router-link to="/news">
+                    <CommitButton class="homebutton dog" commitButton="立即前往"></CommitButton>
+                </router-link>
         </div>
         <!-- 捐款 -->
         <div class="donate_container">
@@ -137,9 +138,9 @@
         </div>
         <div class="home_line_button ">
             <div class="home_line donate_line"></div>
-            <router-link to="/donate">
-                <CommitButton class="homebutton dog" commitButton="立即前往"></CommitButton>
-            </router-link>
+                <router-link to="/donate">
+                    <CommitButton class="homebutton dog" commitButton="立即前往"></CommitButton>
+                </router-link>
         </div>
     </div>
 </template>
@@ -159,7 +160,7 @@ export default {
                 { title: '政策', img: 'home/icon_taiwan.png' }
             ],
             index: 4,
-            currentBanner: 0,
+            currentBanner: 1,
             slogan: [
                 '改變政治文化的社會運動，投給劉緯育，投給自己的未來!',
                 '為了美好的明天，讓我們一起行動起來，為改革而投票!',
@@ -236,83 +237,50 @@ export default {
                 const bannerShow = this.$refs.bannercontent.querySelector('.bannershow');
                 const translateX = -(this.currentBanner * 100);
                 bannerShow.style.transform = `translateX(${translateX}vw)`;
-
+    
             }
         },
         bannerStart() {
 
 
             this.bannerauto = setInterval(() => {
-                const numBanners = this.bannerList.length;
                 this.currentBanner = (this.currentBanner + 1);
+                this.move();
+                // console.log(this.currentBanner);
                 const newbannerr = document.createElement('img')
                 const now = (((this.currentBanner - 1) % 4) + 1)
                 const newpic = 'home/banner_' + now + '.png'
-                // console.log(now);
                 newbannerr.src = this.getImageUrl(newpic);
-                if(this.$refs.bannercontent.querySelector('.bannershow')!=null){
-                    this.$refs.bannercontent.querySelector('.bannershow').appendChild(newbannerr)
-                }
-                this.move();
+                this.$refs.bannercontent.querySelector('.bannershow').appendChild(newbannerr)
 
             }, 3000);
 
         },
+        bannerEnd(){
+            clearInterval(this.bannerauto)
+        },
         bannerleft() {
             clearInterval(this.bannerauto)
+            if (this.currentBanner == 0) {
+                this.currentBanner = 0;
+            } else {
+                this.currentBanner = (this.currentBanner - 1);
+            }
             this.move();
             this.bannerStart();
-            const numBanners = this.bannerList.length;
-            const firstChild = this.$refs.bannercontent.querySelector('.bannershow').firstChild;
-            const newbannerr = document.createElement('img')
-            const newpic = 'home/banner_' + this.index + '.png'
-            this.index -= 1
-            if (this.index == 0)
-                this.index = 4
-            newbannerr.src = this.getImageUrl(newpic);
-            this.$refs.bannercontent.querySelector('.bannershow').insertBefore(newbannerr, firstChild)
-            // this.currentBanner = (this.currentBanner + 1)
-            if (this.currentBanner == 0) {
-                this.currentBanner = 0;
-                // this.currentBanner = (this.currentBanner - 1);
-            } else {
-                this.currentBanner = (this.currentBanner - 1);
-            }
 
-        },
-        loadin() {
-            const numBanners = this.bannerList.length;
-            const firstChild = this.$refs.bannercontent.querySelector('.bannershow').firstChild;
-            const newbannerr = document.createElement('img')
-            const newpic = 'home/banner_' + this.index + '.png'
-            this.index -= 1
-            if (this.index == 0)
-                this.index = 3
-            newbannerr.src = this.getImageUrl(newpic);
-            this.$refs.bannercontent.querySelector('.bannershow').insertBefore(newbannerr, firstChild)
-            if (this.currentBanner == 0) {
-                this.currentBanner = 0;
-                // this.currentBanner = (this.currentBanner - 1);
-            } else {
-                this.currentBanner = (this.currentBanner - 1);
-            }
         },
         bannerright() {
             clearInterval(this.bannerauto)
-            const numBanners = this.bannerList.length;
-            // if (this.currentBanner == numBanners - 1) {
-            //     this.currentBanner = numBanners - 1;
-            // } else {
             this.currentBanner = (this.currentBanner + 1);
-            // }
-            console.log(this.currentBanner);
+            this.move();
+            this.bannerStart();
+            // console.log(this.currentBanner);
             const newbannerr = document.createElement('img')
             const now = (((this.currentBanner - 1) % 4) + 1)
             const newpic = 'home/banner_' + now + '.png'
             newbannerr.src = this.getImageUrl(newpic);
             this.$refs.bannercontent.querySelector('.bannershow').appendChild(newbannerr)
-            this.move();
-            this.bannerStart();
         },
         pointchangebanner(num) {
             clearInterval(this.bannerauto)
@@ -327,8 +295,9 @@ export default {
     mounted() {
         // 設定網站標題(瀏覽器頁籤上的標題)
         document.title = '青年進補黨 - 首頁';
-        // this.loadin()
+
         this.bannerStart();
+
 
 
     },
@@ -339,8 +308,10 @@ export default {
         vueMarquee,
         Background_green,
     },
+    beforeUnmount() {
+        this.bannerEnd()
+    },
 
-    
 }
 </script>
 
@@ -386,7 +357,6 @@ export default {
     line-height: 40px;
     padding: 0px 40px;
     text-align: justify;
-
     @media screen and (max-width: 786px) {
         line-height: 45px;
     }
