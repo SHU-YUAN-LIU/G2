@@ -204,6 +204,11 @@
             max-width: 350px;
             margin: auto;
 
+            h3{
+                margin-top: 80px;
+                margin-bottom: 20px;
+            }
+
             // 捐款確認資料的內容
             .content {
                 padding: 15px;
@@ -239,7 +244,9 @@
 
             // 捐款明細
             .donate_detail_table {
-
+                p{
+                    margin-top: 0;
+                }
                 table {
                     th {
                         @include title_10;
@@ -298,7 +305,8 @@
 
             button {
                 @include btn_3;
-                margin: 30px 0;
+                margin-top: 20px;
+                margin-bottom: 60px;
                 cursor: pointer;
             }
         }

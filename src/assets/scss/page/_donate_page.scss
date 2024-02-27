@@ -298,6 +298,9 @@
           }
         }
       }
+      .donate_page_attention{
+        letter-spacing: 1px;
+      }
     }
   }
 }
@@ -371,17 +374,20 @@
 
             li {
               width: 300px;
+              position: relative;
+              left: 30px;
 
               // 點數標籤(黃色圓形)
               .donate_point {
-                width: 100px;
-                height: 100px;
-                left: -50px;
-                font-size: 24px;
-
-                span {
-                  font-size: 16px;
-                }
+                width: 80px;
+                height: 80px;
+                left: -30px;
+                top: -60px;
+                font-size: 20px;
+                line-height: 80PX;
+                  span {
+                    font-size: 14px;
+                  }                
               }
             }
 
@@ -394,41 +400,43 @@
           font-size: 16px;
         }
 
-        // 自訂金額區塊
-        .donate_page_inputAmount {
+          // 自訂金額區塊
+          .donate_page_inputAmount {
 
-          p:first-child {
-            margin-bottom: 20px;
-          }
+            p:first-child {
+              margin-bottom: 20px;
+            }
 
-          div {
-            table {
-              tr {
-                td:nth-child(1) {
-                  width: 80px;
-                }
-
-                td:nth-child(2) {
-                  input {
-                    height: 50px;
-                    vertical-align: middle;
-                    margin: 0;
-                    width: 200px;
+            div {
+              table {
+                tr {
+                  td:nth-child(1) {
+                    width: 80px;
                   }
-                }
 
-                td:nth-child(3) {
-                  width: 70px;
-                  text-align: center;
-                  background-color: $orange;
-                  color: $white;
+                  td:nth-child(2) {
+                    input {
+                      height: 50px;
+                      vertical-align: middle;
+                      margin: 0;
+                      width: 200px;
+                    }
+                  }
+
+                  td:nth-child(3) {
+                    width: 70px;
+                    text-align: center;
+                    background-color: $orange;
+                    color: $white;
+                  }
                 }
               }
             }
-
           }
         }
-      }
+        .donate_page_attention{
+          line-height: 20px;
+        }
     }
   }
 }
