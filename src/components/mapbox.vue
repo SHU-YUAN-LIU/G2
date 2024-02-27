@@ -41,7 +41,7 @@ export default {
         addPin(coordinates, location) {
             const el = document.createElement('div');
             el.className = 'custom-marker';
-            el.style.backgroundImage = `url('/src/assets/image/election/mappin.png')`;
+            el.style.backgroundImage = `url('${import.meta.env.VITE_RESOURCE_URL}/image/election/mappin.png')`;
             el.style.width = '51px';
             el.style.height = '68px';
             el.style.backgroundSize = 'cover';
@@ -90,7 +90,7 @@ body {
     top: 0;
     bottom: 0;
     width: 100%;
-    height: 100vh;
+    height: 87vh;
 }
 </style>
   
