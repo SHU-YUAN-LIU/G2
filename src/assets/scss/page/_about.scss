@@ -29,7 +29,7 @@
   }
 }
 .about_wrap{
-  width: 1250px;
+  width: 80%;
     margin: auto;
     @media (width<1400px){
       margin: auto;
@@ -290,7 +290,6 @@
 
 @media (max-width: 991px) {
   .Value-main-container {
-    max-width: 100%;
     margin-top: 40px;
   }
 }
@@ -363,14 +362,14 @@
   background-color: #fff;
   display: flex;
   flex-direction: column;
-  align-self: stretch;
+  position: relative;
   color: #000;
   white-space: nowrap;
   text-align: justify;
   width: 450px;
   margin: auto 0;
-  padding: 50px 80px;
-  
+  padding: 50px;
+  height: 300px;
 }
 
 @media (max-width: 768px) {
@@ -384,10 +383,9 @@
 }
 
 .Value-sub-title {
-  justify-content: center;
   letter-spacing: 3.6px;
-  margin-top: 23px;
   font: 600 36px/131% Noto Sans, sans-serif;
+  text-align: center;
 }
 
 @media (max-width: 991px) {
@@ -397,12 +395,15 @@
   }
 }
 
-.Value-divider {
-  background-color: #000;
-  margin-top: 22px;
-  width: 259px;
-  max-width: 100%;
+.Value-sub-title::after{
+  content:'';
+  display: block;
+  width: 77%;
   height: 1px;
+  position: absolute;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: #000;
 }
 
 @media (max-width: 991px) {
@@ -435,6 +436,7 @@
 .Value-content p {
   width: 100%;
   white-space: pre-line; /* 新增這行 */
+  margin-top: 20px;
 }
 
 .Value-img-container {

@@ -269,7 +269,7 @@
 
                 .credit_card {
                     label {
-                        width: 100px;
+                        width: 140px;
                         margin: 0;
                         padding: 0;
                     }
@@ -281,9 +281,12 @@
 
                         input {
                             margin-bottom: 20px;
-                            width: 220px;
+                            width: 235px;
 
                         }
+                    }
+                    .credit_dash {
+                        display: none;
                     }
                 }
             }
@@ -295,7 +298,7 @@
 
             button {
                 @include btn_3;
-                margin: 60px 0;
+                margin: 30px 0;
                 cursor: pointer;
             }
         }

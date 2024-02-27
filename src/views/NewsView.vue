@@ -38,9 +38,8 @@
         </router-link>
       </div>
     </div>
-    <background :height="100" />
+    <background :height="'100'" />
   </div>
-  <Background_green :height="100" />
 
 </template>
 <script>
