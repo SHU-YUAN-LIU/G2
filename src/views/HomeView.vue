@@ -128,7 +128,7 @@
             <div>
                 <h2>小額捐款, 作伙相挺</h2>
                 <div class="donate_content">
-                    <img src="/image/home/donate_img.png" alt="">
+                    <div class="donate-pic"><img src="/image/home/donate_img.png" alt=""></div>
                     <p>2024 總統大選，面對這光榮民主的一戰，我們需要更多社會支持，邀請大家加入 Team Taiwan，一起挺台灣！</p>
                 </div>
             </div>
@@ -159,8 +159,10 @@ export default {
                 { title: '政策', img: 'home/icon_taiwan.png' }
             ],
             currentBanner: 0,
-            slogan: ['這是一場改變政治文化的社會運動，投給劉緯育，投給自己的未來。',
-                '為了更美好的明天，讓我們一起行動起來，為改革而投票',
+            slogan: [
+                '改變政治文化的社會運動，投給劉緯育，投給自己的未來!',
+                '為了美好的明天，讓我們一起行動起來，為改革而投票!',
+                '青年挺進補,讓台灣永遠好進補!'
             ],
             bannerList: [
                 'home/banner_3.png',
@@ -305,7 +307,7 @@ export default {
 @import '../assets/scss/base/color';
 
 .body {
-    background: linear-gradient(-10deg, #D4FF1F 0% 25%, rgba(255, 255, 255, 0) 25% 100%);
+    background: linear-gradient(-10deg, #D4FF1F 0% 15%, rgba(255, 255, 255, 0) 15% 100%);
 }
 
 .donate_container {
@@ -315,7 +317,8 @@ export default {
     border-radius: $border-radius-1;
 
     @media screen and (max-width: 786px) {
-        padding-top: 218px;
+        // padding-top: 218px;
+        padding-bottom: 200px;
     }
 }
 
@@ -324,6 +327,8 @@ export default {
     height: 100px;
     text-align: center;
     position: relative;
+    margin-top: 105px;
+    margin-bottom: 60px;
 
     @media screen and (max-width: 414px) {
         @include title_3;
@@ -333,8 +338,7 @@ export default {
 }
 
 .donate_container p {
-    font-size: 24px;
-    width: 600px;
+    @include title_7;
     margin: auto;
     line-height: 40px;
     padding: 0px 40px;
@@ -353,28 +357,43 @@ export default {
     border-radius: 10px;
     display: flex;
 
-    @media screen and (max-width: 769px) {
+
+    @media screen and (max-width: 768px) {
         display: flex;
         flex-direction: column;
-        width: 90%;
+
+        align-items: center;
+        height: 330px;
+
+        .donate-pic {
+            width: 70%;
+
+            img {
+                border-radius: 10px;
+            }
+        }
 
         p {
-            width: initial;
+            // width: initial;
+
+
             background-color: #fff;
-            padding: 10px;
+            // padding: 10px;
             border-radius: 10px;
         }
 
-        img {
-            border-radius: 10px;
-        }
+
     }
 }
 
 .donate_container>div>div {
-    width: 1020px;
+    width: 70%;
     // 元素前後順序: 有定位 > 沒定位, 如果取消相對定位, container會被背景圖案蓋住
     position: relative;
+
+    @media screen and (max-width: 768px) {
+        width: 70%;
+    }
 }
 
 .donate_container>img {
@@ -405,8 +424,8 @@ export default {
 }
 
 .donate_container>img:nth-child(3) {
-    left: -30px;
-    top: 30px;
+    left: 60px;
+    top: -25px;
     width: 200px;
     height: 200px;
 
