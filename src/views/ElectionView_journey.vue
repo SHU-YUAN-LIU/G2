@@ -91,7 +91,7 @@ export default {
     methods: {
         //(手機版) 切換行程標題
         getPicUrl(index) {
-            return `${import.meta.env.VITE_IMG_URL}/campaign/` + index;
+            return `${import.meta.env.VITE_IMG_URL}/campaign/` + index+`?${Date.now()}`;
         },
         change(pos) {
             this.currentTitle = pos;

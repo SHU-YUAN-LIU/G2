@@ -166,10 +166,10 @@ export default {
                 '青年挺進補,讓台灣永遠好進補!'
             ],
             bannerList: [
+                'home/banner_1.png',
+                'home/banner_2.png',
                 'home/banner_3.png',
                 'home/banner_4.png',
-                'home/banner_2.png',
-                'home/banner_1.png',
 
             ],
             donateList: [
@@ -246,12 +246,13 @@ export default {
                 const numBanners = this.bannerList.length;
                 this.currentBanner = (this.currentBanner + 1);
                 const newbannerr = document.createElement('img')
-                const now = (((this.currentBanner - 1) % 3) + 1)
+                const now = (((this.currentBanner - 1) % 4) + 1)
                 const newpic = 'home/banner_' + now + '.png'
                 // console.log(now);
                 newbannerr.src = this.getImageUrl(newpic);
-
-                // this.$refs.bannercontent.querySelector('.bannershow').appendChild(newbannerr)
+                if(this.$refs.bannercontent.querySelector('.bannershow')!=null){
+                    this.$refs.bannercontent.querySelector('.bannershow').appendChild(newbannerr)
+                }
                 this.move();
 
             }, 3000);
@@ -270,6 +271,7 @@ export default {
                 this.index = 4
             newbannerr.src = this.getImageUrl(newpic);
             this.$refs.bannercontent.querySelector('.bannershow').insertBefore(newbannerr, firstChild)
+            // this.currentBanner = (this.currentBanner + 1)
             if (this.currentBanner == 0) {
                 this.currentBanner = 0;
                 // this.currentBanner = (this.currentBanner - 1);
