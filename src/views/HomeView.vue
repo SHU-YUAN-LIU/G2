@@ -3,15 +3,15 @@
         <!-- banner -->
         <div class="banner">
             <div ref="bannercontent" class="bannercontent">
-                <div class="bannershow" style="transform: translateX(-100vw);">
+                <div class="bannershow" style="transform: translateX(0vw);">
                     <img v-for="(banner, index) in bannerList" :src="getImageUrl(banner)" class="image">
                 </div>
             </div>
             <button class="bannerleft" @click="bannerleft">&lt</button>
             <button class="bannerright" @click="bannerright">></button>
             <div class="pointwrap">
-                <div class="bannerpoint" style="display: none;" v-for="num in bannerList.length"
-                    @click="pointchangebanner(num)" :class="{ 'getdeep': currentBanner % 6 === num - 1 }"></div>
+                <div class="bannerpoint" v-for="num in bannerList.length"
+                    @click="pointchangebanner(num)" :class="{ 'getdeep': currentBanner % index === num-1  }"></div>
             </div>
         </div>
         <!-- <button> &lt </button>
@@ -160,7 +160,7 @@ export default {
                 { title: '政策', img: 'home/icon_taiwan.png' }
             ],
             index: 4,
-            currentBanner: 1,
+            currentBanner: 0,
             slogan: [
                 '改變政治文化的社會運動，投給劉緯育，投給自己的未來!',
                 '為了美好的明天，讓我們一起行動起來，為改革而投票!',
@@ -284,7 +284,10 @@ export default {
         },
         pointchangebanner(num) {
             clearInterval(this.bannerauto)
-            this.currentBanner = num - 1;
+            let times= Math.floor(this.currentBanner/this.bannerList.length)
+            console.log(times);
+            this.currentBanner = (times*this.bannerList.length)+num - 1;
+            console.log(this.currentBanner);
             this.move();
             this.bannerStart();
         },
