@@ -23,31 +23,30 @@
                     </div>
                 </div>
             </div>
-            <form action="" class="register" id="registerform" @submit.prevent="submitForm">
+            <form action="" method="post" class="register" id="registerform" @submit.prevent="handleSubmit">
                 <div class="register_name">
                     <p>真實姓名<span>*</span><span id="nameerror"></span></p>
-                    <input id="name" type="text" placeholder="請輸入您的姓名" v-model="registerForm.name">
+                    <input type="text" id="name" placeholder="請輸入您的姓名" v-model="registerForm.member_name">
                 </div>
                 <div class="register_birthday">
                     <p>生日<span>*</span><span id="dateerror"></span></p>
-                    <input type="date" id="date" v-model="registerForm.date">
+                    <input type="date" id="date" v-model="registerForm.birthday">
                 </div>
                 <div class="register_email">
                     <p>電子信箱<span>*</span><span id="emailerror"></span></p>
-                    <input type="email" name="email1" id="email" placeholder="請輸入您的電子信箱" v-model="registerForm.email">
+                    <input type="email" name="email1" placeholder="請輸入您的電子信箱" v-model="registerForm.email">
                 </div>
                 <div class="register_phone">
                     <p>手機<span>*</span><span id="phoneerror"></span></p>
-                    <input type="text" name="phone" id="phone" placeholder="請輸入您的手機號碼" maxlength="10"
-                        v-model="registerForm.phone">
+                    <input type="phone" name="phone" id="phone" placeholder="請輸入您的手機號碼" maxlength="10" v-model="registerForm.cellphone">
                 </div>
                 <div class="register_id">
                     <p>身分證<span>*</span></p>
-                    <input type="text" name="id" id="ide" placeholder="請輸入您的身分證" minlength="10" v-model="registerForm.id">
+                    <input type="text" name="id" id="id" placeholder="請輸入您的身分證" minlength="10" v-model="registerForm.id_number">
                 </div>
                 <div class="register_psw">
                     <p>密碼<span>*</span><span id="pswerror"></span></p>
-                    <input type="text" name="psw" id="psw1" placeholder="請輸入您的密碼" v-model="registerForm.psw">
+                    <input type="text" name="psw" placeholder="請輸入您的密碼" v-model="registerForm.password">
                 </div>
                 <div class="register_check_psw">
                     <p>確認密碼<span>*</span></p>
@@ -57,7 +56,7 @@
                     <input type="checkbox" class="box" v-model="registerForm.read">
                     <p>我已閱讀並瞭解條款和條件以及隱私權政策。<span>*</span></p>
                 </div>
-                <button class="btn" @click="sendRegisterForm">送出 ➜</button>
+                <button class="btn" type="submit">送出 ➜</button>
             </form>
             <form method="POST" action="" class="login" id="loginform" @submit.prevent="memberLogin">
                 <div class="profile">
@@ -65,11 +64,11 @@
                 </div>
                 <div class="register_email">
                     <p>電子信箱<span>*</span><span id="emailerror"></span></p>
-                    <input type="email" name="email" id="email2" placeholder="請輸入您的電子信箱" v-model="loginForm.email">
+                    <input type="email" name="email" id="email" placeholder="請輸入您的電子信箱" v-model="loginForm.email">
                 </div>
                 <div class="register_psw">
                     <p>密碼<span>*</span></p>
-                    <input type="password" name="psw" id="psw2" placeholder="請輸入您的密碼" v-model="loginForm.psw">
+                    <input type="password" name="psw" id="psw" placeholder="請輸入您的密碼" v-model="loginForm.psw">
                 </div>
                 <router-link to="/member">忘記密碼?</router-link>
                 <button class="btn" type="submit">登入 ➜</button>
@@ -123,16 +122,20 @@ export default {
                 psw: '',
             },
             registerForm: {
-                name: '',
-                date: '',
+                member_name: '',
+                birthday: '',
                 email: '',
-                phone: '',
-                id: '',
-                psw: '',
+                cellphone: '',
+                id_number: '',
+                password: '',
                 check_psw: '',
-                read: '',
-            }
-
+                read: false,
+            },
+            //儲存一個警告資訊的陣列
+            alert_info: [],
+            memberData: [],
+            pk: '',
+            member_no: '',
         }
     },
     components: {
@@ -146,9 +149,9 @@ export default {
 
         ...mapActions(useUserStore, ['updateToken', 'updateName', 'checkLogin', 'updateUserData']),
         checkmemdata(event) {
-            const mailinput = this.$refs.login.querySelector('#email2').value;
+            const mailinput = this.$refs.login.querySelector('#email').value;
             console.log(mailinput);
-            const pswinput = this.$refs.login.querySelector('#psw2').value;
+            const pswinput = this.$refs.login.querySelector('#psw').value;
             console.log(pswinput);
             if (mailinput == this.member.mail && pswinput == this.member.psw) {
                 alert("success")
@@ -181,7 +184,7 @@ export default {
                     if (res.data.error) {
                         // 登錄失敗，顯示錯誤消息
                         alert(res.data.msg); // 或進行本地化處理顯示給用戶
-                    } else if(res.data.member.status = 'IA') {
+                    } else if(res.data.member.status == 'IA') {
                         alert('帳號已停權'); // 或進行本地化處理顯示給用戶
                         return;
                     }
@@ -195,6 +198,108 @@ export default {
                     console.log(error);
                 })
         },
+        handleSubmit() {
+            if (this.checkAllInput()) { // 假设这个函数返回true当所有输入都是有效的
+                this.clearAndSaveMember();
+            } 
+        },
+        checkAllInput() {
+            this.alert_info = [];
+            //給一個布林值,表示表單是否填寫完畢,方便在上方功能取用
+            let allFormOk = true;
+
+            if (!this.registerForm.member_name) {
+                this.alert_info.push('姓名未填寫');
+                allFormOk = false; 
+            }
+
+            if (!this.registerForm.birthday) {
+                this.alert_info.push('生日未填寫');
+                allFormOk = false; 
+            }
+
+            if (!this.registerForm.email) {
+                this.alert_info.push('電子信箱未填寫');
+                allFormOk = false;
+            }
+
+            if (!this.registerForm.cellphone) {
+                this.alert_info.push('手機號碼未填寫');
+                allFormOk = false;
+            }
+
+            if (!this.registerForm.id_number) {
+                this.alert_info.push('身分證字號未填寫');
+                allFormOk = false;
+            }
+
+            if (!this.registerForm.password) {
+                this.alert_info.push('密碼未填寫');
+                allFormOk = false;
+            } 
+            if (!this.registerForm.check_psw) {
+                this.alert_info.push('請確認密碼');
+                allFormOk = false;
+            }
+            if (this.registerForm.password !== this.registerForm.check_psw) {
+                this.alert_info.push('密碼不相符，請再次確認填寫密碼');
+                allFormOk = false;
+            }
+
+            if (!this.registerForm.read) {
+                this.alert_info.push('註冊須知未勾選');
+                allFormOk = false;
+            }
+
+            if (this.alert_info.length > 0) {
+                alert(`請填寫以下欄位: \n*${this.alert_info.join('\n*')}`);
+            }
+
+            return allFormOk;
+        },
+        clearAndSaveMember() {
+            //檢查所有輸入
+            if (!this.checkAllInput()) {
+                //如果表單尚未填寫完畢,就不執行後續操作
+                return;
+            }
+
+            //執行保存"訂單"到資料庫
+            this.saveMemberToDb();
+
+            // //將頁面跳轉至產品頁
+            // window.location.href = "/login";
+
+        },
+        saveMemberToDb() {
+            // 整包需要的資料
+            const insertMemberData = {
+                ...this.registerForm,//寫...等於registerForm裡面所有東西
+            }
+            console.log(insertMemberData);
+
+            // //因為從表單獲取時是字串 必須全部換回int欄位(因為php有規定他是int這邊才要做)
+            // this.registerForm.cellphone = parseInt(this.registerForm.cellphone);
+
+            //把整包東西傳去資料庫
+            axios.post(`${import.meta.env.VITE_PHP_URL}` + "/front_memberSignUp.php", insertMemberData)
+                .then(res => {
+                    alert('註冊成功，請重新登入');
+                    this.$router.push('/login');
+
+                    // 假設 `this.memberData` 是一個數組，並且您想用收到的PK添加一個新會員
+                    if(Array.isArray(this.memberData)) {
+                        const newMemberNo = { member_no: res.data.PK };
+                        this.memberData.push(newMemberNo);
+                    } else {
+                        console.error('memberData is not an array');
+                    }
+                })
+                .catch(error => {
+                    console.error(error);
+                    // 這裡您可以顯示更用戶友好的錯誤消息
+                });
+            },
 
     
 	},
