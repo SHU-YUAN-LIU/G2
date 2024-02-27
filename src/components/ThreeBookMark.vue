@@ -93,12 +93,12 @@ export default {
     cursor: pointer;
     padding: 7px;
     line-height: 50px;
-    padding: 30px;
+    padding: 20px;
 }
 
 
 .ThreeBookMark_content li {
-    border-radius: 10 0px;
+    border-radius: 0px 0px 10px 10px;
     line-height: 50px;
     padding: 50px;
 }
@@ -106,6 +106,7 @@ export default {
 .ThreeBookMark_content li p {
     background-color: #fff;
     border-radius: 10px;
-    padding: 50px;
+    padding: 30px;
+    height: 0px;
 }
 </style>
