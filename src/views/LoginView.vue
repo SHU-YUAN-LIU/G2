@@ -38,11 +38,13 @@
                 </div>
                 <div class="register_phone">
                     <p>手機<span>*</span><span id="phoneerror"></span></p>
-                    <input type="phone" name="phone" id="phone" placeholder="請輸入您的手機號碼" maxlength="10" v-model="registerForm.cellphone">
+                    <input type="phone" name="phone" id="phone" placeholder="請輸入您的手機號碼" maxlength="10"
+                        v-model="registerForm.cellphone">
                 </div>
                 <div class="register_id">
                     <p>身分證<span>*</span></p>
-                    <input type="text" name="id" id="id" placeholder="請輸入您的身分證" minlength="10" v-model="registerForm.id_number">
+                    <input type="text" name="id" id="id" placeholder="請輸入您的身分證" minlength="10"
+                        v-model="registerForm.id_number">
                 </div>
                 <div class="register_psw">
                     <p>密碼<span>*</span><span id="pswerror"></span></p>
@@ -50,7 +52,8 @@
                 </div>
                 <div class="register_check_psw">
                     <p>確認密碼<span>*</span></p>
-                    <input type="text" name="checkpsw" id="checkpsw" placeholder="請再次輸入您的密碼" v-model="registerForm.check_psw">
+                    <input type="text" name="checkpsw" id="checkpsw" placeholder="請再次輸入您的密碼"
+                        v-model="registerForm.check_psw">
                 </div>
                 <div class="register_read">
                     <input type="checkbox" class="box" v-model="registerForm.read">
@@ -79,20 +82,19 @@
     <div class="login_wrap_sm">
         <div class="login_logo"><img src="../assets/image/login/logo.png" alt=""></div>
         <form method="POST" action="" class="login" id="loginformSm" @submit.prevent="memberLogin">
-        <div class="login_logo"><img src="" alt=""></div>
-        <div class="login_email">
-            <p>帳號</p>
-            <input type="email" v-model="loginForm.email">
-        </div>
-        <div class="login_psw">
-            <p>密碼</p>
-            <input type="password" v-model="loginForm.psw">
-        </div>
-        <router-link to="/signupform">尚未加入會員?</router-link>
-        <router-link to="/forgotpsw">忘記密碼?</router-link>
-        <button class="btn" type="submit">登入 ➜</button>
+            <div class="login_logo"><img src="" alt=""></div>
+            <div class="login_email">
+                <p>帳號</p>
+                <input type="email" v-model="loginForm.email">
+            </div>
+            <div class="login_psw">
+                <p>密碼</p>
+                <input type="password" v-model="loginForm.psw">
+            </div>
+            <router-link to="/signupform">尚未加入會員?</router-link>
+            <router-link to="/forgotpsw">忘記密碼?</router-link>
+            <button class="btn" type="submit">登入 ➜</button>
         </form>
-
     </div>
 </template>
 <script>
@@ -104,7 +106,7 @@ import Cookies from 'js-cookie';
 import { ref } from 'vue';
 import axios from 'axios';
 import { mapActions } from 'pinia';
-import {useUserStore} from '@/stores/user';
+import { useUserStore } from '@/stores/user';
 import { RouterView } from 'vue-router';
 import { useAuthStore } from '@/stores/authStore';
 
@@ -143,7 +145,7 @@ export default {
     components: {
         Cookies,
     },
-    computed:{
+    computed: {
     },
 
     //資料驗證
@@ -166,47 +168,47 @@ export default {
             }
         },
 
-        memberLogin(){
-            if(!this.loginForm.email || !this.loginForm.psw) {
+        memberLogin() {
+            if (!this.loginForm.email || !this.loginForm.psw) {
                 alert('請填寫電子郵件和密碼。');
                 return;
             }
-            
+            // console.log(1234);
             // 創建一個新的FormData物件
             const bodyFormData = new FormData();
             bodyFormData.append('email', this.loginForm.email);
             bodyFormData.append('psw', this.loginForm.psw);
 
-                axios({
-                        method:"post",
-                        url:`${import.meta.env.VITE_PHP_URL}` + "/front_memberLogin.php",
-                        data:bodyFormData,
-                        // headers: { "Content-Type": "multipart/form-data" },
-                }).then(res=>{
-                    // console.log(res.data); // 打印 data 属性
-                    if (res.data.error) {
-                        // 登錄失敗，顯示錯誤消息
-                        alert(res.data.msg); // 或進行本地化處理顯示給用戶
-                    } else if(res.data.member.status == 'IA') {
-                        alert('帳號已停權'); // 或進行本地化處理顯示給用戶
-                        return;
-                    }
-                    else {
-                        // 登錄成功，處理 token 和用戶資料
-                        localStorage.setItem('userToken', res.data.token);
-                        localStorage.setItem('member', JSON.stringify(res.data.member));
-                        this.$router.push('/');
-                        this.$store.checkLoginStatus();
-                    }
-                }).catch(error=>{
-                    console.log(error);
-                })
-                
+            axios({
+                method: "post",
+                url: `${import.meta.env.VITE_PHP_URL}` + "/front_memberLogin.php",
+                data: bodyFormData,
+                // headers: { "Content-Type": "multipart/form-data" },
+            }).then(res => {
+                // console.log(res.data); // 打印 data 属性
+                if (res.data.error) {
+                    // 登錄失敗，顯示錯誤消息
+                    alert(res.data.msg); // 或進行本地化處理顯示給用戶
+                } else if (res.data.member.status == 'IA') {
+                    alert('帳號已停權'); // 或進行本地化處理顯示給用戶
+                    return;
+                }
+                else {
+                    // 登錄成功，處理 token 和用戶資料
+                    localStorage.setItem('userToken', res.data.token);
+                    localStorage.setItem('member', JSON.stringify(res.data.member));
+                    this.$router.push('/');
+                    this.$store.checkLoginStatus();
+                }
+            }).catch(error => {
+                console.log(error);
+            })
+
         },
         handleSubmit() {
-            if (this.checkAllInput()) { // 假设这个函数返回true当所有输入都是有效的
+            if (this.checkAllInput) { // 假设这个函数返回true当所有输入都是有效的
                 this.clearAndSaveMember();
-            } 
+            }
         },
         checkAllInput() {
             this.alert_info = [];
@@ -215,12 +217,17 @@ export default {
 
             if (!this.registerForm.member_name) {
                 this.alert_info.push('姓名未填寫');
-                allFormOk = false; 
+                allFormOk = false;
             }
 
             if (!this.registerForm.birthday) {
                 this.alert_info.push('生日未填寫');
-                allFormOk = false; 
+                allFormOk = false;
+            }
+
+            if (!this.registerForm.email) {
+                this.alert_info.push('電子信箱未填寫');
+                allFormOk = false;
             }
 
             if (!this.registerForm.email) {
@@ -241,7 +248,7 @@ export default {
             if (!this.registerForm.password) {
                 this.alert_info.push('密碼未填寫');
                 allFormOk = false;
-            } 
+            }
             if (!this.registerForm.check_psw) {
                 this.alert_info.push('請確認密碼');
                 allFormOk = false;
@@ -259,55 +266,48 @@ export default {
             if (this.alert_info.length > 0) {
                 alert(`請填寫以下欄位: \n*${this.alert_info.join('\n*')}`);
             }
-
-            return allFormOk;
+            // return allFormOk;
+            console.log(this.memberData);
         },
         clearAndSaveMember() {
             //檢查所有輸入
-            if (!this.checkAllInput()) {
+            if (!this.checkAllInput) {
                 //如果表單尚未填寫完畢,就不執行後續操作
                 return;
             }
-
             //執行保存"訂單"到資料庫
             this.saveMemberToDb();
 
-            // //將頁面跳轉至產品頁
-            // window.location.href = "/login";
-
         },
         saveMemberToDb() {
-            // 整包需要的資料
-            const insertMemberData = {
-                ...this.registerForm,//寫...等於registerForm裡面所有東西
-            }
-            console.log(insertMemberData);
 
-            // //因為從表單獲取時是字串 必須全部換回int欄位(因為php有規定他是int這邊才要做)
-            // this.registerForm.cellphone = parseInt(this.registerForm.cellphone);
+            const memberData = new FormData();
+            memberData.append('member_name', this.registerForm.member_name);
+            memberData.append('member_birthday', this.registerForm.birthday);
+            memberData.append('member_email', this.registerForm.email);
+            memberData.append('member_cellphone', this.registerForm.cellphone);
+            memberData.append('member_id', this.registerForm.id_number);
+            memberData.append('member_psw', this.registerForm.password);
 
-            //把整包東西傳去資料庫
-            axios.post(`${import.meta.env.VITE_PHP_URL}` + "/front_memberSignUp.php", insertMemberData)
-                .then(res => {
-                    alert('註冊成功，請重新登入');
-                    this.$router.push('/login');
+            axios({
+                method: "post",
+                url: `${import.meta.env.VITE_PHP_URL}` + "/front_memberSignUp.php",
+                data: memberData,
+            }).then(res => {
+                console.log('insert data:', res.data.msg);
+                alert(res.data.msg);
+                if (res.data.error == false) {
+                    this.loginForm.email = this.registerForm.email
+                    this.loginForm.psw = this.registerForm.password
+                    this.memberLogin();
+                }
+            }).catch(error => {
+                console.error('Error fetching data:', error);
+            });
+        },
 
-                    // 假設 `this.memberData` 是一個數組，並且您想用收到的PK添加一個新會員
-                    if(Array.isArray(this.memberData)) {
-                        const newMemberNo = { member_no: res.data.PK };
-                        this.memberData.push(newMemberNo);
-                    } else {
-                        console.error('memberData is not an array');
-                    }
-                })
-                .catch(error => {
-                    console.error(error);
-                    // 這裡您可以顯示更用戶友好的錯誤消息
-                });
-            },
 
-    
-	},
+    },
     created() {
         // const user = this.checkLogin()
         // addlistener();

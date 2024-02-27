@@ -95,7 +95,6 @@ export default {
       ease: "Power1.easeInOut",
       scrollTrigger: {
         trigger: ".election_info_slide",
-        start: "top top",
         pin: ".election",
         pinSpacing: true,
         scrub: 1,

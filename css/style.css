@@ -5084,7 +5084,6 @@ form .register_read p {
 }
 
 .elecion_journey {
-  z-index: -1;
   position: relative;
 }
 .elecion_journey .journey_title {
@@ -5093,10 +5092,10 @@ form .register_read p {
 }
 .elecion_journey .journey_title h2 {
   font-family: "Mantou Sans";
-  font-size: 65px;
+  font-size: 36px;
   font-weight: initial;
   text-align: center;
-  margin-top: 70px;
+  margin-top: 100px;
 }
 @media screen and (max-width: 768px) {
   .elecion_journey .journey_title :nth-child(2) {
@@ -5114,18 +5113,33 @@ form .register_read p {
     margin: 40px auto 0;
     display: block;
     padding-left: 5px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .elecion_journey .election_container {
+    right: 0px;
+    padding: 30px;
+    height: 470px;
   }
 }
 @media screen and (max-width: 768px) {
   .elecion_journey .election_container {
     right: 0px;
-    margin-top: 20px;
     padding: 30px;
+    height: 470px;
+  }
+}
+@media screen and (max-width: 414px) {
+  .elecion_journey .election_container {
+    right: 0px;
+    padding: 30px;
+    height: 470px;
   }
 }
 .elecion_journey .election_container .mapbox {
   display: block;
-  z-index: -1;
 }
 @media screen and (max-width: 768px) {
   .elecion_journey .election_container .mapbox {
@@ -5135,15 +5149,38 @@ form .register_read p {
 .elecion_journey .election_container .journey {
   background-color: #272727;
   border-radius: 10px;
-  height: 440px;
+  height: 700px;
   width: 430px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   overflow-y: scroll;
-  position: absolute;
-  right: 1.5%;
-  top: 45%;
+  transform: translate(-1%, -25%);
+}
+@media screen and (min-width: 1200px) {
+  .elecion_journey .election_container .journey {
+    margin-right: 100px;
+    margin-top: -40px;
+    width: 450px;
+    height: 400px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .elecion_journey .election_container .journey {
+    position: initial;
+    margin-left: 131px;
+    margin-top: 122px;
+    width: 450px;
+  }
+}
+@media screen and (max-width: 414px) {
+  .elecion_journey .election_container .journey {
+    width: 320px;
+    margin-top: 126px;
+    margin-left: 23px;
+    height: 440px;
+    overflow-x: scroll;
+  }
 }
 .elecion_journey .election_container .journey h3 {
   font-family: "Noto Sans TC", sans-serif;
@@ -5155,8 +5192,16 @@ form .register_read p {
   height: 60px;
   line-height: 60px;
 }
+@media screen and (max-width: 414px) {
+  .elecion_journey .election_container .journey h3 {
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: 20px;
+  }
+}
 .elecion_journey .election_container .journey h3:nth-child(2) {
   background-color: #FF892E;
+  height: 50px;
+  line-height: 50px;
 }
 .elecion_journey .election_container .journey .journey_card {
   display: flex;
@@ -5164,11 +5209,24 @@ form .register_read p {
   border-left: 1px solid #fff;
   width: 360px;
   padding: 10px 20px;
+  height: 100px;
+}
+.elecion_journey .election_container .journey .journey_card .journey_card_img {
+  width: 100px;
+  height: 20px;
+}
+.elecion_journey .election_container .journey .journey_card .journey_card_img img {
+  width: 100%;
 }
 .elecion_journey .election_container .journey .journey_card p {
   font-size: 14px;
   line-height: 20px;
   color: #565656;
+}
+@media screen and (max-width: 414px) {
+  .elecion_journey .election_container .journey .journey_card p {
+    font-size: 14px;
+  }
 }
 .elecion_journey .election_container .journey .journey_card p:nth-child(1) {
   position: relative;
@@ -5188,40 +5246,51 @@ form .register_read p {
 .elecion_journey .election_container .journey .journey_card p:nth-child(2) {
   color: #fff;
 }
-.elecion_journey .election_container .journey .journey_card p:nth-child(3) {
-  margin-top: 30px;
-}
 .elecion_journey .election_container .journey .journey_card div:last-child::after {
   content: "";
-  width: 240%;
+  width: 331%;
   height: 1px;
   background: #FFF;
   display: block;
-  margin-left: -180px;
+  margin-left: -232px;
   margin-top: 5px;
 }
 
 .count_down {
   max-width: 100%;
 }
+@media screen and (max-width: 768px) {
+  .count_down {
+    display: none;
+  }
+}
 .count_down .countdown {
   font-family: "Mantou Sans";
   font-size: 36px;
   font-weight: initial;
   position: absolute;
-  bottom: 0px;
+  bottom: -72px;
   left: 0px;
   width: 100%;
   background-color: #fff;
-  margin: 0;
 }
 .count_down .countdown span {
   color: #000;
+}
+@media screen and (min-width: 1201px) {
+  .count_down .countdown span {
+    font-size: 60px;
+  }
 }
 .count_down .countdown div span:first-child {
   font-family: "Mantou Sans";
   font-size: 36px;
   font-weight: initial;
+}
+@media screen and (min-width: 1201px) {
+  .count_down .countdown .countdown .countdownright div span:last-child {
+    font-size: 40px;
+  }
 }
 
 .con_wrap {

@@ -14,12 +14,12 @@
                 <div class="content">
                     <ul>
                         <li>請款資料填寫:我要實名捐款</li>
-                        <li>真實姓名:王曉明</li>
-                        <li>身份證字號: H123456789</li>
-                        <li>出生年月日:1954 年 3 月 5 日</li>
-                        <li>行動電話: 0912345678</li>
-                        <li>市內電話:</li>
-                        <li>電子郵件:</li>
+                        <li>真實姓名:<span>{{ donate_name }}</span></li>
+                        <li>身份證字號: <span>{{ donate_id }}</span></li>
+                        <li>出生年月日: <span>{{ donate_birthday }}</span></li>
+                        <li>行動電話: <span>{{ donate_cellphone }}</span></li>
+                        <li>市內電話: <span>{{ donate_phone }}</span></li>
+                        <li>電子郵件: <span>{{ donate_email }}</span></li>
                         <li>捐款單位:中央黨部</li>
                         <li>捐款方式:信用卡</li>
                         <li>捐款金額:新台幣 <span>{{ donate_amount }}</span> 元</li>
@@ -104,7 +104,15 @@ export default {
                 { value: '', maxLength: 4 },
                 { value: '', maxLength: 4 },
                 { value: '', maxLength: 4 }
-            ]
+            ],
+            // 會員資訊變數
+            donate_name: '',
+            donate_id: '',
+            donate_birthday: '',
+            donate_email: '',
+            donate_cellphone: '',
+            donate_phone: '',
+            donate_no:'',
         }
     },
     created() {
@@ -192,8 +200,9 @@ export default {
             donateformdata.append('donateAmount', this.donate_amount)
             donateformdata.append('donateClass', this.donate_class)
             donateformdata.append('donatePoint', this.donate_point)
-            donateformdata.append('donateEmail', localStorage.getItem('donateEmail'))
-            donateformdata.append('donatePhone', localStorage.getItem('donatePhone'))
+            donateformdata.append('donateEmail', this.donate_email)
+            donateformdata.append('donateCellphone',this.donate_cellphone)
+            donateformdata.append('donateno', this.donate_no)
 
             // 連結php
             axios({
@@ -206,9 +215,24 @@ export default {
                 console.error('Error fetching data:', error);
             });
         },
+        memberInfo() {
+            // 假設在登入時，您已經將用戶資料保存在localStorage中，鍵是'memberData'
+            let memberData = localStorage.getItem('member');
+
+            // 由於localStorage中保存的是字符串，所以需要將其解析為JSON對象
+            memberData = JSON.parse(memberData);
+            this.donate_name = memberData.member_name;
+            this.donate_birthday = memberData.birthday;
+            this.donate_cellphone = memberData.cellphone;
+            this.donate_phone = memberData.cellphone;
+            this.donate_email = memberData.email;
+            this.donate_id = memberData.id_number;
+            this.donate_no = memberData.member_no;
+        }
     },
     mounted() {
         this.donate_num = localStorage.getItem('donate_num');
+        this.memberInfo();
     },
     computed: {
         donate_amount() {
