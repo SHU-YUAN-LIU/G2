@@ -3,15 +3,15 @@
         <!-- banner -->
         <div class="banner">
             <div ref="bannercontent" class="bannercontent">
-                <div class="bannershow">
+                <div class="bannershow" style="transform: translateX(-100vw);">
                     <img v-for="(banner, index) in bannerList" :src="getImageUrl(banner)" class="image">
                 </div>
             </div>
             <button class="bannerleft" @click="bannerleft">&lt</button>
             <button class="bannerright" @click="bannerright">></button>
             <div class="pointwrap">
-                <div class="bannerpoint" v-for="num in bannerList.length" @click="pointchangebanner(num)"
-                    :class="{ 'getdeep': currentBanner === num - 1 }"></div>
+                <div class="bannerpoint" style="display: none;" v-for="num in bannerList.length" @click="pointchangebanner(num)"
+                    :class="{ 'getdeep': currentBanner%6 === num - 1 }"></div>
             </div>
         </div>
         <!-- <button> &lt </button>
@@ -158,6 +158,7 @@ export default {
                 { title: '經濟', img: 'home/icon_money.png' },
                 { title: '政策', img: 'home/icon_taiwan.png' }
             ],
+            index:4,
             currentBanner: 0,
             slogan: [
                 '改變政治文化的社會運動，投給劉緯育，投給自己的未來!',
@@ -169,8 +170,7 @@ export default {
                 'home/banner_4.png',
                 'home/banner_2.png',
                 'home/banner_1.png',
-                'home/banner_3.png',
-                'home/banner_4.png',
+
             ],
             donateList: [
                 'home/donate_icon_1.png',
@@ -242,29 +242,68 @@ export default {
         bannerStart() {
             this.bannerauto = setInterval(() => {
                 const numBanners = this.bannerList.length;
-                this.currentBanner = (this.currentBanner + 1) % numBanners;
+                this.currentBanner = (this.currentBanner + 1);
+                const newbannerr = document.createElement('img')
+                const now = (((this.currentBanner - 1) % 3) + 1)
+                const newpic = 'home/banner_' + now + '.png'
+                console.log(now);
+                newbannerr.src = this.getImageUrl(newpic);
+                this.$refs.bannercontent.querySelector('.bannershow').appendChild(newbannerr)
                 this.move();
             }, 3000);
         },
         bannerleft() {
             clearInterval(this.bannerauto)
-            const numBanners = this.bannerList.length;
-            if (this.currentBanner == 0) {
-                this.currentBanner = 0;
-            } else {
-                this.currentBanner = (this.currentBanner - 1) % numBanners;
-            }
             this.move();
             this.bannerStart();
+            const numBanners = this.bannerList.length;
+            const firstChild = this.$refs.bannercontent.querySelector('.bannershow').firstChild;
+            const newbannerr = document.createElement('img')
+            const newpic = 'home/banner_' + this.index + '.png'
+            this.index-=1
+            if(this.index==0)
+            this.index=4
+            newbannerr.src = this.getImageUrl(newpic);
+            this.$refs.bannercontent.querySelector('.bannershow').insertBefore(newbannerr,firstChild)
+            if (this.currentBanner == 0) {
+                this.currentBanner = 0;
+                // this.currentBanner = (this.currentBanner - 1);
+            } else {
+            this.currentBanner = (this.currentBanner - 1);
+            }
+            
+        },
+        loadin(){
+            const numBanners = this.bannerList.length;
+            const firstChild = this.$refs.bannercontent.querySelector('.bannershow').firstChild;
+            const newbannerr = document.createElement('img')
+            const newpic = 'home/banner_' + this.index + '.png'
+            this.index-=1
+            if(this.index==0)
+            this.index=3
+            newbannerr.src = this.getImageUrl(newpic);
+            this.$refs.bannercontent.querySelector('.bannershow').insertBefore(newbannerr,firstChild)
+            if (this.currentBanner == 0) {
+                this.currentBanner = 0;
+                // this.currentBanner = (this.currentBanner - 1);
+            } else {
+            this.currentBanner = (this.currentBanner - 1);
+            }
         },
         bannerright() {
             clearInterval(this.bannerauto)
             const numBanners = this.bannerList.length;
-            if (this.currentBanner == numBanners - 1) {
-                this.currentBanner = numBanners - 1;
-            } else {
-                this.currentBanner = (this.currentBanner + 1) % numBanners;
-            }
+            // if (this.currentBanner == numBanners - 1) {
+            //     this.currentBanner = numBanners - 1;
+            // } else {
+            this.currentBanner = (this.currentBanner + 1);
+            // }
+            console.log(this.currentBanner);
+            const newbannerr = document.createElement('img')
+            const now = (((this.currentBanner - 1) % 4) + 1)
+            const newpic = 'home/banner_' + now + '.png'
+            newbannerr.src = this.getImageUrl(newpic);
+            this.$refs.bannercontent.querySelector('.bannershow').appendChild(newbannerr)
             this.move();
             this.bannerStart();
         },
@@ -281,6 +320,7 @@ export default {
     mounted() {
         // 設定網站標題(瀏覽器頁籤上的標題)
         document.title = '青年進補黨 - 首頁';
+        this.loadin()
         this.bannerStart();
 
 
@@ -293,7 +333,7 @@ export default {
         Background_green,
     },
     created() {
-
+        
     },
     destroyed() {
         clearInterval(this.bannerauto);
