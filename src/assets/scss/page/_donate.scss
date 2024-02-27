@@ -232,30 +232,6 @@ div.donate {
     .donate_main {
       height: 100%;
       margin: 40px 0;
-      // 背景圖片設定
-      img.icon:nth-child(1) {
-        width: 170px;
-        height: 170px;
-        left: -10px;
-        top: 0;
-        bottom: 0;
-        margin: auto;
-      }
-
-      img.icon:nth-child(2) {
-        width: 140px;
-        height: 140px;
-        right: 0px;
-        top: 0px;
-      }
-
-      img.icon:nth-child(3) {
-        width: 160px;
-        height: 160px;
-        right: -10px;
-        bottom: 0px;
-      }
-
       // 卡片區塊
       .donate_cards {
         display: flex;
@@ -281,10 +257,10 @@ div.donate {
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 400px;
+            height: 350px;
 
-            .donate_card1_top>img {
-              width: 100px;
+            img{
+              width: 180px;
             }
 
             h2 {
@@ -296,11 +272,6 @@ div.donate {
               @include title_10;
               margin-bottom: 20px;
             }
-          }
-
-          // 卡片1下半
-          .donate_card1_bottom {
-            height: 100px
           }
         }
 
