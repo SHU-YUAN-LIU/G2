@@ -10,8 +10,8 @@
             <button class="bannerleft" @click="bannerleft">&lt</button>
             <button class="bannerright" @click="bannerright">></button>
             <div class="pointwrap">
-                <div class="bannerpoint" style="display: none;" v-for="num in bannerList.length" @click="pointchangebanner(num)"
-                    :class="{ 'getdeep': currentBanner%6 === num - 1 }"></div>
+                <div class="bannerpoint" style="display: none;" v-for="num in bannerList.length"
+                    @click="pointchangebanner(num)" :class="{ 'getdeep': currentBanner % 6 === num - 1 }"></div>
             </div>
         </div>
         <!-- <button> &lt </button>
@@ -28,7 +28,7 @@
         <!-- 跑馬燈 -->
         <vueMarquee :marqueeArray="slogan" />
         <!-- 頁籤 -->
-        <div class="home_container">
+        <div class="home_container" data-aos="fade-up">
             <div class="row index_news_flex">
                 <div class="col col-12 index_news_title">政策懶人包</div>
                 <div class="policy">
@@ -158,7 +158,7 @@ export default {
                 { title: '經濟', img: 'home/icon_money.png' },
                 { title: '政策', img: 'home/icon_taiwan.png' }
             ],
-            index:4,
+            index: 4,
             currentBanner: 0,
             slogan: [
                 '改變政治文化的社會運動，投給劉緯育，投給自己的未來!',
@@ -260,34 +260,34 @@ export default {
             const firstChild = this.$refs.bannercontent.querySelector('.bannershow').firstChild;
             const newbannerr = document.createElement('img')
             const newpic = 'home/banner_' + this.index + '.png'
-            this.index-=1
-            if(this.index==0)
-            this.index=4
+            this.index -= 1
+            if (this.index == 0)
+                this.index = 4
             newbannerr.src = this.getImageUrl(newpic);
-            this.$refs.bannercontent.querySelector('.bannershow').insertBefore(newbannerr,firstChild)
+            this.$refs.bannercontent.querySelector('.bannershow').insertBefore(newbannerr, firstChild)
             if (this.currentBanner == 0) {
                 this.currentBanner = 0;
                 // this.currentBanner = (this.currentBanner - 1);
             } else {
-            this.currentBanner = (this.currentBanner - 1);
+                this.currentBanner = (this.currentBanner - 1);
             }
-            
+
         },
-        loadin(){
+        loadin() {
             const numBanners = this.bannerList.length;
             const firstChild = this.$refs.bannercontent.querySelector('.bannershow').firstChild;
             const newbannerr = document.createElement('img')
             const newpic = 'home/banner_' + this.index + '.png'
-            this.index-=1
-            if(this.index==0)
-            this.index=3
+            this.index -= 1
+            if (this.index == 0)
+                this.index = 3
             newbannerr.src = this.getImageUrl(newpic);
-            this.$refs.bannercontent.querySelector('.bannershow').insertBefore(newbannerr,firstChild)
+            this.$refs.bannercontent.querySelector('.bannershow').insertBefore(newbannerr, firstChild)
             if (this.currentBanner == 0) {
                 this.currentBanner = 0;
                 // this.currentBanner = (this.currentBanner - 1);
             } else {
-            this.currentBanner = (this.currentBanner - 1);
+                this.currentBanner = (this.currentBanner - 1);
             }
         },
         bannerright() {
@@ -333,7 +333,7 @@ export default {
         Background_green,
     },
     created() {
-        
+
     },
     destroyed() {
         clearInterval(this.bannerauto);
