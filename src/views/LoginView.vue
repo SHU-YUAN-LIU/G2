@@ -285,7 +285,6 @@ export default {
             memberData.append('member_name', this.registerForm.member_name);
             memberData.append('member_birthday', this.registerForm.birthday);
             memberData.append('member_email', this.registerForm.email);
-            console.log(this.registerForm.email);
             memberData.append('member_cellphone', this.registerForm.cellphone);
             memberData.append('member_id', this.registerForm.id_number);
             memberData.append('member_psw', this.registerForm.password);
@@ -297,7 +296,7 @@ export default {
             }).then(res => {
                 console.log('insert data:', res.data.msg);
                 alert(res.data.msg);
-                if (res.data.error == "false") {
+                if (res.data.error == false) {
                     this.loginForm.email = this.registerForm.email
                     this.loginForm.psw = this.registerForm.password
                     this.memberLogin();
