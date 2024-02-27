@@ -151,7 +151,9 @@ export default {
 
     },
   },
-
+  mounted() {
+    document.title="核心理念";
+  },
 };
 
 </script>
