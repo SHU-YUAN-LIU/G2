@@ -53,7 +53,7 @@
             <div class="home_container">
                 <div class="row index_news_flex">
                     <div class="col col-12 index_news_title">最新消息</div>
-                    <a class="col col-4 index_news_card" href="#">
+                    <a class="col col-4 index_news_card" href="#" data-aos="zoom-out-up">
                         <div>
                             <img :src="getImageUrl(news_card[0].news_img)">
                         </div>
@@ -64,8 +64,12 @@
                         </div>
                     </a>
                     <div class="row col col-6 news_index_inner_flex">
-                        <a v-for="(item, index) in get_for_range(news_card, 1, 2)" :key="index" class="col index_news_card"
-                            href="#">
+                        <a 
+                        v-for="(item, index) in get_for_range(news_card, 1, 2)" 
+                        :key="index" class="col index_news_card"
+                        data-aos="fade-left"
+                        href="#"
+                        >
                             <div>
                                 <img :src="getImageUrl(item.news_img)">
                             </div>
@@ -90,7 +94,7 @@
         <div class="home_container">
             <div class="row index_news_flex">
                 <div class="col col-12 index_news_title">假消息澄清</div>
-                <a class="col col-4 index_news_card" href="#">
+                <a class="col col-4 index_news_card" href="#" data-aos="fade-down-right">
                     <div>
                         <img :src="getImageUrl(clarifications[0].news_img)">
                     </div>
@@ -102,7 +106,7 @@
                 </a>
                 <div class="row col col-6 news_index_inner_flex">
                     <a v-for="(clarification, index) in get_for_range(clarifications, 1, 2)" :key="index"
-                        class="col index_news_card" href="#">
+                        class="col index_news_card" href="#" data-aos="fade-down-left">
                         <div>
                             <img :src="getImageUrl(clarification.news_img)">
                         </div>
@@ -210,14 +214,14 @@ export default {
                 news_img: "home/index_news_pic2.png",
                 date_time: "2023/12/25",
                 news_title: "青年進補黨領袖擘畫未來藍圖",
-                news_script: "青年進補黨領袖在國旗映襯下發表了振奮人心的演講，承諾將進行重要的政治改革。面對眾多關注的目光，他強調政策的透明度和公正性，呼籲公眾不應輕信未經證實的指控。每個字眼都體現了本黨秉持中立和理性的核心價值，展現出對國家未來的堅定信念和清晰方向。"
+                news_script: "青年進補黨領袖發表振奮人心的演講，承諾將進行重要的政治改革。面對眾多關注的目光，每個字眼都體現了本黨秉持中立和理性的核心價值，展現出對國家未來的堅定信念和清晰方向。"
             },
             {
                 id: 3,
                 news_img: "home/index_news_pic3.png",
                 date_time: "2023/12/25",
                 news_title: "群眾聚焦青年進補黨的願景",
-                news_script: "本黨領袖在晨光中對著龐大的人群發表演說，他的言論充滿了對國家未來的希望與決心，並呼籲群眾團結一致，共同努力實現共同的目標。在這關鍵時刻，本黨展現了連結民心的能力，以及推動社會進步和積極變革的承諾。"
+                news_script: "本黨領袖發表演說，他的言論充滿對國家未來的希望與決心，並呼籲群眾團結一致，共同努力實現共同的目標。在這關鍵時刻，本黨展現了連結民心的能力，以及推動社會進步的承諾。"
             }],
         }
     },
