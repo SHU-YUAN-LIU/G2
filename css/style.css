@@ -503,9 +503,15 @@ body {
 }
 
 @media (max-width: 768px) {
+  .bread {
+    height: 35px;
+  }
   .bread ul {
     max-width: 600px;
     padding-left: 20px;
+  }
+  .bread ul li {
+    font-size: 14px;
   }
   .bread ul li:last-child:after {
     width: 180px;
@@ -558,6 +564,13 @@ body {
   font-size: 93px;
   text-align: center;
 }
+@media screen and (max-width: 1280px) {
+  .countdown {
+    font-size: 65px;
+    margin: 32px 0;
+    color: #000;
+  }
+}
 @media (width < 1200px) {
   .countdown {
     flex-direction: column;
@@ -581,7 +594,7 @@ body {
 }
 .countdown .countdownright div span:first-child {
   color: #FF892E;
-  font-size: 65px;
+  font-size: 48px;
 }
 @media (width < 576px) {
   .countdown .countdownright div span:first-child {
@@ -681,18 +694,26 @@ body {
   background-color: #D4FF1F;
   width: 100%;
   height: 75px;
-  font-size: 16px;
   line-height: 75px;
   font-family: "Noto Sans TC", sans-serif;
-  padding-right: 20px;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  overflow: hidden;
 }
 
 .marqbtn {
-  width: 104px;
-  height: 28px;
-  border-radius: 25px;
-  border: 0;
+  width: 120px;
+  height: 35px;
+  border-radius: 50px;
+  border: 1px solid rgb(255, 255, 255);
+  background-color: #FFF;
+  box-shadow: 0 0 10px rgba(181, 219, 27, 0.862745098);
   font-family: "Noto Sans TC", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin: 0 10px;
 }
 .marqbtn a {
   color: #000;
@@ -785,13 +806,20 @@ body {
 }
 
 #scened {
+  /*PC板 */
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 60vh;
   perspective: 2000px;
   width: 500px;
   margin: -300px auto 0;
+  /* 筆電 */
+}
+@media screen and (max-width: 1280px) {
+  #scened {
+    height: 100vh;
+  }
 }
 
 #scene {
@@ -834,7 +862,12 @@ body {
 .rotate_button {
   display: flex;
   justify-content: space-evenly;
-  margin: 2% 0 3%;
+  margin: 5% 0 3%;
+}
+@media screen and (max-width: 1280px) {
+  .rotate_button {
+    margin: 3% 0 3%;
+  }
 }
 .rotate_button #rotateLeftBtn,
 .rotate_button #rotateRightBtn {
@@ -1130,14 +1163,16 @@ header nav .nav_icons {
   justify-content: space-evenly;
 }
 header nav .nav_icons .icon {
+  position: relative;
   display: flex;
   flex-direction: column;
+  gap: 3px;
   width: 78px;
-  height: 58px;
   align-items: center;
   border: 2px solid #FF892E;
   border-radius: 10px;
   cursor: pointer;
+  padding: 5px 0px;
 }
 header nav .nav_icons .icon img {
   width: 25px;
@@ -1472,7 +1507,7 @@ footer {
 }
 
 .about_wrap {
-  width: 1250px;
+  width: 80%;
   margin: auto;
 }
 @media (width < 1400px) {
@@ -1769,7 +1804,6 @@ footer {
 
 @media (max-width: 991px) {
   .Value-main-container {
-    max-width: 100%;
     margin-top: 40px;
   }
 }
@@ -1836,13 +1870,14 @@ footer {
   background-color: #fff;
   display: flex;
   flex-direction: column;
-  align-self: stretch;
+  position: relative;
   color: #000;
   white-space: nowrap;
   text-align: justify;
   width: 450px;
   margin: auto 0;
-  padding: 50px 80px;
+  padding: 50px;
+  height: 300px;
 }
 
 @media (max-width: 768px) {
@@ -1855,10 +1890,9 @@ footer {
   }
 }
 .Value-sub-title {
-  justify-content: center;
   letter-spacing: 3.6px;
-  margin-top: 23px;
   font: 600 36px/131% Noto Sans, sans-serif;
+  text-align: center;
 }
 
 @media (max-width: 991px) {
@@ -1867,12 +1901,15 @@ footer {
     padding: 10px;
   }
 }
-.Value-divider {
-  background-color: #000;
-  margin-top: 22px;
-  width: 259px;
-  max-width: 100%;
+.Value-sub-title::after {
+  content: "";
+  display: block;
+  width: 77%;
   height: 1px;
+  position: absolute;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: #000;
 }
 
 @media (max-width: 991px) {
@@ -1900,6 +1937,7 @@ footer {
 .Value-content p {
   width: 100%;
   white-space: pre-line; /* 新增這行 */
+  margin-top: 20px;
 }
 
 .Value-img-container {
@@ -2558,26 +2596,6 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
     height: 100%;
     margin: 40px 0;
   }
-  div.donate .donate_main img.icon:nth-child(1) {
-    width: 170px;
-    height: 170px;
-    left: -10px;
-    top: 0;
-    bottom: 0;
-    margin: auto;
-  }
-  div.donate .donate_main img.icon:nth-child(2) {
-    width: 140px;
-    height: 140px;
-    right: 0px;
-    top: 0px;
-  }
-  div.donate .donate_main img.icon:nth-child(3) {
-    width: 160px;
-    height: 160px;
-    right: -10px;
-    bottom: 0px;
-  }
   div.donate .donate_main .donate_cards {
     display: flex;
     flex-direction: column;
@@ -2600,10 +2618,10 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 400px;
+    height: 350px;
   }
-  div.donate .donate_main .donate_cards .donate_card1 .donate_card1_top .donate_card1_top > img {
-    width: 100px;
+  div.donate .donate_main .donate_cards .donate_card1 .donate_card1_top img {
+    width: 180px;
   }
   div.donate .donate_main .donate_cards .donate_card1 .donate_card1_top h2 {
     height: 60px;
@@ -2613,9 +2631,6 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
     font-family: "Noto Sans TC", sans-serif;
     font-size: 16px;
     margin-bottom: 20px;
-  }
-  div.donate .donate_main .donate_cards .donate_card1 .donate_card1_bottom {
-    height: 100px;
   }
   div.donate .donate_main .donate_cards .donate_card2 {
     max-width: 350px;
@@ -2910,6 +2925,9 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
   background-color: #FF892E;
   color: #FFF;
 }
+.donate_page .donate_page_main .donate_page_content .donate_page_attention {
+  letter-spacing: 1px;
+}
 
 @media (max-width: 768px) {
   .donate_page h4 {
@@ -2965,15 +2983,19 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
   }
   .donate_page .donate_page_main .donate_page_content .donate_page_amount ul li {
     width: 300px;
+    position: relative;
+    left: 30px;
   }
   .donate_page .donate_page_main .donate_page_content .donate_page_amount ul li .donate_point {
-    width: 100px;
-    height: 100px;
-    left: -50px;
-    font-size: 24px;
+    width: 80px;
+    height: 80px;
+    left: -30px;
+    top: -60px;
+    font-size: 20px;
+    line-height: 80PX;
   }
   .donate_page .donate_page_main .donate_page_content .donate_page_amount ul li .donate_point span {
-    font-size: 16px;
+    font-size: 14px;
   }
   .donate_page .donate_page_main .donate_page_content .donate_detail {
     font-size: 16px;
@@ -2995,6 +3017,9 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
     text-align: center;
     background-color: #FF892E;
     color: #FFF;
+  }
+  .donate_page .donate_page_main .donate_page_attention {
+    line-height: 20px;
   }
 }
 .donate_confirm .donate_confirm_banner {
@@ -3166,6 +3191,10 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
     max-width: 350px;
     margin: auto;
   }
+  .donate_confirm .donate_container h3 {
+    margin-top: 80px;
+    margin-bottom: 20px;
+  }
   .donate_confirm .donate_container .content {
     padding: 15px;
   }
@@ -3187,6 +3216,9 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
     padding-left: 10px;
     line-height: 40px;
   }
+  .donate_confirm .donate_container .donate_detail_table p {
+    margin-top: 0;
+  }
   .donate_confirm .donate_container .donate_detail_table table th {
     font-family: "Noto Sans TC", sans-serif;
     font-size: 16px;
@@ -3203,7 +3235,7 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
     flex: 1;
   }
   .donate_confirm .donate_container .donete_payment .credit_card label {
-    width: 100px;
+    width: 140px;
     margin: 0;
     padding: 0;
   }
@@ -3214,7 +3246,10 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
   }
   .donate_confirm .donate_container .donete_payment .credit_card div input {
     margin-bottom: 20px;
-    width: 220px;
+    width: 235px;
+  }
+  .donate_confirm .donate_container .donete_payment .credit_card .credit_dash {
+    display: none;
   }
   .donate_confirm .donate_confirm_button {
     max-width: 350px;
@@ -3228,7 +3263,8 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
     letter-spacing: 1.5px;
     color: #FFF;
     border: none;
-    margin: 60px 0;
+    margin-top: 20px;
+    margin-bottom: 60px;
     cursor: pointer;
   }
 }
@@ -3263,8 +3299,8 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
   font-family: "Mantou Sans";
   font-size: 65px;
   font-weight: initial;
-  margin-bottom: 40px;
-  margin-top: 60px;
+  margin-bottom: 30px;
+  margin-top: 105px;
 }
 @media (width < 768px) {
   .index_news_flex .index_news_title {
@@ -3354,7 +3390,7 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 40px;
+  padding: 55px 0 80px;
   gap: 10px;
 }
 .home_line_button .home_line {
@@ -3465,7 +3501,7 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
 }
 
 .policy {
-  width: 100%;
+  width: 80%;
   max-width: 1020px;
   display: flex;
   gap: 100px;
@@ -3480,13 +3516,11 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
   border-radius: 50%;
   width: 200px;
   height: 200px;
-  padding-top: 40px;
+  padding-top: 55px;
   position: relative;
 }
 .policy h3 span:not(span:nth-child(3)) {
-  line-height: 50px;
   position: relative;
-  top: 10px;
 }
 .policy h3 span:nth-child(3) {
   width: 100px;
@@ -3494,9 +3528,8 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
   border-radius: 50%;
   position: absolute;
   z-index: -1;
-  right: -30px;
-  bottom: -30px;
-  opacity: 0.4;
+  right: -50px;
+  bottom: -40px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -3506,19 +3539,22 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
   height: 50px;
 }
 .policy h3:nth-child(1) {
-  background: #FF892E;
+  background: #FFF;
+  border: 7px solid #FF892E;
 }
 .policy h3:nth-child(1) span:nth-child(3) {
   background: #FF892E;
 }
 .policy h3:nth-child(2) {
-  background: #D4FF1F;
+  background: #FFF;
+  border: 7px solid #D4FF1F;
 }
 .policy h3:nth-child(2) span:nth-child(3) {
   background: #D4FF1F;
 }
 .policy h3:nth-child(3) {
-  background: #93E6D7;
+  background: #FFF;
+  border: 7px solid #93E6D7;
 }
 .policy h3:nth-child(3) span:nth-child(3) {
   background: #93E6D7;
@@ -3528,6 +3564,51 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
   height: 60px;
 }
 
+@media screen and (max-width: 768px) {
+  .policy h3 {
+    font-family: "Mantou Sans";
+    font-size: 28px;
+    font-weight: initial;
+    width: 130px;
+    height: 130px;
+    padding-top: 30px;
+  }
+  .policy h3 span:not(span:nth-child(3)) {
+    position: relative;
+  }
+  .policy h3 span:nth-child(3) {
+    width: 80px;
+    height: 80px;
+    right: -53px;
+    bottom: -30px;
+  }
+  .policy h3 span:nth-child(3) img {
+    width: 40px;
+    height: 40px;
+  }
+  .policy h3:nth-child(1) {
+    background: #FFF;
+    border: 7px solid #FF892E;
+  }
+  .policy h3:nth-child(1) span:nth-child(3) {
+    background: #FF892E;
+  }
+  .policy h3:nth-child(2) {
+    background: #FFF;
+    border: 7px solid #D4FF1F;
+  }
+  .policy h3:nth-child(2) span:nth-child(3) {
+    background: #D4FF1F;
+  }
+  .policy h3:nth-child(3) {
+    background: #FFF;
+    border: 7px solid #93E6D7;
+  }
+  .policy h3:nth-child(3) span:nth-child(3) img {
+    width: 40px;
+    height: 40px;
+  }
+}
 .login_wrap_sm {
   display: none;
 }
@@ -4820,7 +4901,18 @@ form .register_read p {
 .pro-info-wrap {
   position: relative;
   padding-bottom: 280px;
-  padding-top: 85px;
+  padding-top: 120px;
+}
+@media screen and (max-width: 768px) {
+  .pro-info-wrap {
+    padding-bottom: 120px;
+    padding-top: 80px;
+  }
+}
+@media screen and (max-width: 414px) {
+  .pro-info-wrap {
+    padding-top: 60px;
+  }
 }
 
 .pro_info_group {
@@ -4885,7 +4977,7 @@ form .register_read p {
   flex-direction: row-reverse;
   justify-content: space-between;
   align-items: flex-end;
-  padding: 25px 0 75px;
+  padding: 25px 0;
 }
 .pro_info_group .proText_group .proText-content .have-pro .pro-num-state {
   font-family: "Noto Sans TC", sans-serif;
@@ -4937,6 +5029,10 @@ form .register_read p {
   align-items: center;
   gap: 20px;
 }
+.pro_info_group .proPic_group .littlePic div {
+  width: 125px;
+  height: 125px;
+}
 .pro_info_group .proPic_group .littlePic div img {
   width: 100%;
   height: 100%;
@@ -4950,8 +5046,7 @@ form .register_read p {
   margin: auto;
   margin-bottom: 50px;
   display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -4978,54 +5073,153 @@ form .register_read p {
 }
 .pro_info_main .product_info_title_pic {
   width: 100%;
+  margin-bottom: 50px;
 }
 .pro_info_main .product_info_title_pic img {
-  margin-top: 30px;
   width: 100%;
   vertical-align: middle;
 }
 
+@media screen and (max-width: 1280px) {
+  .pro_info_group {
+    width: 80%;
+  }
+  .pro_info_main {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .pro_info_group {
+    flex-direction: column-reverse;
+  }
+  .pro_info_group .proText_group {
+    width: 100%;
+  }
+  .pro_info_group .proText_group .proText-content .pro-info-price {
+    padding-top: 20px;
+  }
+  .pro_info_group .proText_group .proText-content .have-pro {
+    padding: 25px 0 20px;
+  }
+  .pro_info_group .proPic_group .bigPic {
+    width: 100%;
+    height: 450px;
+  }
+  .pro_info_group .proPic_group .littlePic {
+    width: 100%;
+  }
+  .pro_info_group .proPic_group .littlePic div {
+    width: 150px;
+  }
+  .pro_info_group .proPic_group .littlePic div img {
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .pro_info_main {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 414px) {
+  .pro-info-wrap {
+    padding-bottom: 20px;
+  }
+  .pro_info_group .proText_group .proText-title p {
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: 20px;
+  }
+  .pro_info_group .proText_group .proText-title .proLine {
+    margin-block: 12px;
+  }
+  .pro_info_group .proText_group .proText-title span {
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: 16px;
+  }
+  .pro_info_group .proText_group .proText-content .pro-info-price span {
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: 20px;
+  }
+  .pro_info_group .proText_group .proText-content .have-pro .pro-num-state {
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: 16px;
+  }
+  .pro_info_group .proText_group .proText-content .have-pro #num div {
+    padding: 13px 20px;
+  }
+  .pro_info_group .proText_group .proText-content .have-pro #num button {
+    padding: 13.2px;
+  }
+  .pro_info_group .proPic_group {
+    gap: 10px;
+  }
+  .pro_info_group .proPic_group .bigPic {
+    height: 250px;
+  }
+  .pro_info_group .proPic_group .littlePic {
+    gap: 10px;
+  }
+  .pro_info_group .proPic_group .littlePic div {
+    width: 125px;
+    height: 65px;
+  }
+  .pro_info_main .product_info_title {
+    font-size: 40px;
+  }
+  .pro_info_main .product_info_title_pic {
+    margin-bottom: 20px;
+  }
+  .pro_info_main .product_info_script {
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: 16px;
+    padding: 0 0 25px;
+  }
+}
 .election {
   /* banner */
-  /* 手機版 */
   /* 候選人資訊 */
   /* 跑馬燈 */
 }
 .election .election_banner {
-  /* 父元素最大寬度設為100%，以適應不同屏幕 */
+  /* 手機版 */
+  background-image: url("../../../../public/image/election/banner-414px.png");
+  width: 100%;
   height: 300px;
-  -o-object-fit: cover;
-     object-fit: cover;
-  /* 高度自動調整以保持圖片的比例 */
-  margin-top: 80px;
+  background-repeat: no-repeat;
+  margin-top: 76px;
   /*平板 */
+  /* 筆電 */
   /*PC板 */
-}
-.election .election_banner img {
-  max-width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  display: block;
 }
 @media screen and (min-width: 768px) {
   .election .election_banner {
-    background-image: url("@/assets/image/election/banner-768px.png");
-    background-repeat: no-repeat;
+    background-image: url("../../../../public/image/election/banner-768px.png");
+    height: 400px;
   }
 }
 @media screen and (min-width: 1200px) {
   .election .election_banner {
-    background-image: url("@/assets/image/election/banner-1920px.png");
-    background-repeat: no-repeat;
+    background-image: url("../../../../public/image/election/banner-1280px.png");
+    height: 500px;
   }
 }
-.election .horizontal-sliders {
+@media screen and (min-width: 1920px) {
+  .election .election_banner {
+    background-image: url("../../../../public/image/election/banner-1920px.png");
+    height: 600px;
+  }
+}
+.election .horizontal-sliders-PC {
   display: flex;
   flex-wrap: no-wrap;
   width: 200%;
   overflow-x: hidden;
 }
-.election .horizontal-sliders .election_info_slide {
+@media screen and (max-width: 768px) {
+  .election .horizontal-sliders-PC {
+    display: none;
+  }
+}
+.election .horizontal-sliders-PC .election_info_slide {
   display: flex;
   height: 90vh;
   width: 100%;
@@ -5033,40 +5227,96 @@ form .register_read p {
   align-items: center;
   gap: 230px;
 }
-.election .horizontal-sliders .election_info_slide img {
+@media screen and (max-width: 768px) {
+  .election .horizontal-sliders-PC .election_info_slide {
+    display: flex;
+    flex-direction: column;
+  }
+}
+.election .horizontal-sliders-PC .election_info_slide img {
   height: 90%;
 }
-.election .horizontal-sliders .election_info_slide ul li {
+@media screen and (max-width: 768px) {
+  .election .horizontal-sliders-PC .election_info_slide img {
+    display: none;
+  }
+}
+.election .horizontal-sliders-PC .election_info_slide ul li {
   padding: 10px 10px;
   font-size: 24px;
 }
-.election .horizontal-sliders .election_info_slide ul li:nth-child(1) {
+.election .horizontal-sliders-PC .election_info_slide ul li:nth-child(1) {
   color: #9D9D9D;
   font-family: "Mantou Sans";
   font-size: 28px;
   font-weight: initial;
 }
-.election .horizontal-sliders .election_info_slide ul li:nth-child(2) {
+.election .horizontal-sliders-PC .election_info_slide ul li:nth-child(2) {
   color: #FF892E;
   font-family: "Mantou Sans";
   font-size: 65px;
   font-weight: initial;
   border-bottom: 1px solid black;
 }
-.election .horizontal-sliders .election_info_slide ul li:nth-child(3) {
+.election .horizontal-sliders-PC .election_info_slide ul li:nth-child(3) {
   font-family: "Mantou Sans";
   font-size: 36px;
   font-weight: initial;
 }
-.election .horizontal-sliders .election_info_slide ul li:nth-child(5) {
+.election .horizontal-sliders-PC .election_info_slide ul li:nth-child(5) {
   font-family: "Mantou Sans";
   font-size: 36px;
+  font-weight: initial;
+}
+@media screen and (min-width: 1280px) {
+  .election .horizontal-sliders_phone {
+    display: none;
+  }
+}
+.election .horizontal-sliders_phone ul li {
+  padding: 10px 10px;
+  font-size: 16px;
+}
+.election .horizontal-sliders_phone ul li:nth-child(1) {
+  color: #9D9D9D;
+  font-family: "Mantou Sans";
+  font-size: 36px;
+  font-weight: initial;
+}
+.election .horizontal-sliders_phone ul li:nth-child(2) {
+  color: #FF892E;
+  font-family: "Mantou Sans";
+  font-size: 36px;
+  font-weight: initial;
+  border-bottom: 1px solid black;
+}
+.election .horizontal-sliders_phone ul li:nth-child(3) {
+  font-family: "Mantou Sans";
+  font-size: 28px;
+  font-weight: initial;
+}
+.election .horizontal-sliders_phone ul li:nth-child(5) {
+  font-family: "Mantou Sans";
+  font-size: 28px;
   font-weight: initial;
 }
 .election .election_marquee {
   background-color: #D4FF1F;
 }
-.election .election_policy {
+.election .election_policy_container {
+  height: 700px;
+}
+@media screen and (max-width: 1280px) {
+  .election .election_policy_container {
+    height: 500px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .election .election_policy_container {
+    display: none;
+  }
+}
+.election .election_policy_container .election_policy {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -5074,13 +5324,39 @@ form .register_read p {
   position: relative;
   margin-bottom: 8%;
 }
-.election .election_policy .policy_title {
+.election .election_policy_container .election_policy .policy_title {
   font-family: "Mantou Sans";
   font-size: 65px;
   font-weight: initial;
 }
+.election .bookmark {
+  margin-top: 50px;
+}
+.election .bookmark .election_policy {
+  display: flex;
+  justify-content: center;
+}
+.election .bookmark .election_policy .policy_title {
+  font-family: "Mantou Sans";
+  font-size: 65px;
+  font-weight: initial;
+}
+@media screen and (min-width: 1280px) {
+  .election .bookmark {
+    display: none;
+  }
+}
 .election .election_background .background {
   bottom: -30px;
+}
+@media screen and (max-width: 1280px) {
+  .election .election_background .background {
+    bottom: -150px;
+  }
+}
+
+.election_footer {
+  margin-top: 130px;
 }
 
 .elecion_journey {
@@ -5271,26 +5547,29 @@ form .register_read p {
   position: absolute;
   bottom: -72px;
   left: 0px;
-  width: 100%;
   background-color: #fff;
+  margin: 0px 0px 105px 463px;
+}
+@media screen and (min-width: 1200px) {
+  .count_down .countdown {
+    font-size: 40px;
+    text-align: center;
+    margin: 0 0 75px 150px;
+  }
 }
 .count_down .countdown span {
   color: #000;
 }
 @media screen and (min-width: 1201px) {
   .count_down .countdown span {
-    font-size: 60px;
+    font-size: 40px;
+    text-align: center;
   }
 }
 .count_down .countdown div span:first-child {
   font-family: "Mantou Sans";
   font-size: 36px;
   font-weight: initial;
-}
-@media screen and (min-width: 1201px) {
-  .count_down .countdown .countdown .countdownright div span:last-child {
-    font-size: 40px;
-  }
 }
 
 .con_wrap {
