@@ -27,4 +27,12 @@
         }
 
     }
+
+    @media (width<=414px) {
+        height: 35px;
+        font-weight: 600;
+        font-size: 15px;
+        padding: 0 0;
+        margin-top: 0px !important;
+    }
 }

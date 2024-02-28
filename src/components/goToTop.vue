@@ -39,6 +39,10 @@ export default {
     bottom: 50px;
     transition: bottom 0.3s ease-in-out;
 
+    @media(width<=414px) {
+        display: none;
+    }
+
 }
 
 .goToTop span:last-child {
