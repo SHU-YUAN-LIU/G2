@@ -45,7 +45,7 @@
         <div class="home_line_button">
             <div class="home_line"></div>
             <router-link to="/election">
-                <CommitButton class="homebutton dog" commitButton="立即前往"></CommitButton>
+                <CommitButton class="homebutton " commitButton="立即前往"></CommitButton>
             </router-link>
         </div>
         <!-- 消息-->
@@ -53,7 +53,7 @@
             <div class="home_container">
                 <div class="row index_news_flex">
                     <div class="col col-12 index_news_title">最新消息</div>
-                    <a class="col col-4 index_news_card" href="#" data-aos="zoom-out-up">
+                    <router-link to="/news" class="col col-4 index_news_card" data-aos="zoom-out-up">
                         <div>
                             <img :src="getImageUrl(news_card[0].news_img)">
                         </div>
@@ -62,10 +62,11 @@
                             <p class="index_news_card_header">{{ news_card[0].news_title }}</p>
                             <p>{{ news_card[0].news_script }}</p>
                         </div>
-                    </a>
+                    </router-link>
+                    <!-- 新聞右邊兩則卡片 -->
                     <div class="row col col-6 news_index_inner_flex">
-                        <a v-for="(item, index) in get_for_range(news_card, 1, 2)" :key="index" class="col index_news_card"
-                            data-aos="fade-left" href="#">
+                        <router-link to="/news" v-for="(item, index) in get_for_range(news_card, 1, 2)" :key="index"
+                            class="col index_news_card" data-aos="fade-left">
                             <div>
                                 <img :src="getImageUrl(item.news_img)">
                             </div>
@@ -74,7 +75,7 @@
                                 <p class="index_news_card_header">{{ item.news_title }}</p>
                                 <p>{{ item.news_script }}</p>
                             </div>
-                        </a>
+                        </router-link>
                     </div>
                 </div>
             </div>
@@ -90,7 +91,7 @@
         <div class="home_container">
             <div class="row index_news_flex">
                 <div class="col col-12 index_news_title">假消息澄清</div>
-                <a class="col col-4 index_news_card" href="#" data-aos="fade-down-right">
+                <router-link to="/news" class="col col-4 index_news_card" href="#" data-aos="fade-down-right">
                     <div>
                         <img :src="getImageUrl(clarifications[0].news_img)">
                     </div>
@@ -99,10 +100,10 @@
                         <p class="index_news_card_header">{{ clarifications[0].news_title }}</p>
                         <p>{{ clarifications[0].news_script }}</p>
                     </div>
-                </a>
+                </router-link>
                 <div class="row col col-6 news_index_inner_flex">
-                    <a v-for="(clarification, index) in get_for_range(clarifications, 1, 2)" :key="index"
-                        class="col index_news_card" href="#" data-aos="fade-up-left">
+                    <router-link to="/news" v-for="(clarification, index) in get_for_range(clarifications, 1, 2)"
+                        :key="index" class="col index_news_card" href="#" data-aos="fade-up-left">
                         <div>
                             <img :src="getImageUrl(clarification.news_img)">
                         </div>
@@ -111,7 +112,7 @@
                             <p class="index_news_card_header">{{ clarification.news_title }}</p>
                             <p>{{ clarification.news_script }}</p>
                         </div>
-                    </a>
+                    </router-link>
                 </div>
             </div>
         </div>
@@ -125,10 +126,12 @@
         <div class="donate_container">
 
             <img v-for="donateImg in donateList" :src="getImageUrl(donateImg)" alt="" class="icon">
-            <div>
+            <div data-aos="fade-up">
                 <h2>小額捐款, 作伙相挺</h2>
                 <div class="donate_content">
-                    <div class="donate-pic"><img src="/image/home/donate_img.png" alt=""></div>
+                    <div class="donate-pic">
+                        <img src="/image/home/donate_img.png" alt="">
+                    </div>
                     <p>2024 總統大選，面對這光榮民主的一戰，我們需要更多社會支持，邀請大家加入 Team Taiwan，一起挺台灣！</p>
                 </div>
             </div>
@@ -338,7 +341,7 @@ export default {
         Background_green,
     },
 
-    
+
 }
 </script>
 
@@ -347,88 +350,9 @@ export default {
 @import '../assets/scss/base/font';
 @import '../assets/scss/base/color';
 
-.body {
-    background: linear-gradient(-10deg, #D4FF1F 0% 15%, rgba(255, 255, 255, 0) 15% 100%);
-}
-
-.donate_container {
-    width: 100%;
-    margin-top: 100px;
-    position: relative;
-    border-radius: $border-radius-1;
-
-    @media screen and (max-width: 786px) {
-        // padding-top: 218px;
-        padding-bottom: 200px;
-    }
-}
-
-.donate_container h2 {
-    @include title_2;
-    height: 100px;
-    text-align: center;
-    position: relative;
-    margin-top: 105px;
-    margin-bottom: 60px;
-
-    @media screen and (max-width: 414px) {
-        @include title_3;
-        margin-top: 20px;
-    }
-
-}
-
-.donate_container p {
-    @include title_7;
-    margin: auto;
-    line-height: 40px;
-    padding: 0px 40px;
-    text-align: justify;
-
-    @media screen and (max-width: 786px) {
-        line-height: 45px;
-    }
-}
-
-
-.donate_content {
-    height: 300px;
-    background-color: $white;
-    margin: auto;
-    border-radius: 10px;
-    display: flex;
-
-
-    @media screen and (max-width: 768px) {
-        display: flex;
-        flex-direction: column;
-
-        align-items: center;
-        height: 330px;
-
-        .donate-pic {
-            width: 70%;
-
-            img {
-                border-radius: 10px;
-            }
-        }
-
-        p {
-            // width: initial;
-
-
-            background-color: #fff;
-            // padding: 10px;
-            border-radius: 10px;
-        }
-
-
-    }
-}
 
 .donate_container>div>div {
-    width: 70%;
+    width: 68%;
     // 元素前後順序: 有定位 > 沒定位, 如果取消相對定位, container會被背景圖案蓋住
     position: relative;
 
@@ -442,11 +366,11 @@ export default {
 }
 
 .donate_container>img:nth-child(1) {
-    bottom: 20px;
-    right: 20px;
+    bottom: 35px;
+    right: 140px;
     margin: auto;
-    width: 100px;
-    height: 100px;
+    width: 105px;
+    height: 105px;
 
     @media screen and (max-width: 768px) {
         top: -2px;
@@ -455,28 +379,58 @@ export default {
 
 .donate_container>img:nth-child(2) {
     right: 70px;
-    top: -100px;
+    // top: -100px;
     width: 180px;
     height: 180px;
+    transition: top 0.5s ease-in-out;
+    animation: coin2 2s infinite;
 
     @media screen and (max-width: 769px) {
         display: none;
+    }
+}
+
+@keyframes coin2 {
+    0% {
+        top: 20px;
+    }
+
+    50% {
+        top: 40px;
+    }
+
+    /* 调整到您希望的垂直位置 */
+    100% {
+        top: 20px;
     }
 }
 
 .donate_container>img:nth-child(3) {
-    left: 60px;
-    top: -25px;
+    left: 77px;
+    top: 12px;
     width: 200px;
     height: 200px;
+    transition: top 0.5s ease-in-out;
+    animation: coin1 1.5s infinite;
 
     @media screen and (max-width: 769px) {
         display: none;
     }
 }
 
+@keyframes coin1 {
 
-.commit_btn {
-    margin: initial;
+    0% {
+        top: 20px;
+    }
+
+    50% {
+        top: 30px;
+    }
+
+    /* 调整到您希望的垂直位置 */
+    100% {
+        top: 20px;
+    }
 }
 </style>

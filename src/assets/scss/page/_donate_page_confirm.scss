@@ -204,7 +204,7 @@
             max-width: 350px;
             margin: auto;
 
-            h3{
+            h3 {
                 margin-top: 80px;
                 margin-bottom: 20px;
             }
@@ -244,9 +244,10 @@
 
             // 捐款明細
             .donate_detail_table {
-                p{
+                p {
                     margin-top: 0;
                 }
+
                 table {
                     th {
                         @include title_10;
@@ -292,6 +293,7 @@
 
                         }
                     }
+
                     .credit_dash {
                         display: none;
                     }
