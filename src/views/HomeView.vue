@@ -409,7 +409,7 @@ export default {
     animation: coin1 1.5s infinite;
 
     @media screen and (max-width: 1280px) {
-        left: 50px;
+        left: 20px;
         top: 23px;
     }
 
