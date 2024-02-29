@@ -6609,6 +6609,10 @@ form .register_read p {
   position: relative;
   margin-top: 120px;
 }
+.member_wrap .member_profile .member_profile_pic {
+  width: 210px;
+  border-radius: 50%;
+}
 .member_wrap .member_profile .edit_icon {
   position: absolute;
   top: 150px;
