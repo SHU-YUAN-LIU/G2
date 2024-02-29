@@ -1,10 +1,14 @@
 <template>
     <a href="#">
         <div class="goToTop">
-            <span class="material-symbols-outlined">
+            <img src="/image/home/toTop_img.png" alt="">
+            <div class="goToTop_content">
+                <span class="material-symbols-outlined">
                 expand_less
-            </span>
-            <span>TOP</span>
+                </span>
+                <span>TOP</span>
+            </div>
+            
         </div>
     </a>
 </template>
@@ -24,15 +28,9 @@ export default {
 <style scoped>
 /* GO TO TOP */
 .goToTop {
-    width: 80px;
-    height: 80px;
-    border-radius: 50px;
-    background-color: rgba(255, 107, 0, 0.9);
+    width: 70px;
+    height: 70px;
     color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     position: fixed;
     z-index: 10;
     right: 50px;
@@ -42,14 +40,44 @@ export default {
     @media(width<=414px) {
         display: none;
     }
-
 }
 
-.goToTop span:last-child {
+.goToTop_content{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    background-color: rgba(255, 107, 0, 1);
+    border-radius: 50%;
+}
+
+.goToTop_content span:last-child {
     font-size: 15px;
     letter-spacing: 1px;
     font-family: 'Noto Sans TC', sans-serif;
     font-weight: 400;
+}
+
+.goToTop_content span:first-child{
+    z-index: 10;
+}
+
+img{
+    position: absolute;
+    top: -40px;
+    left: -5px;
+    opacity: 0;
+    z-index: -1;
+    transition: top .5s ease-in-out, opacity .4s .1s;
+}
+
+.goToTop:hover img{
+    opacity: 1;
+    top: -80px;
 }
 </style>
   

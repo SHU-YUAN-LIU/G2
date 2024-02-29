@@ -1,11 +1,15 @@
 .new_wrap {
     @include forgotpsw;
     .new_form {
+        div {
+            margin: 0 auto;
+        }
         input {
             width: 500px;
         }
         .btn {
-            margin-top: 30px;
+            margin: 30px auto 0 auto;
+            
         }
     }
 }
@@ -15,10 +19,11 @@
         height: auto;
         .new_form {
             input {
-                width: 413px;
+                width: 400px;
             }
             .btn {
                 margin-top: 20px;
+                width: 400px;
             }
             
         }
@@ -27,33 +32,67 @@
 }
 @media (max-width: 660px) {
     .new_wrap {
-        height: auto;
         .new_form {
+            h1 {
+                @include title_2;
+                font-size: 50px;
+            }
             input {
-                width: 373px;
+                width: 300px;
             }
             .btn {
-                margin-top: 20px;
+                width: 300px;
             }
             
         }
     }
     
 }
+@media (max-width: 560px) {
+    .new_wrap {
+        .new_form {
+            h1 {
+                font-size: 40px;
+            }
+            input {
+                width: 280px;
+            }
+            .btn {
+                width: 280px;
+                margin: 20px auto;
+                height: 56px;
+                font-size: 20px;
+            }
+        }
+    }
 
+}
+@media (max-width: 520px) {
+    .new_wrap {
+        .new_form {
+            padding: 0 40px;
+        }
+    }
+}
 @media (max-width: 375px) {
     .new_wrap {
         height: auto;
         .new_form {
+            padding: 50px 0;
+            h1 {
+                font-size: 28px;
+            }
             input {
-                width: 250px;
+                width: 200px;
                 height: 30px;
-                font-size: 12px;
+                font-size: 14px;
             }
             .btn {
-                margin-top: 20px;
+                width: 200px;
+                height: 48px;
+                margin: 0 auto;
+                font-size: 14px;
             }
-            
         }
     }
     

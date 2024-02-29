@@ -1,6 +1,6 @@
 <template>
-  <div v-if="showLightbox" class="donate_lightbox" @click="closeLightbox">
-    <div class="donate_container" @click.stop>
+  <div v-if="showLightbox" class="organ_lightbox" @click="closeLightbox">
+    <div class="Organbox_container" @click.stop>
       <!-- 打叉icon -->
       <div class="icon" @click="closeLightbox">
         <img src="@/assets/image/contect/cross.svg" alt="" />
@@ -67,7 +67,7 @@ export default {
 @import "../assets/scss/base/font";
 @import "../assets/scss/base/border";
 
-.donate_lightbox {
+.organ_lightbox {
   width: 100vw;
   height: 100vh;
   background-color: #4b4b4b72;
@@ -85,11 +85,11 @@ export default {
 
   
 
-  .donate_container {
+  .Organbox_container {
     width: 1228px;
     @media (width<1400px){
-      width: 90%;
-      height: 700px;
+      width: 80%;
+      height: 80%;
     }
     height: 740px;
     margin: auto;
@@ -144,6 +144,8 @@ export default {
   width: 500px;
   margin-left: 50px;
   margin-top: 15px;
+  justify-content: center;
+  align-items: center;
 }
 
 @media (max-width: 768px) {
@@ -160,9 +162,10 @@ export default {
   width: 100%;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1440px) {
   .PartyInfo-img {
     margin-top: 40px;
+    width: 70%;
   }
 }
 
@@ -175,9 +178,9 @@ export default {
   //   margin: auto;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 1440px) {
   .PartyInfo-column-2 {
-    width: 100%;
+    width: 60%;
   }
 }
 
@@ -226,7 +229,7 @@ export default {
 
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1440px) {
   .PartyInfo-position {
     @include title_4;
   }
@@ -242,7 +245,7 @@ export default {
   font-weight: 500;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1440px) {
   .party-info {
     @include title_10;
   }
@@ -256,7 +259,7 @@ export default {
   margin-top: 5px;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1440px) {
   .PartyInfo-education {
     @include title_4;
   }
@@ -272,7 +275,7 @@ export default {
   font-weight: 500;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1440px) {
   .PartyInfo-education-info {
     @include title_10;
   }
@@ -286,7 +289,7 @@ export default {
   margin-top: 5px;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1440px) {
   .PartyInfo-experience {
     @include title_4;
   }
@@ -302,7 +305,7 @@ export default {
   font-weight: 500;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1440px) {
   .PartyInfo-experience-info {
     @include title_10;
   }

@@ -1,6 +1,7 @@
 <template>
     <div class="member_wrap">
         <div class="member_profile">
+            <img src="../assets/image/login/member_profile.png" alt="" class="member_profile_pic">
             <div class="edit_icon"><img src="/image/login/camara.png" alt=""></div>
         </div>
         <!-- 電腦版選單 -->

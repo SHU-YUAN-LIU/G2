@@ -188,8 +188,7 @@ body {
 .card_pic img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   vertical-align: middle;
 }
 
@@ -796,8 +795,7 @@ body {
 }
 .drop-down-cart .cart-group .cart-item .cart-pic img {
   max-width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   vertical-align: middle;
 }
 .drop-down-cart .cart-group .cart-item .cart-info {
@@ -1093,10 +1091,8 @@ body {
   background-color: #ff892e;
 }
 .cart-btn .img {
-  -o-object-fit: contain;
-     object-fit: contain;
-  -o-object-position: center;
-     object-position: center;
+  object-fit: contain;
+  object-position: center;
   width: 20px;
   fill: var(--, #ff892e);
   overflow: hidden;
@@ -1140,10 +1136,8 @@ body {
   background-color: #ff892e;
 }
 .cart-btn .img {
-  -o-object-fit: contain;
-     object-fit: contain;
-  -o-object-position: center;
-     object-position: center;
+  object-fit: contain;
+  object-position: center;
   width: 20px;
   fill: var(--, #ff892e);
   overflow: hidden;
@@ -1747,10 +1741,8 @@ footer {
 }
 .img {
   aspect-ratio: 1.13;
-  -o-object-fit: contain;
-     object-fit: contain;
-  -o-object-position: center;
-     object-position: center;
+  object-fit: contain;
+  object-position: center;
   width: 100%;
   overflow: hidden;
   margin-top: 151px;
@@ -1902,10 +1894,8 @@ footer {
 }
 .Value-img {
   aspect-ratio: 0.74;
-  -o-object-fit: contain;
-     object-fit: contain;
-  -o-object-position: center;
-     object-position: center;
+  object-fit: contain;
+  object-position: center;
   width: 100%;
   flex-grow: 1;
 }
@@ -3455,8 +3445,7 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
 .home_container .index_news_flex .index_news_card div img {
   width: 240px;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   border-top-left-radius: 10px;
   border-end-start-radius: 10px;
 }
@@ -3495,8 +3484,7 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
   border-radius: 10px;
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   vertical-align: middle;
 }
 @media (width <= 768px) {
@@ -3526,8 +3514,7 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
   min-width: 100%;
   vertical-align: middle;
   border-radius: 10px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 @media (width <= 1280px) {
   .home_container .index_news_flex .index_news_card .index_news_card_text {
@@ -3616,15 +3603,13 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
 .index_news_flex > .index_news_card:nth-child(2) div img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .index_news_flex > .index_news_card:nth-child(2) img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 @media (width <= 768px) {
@@ -3756,8 +3741,7 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
 .donate_container div .donate_content .donate-pic img {
   width: 100%;
   vertical-align: middle;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   border-top-left-radius: 10px;
 }
 @media screen and (max-width: 768px) {
@@ -3871,8 +3855,7 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
   border-radius: 50%;
   border: 1.8px solid #ffffff;
   background-color: rgba(255, 255, 255, 0.3);
-  -webkit-backdrop-filter: blur(5px);
-          backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
   position: absolute;
   top: 0;
   bottom: 0;
@@ -4053,8 +4036,19 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
   display: none;
 }
 
+.triangle_top {
+  position: absolute;
+  top: 85px;
+  width: 0;
+  height: 0;
+  border-right: var(--body-width) solid transparent;
+  border-top: 20vw solid #FF892E;
+}
+
 .login_wrap_lg {
-  margin: 200px;
+  padding: 300px 0 215px 0;
+  margin: 0 200px;
+  position: relative;
   display: flex;
   justify-content: center;
 }
@@ -4395,7 +4389,7 @@ form .register_read p {
   }
 }
 @media (max-width: 1000px) {
-  .login_wrap_lg {
+  .login_big_wrap {
     display: none;
   }
   .login_wrap_sm {
@@ -4476,12 +4470,12 @@ form .register_read p {
 }
 
 .news_banner {
-  height: 600px;
+  height: 300px;
   background-image: url("/src/assets/image/news/news_banner.png");
   background-size: cover;
   color: #ffffff;
   text-align: center;
-  line-height: 600px;
+  line-height: 300px;
   margin-top: 85px;
 }
 
@@ -4506,12 +4500,13 @@ form .register_read p {
   box-sizing: border-box;
   align-items: center;
   background-color: #ffffff;
+  padding: 40px 40px 0 40px;
 }
 .filter_form .news_filter .remove {
   cursor: pointer;
 }
 .filter_form .news_filter select {
-  padding: 0 10px;
+  padding: 0 5px;
 }
 .filter_form .news_filter input[type=date] {
   padding-right: 10px;
@@ -4673,11 +4668,17 @@ form .register_read p {
   }
 }
 @media (max-width: 1000px) {
+  .news_filter {
+    gap: 0;
+  }
   .news_cards {
     padding: 20px 30px;
   }
 }
 @media (max-width: 960px) {
+  .news_filter {
+    gap: 0;
+  }
   .news_filter .news_search {
     display: none;
   }
@@ -4972,8 +4973,7 @@ form .register_read p {
 }
 .product-pay-wrap .pay-wrap .pay-info .pay-product .pay-pic img {
   max-width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   vertical-align: middle;
 }
 .product-pay-wrap .pay-wrap .pay-info #num {
@@ -5459,8 +5459,7 @@ form .register_read p {
 .pro_info_group .proPic_group .bigPic img {
   width: 100%;
   vertical-align: middle;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .pro_info_group .proPic_group .littlePic {
   width: 550px;
@@ -5477,8 +5476,7 @@ form .register_read p {
   width: 100%;
   height: 100%;
   vertical-align: middle;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .pro_info_main {
@@ -5553,8 +5551,7 @@ form .register_read p {
   }
   .pro_info_group .proPic_group .littlePic div img {
     height: 100%;
-    -o-object-fit: cover;
-       object-fit: cover;
+    object-fit: cover;
   }
   .pro_info_main {
     width: 80%;
@@ -6629,6 +6626,10 @@ form .register_read p {
   position: relative;
   margin-top: 120px;
 }
+.member_wrap .member_profile .member_profile_pic {
+  width: 210px;
+  border-radius: 50%;
+}
 .member_wrap .member_profile .edit_icon {
   position: absolute;
   top: 150px;
@@ -6855,7 +6856,6 @@ form .register_read p {
 .forgot_wrap {
   max-width: 1200px;
   width: 80%;
-  height: 900px;
   display: flex;
   margin: 200px auto;
   justify-content: center;
@@ -6923,11 +6923,16 @@ form .register_read p {
   color: white;
   margin-left: 20px;
 }
-@media (max-width: 375px) {
+@media (max-width: 778px) {
   .forgot_wrap {
     height: auto;
     margin: 150px auto 100px auto;
   }
+  .forgot_wrap form {
+    padding: 50px 60px;
+  }
+}
+@media (max-width: 375px) {
   .forgot_wrap form {
     height: auto;
     padding: 50px 30px;
@@ -6940,6 +6945,7 @@ form .register_read p {
     font-size: 28px;
     font-weight: initial;
     padding-bottom: 30px;
+    letter-spacing: 10px;
   }
   .forgot_wrap form .btn {
     width: 200px;
@@ -6948,10 +6954,10 @@ form .register_read p {
     margin: 20px auto;
   }
   .forgot_wrap form .forgot_email {
-    width: 298px;
+    margin: 0 auto;
   }
   .forgot_wrap form .forgot_email input {
-    width: 240px;
+    width: 200px;
     height: 30px;
     font-size: 12px;
   }
@@ -6969,7 +6975,7 @@ form .register_read p {
     align-items: flex-start;
   }
   .forgot_wrap form .forgot_code .valification input {
-    width: 240px;
+    width: 200px;
     height: 30px;
     font-size: 12px;
   }
@@ -6984,7 +6990,6 @@ form .register_read p {
 .new_wrap {
   max-width: 1200px;
   width: 80%;
-  height: 900px;
   display: flex;
   margin: 200px auto;
   justify-content: center;
@@ -7052,11 +7057,16 @@ form .register_read p {
   color: white;
   margin-left: 20px;
 }
-@media (max-width: 375px) {
+@media (max-width: 778px) {
   .new_wrap {
     height: auto;
     margin: 150px auto 100px auto;
   }
+  .new_wrap form {
+    padding: 50px 60px;
+  }
+}
+@media (max-width: 375px) {
   .new_wrap form {
     height: auto;
     padding: 50px 30px;
@@ -7069,6 +7079,7 @@ form .register_read p {
     font-size: 28px;
     font-weight: initial;
     padding-bottom: 30px;
+    letter-spacing: 10px;
   }
   .new_wrap form .btn {
     width: 200px;
@@ -7077,10 +7088,10 @@ form .register_read p {
     margin: 20px auto;
   }
   .new_wrap form .forgot_email {
-    width: 298px;
+    margin: 0 auto;
   }
   .new_wrap form .forgot_email input {
-    width: 240px;
+    width: 200px;
     height: 30px;
     font-size: 12px;
   }
@@ -7098,7 +7109,7 @@ form .register_read p {
     align-items: flex-start;
   }
   .new_wrap form .forgot_code .valification input {
-    width: 240px;
+    width: 200px;
     height: 30px;
     font-size: 12px;
   }
@@ -7109,11 +7120,14 @@ form .register_read p {
     font-size: 12px;
   }
 }
+.new_wrap .new_form div {
+  margin: 0 auto;
+}
 .new_wrap .new_form input {
   width: 500px;
 }
 .new_wrap .new_form .btn {
-  margin-top: 30px;
+  margin: 30px auto 0 auto;
 }
 
 @media (max-width: 735px) {
@@ -7121,34 +7135,66 @@ form .register_read p {
     height: auto;
   }
   .new_wrap .new_form input {
-    width: 413px;
+    width: 400px;
   }
   .new_wrap .new_form .btn {
     margin-top: 20px;
+    width: 400px;
   }
 }
 @media (max-width: 660px) {
-  .new_wrap {
-    height: auto;
+  .new_wrap .new_form h1 {
+    font-family: "Mantou Sans";
+    font-size: 65px;
+    font-weight: initial;
+    font-size: 50px;
   }
   .new_wrap .new_form input {
-    width: 373px;
+    width: 300px;
   }
   .new_wrap .new_form .btn {
-    margin-top: 20px;
+    width: 300px;
+  }
+}
+@media (max-width: 560px) {
+  .new_wrap .new_form h1 {
+    font-size: 40px;
+  }
+  .new_wrap .new_form input {
+    width: 280px;
+  }
+  .new_wrap .new_form .btn {
+    width: 280px;
+    margin: 20px auto;
+    height: 56px;
+    font-size: 20px;
+  }
+}
+@media (max-width: 520px) {
+  .new_wrap .new_form {
+    padding: 0 40px;
   }
 }
 @media (max-width: 375px) {
   .new_wrap {
     height: auto;
   }
+  .new_wrap .new_form {
+    padding: 50px 0;
+  }
+  .new_wrap .new_form h1 {
+    font-size: 28px;
+  }
   .new_wrap .new_form input {
-    width: 250px;
+    width: 200px;
     height: 30px;
-    font-size: 12px;
+    font-size: 14px;
   }
   .new_wrap .new_form .btn {
-    margin-top: 20px;
+    width: 200px;
+    height: 48px;
+    margin: 0 auto;
+    font-size: 14px;
   }
 }
 .newspage_wrap {
@@ -7157,7 +7203,8 @@ form .register_read p {
   max-width: 1200px;
   width: 100%;
   margin: auto;
-  padding: 50px;
+  padding: 100px;
+  position: relative;
 }
 .newspage_wrap h1 {
   font-family: "Mantou Sans";
@@ -7286,6 +7333,27 @@ form .register_read p {
   padding: 0 50px;
 }
 
+@media (max-width: 500px) {
+  .signup_form h1 {
+    font-family: "Mantou Sans";
+    font-size: 36px;
+    font-weight: initial;
+  }
+  .signup_form input {
+    width: 300px;
+    height: 36px;
+  }
+  .signup_form .register_read {
+    width: 300px;
+  }
+  .signup_form .register_read p {
+    line-height: 20px;
+  }
+  .signup_form .btn {
+    font-size: 16px;
+    height: 48px;
+  }
+}
 @font-face {
   src: url("/Mantou_font/MantouSans-Regular.ttf") format("truetype");
-}/*# sourceMappingURL=style.css.map */
+}
