@@ -5,80 +5,85 @@
 -->
 <!-- input不要用v-for直接寫就好了 -->
 <template>
-    <article class="login_wrap_lg">
-        <div class="container" :class="{ 'register-active': registerBtn }">
-            <div class="overlay_container">
-                <div class="overlay">
-                    <div class="overlay_left">
-                        <p>如果您已經有帳戶，請登入。</p>
-                        <button class="btn" id="loginBtn" @click="registerBtn = !registerBtn">登入 ➜</button>
-                    </div>
-                    <div class="overlay_right">
-                        <div class="sub_register">
-                            <div class="login_logo">
-                                <img src="/image/login/Logo.png" alt="">
+    <div style="position: relative;" class="login_big_wrap">
+    <div class="background">
+        <div class="triangle_top"></div>
+    </div>
+        <article class="login_wrap_lg">
+            <div class="container" :class="{ 'register-active': registerBtn }">
+                <div class="overlay_container">
+                    <div class="overlay">
+                        <div class="overlay_left">
+                            <p>如果您已經有帳戶，請登入。</p>
+                            <button class="btn" id="loginBtn" @click="registerBtn = !registerBtn">登入 ➜</button>
+                        </div>
+                        <div class="overlay_right">
+                            <div class="sub_register">
+                                <div class="login_logo">
+                                    <img src="/image/login/Logo.png" alt="">
+                                </div>
+                                <button class="btn" id="registerBtn" @click="registerBtn = !registerBtn">註冊 ➜</button>
                             </div>
-                            <button class="btn" id="registerBtn" @click="registerBtn = !registerBtn">註冊 ➜</button>
                         </div>
                     </div>
                 </div>
+                <form action="" method="post" class="register" id="registerform" @submit.prevent="handleSubmit">
+                    <div class="register_name">
+                        <p>真實姓名<span>*</span><span id="nameerror"></span></p>
+                        <input type="text" id="name" placeholder="請輸入您的姓名" v-model="registerForm.member_name">
+                    </div>
+                    <div class="register_birthday">
+                        <p>生日<span>*</span><span id="dateerror"></span></p>
+                        <input type="date" id="date" v-model="registerForm.birthday">
+                    </div>
+                    <div class="register_email">
+                        <p>電子信箱<span>*</span><span id="emailerror"></span></p>
+                        <input type="email" name="email1" placeholder="請輸入您的電子信箱" v-model="registerForm.email">
+                    </div>
+                    <div class="register_phone">
+                        <p>手機<span>*</span><span id="phoneerror"></span></p>
+                        <input type="phone" name="phone" id="phone" placeholder="請輸入您的手機號碼" maxlength="10"
+                            v-model="registerForm.cellphone">
+                    </div>
+                    <div class="register_id">
+                        <p>身分證<span>*</span></p>
+                        <input type="text" name="id" id="id" placeholder="請輸入您的身分證" minlength="10"
+                            v-model="registerForm.id_number">
+                    </div>
+                    <div class="register_psw">
+                        <p>密碼<span>*</span><span id="pswerror"></span></p>
+                        <input type="text" name="psw" placeholder="請輸入您的密碼" v-model="registerForm.password">
+                    </div>
+                    <div class="register_check_psw">
+                        <p>確認密碼<span>*</span></p>
+                        <input type="text" name="checkpsw" id="checkpsw" placeholder="請再次輸入您的密碼"
+                            v-model="registerForm.check_psw">
+                    </div>
+                    <div class="register_read">
+                        <input type="checkbox" class="box" v-model="registerForm.read">
+                        <p>我已閱讀並瞭解條款和條件以及隱私權政策。<span>*</span></p>
+                    </div>
+                    <button class="btn" type="submit">送出 ➜</button>
+                </form>
+                <form method="POST" action="" class="login" id="loginform" @submit.prevent="memberLogin">
+                    <div class="profile">
+                        <img src="/image/login/user-solid.svg" alt="">
+                    </div>
+                    <div class="register_email">
+                        <p>電子信箱<span>*</span><span id="emailerror"></span></p>
+                        <input type="email" name="email" id="email" placeholder="請輸入您的電子信箱" v-model="loginForm.email">
+                    </div>
+                    <div class="register_psw">
+                        <p>密碼<span>*</span></p>
+                        <input type="password" name="psw" id="psw" placeholder="請輸入您的密碼" v-model="loginForm.psw">
+                    </div>
+                    <router-link to="/member">忘記密碼?</router-link>
+                    <button class="btn" type="submit">登入 ➜</button>
+                </form>
             </div>
-            <form action="" method="post" class="register" id="registerform" @submit.prevent="handleSubmit">
-                <div class="register_name">
-                    <p>真實姓名<span>*</span><span id="nameerror"></span></p>
-                    <input type="text" id="name" placeholder="請輸入您的姓名" v-model="registerForm.member_name">
-                </div>
-                <div class="register_birthday">
-                    <p>生日<span>*</span><span id="dateerror"></span></p>
-                    <input type="date" id="date" v-model="registerForm.birthday">
-                </div>
-                <div class="register_email">
-                    <p>電子信箱<span>*</span><span id="emailerror"></span></p>
-                    <input type="email" name="email1" placeholder="請輸入您的電子信箱" v-model="registerForm.email">
-                </div>
-                <div class="register_phone">
-                    <p>手機<span>*</span><span id="phoneerror"></span></p>
-                    <input type="phone" name="phone" id="phone" placeholder="請輸入您的手機號碼" maxlength="10"
-                        v-model="registerForm.cellphone">
-                </div>
-                <div class="register_id">
-                    <p>身分證<span>*</span></p>
-                    <input type="text" name="id" id="id" placeholder="請輸入您的身分證" minlength="10"
-                        v-model="registerForm.id_number">
-                </div>
-                <div class="register_psw">
-                    <p>密碼<span>*</span><span id="pswerror"></span></p>
-                    <input type="text" name="psw" placeholder="請輸入您的密碼" v-model="registerForm.password">
-                </div>
-                <div class="register_check_psw">
-                    <p>確認密碼<span>*</span></p>
-                    <input type="text" name="checkpsw" id="checkpsw" placeholder="請再次輸入您的密碼"
-                        v-model="registerForm.check_psw">
-                </div>
-                <div class="register_read">
-                    <input type="checkbox" class="box" v-model="registerForm.read">
-                    <p>我已閱讀並瞭解條款和條件以及隱私權政策。<span>*</span></p>
-                </div>
-                <button class="btn" type="submit">送出 ➜</button>
-            </form>
-            <form method="POST" action="" class="login" id="loginform" @submit.prevent="memberLogin">
-                <div class="profile">
-                    <img src="/image/login/user-solid.svg" alt="">
-                </div>
-                <div class="register_email">
-                    <p>電子信箱<span>*</span><span id="emailerror"></span></p>
-                    <input type="email" name="email" id="email" placeholder="請輸入您的電子信箱" v-model="loginForm.email">
-                </div>
-                <div class="register_psw">
-                    <p>密碼<span>*</span></p>
-                    <input type="password" name="psw" id="psw" placeholder="請輸入您的密碼" v-model="loginForm.psw">
-                </div>
-                <router-link to="/member">忘記密碼?</router-link>
-                <button class="btn" type="submit">登入 ➜</button>
-            </form>
-
-        </div>
-    </article>
+        </article>
+        <background :height="'0'" />
+    </div>
     <div class="login_wrap_sm">
         <div class="login_logo"><img src="../assets/image/login/logo.png" alt=""></div>
         <form method="POST" action="" class="login" id="loginformSm" @submit.prevent="memberLogin">
@@ -103,18 +108,19 @@
 
 import { addlistener } from '@/stores/datacheck.js';
 import Cookies from 'js-cookie';
-import { ref } from 'vue';
 import axios from 'axios';
 import { mapActions } from 'pinia';
 import { useUserStore } from '@/stores/user';
 import { RouterView } from 'vue-router';
 import { useAuthStore } from '@/stores/authStore';
+import background from '../components/Background_green.vue';
 
 export default {
 
     name: 'login',
     data: () => {
         return {
+            resizewidth: "",
             registerBtn: false,
             member: {
                 email: '',
@@ -144,13 +150,21 @@ export default {
     },
     components: {
         Cookies,
+        background
     },
     computed: {
+        bodyWidth() {
+            return document.documentElement.offsetWidth + 'px';
+        }
     },
 
     //資料驗證
     methods: {
         addlistener,
+        resizebody() {
+            this.resizewidth = document.documentElement.offsetWidth + 'px';
+            document.documentElement.style.setProperty('--body-width', this.resizewidth);
+        },
 
         ...mapActions(useUserStore, ['updateToken', 'updateName', 'checkLogin', 'updateUserData']),
         checkmemdata(event) {
@@ -167,6 +181,7 @@ export default {
                 event.preventDefault();
             }
         },
+        
 
         memberLogin() {
             if (!this.loginForm.email || !this.loginForm.psw) {
@@ -316,7 +331,14 @@ export default {
     mounted() {
         document.title = '會員登入/註冊';
         addlistener();
+        document.documentElement.style.setProperty('--body-width', this.bodyWidth);
+        // 监听窗口大小改变事件
+        window.addEventListener('resize', this.resizebody);
     },
+    beforeDestroy() {
+        // 在组件销毁前移除事件监听器，以防止内存泄漏
+        window.removeEventListener('resize', this.resizebody);
+    }
 
 }
 
