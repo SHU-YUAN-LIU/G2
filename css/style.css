@@ -5622,7 +5622,7 @@ form .register_read p {
 }
 .election .election_banner {
   /* 手機版 */
-  background-image: url("../../../../public/image/election/banner-414px.png");
+  background-image: url("/public/image/election/banner-414px.png");
   width: 100%;
   height: 300px;
   background-repeat: no-repeat;
@@ -5633,19 +5633,19 @@ form .register_read p {
 }
 @media screen and (min-width: 768px) {
   .election .election_banner {
-    background-image: url("../../../../public/image/election/banner-768px.png");
+    background-image: url("/public/image/election/banner-768px.png");
     height: 400px;
   }
 }
 @media screen and (min-width: 1200px) {
   .election .election_banner {
-    background-image: url("../../../../public/image/election/banner-1280px.png");
+    background-image: url("/public/image/election/banner-1280px.png");
     height: 500px;
   }
 }
 @media screen and (min-width: 1920px) {
   .election .election_banner {
-    background-image: url("../../../../public/image/election/banner-1920px.png");
+    background-image: url("/public/image/election/banner-1920px.png");
     height: 600px;
   }
 }
