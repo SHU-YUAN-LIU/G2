@@ -191,6 +191,9 @@ import { show_product, changeqty } from '@/stores/cart.js';
 import PayButton from '@/components/button/PayButton.vue';
 import Background_green from "@/components/Background_green.vue";
 export default {
+    components: {
+
+    },
 
     data() {
         return {
@@ -322,7 +325,7 @@ export default {
             this.saveOrderToDb();
 
             // //將頁面跳轉至產品頁
-            // window.location.href = "/Product";
+            window.location.href = "/Product";
 
         },
 

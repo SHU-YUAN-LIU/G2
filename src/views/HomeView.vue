@@ -47,32 +47,28 @@
             <router-link to="/election">
                 <CommitButton class="homebutton dog" commitButton="立即前往"></CommitButton>
             </router-link>
-
-            <router-link to="/election">
-                <CommitButton class="homebutton " commitButton="立即前往"></CommitButton>
-            </router-link>
-
         </div>
         <!-- 消息-->
         <div class="index_news_bg">
             <div class="home_container">
                 <div class="row index_news_flex">
                     <div class="col col-12 index_news_title">最新消息</div>
+                    <!-- 消息第一則 -->
                     <router-link to="/news" class="col col-4 index_news_card" data-aos="zoom-out-up">
-                        <div>
+                        <div class="news-first-card">
                             <img :src="getImageUrl(news_card[0].news_img)">
                         </div>
-                        <div class="index_news_card_text">
+                        <div class="index_news_card_text text-first">
                             <span>{{ news_card[0].date_time }}</span>
                             <p class="index_news_card_header">{{ news_card[0].news_title }}</p>
                             <p>{{ news_card[0].news_script }}</p>
                         </div>
                     </router-link>
-                    <!-- 新聞右邊兩則卡片 -->
+                    <!-- 消息第二三則 -->
                     <div class="row col col-6 news_index_inner_flex">
                         <router-link to="/news" v-for="(item, index) in get_for_range(news_card, 1, 2)" :key="index"
                             class="col index_news_card" data-aos="fade-left">
-                            <div>
+                            <div class="second-third-pic">
                                 <img :src="getImageUrl(item.news_img)">
                             </div>
                             <div class="index_news_card_text">
@@ -97,23 +93,25 @@
         <div class="home_container">
             <div class="row index_news_flex">
                 <div class="col col-12 index_news_title">假消息澄清</div>
+                <!-- 假消息第一則 -->
                 <router-link to="/news" class="col col-4 index_news_card" href="#" data-aos="fade-down-right">
-                    <div>
+                    <div class="news-first-card fake-first">
                         <img :src="getImageUrl(clarifications[0].news_img)">
                     </div>
-                    <div class="index_news_card_text">
+                    <div class="index_news_card_text text-first fake-content">
                         <span>{{ clarifications[0].date_time }}</span>
                         <p class="index_news_card_header">{{ clarifications[0].news_title }}</p>
                         <p>{{ clarifications[0].news_script }}</p>
                     </div>
                 </router-link>
+                <!-- 假消息第二三則 -->
                 <div class="row col col-6 news_index_inner_flex">
                     <router-link to="/news" v-for="(clarification, index) in get_for_range(clarifications, 1, 2)"
                         :key="index" class="col index_news_card" href="#" data-aos="fade-up-left">
-                        <div>
+                        <div class="second-third-pic">
                             <img :src="getImageUrl(clarification.news_img)">
                         </div>
-                        <div class="index_news_card_text">
+                        <div class="index_news_card_text fake-content2">
                             <span>{{ clarification.date_time }}</span>
                             <p class="index_news_card_header">{{ clarification.news_title }}</p>
                             <p>{{ clarification.news_script }}</p>
@@ -212,21 +210,21 @@ export default {
                 news_img: "home/index_news_pic1.png",
                 date_time: "2024/3/8",
                 news_title: "民眾參與決定未來",
-                news_script: "2024年3月8日，一場關鍵的投票活動如火如荼地進行。民眾積極行使選舉權，投票所內洋溢著民主的熱情。與此同時，政黨領袖在不同場合發表演說，強調合理討論與政策的重要性。本黨堅持中立、理性的政治立場，期望為國家的明天畫上正義與希望的一筆。"
+                news_script: "一場關鍵的投票活動如火如荼地進行。民眾積極行使選舉權，投票所內洋溢著民主的熱情。與此同時，政黨領袖在不同場合發表演說，強調合理討論與政策的重要性。本黨堅持中立、理性的政治立場，期望為國家的明天畫上正義與希望的一筆。"
             },
             {
                 id: 2,
                 news_img: "home/index_news_pic2.png",
                 date_time: "2023/12/25",
                 news_title: "青年進補黨領袖擘畫未來藍圖",
-                news_script: "青年進補黨領袖發表振奮人心的演講，承諾將進行重要的政治改革。面對眾多關注的目光，每個字眼都體現了本黨秉持中立和理性的核心價值，展現出對國家未來的堅定信念和清晰方向。"
+                news_script: "進補黨領袖發表振奮人心的演講，承諾將進行重要的政治改革。面對眾多關注，每個字眼都體現了本黨秉持中立和理性的核心價值，展現出對國家未來的堅定信念和清晰方向。"
             },
             {
                 id: 3,
                 news_img: "home/index_news_pic3.png",
                 date_time: "2023/12/25",
                 news_title: "群眾聚焦青年進補黨的願景",
-                news_script: "本黨領袖發表演說，他的言論充滿對國家未來的希望與決心，並呼籲群眾團結一致，共同努力實現共同的目標。在這關鍵時刻，本黨展現了連結民心的能力，以及推動社會進步的承諾。"
+                news_script: "主席發表演說，言論充滿對國家未來的希望與決心，並呼籲群眾團結一致，共同努力實現共同的目標。在這關鍵時刻，本黨展現了連結民心的能力，以及推動社會進步的承諾。"
             }],
         }
     },
@@ -333,12 +331,20 @@ export default {
 
 
 .donate_container>div>div {
-    width: 68%;
+    width: 63.5%;
     // 元素前後順序: 有定位 > 沒定位, 如果取消相對定位, container會被背景圖案蓋住
     position: relative;
 
+    @media screen and (max-width: 1280px) {
+        width: 66%;
+    }
+
     @media screen and (max-width: 768px) {
         width: 70%;
+    }
+
+    @media screen and (max-width: 414px) {
+        width: 300px;
     }
 }
 
@@ -349,22 +355,30 @@ export default {
 .donate_container>img:nth-child(1) {
     bottom: 35px;
     right: 140px;
-    margin: auto;
     width: 105px;
     height: 105px;
 
+    @media screen and (max-width: 1280px) {
+        bottom: 70px;
+        right: 55px;
+    }
+
     @media screen and (max-width: 768px) {
-        top: -2px;
+        display: none;
     }
 }
 
 .donate_container>img:nth-child(2) {
     right: 70px;
-    // top: -100px;
     width: 180px;
     height: 180px;
     transition: top 0.5s ease-in-out;
     animation: coin2 2s infinite;
+
+    @media screen and (max-width: 1280px) {
+        right: 80px;
+        top: -100px
+    }
 
     @media screen and (max-width: 769px) {
         display: none;
@@ -373,16 +387,16 @@ export default {
 
 @keyframes coin2 {
     0% {
-        top: 20px;
+        top: -100px;
     }
 
     50% {
-        top: 40px;
+        top: -120px;
     }
 
     /* 调整到您希望的垂直位置 */
     100% {
-        top: 20px;
+        top: -100px;
     }
 }
 
@@ -393,6 +407,11 @@ export default {
     height: 200px;
     transition: top 0.5s ease-in-out;
     animation: coin1 1.5s infinite;
+
+    @media screen and (max-width: 1280px) {
+        left: 20px;
+        top: 23px;
+    }
 
     @media screen and (max-width: 769px) {
         display: none;

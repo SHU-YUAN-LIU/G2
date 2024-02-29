@@ -54,7 +54,7 @@
         <img src="/image/home/icon_cart.svg" alt="">
         <p>購物車</p>
       </div>
-      <DropDown v-if="isDropDown" class="drop-down" />
+      <DropDown v-if="isDropDown" @click.stop="" class="drop-down" />
       <!-- <DropDown ref="dropDown" @click.stop="" class="drop-down" /> -->
     </li>
     <li class="dropdown" @click.stop="turnPage">

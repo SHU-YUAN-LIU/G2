@@ -15,12 +15,15 @@
         color: $black;
     }
 
-    @media (width<1200px) {
-        flex-direction: column;
+    @media (width<=768px) {
+        // margin: 25px 0;
+        font-size: 50px;
     }
 
     @media (width<576px) {
-        font-size: $font_size_2;
+        font-size: 40px;
+        flex-direction: column;
+        gap: 5px;
     }
 
     .countdownright {
@@ -28,26 +31,52 @@
         justify-content: center;
         gap: 30px;
 
+        @media (width<=768px) {
+            gap: 0px;
+        }
+
         div {
             display: flex;
             flex-direction: column;
             justify-content: center;
             width: 100px;
 
+            @media (width<=414px) {
+                width: 70px;
+            }
+
+
             span:first-child {
                 color: $orange;
                 font-size: 48px;
 
+                @media (width<=768px) {
+                    font-size: 36px;
+                }
+
                 @media (width<576px) {
                     font-size: $font_size_3;
+                }
+
+                @media (width<=414px) {
+                    font-size: 24px;
                 }
             }
 
             span:last-child {
                 font-size: $font_size_3;
 
+                @media (width<=768px) {
+                    font-size: 32px;
+                }
+
+
                 @media (width<576px) {
                     font-size: $font_size_4;
+                }
+
+                @media (width<=414px) {
+                    font-size: 24px;
                 }
             }
         }
@@ -55,6 +84,10 @@
 
     .countdownch {
         letter-spacing: 17px;
+
+        @media (width<=768px) {
+            letter-spacing: 8px;
+        }
     }
 }
 

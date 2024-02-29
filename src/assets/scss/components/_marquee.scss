@@ -6,8 +6,12 @@
     @include title_9;
     font-weight: 600;
     letter-spacing: 2px;
-    // padding-right: 20px;
     overflow: hidden;
+
+    @media (width<=768px) {
+        height: 65px;
+        line-height: 65px;
+    }
 }
 
 .marqbtn {

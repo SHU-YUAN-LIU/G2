@@ -31,8 +31,8 @@ authStore.checkLoginStatus()
 app.use(router)
 app.use(Vue3Marquee);
 app.AOS = new AOS.init({
-  offset: 700, // 觸動畫面偏移量（像素）
-  duration: 900, // 動畫持續時間（毫秒）
+  offset: 500, // 觸動畫面偏移量（像素）
+  duration: 600, // 動畫持續時間（毫秒）
   easing: 'ease-in-out', // 动画缓动函数
   once: false, // 動畫是否只有執行一次
   mirror: true, // 是否在向上滾動時觸發畫面
