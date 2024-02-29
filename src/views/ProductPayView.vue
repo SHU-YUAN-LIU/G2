@@ -324,8 +324,7 @@ export default {
             //執行保存"訂單"到資料庫
             this.saveOrderToDb();
 
-            // //將頁面跳轉至產品頁
-            window.location.href = "/Product";
+
 
         },
 
@@ -374,6 +373,7 @@ export default {
                     });
                     console.log(this.cartList);
                     this.saveOrderItemToDb();//要執行完商品訂單,才能執行存取訂單細項!
+
                 })
                 .catch(error => {
                     console.log(error);
@@ -390,6 +390,9 @@ export default {
                     //請求成功的處理
                     alert('您的訂單已送出')
                     this.clearAllPro();
+
+                    // //將頁面跳轉至產品頁
+                    window.location.href = "/Product";
                 })
                 .catch(error => {
                     console.log(error);
