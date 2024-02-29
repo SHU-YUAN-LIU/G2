@@ -104,7 +104,6 @@
       <Background_green :height="'200'" />
     </div>
   </div>
-  <footer class="election_footer"></footer>
 </template>
 
 
