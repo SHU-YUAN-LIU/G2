@@ -103,13 +103,13 @@ export default {
 @media (max-width: 768px) {
     .donate_lightbox {
         .donate_container {
-            width: 350px;
-            height: 400px;
+            width: 300px;
+            height: 300px;
 
             .donate_content {
                 .donate_top {
-                    width: 250px;
-                    height: 300px;
+                    width: 220px;
+                    height: 220px;
                 }
             }
         }
