@@ -1,8 +1,20 @@
 .login_wrap_sm {
     display: none;
 }
+
+.triangle_top {
+    position: absolute;
+    top: 85px;
+    width: 0;
+    height: 0;
+    border-right: var(--body-width) solid transparent;
+    border-top: 20vw solid $orange;
+}
+
 .login_wrap_lg {
-    margin: 200px;
+    padding: 300px 0 215px 0;
+    margin: 0 200px;
+    position: relative;
     display: flex;
     justify-content: center;
 }
@@ -358,9 +370,10 @@ form {
     }
 }
 @media (max-width: 1000px) {
-    .login_wrap_lg {
+    .login_big_wrap {
         display: none;
     }
+
     .login_wrap_sm {
         display: block;
         max-width: 800px;

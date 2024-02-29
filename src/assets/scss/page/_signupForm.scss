@@ -38,3 +38,24 @@
 .btn {
         @include btn_4;
     }
+@media (max-width: 500px) { 
+    .signup_form {      
+        h1 {
+            @include title_3;
+        }
+        input {
+            width: 300px;
+            height: 36px;
+        }
+        .register_read {
+            width: 300px;
+            p {
+                line-height: 20px;
+            }
+        }
+        .btn {
+            font-size: 16px;
+            height: 48px;
+        }
+    }
+}
