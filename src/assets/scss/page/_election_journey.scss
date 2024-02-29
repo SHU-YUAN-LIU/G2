@@ -43,25 +43,6 @@
     // (電腦版)行程站台內容 
     .election_container {
 
-        @media screen and (max-width:1200px) {
-            right: 0px;
-            padding: 30px;
-            height: 470px;
-        }
-
-        @media screen and (max-width:768px) {
-            right: 0px;
-            padding: 30px;
-            height: 470px;
-
-        }
-
-        @media screen and (max-width:414px) {
-            right: 0px;
-            padding: 30px;
-            height: 470px;
-        }
-
         // mapbox地圖 
         .mapbox {
             display: block;
@@ -82,33 +63,31 @@
             flex-direction: column;
             align-items: flex-end;
             overflow-y: scroll;
-            // position: absolute;
-            // right: 1.5%;
-            transform: translate(-1%, -25%);
+            position: absolute;
+            right: 1.5%;
+            transform: translate(0%, -22%);
 
             // 筆電
-            @media screen and (min-width:1200px) {
-                // position: initial;
-                margin-right: 100px;
-                margin-top: -40px;
+            @media screen and (max-width:1280px) {
                 width: 450px;
-                height: 400px;
+                height: 440px;
+                transform: translate(0%, -37%);
             }
 
 
             // 平板
             @media screen and (max-width:768px) {
                 position: initial;
-                margin-left: 131px;
-                margin-top: 122px;
+                margin-left: 172px;
+                margin-top: 178px;
                 width: 450px;
             }
 
             // 手機板
             @media screen and (max-width:414px) {
                 width: 320px;
-                margin-top: 126px;
-                margin-left: 23px;
+                margin-top: 162px;
+                margin-left: 49px;
                 height: 440px;
                 overflow-x: scroll;
             }
@@ -139,7 +118,15 @@
                 border-left: 1px solid #fff;
                 width: 360px;
                 padding: 10px 20px;
-                height: 100px;
+                height: 140px;
+
+                @media screen and (max-width:768px) {
+                    width: 410px;
+                }
+
+                @media screen and (max-width:414px) {
+                    width: 300px;
+                }
 
 
 
@@ -187,15 +174,24 @@
                 div:last-child {
                     &::after {
                         content: '';
-                        width: 331%;
+                        width: 250%;
                         height: 1px;
                         background: $white;
                         display: block;
-                        margin-left: -232px;
+                        margin-left: -198px;
                         margin-top: 5px;
+
+                        @media screen and (max-width:768px) {
+                            width: 283%;
+                            margin-left: -240px;
+                        }
+
+                        @media screen and (max-width:414px) {
+                            width: 196%;
+                            margin-left: -127px;
+                        }
                     }
                 }
-
             }
         }
     }
@@ -215,15 +211,15 @@
         @include title_3;
         position: absolute;
         bottom: -72px;
-        left: 0px;
         background-color: #fff;
-        margin: 0px 0px 105px 463px;
+        width: 100%;
+        height: 85px;
 
-
-        @media screen and (min-width:1200px) {
+        @media screen and (max-width:1280px) {
             font-size: 40px;
-            text-align: center;
-            margin: 0 0 75px 150px;
+            bottom: -24px;
+            // text-align: center;
+            // margin: 0 0 75px 150px;
         }
 
 

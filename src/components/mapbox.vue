@@ -87,10 +87,14 @@ body {
 
 #map {
     position: absolute;
-    top: 0;
-    bottom: 0;
+    top: 5px;
+    left: 0;
     width: 100%;
-    height: 87vh;
+    height: 99.5vh;
+
+    @media screen and (max-width:1280px) {
+        height: 99vh;
+    }
 }
 </style>
   

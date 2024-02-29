@@ -3268,6 +3268,14 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
     cursor: pointer;
   }
 }
+.body {
+  background: linear-gradient(-6deg, #D4FF1F 0% 18%, rgba(255, 255, 255, 0) 18% 100%);
+}
+
+.index_news_bg {
+  background-color: #F3F5F7;
+}
+
 .home_container {
   --column-gap: 10px;
   width: 80%;
@@ -3275,23 +3283,21 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
   padding-left: var(--column-gap);
   padding-right: var(--column-gap);
 }
-
-.index_news_bg {
-  background-color: #F3F5F7;
+.home_container .row {
+  justify-content: space-between;
 }
-
-.index_news_flex {
+.home_container .index_news_flex {
   justify-content: center;
   gap: 40px;
 }
 @media (width < 769px) {
-  .index_news_flex {
+  .home_container .index_news_flex {
     margin: auto;
     display: block;
     width: 100%;
   }
 }
-.index_news_flex .index_news_title {
+.home_container .index_news_flex .index_news_title {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -3303,7 +3309,7 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
   margin-top: 105px;
 }
 @media (width < 768px) {
-  .index_news_flex .index_news_title {
+  .home_container .index_news_flex .index_news_title {
     font-family: "Mantou Sans";
     font-size: 36px;
     font-weight: initial;
@@ -3311,7 +3317,7 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
     margin: 0;
   }
 }
-.index_news_flex .index_news_card {
+.home_container .index_news_flex .index_news_card {
   display: flex;
   flex-wrap: nowrap;
   flex-direction: row;
@@ -3325,20 +3331,20 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
   color: #000;
 }
 @media (width < 768px) {
-  .index_news_flex .index_news_card {
+  .home_container .index_news_flex .index_news_card {
     display: inline;
   }
 }
-.index_news_flex .index_news_card img {
+.home_container .index_news_flex .index_news_card img {
   min-width: 100%;
   vertical-align: middle;
 }
 @media screen and (max-width: 769px) {
-  .index_news_flex .index_news_card img {
+  .home_container .index_news_flex .index_news_card img {
     border-radius: 10px 10px;
   }
 }
-.index_news_flex .index_news_card .index_news_card_text {
+.home_container .index_news_flex .index_news_card .index_news_card_text {
   padding: 16px 20px 16px;
   letter-spacing: 1.5px;
   line-height: 1.5;
@@ -3346,12 +3352,12 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
   font-size: 16px;
 }
 @media (width < 769px) {
-  .index_news_flex .index_news_card .index_news_card_text {
+  .home_container .index_news_flex .index_news_card .index_news_card_text {
     background-color: #FFF;
     border-radius: 10px;
   }
 }
-.index_news_flex .index_news_card .index_news_card_text .index_news_card_header {
+.home_container .index_news_flex .index_news_card .index_news_card_text .index_news_card_header {
   font-family: "Noto Sans TC", sans-serif;
   font-size: 24px;
   font-weight: 500;
@@ -3376,7 +3382,6 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
 
 .news_index_inner_flex {
   flex-direction: column;
-  gap: 40px;
 }
 @media (width < 769px) {
   .news_index_inner_flex {
@@ -3388,29 +3393,108 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
 
 .home_line_button {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  padding: 55px 0 80px;
-  gap: 10px;
+  padding: 55px 0 135px;
+  width: 67.7%;
+  margin: auto;
+}
+@media (width < 1280px) {
+  .home_line_button {
+    width: 70%;
+  }
 }
 .home_line_button .home_line {
   height: 2px;
-  width: 41%;
+  width: 80%;
   background-color: #FF892E;
-}
-.home_line_button .dog {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: auto;
   margin-bottom: auto;
 }
-.home_line_button .donate_line {
-  width: 52%;
+
+.donate_container {
+  width: 100%;
+  margin-top: 100px;
+  position: relative;
+  border-radius: 10px;
+}
+@media screen and (max-width: 786px) {
+  .donate_container {
+    padding-bottom: 200px;
+  }
+}
+.donate_container div h2 {
+  font-family: "Mantou Sans";
+  font-size: 65px;
+  font-weight: initial;
+  height: 100px;
+  text-align: center;
+  position: relative;
+  margin-top: 105px;
+  margin-bottom: 30px;
+}
+@media screen and (max-width: 414px) {
+  .donate_container div h2 {
+    font-family: "Mantou Sans";
+    font-size: 36px;
+    font-weight: initial;
+    margin-top: 20px;
+  }
+}
+.donate_container div .donate_content {
+  background-color: #FFF;
+  margin: auto;
+  border-radius: 10px;
+  display: flex;
+}
+.donate_container div .donate_content p {
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  margin: auto;
+  line-height: 40px;
+  padding: 0px 40px;
+  text-align: justify;
+}
+@media screen and (max-width: 786px) {
+  .donate_container div .donate_content p {
+    line-height: 45px;
+  }
+}
+.donate_container div .donate_content .donate-pic {
+  width: 500px;
+}
+.donate_container div .donate_content .donate-pic img {
+  width: 100%;
+  vertical-align: middle;
+  border-top-left-radius: 10px;
+}
+@media screen and (max-width: 768px) {
+  .donate_container div .donate_content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 330px;
+  }
+  .donate_container div .donate_content .donate-pic {
+    width: 70%;
+  }
+  .donate_container div .donate_content p {
+    background-color: #fff;
+    border-radius: 10px;
+  }
 }
 
 .homebutton {
   width: 194px !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .banner {
@@ -3429,7 +3513,7 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
 
 .bannerleft {
   position: absolute;
-  left: 10px;
+  left: 40px;
   cursor: pointer;
 }
 @media (width <= 767px) {
@@ -3440,7 +3524,7 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
 
 .bannerright {
   position: absolute;
-  right: 10px;
+  right: 40px;
   cursor: pointer;
 }
 @media (width <= 767px) {
@@ -3474,11 +3558,11 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
 }
 
 .banner > button {
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
-  border: 2px solid #fff;
-  background-color: rgba(255, 255, 255, 0.5);
+  border: 1.8px solid #ffffff;
+  background-color: rgba(255, 255, 255, 0.3);
   -webkit-backdrop-filter: blur(5px);
           backdrop-filter: blur(5px);
   position: absolute;
@@ -5393,27 +5477,6 @@ form .register_read p {
     margin-bottom: 25px;
   }
 }
-@media screen and (max-width: 1200px) {
-  .elecion_journey .election_container {
-    right: 0px;
-    padding: 30px;
-    height: 470px;
-  }
-}
-@media screen and (max-width: 768px) {
-  .elecion_journey .election_container {
-    right: 0px;
-    padding: 30px;
-    height: 470px;
-  }
-}
-@media screen and (max-width: 414px) {
-  .elecion_journey .election_container {
-    right: 0px;
-    padding: 30px;
-    height: 470px;
-  }
-}
 .elecion_journey .election_container .mapbox {
   display: block;
 }
@@ -5431,29 +5494,30 @@ form .register_read p {
   flex-direction: column;
   align-items: flex-end;
   overflow-y: scroll;
-  transform: translate(-1%, -25%);
+  position: absolute;
+  right: 1.5%;
+  transform: translate(0%, -22%);
 }
-@media screen and (min-width: 1200px) {
+@media screen and (max-width: 1280px) {
   .elecion_journey .election_container .journey {
-    margin-right: 100px;
-    margin-top: -40px;
     width: 450px;
-    height: 400px;
+    height: 440px;
+    transform: translate(0%, -37%);
   }
 }
 @media screen and (max-width: 768px) {
   .elecion_journey .election_container .journey {
     position: initial;
-    margin-left: 131px;
-    margin-top: 122px;
+    margin-left: 172px;
+    margin-top: 178px;
     width: 450px;
   }
 }
 @media screen and (max-width: 414px) {
   .elecion_journey .election_container .journey {
     width: 320px;
-    margin-top: 126px;
-    margin-left: 23px;
+    margin-top: 162px;
+    margin-left: 49px;
     height: 440px;
     overflow-x: scroll;
   }
@@ -5485,7 +5549,17 @@ form .register_read p {
   border-left: 1px solid #fff;
   width: 360px;
   padding: 10px 20px;
-  height: 100px;
+  height: 140px;
+}
+@media screen and (max-width: 768px) {
+  .elecion_journey .election_container .journey .journey_card {
+    width: 410px;
+  }
+}
+@media screen and (max-width: 414px) {
+  .elecion_journey .election_container .journey .journey_card {
+    width: 300px;
+  }
 }
 .elecion_journey .election_container .journey .journey_card .journey_card_img {
   width: 100px;
@@ -5524,12 +5598,24 @@ form .register_read p {
 }
 .elecion_journey .election_container .journey .journey_card div:last-child::after {
   content: "";
-  width: 331%;
+  width: 250%;
   height: 1px;
   background: #FFF;
   display: block;
-  margin-left: -232px;
+  margin-left: -198px;
   margin-top: 5px;
+}
+@media screen and (max-width: 768px) {
+  .elecion_journey .election_container .journey .journey_card div:last-child::after {
+    width: 283%;
+    margin-left: -240px;
+  }
+}
+@media screen and (max-width: 414px) {
+  .elecion_journey .election_container .journey .journey_card div:last-child::after {
+    width: 196%;
+    margin-left: -127px;
+  }
 }
 
 .count_down {
@@ -5546,15 +5632,14 @@ form .register_read p {
   font-weight: initial;
   position: absolute;
   bottom: -72px;
-  left: 0px;
   background-color: #fff;
-  margin: 0px 0px 105px 463px;
+  width: 100%;
+  height: 85px;
 }
-@media screen and (min-width: 1200px) {
+@media screen and (max-width: 1280px) {
   .count_down .countdown {
     font-size: 40px;
-    text-align: center;
-    margin: 0 0 75px 150px;
+    bottom: -24px;
   }
 }
 .count_down .countdown span {
