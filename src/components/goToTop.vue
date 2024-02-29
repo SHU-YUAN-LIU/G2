@@ -28,8 +28,8 @@ export default {
 <style scoped>
 /* GO TO TOP */
 .goToTop {
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
     color: white;
     position: fixed;
     z-index: 10;
@@ -48,6 +48,7 @@ export default {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 100%;
     height: 100%;
     z-index: 10;
     background-color: rgba(255, 107, 0, 1);
@@ -67,11 +68,11 @@ export default {
 
 img{
     position: absolute;
-    top: -20px;
+    top: -40px;
     left: -5px;
     opacity: 0;
     z-index: -1;
-    transition: top .5s ease-in-out, opacity .3s .1s;
+    transition: top .5s ease-in-out, opacity .4s .1s;
 }
 
 .goToTop:hover img{
