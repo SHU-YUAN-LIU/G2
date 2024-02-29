@@ -98,14 +98,12 @@
     a {
         color: black;
         display: block;
-        width: 400px;
     }
 }
 
 .news_card {
     display: flex;
-    // margin: 25px 50px;
-    margin: auto;
+    margin: 25px 50px;
     border: 1px solid #d7d5d5;
     max-width: 1200px;
     width: 90%;
@@ -202,6 +200,10 @@
     }
     .news_cards {
         padding: 20px 30px;
+        a {
+            display: block;
+            width: 400px;
+        }
     }
 }
 
