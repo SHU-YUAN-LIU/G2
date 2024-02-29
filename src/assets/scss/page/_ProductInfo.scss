@@ -208,13 +208,37 @@
 }
 
 @media screen and (max-width: 1280px) {
+    .pro-info-wrap {
+        padding-top: 88px;
+    }
+
     .pro_info_group {
         width: 80%;
+
+        .proText_group {
+            width: 50%;
+        }
+
+        .proPic_group {
+
+            gap: 15px;
+
+            .bigPic {
+                width: 500px;
+                height: 340px;
+            }
+
+            .littlePic {
+                width: 500px;
+                gap: 15px;
+            }
+        }
     }
 
     .pro_info_main {
         width: 80%;
     }
+
 }
 
 @media screen and (max-width: 768px) {
