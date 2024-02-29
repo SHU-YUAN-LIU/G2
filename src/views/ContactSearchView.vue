@@ -18,7 +18,7 @@
                 <commitButton :commitButton="check" />
             </router-link>
         </div>
-        <Background_green :height="100" />
+        <Background_green :height="'100'" />
     </div>
 </template>
 

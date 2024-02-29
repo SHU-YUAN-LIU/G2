@@ -59,9 +59,8 @@
       <successPop ref="successPop" />
 
     </div>
-    <Background_green :height="300" />
+    <Background_green :height="'300'" />
   </div>
-  
 </template>
 
 

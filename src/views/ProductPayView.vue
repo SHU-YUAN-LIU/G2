@@ -181,7 +181,7 @@
             </div>
             <button class="pay-btn-now" @click="clearAndSavePro">立即結帳</button>
         </div>
-        <Background_green :height="50" />
+        <Background_green :height="'50'" />
     </div>
 </template>
 

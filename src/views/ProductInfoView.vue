@@ -59,7 +59,7 @@
                 <img :src="getpicurl(iteminfo[0].product_size_pic1)" alt="">
             </div>
         </div>
-        <Background_green :height="80" />
+        <Background_green :height="'80'" />
     </div>
 </template>
 

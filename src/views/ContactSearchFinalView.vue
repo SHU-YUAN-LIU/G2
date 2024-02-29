@@ -46,7 +46,7 @@
                 </span>
             </div>
         </div>
-        <Background_green :height="100" />
+        <Background_green :height="'100'" />
     </div>
 </template>
 

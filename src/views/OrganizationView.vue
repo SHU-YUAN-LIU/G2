@@ -42,7 +42,7 @@
         </div>
       </div>
     </div>
-    <background :height="100" />
+    <background :height="'100'" />
   </div>
 
   <!-- 分隔線 -->
@@ -321,7 +321,7 @@ export default {
     }
   },
   mounted() {
-    document.title="組織團隊";
+    document.title = "組織團隊";
   },
 };
 </script>
