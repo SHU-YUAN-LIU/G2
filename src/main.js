@@ -35,7 +35,7 @@ app.AOS = new AOS.init({
   duration: 600, // 動畫持續時間（毫秒）
   easing: 'ease-in-out', // 动画缓动函数
   once: false, // 動畫是否只有執行一次
-  mirror: true, // 是否在向上滾動時觸發畫面
+  mirror: false, // 是否在向上滾動時觸發畫面
 });
 // 渲染在index.html裡面的div#app
 app.mount('#app')

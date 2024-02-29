@@ -4,7 +4,7 @@
     /* banner */
     .election_banner {
         /* 手機版 */
-        background-image: url('../../../../public/image/election/banner-414px.png');
+        background-image: url('/public/image/election/banner-414px.png');
         width: 100%;
         height: 300px;
         background-repeat: no-repeat;
@@ -13,20 +13,20 @@
 
         /*平板 */
         @media screen and (min-width: 768px) {
-            background-image: url('../../../../public/image/election/banner-768px.png');
+            background-image: url('/public/image/election/banner-768px.png');
             height: 400px;
         }
 
 
         /* 筆電 */
         @media screen and (min-width: 1200px) {
-            background-image: url('../../../../public/image/election/banner-1280px.png');
+            background-image: url('/public/image/election/banner-1280px.png');
             height: 500px;
         }
 
         /*PC板 */
         @media screen and (min-width: 1920px) {
-            background-image: url('../../../../public/image/election/banner-1920px.png');
+            background-image: url('/public/image/election/banner-1920px.png');
             height: 600px;
         }
     }

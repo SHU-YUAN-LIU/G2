@@ -357,6 +357,8 @@ export default {
     right: 140px;
     width: 105px;
     height: 105px;
+    transition: top 0.5s ease-in-out;
+    animation: coin1 2s infinite;
 
     @media screen and (max-width: 1280px) {
         bottom: 70px;
@@ -366,6 +368,22 @@ export default {
     @media screen and (max-width: 768px) {
         display: none;
     }
+}
+
+@keyframes coin1 {
+
+0% {
+    bottom: 35px;
+}
+
+50% {
+    bottom: 10px;
+}
+
+/* 调整到您希望的垂直位置 */
+100% {
+    bottom: 35px;
+}
 }
 
 .donate_container>img:nth-child(2) {
@@ -406,7 +424,7 @@ export default {
     width: 200px;
     height: 200px;
     transition: top 0.5s ease-in-out;
-    animation: coin1 1.5s infinite;
+    animation: coin3 1.5s infinite;
 
     @media screen and (max-width: 1280px) {
         left: 20px;
@@ -418,7 +436,7 @@ export default {
     }
 }
 
-@keyframes coin1 {
+@keyframes coin3 {
 
     0% {
         top: 20px;
