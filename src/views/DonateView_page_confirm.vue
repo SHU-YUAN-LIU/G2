@@ -112,14 +112,14 @@ export default {
             donate_email: '',
             donate_cellphone: '',
             donate_phone: '',
-            donate_no:'',
+            donate_no: '',
         }
     },
     created() {
 
     },
     methods: {
-        handleClick(){
+        handleClick() {
             // this.donatePayment;
             this.checkInputs();
             this.submitData()
@@ -191,7 +191,7 @@ export default {
                 // localStorage.removeItem('donateAmount');
                 // localStorage.removeItem('donate_num');
                 // localStorage.removeItem('donatePoint');
-                
+
             }
         },
         // 將捐款資料存到資料庫
@@ -201,7 +201,7 @@ export default {
             donateformdata.append('donateClass', this.donate_class)
             donateformdata.append('donatePoint', this.donate_point)
             donateformdata.append('donateEmail', this.donate_email)
-            donateformdata.append('donateCellphone',this.donate_cellphone)
+            donateformdata.append('donateCellphone', this.donate_cellphone)
             donateformdata.append('donateno', this.donate_no)
 
             // 連結php
@@ -211,6 +211,9 @@ export default {
                 data: donateformdata,
             }).then(res => {
                 console.log('insert data:', res.data.msg);
+                if (this.donate_no > 0) {
+                    this.resetpoint();
+                }
             }).catch(error => {
                 console.error('Error fetching data:', error);
             });
@@ -228,6 +231,17 @@ export default {
             this.donate_email = memberData.email;
             this.donate_id = memberData.id_number;
             this.donate_no = memberData.member_no;
+        },
+        resetpoint() {
+            let memberData = localStorage.getItem('member');
+            memberData = JSON.parse(memberData);
+            axios.post(`${import.meta.env.VITE_PHP_URL}` + "/front_memberInfo.php", { email: memberData.email })
+                .then(Response => {
+                    localStorage.setItem('member', JSON.stringify(Response.data.member[0]));
+                })
+                .catch(error => {
+                    console.log(error);
+                })
         }
     },
     mounted() {
@@ -242,16 +256,16 @@ export default {
             };
         },
 
-        donate_class(){
-            let msg='';
-            if(localStorage.getItem('donate_num')==1){
+        donate_class() {
+            let msg = '';
+            if (localStorage.getItem('donate_num') == 1) {
                 msg = '匿名';
-            } else if (localStorage.getItem('donate_num')==2){
-                msg =  '非匿名';
+            } else if (localStorage.getItem('donate_num') == 2) {
+                msg = '非匿名';
             }
             return msg;
         },
-        donate_point(){
+        donate_point() {
             let point = localStorage.getItem('donatePoint');
             return point;
         }
