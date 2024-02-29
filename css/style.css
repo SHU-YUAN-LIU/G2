@@ -909,7 +909,7 @@ body {
 }
 @media screen and (max-width: 1280px) {
   .rotate_button {
-    margin: 3% 0 3%;
+    margin: 4% 0 3%;
   }
 }
 .rotate_button #rotateLeftBtn,
@@ -3355,6 +3355,12 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
   .home_container {
     padding-left: 0px;
     padding-right: 0px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
   }
 }
 .home_container .row {
@@ -3372,6 +3378,7 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
   }
 }
 .home_container .index_news_flex {
+  display: flex;
   justify-content: center;
   gap: 40px;
 }
@@ -3382,7 +3389,6 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
 }
 @media (width <= 768px) {
   .home_container .index_news_flex {
-    display: contents;
     width: 100%;
   }
 }
@@ -3431,7 +3437,8 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
 @media (width <= 414px) {
   .home_container .index_news_flex .index_news_card {
     flex-direction: column;
-    align-items: center;
+    width: 300px;
+    margin: 0 auto;
   }
 }
 @media (width <= 768px) {
@@ -3598,7 +3605,7 @@ div.donate .donate_main .donate_cards .donate_card2 .donate_card2_bottom li + li
 @media (width <= 768px) {
   .index_news_flex > .index_news_card:nth-child(2) {
     margin-bottom: 40px;
-    width: 100%;
+    width: 310px;
   }
 }
 @media (width <= 768px) {
@@ -5646,7 +5653,6 @@ form .register_read p {
   display: flex;
   flex-wrap: no-wrap;
   width: 200%;
-  overflow-x: hidden;
 }
 @media screen and (max-width: 768px) {
   .election .horizontal-sliders-PC {
@@ -5667,37 +5673,44 @@ form .register_read p {
     flex-direction: column;
   }
 }
-.election .horizontal-sliders-PC .election_info_slide img {
+.election .horizontal-sliders-PC .election_info_slide .election_info_img {
   height: 90%;
+  margin-top: 150px;
+}
+.election .horizontal-sliders-PC .election_info_slide .election_info_img img {
+  height: 100%;
 }
 @media screen and (max-width: 768px) {
-  .election .horizontal-sliders-PC .election_info_slide img {
+  .election .horizontal-sliders-PC .election_info_slide .election_info_img img {
     display: none;
   }
 }
-.election .horizontal-sliders-PC .election_info_slide ul li {
+.election .horizontal-sliders-PC .election_info_slide .election_info_text {
+  margin-top: 100px;
+}
+.election .horizontal-sliders-PC .election_info_slide .election_info_text ul li {
   padding: 10px 10px;
   font-size: 24px;
 }
-.election .horizontal-sliders-PC .election_info_slide ul li:nth-child(1) {
+.election .horizontal-sliders-PC .election_info_slide .election_info_text ul li:nth-child(1) {
   color: #9D9D9D;
   font-family: "Mantou Sans";
   font-size: 28px;
   font-weight: initial;
 }
-.election .horizontal-sliders-PC .election_info_slide ul li:nth-child(2) {
+.election .horizontal-sliders-PC .election_info_slide .election_info_text ul li:nth-child(2) {
   color: #FF892E;
   font-family: "Mantou Sans";
   font-size: 65px;
   font-weight: initial;
   border-bottom: 1px solid black;
 }
-.election .horizontal-sliders-PC .election_info_slide ul li:nth-child(3) {
+.election .horizontal-sliders-PC .election_info_slide .election_info_text ul li:nth-child(3) {
   font-family: "Mantou Sans";
   font-size: 36px;
   font-weight: initial;
 }
-.election .horizontal-sliders-PC .election_info_slide ul li:nth-child(5) {
+.election .horizontal-sliders-PC .election_info_slide .election_info_text ul li:nth-child(5) {
   font-family: "Mantou Sans";
   font-size: 36px;
   font-weight: initial;
@@ -5742,7 +5755,7 @@ form .register_read p {
 }
 @media screen and (max-width: 1280px) {
   .election .election_policy_container {
-    height: 500px;
+    height: 680px;
   }
 }
 @media screen and (max-width: 768px) {
@@ -5787,10 +5800,6 @@ form .register_read p {
   .election .election_background .background {
     bottom: -150px;
   }
-}
-
-.election_footer {
-  margin-top: 130px;
 }
 
 .elecion_journey {

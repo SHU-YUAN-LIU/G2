@@ -7,40 +7,45 @@
       <!-- 第一位候選人 -->
       <div class="election_info_slide">
         <!-- 候選人圖片 -->
-        <img src="../assets/image/election/boy.png" alt="男候選人">
+        <div class="election_info_img">
+          <img src="../assets/image/election/boy.png" alt="男候選人">
+        </div>
         <!-- 候選人介紹 -->
-        <ul>
-          <li>進補黨提名/總統候選人</li>
-          <li>劉緯育</li>
-          <li>學歷</li>
-          <li>美國哈佛大學 公共衛生學院碩士</li>
-          <li>經歷</li>
-          <li>進補黨 黨主席</li>
-          <li> 第10 屆不分區立法委員</li>
-          <li> 復興市市長</li>
-          <li> 立法院進補黨團幹事長</li>
-          <li> 立法院司法委員會召集委員</li>
-          <li> 立法院跨黨派厚生會會長</li>
-        </ul>
+        <div class="election_info_text">
+          <ul>
+            <li>進補黨提名/總統候選人</li>
+            <li>劉緯育</li>
+            <li>學歷</li>
+            <li>美國哈佛大學 公共衛生學院碩士</li>
+            <li>經歷</li>
+            <li>進補黨 黨主席</li>
+            <li> 第10 屆不分區立法委員</li>
+            <li> 復興市市長</li>
+            <li> 立法院進補黨團幹事長</li>
+
+          </ul>
+        </div>
       </div>
       <!-- 第二位候選人 -->
       <div class="election_info_slide">
         <!-- 候選人圖片 -->
-        <img src="../assets/image/election/girl.png" alt="女候選人">
-        <!-- 候選人介紹 -->
-        <ul>
-          <li>進補黨提名/總統候選人</li>
-          <li>陳舒淇</li>
-          <li>學歷</li>
-          <li>美國哈佛大學 公共衛生學院碩士</li>
-          <li>經歷</li>
-          <li>進補黨 黨主席</li>
-          <li> 第10 屆不分區立法委員</li>
-          <li> 復興市市長</li>
-          <li> 立法院進補黨團幹事長</li>
-          <li> 立法院司法委員會召集委員</li>
-          <li> 立法院跨黨派厚生會會長</li>
-        </ul>
+        <div class="election_info_img">
+          <img src="../assets/image/election/girl.png" alt="女候選人">
+        </div>
+        <div class="election_info_text">
+          <!-- 候選人介紹 -->
+          <ul>
+            <li>進補黨提名/總統候選人</li>
+            <li>陳舒淇</li>
+            <li>學歷</li>
+            <li>美國哈佛大學 公共衛生學院碩士</li>
+            <li>經歷</li>
+            <li>進補黨 黨主席</li>
+            <li> 第10 屆不分區立法委員</li>
+            <li> 復興市市長</li>
+            <li> 立法院進補黨團幹事長</li>
+          </ul>
+        </div>
       </div>
     </div>
     <div class="horizontal-sliders_phone">
@@ -96,7 +101,7 @@
     </div>
     <!-- 背景三角形 -->
     <div class="election_background">
-      <Background_green :height="'80'" />
+      <Background_green :height="'200'" />
     </div>
   </div>
   <footer class="election_footer"></footer>

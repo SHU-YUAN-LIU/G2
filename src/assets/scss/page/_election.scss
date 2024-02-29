@@ -37,7 +37,6 @@
         display: flex;
         flex-wrap: no-wrap;
         width: 200%;
-        overflow-x: hidden;
 
         @media screen and (max-width:768px) {
             display: none;
@@ -58,44 +57,55 @@
                 flex-direction: column;
             }
 
-            img {
+            .election_info_img {
                 height: 90%;
+                margin-top: 150px;
 
-                @media screen and (max-width:768px) {
-                    display: none;
+                img {
+
+                    height: 100%;
+
+                    @media screen and (max-width:768px) {
+                        display: none;
+
+                    }
 
                 }
-
             }
 
-            ul {
+            .election_info_text {
+                margin-top: 100px;
 
-                li {
-                    padding: 10px 10px;
-                    font-size: 24px;
-                }
+                ul {
 
-                li:nth-child(1) {
-                    color: #9D9D9D;
-                    @include title_4;
-                }
+                    li {
+                        padding: 10px 10px;
+                        font-size: 24px;
+                    }
 
-                li:nth-child(2) {
-                    color: $orange;
-                    @include title_2;
-                    border-bottom: 1px solid black;
-                }
+                    li:nth-child(1) {
+                        color: #9D9D9D;
+                        @include title_4;
+                    }
 
-                li:nth-child(3) {
-                    @include title_3;
-                }
+                    li:nth-child(2) {
+                        color: $orange;
+                        @include title_2;
+                        border-bottom: 1px solid black;
+                    }
 
-                li:nth-child(5) {
-                    @include title_3;
+                    li:nth-child(3) {
+                        @include title_3;
+                    }
+
+                    li:nth-child(5) {
+                        @include title_3;
+                    }
                 }
             }
         }
     }
+
 
     .horizontal-sliders_phone {
 
@@ -141,7 +151,7 @@
         height: 700px;
 
         @media screen and (max-width:1280px) {
-            height: 500px;
+            height: 680px;
         }
 
 
@@ -194,9 +204,4 @@
             }
         }
     }
-
-}
-
-.election_footer {
-    margin-top: 130px;
 }
