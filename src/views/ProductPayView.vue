@@ -48,14 +48,19 @@
             <div class="pay-detail">
                 <span>(持有點數：{{ this.memberData.point }}點)</span>
                 <span>點數折抵</span>
-                <span>-${{ this.memberData.point }}</span>
+                <span>-${{ this.memberData.point - cart_total[0].total >= 0
+                    ? cart_total[0].total
+                    : this.memberData.point
+                }}</span>
                 <!-- <span>-$10</span> -->
             </div>
             <hr>
             <div class="pay-detail">
                 <span>購物車合計<span style="color:#FF892E ;">&nbsp;{{ cart_total[0].listcount }}&nbsp;</span>項商品</span>
                 <span>應付總額</span>
-                <span class="final-num">${{ cart_total[0].total + 60 - 10 }}</span>
+                <span class="final-num">${{ this.memberData.point - cart_total[0].total >= 0
+                    ? cart_total[0].total - cart_total[0].total + 60
+                    : cart_total[0].total - this.memberData.point + 60 }}</span>
             </div>
             <!-- 2.會員資料 -->
             <div class="pay-title">
@@ -67,11 +72,11 @@
             <div class="mem-info">
                 <div class="mem-input">
                     <label for="">會員名稱</label>
-                    <input type="text" v-model="memberData.name" disabled>
+                    <input type="text" v-model="memberData.member_name" disabled>
                 </div>
                 <div class="mem-input">
                     <label for="">會員電話</label>
-                    <input type="text" v-model="memberData.phone" disabled>
+                    <input type="text" v-model="memberData.cellphone" disabled>
                 </div>
                 <div class="mem-input">
                     <label for="">會員信箱</label>
@@ -248,8 +253,8 @@ export default {
         isSameAsMember(newVal) {
             if (newVal) {
                 // 當點checkbox的時候,從memberData複製數據到orderData
-                this.orderData.receiver_name = this.memberData.name;
-                this.orderData.receiver_phone = this.memberData.phone;
+                this.orderData.receiver_name = this.memberData.member_name;
+                this.orderData.receiver_phone = this.memberData.cellphone;
             } else {
                 // 取消點選時,改成空字串
                 this.orderData.receiver_name = '';
@@ -324,8 +329,6 @@ export default {
             //執行保存"訂單"到資料庫
             this.saveOrderToDb();
 
-
-
         },
 
         //清除購物車相關資料
@@ -347,12 +350,20 @@ export default {
 
         //將獲取的資料存入"訂單"的資料庫
         saveOrderToDb() {
+            //最後點數(萬一點數大於金額會以金額去扣)
+            const final_point = this.memberData.point - this.cart_total[0].total >= 0
+                ? this.cart_total[0].total
+                : this.memberData.point;
 
-            const final_price = this.cart_total[0].total + 60 - 10;
+            //價錢會扣掉最後的點數
+            const final_price = this.cart_total[0].total + 60 - final_point;
+
             // 整包需要的資料
             const insertOrderData = {
                 ...this.orderData,//寫...等於orderData裡面所有東西
                 final_price,
+                final_point,
+                member_no: this.memberData.member_no,
             }
             console.log(insertOrderData);
 
@@ -389,10 +400,10 @@ export default {
                 .then(res => {
                     //請求成功的處理
                     alert('您的訂單已送出')
-                    this.clearAllPro();
+                    if (this.memberData.member_no > 0) {
+                        this.resetpoint();
+                    }
 
-                    // //將頁面跳轉至產品頁
-                    window.location.href = "/Product";
                 })
                 .catch(error => {
                     console.log(error);
@@ -497,28 +508,33 @@ export default {
         },
         //發送請求去後端,獲取member的資料
         getMemberData() {
+            let membernoData = JSON.parse(localStorage.getItem('member'));
             //發出請求道後端
-            axios.post(`${import.meta.env.VITE_PHP_URL}` + "/front_getMemberData.php",
-                {
-                    member_no: 1
-                })
+            axios.post(`${import.meta.env.VITE_PHP_URL}` + "/front_getMemberData.php", { member_no: membernoData.member_no })
                 .then(res => {
                     //獲取會員資訊
-                    const memberData = res.data;
-                    // console.log(memberData);
-                    // console.log(memberData.member[0].member_name);
-
-                    //把會員姓名帶入上面表格
-                    this.memberData.name = memberData.member[0].member_name
-                    this.memberData.phone = memberData.member[0].cellphone
-                    this.memberData.email = memberData.member[0].email
-                    this.memberData.address = memberData.member[0].address
-                    this.memberData.point = memberData.member[0].point
+                    this.memberData = res.data.member[0];
 
                 })
                 .catch(error => {
                     console.log(error);
                 });
+        },
+        resetpoint() {
+            let memberData = localStorage.getItem('member');
+            memberData = JSON.parse(memberData);
+            axios.post(`${import.meta.env.VITE_PHP_URL}` + "/front_memberInfo.php", { email: memberData.email })
+                .then(Response => {
+                    localStorage.setItem('member', JSON.stringify(Response.data.member[0]));
+                    this.clearAllPro();
+
+                    // 將頁面跳轉至產品頁
+                    this.$router.push("/Product")
+
+                })
+                .catch(error => {
+                    console.log(error);
+                })
         }
 
     },
