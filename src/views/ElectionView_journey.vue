@@ -93,7 +93,7 @@ export default {
     methods: {
         //(手機版) 切換行程標題
         getPicUrl(index) {
-            return `${import.meta.env.VITE_IMG_URL}/campaign/` + index+`?${Date.now()}`;
+            return `${import.meta.env.VITE_IMG_URL}/campaign/` + index + `?${Date.now()}`;
         },
         change(pos) {
             this.currentTitle = pos;
@@ -106,7 +106,7 @@ export default {
             // console.log(this.allTrip[0].address.substr(0,3));
             // console.log(this.currentPage);
             this.displayTrip = this.allTrip.filter((item) => {
-                return item.address.substr(0,3) === this.currentPage||this.currentPage=='所有地區';
+                return item.address.substr(0, 3) === this.currentPage || this.currentPage == '所有地區';
             });
         },
 
