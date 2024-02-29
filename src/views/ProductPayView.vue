@@ -508,15 +508,12 @@ export default {
         },
         //發送請求去後端,獲取member的資料
         getMemberData() {
+            let membernoData = JSON.parse(localStorage.getItem('member'));
             //發出請求道後端
-            axios.post(`${import.meta.env.VITE_PHP_URL}` + "/front_getMemberData.php",
-                {
-                    member_no: 1
-                })
+            axios.post(`${import.meta.env.VITE_PHP_URL}` + "/front_getMemberData.php", { member_no: membernoData.member_no })
                 .then(res => {
                     //獲取會員資訊
                     this.memberData = res.data.member[0];
-
 
                 })
                 .catch(error => {
