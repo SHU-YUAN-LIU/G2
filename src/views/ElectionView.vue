@@ -96,7 +96,7 @@
     </div>
     <!-- 背景三角形 -->
     <div class="election_background">
-      <Background_green :height="'80'" />
+      <Background_green :height="'200'" />
     </div>
   </div>
   <footer class="election_footer"></footer>
