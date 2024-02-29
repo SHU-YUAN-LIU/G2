@@ -5778,6 +5778,12 @@ form .register_read p {
 }
 .election .bookmark {
   margin-top: 50px;
+  height: 500px;
+}
+@media screen and (max-width: 414px) {
+  .election .bookmark {
+    height: 750px;
+  }
 }
 .election .bookmark .election_policy {
   display: flex;
@@ -5785,8 +5791,7 @@ form .register_read p {
 }
 .election .bookmark .election_policy .policy_title {
   font-family: "Mantou Sans";
-  font-size: 65px;
-  font-weight: initial;
+  font-size: 45px;
 }
 @media screen and (min-width: 1280px) {
   .election .bookmark {
@@ -5980,11 +5985,6 @@ form .register_read p {
 .count_down {
   max-width: 100%;
 }
-@media screen and (max-width: 768px) {
-  .count_down {
-    display: none;
-  }
-}
 .count_down .countdown {
   font-family: "Mantou Sans";
   font-size: 36px;
@@ -6001,10 +6001,21 @@ form .register_read p {
     bottom: -24px;
   }
 }
+@media screen and (max-width: 768px) {
+  .count_down .countdown {
+    bottom: -50px;
+  }
+}
+@media screen and (max-width: 414px) {
+  .count_down .countdown {
+    font-size: 40px;
+    bottom: -230px;
+  }
+}
 .count_down .countdown span {
   color: #000;
 }
-@media screen and (min-width: 1201px) {
+@media screen and (min-width: 1200px) {
   .count_down .countdown span {
     font-size: 40px;
     text-align: center;
@@ -6014,6 +6025,12 @@ form .register_read p {
   font-family: "Mantou Sans";
   font-size: 36px;
   font-weight: initial;
+}
+@media screen and (max-width: 768px) {
+  .count_down .countdown div span:first-child {
+    font-size: 30px;
+    text-align: center;
+  }
 }
 
 .con_wrap {
