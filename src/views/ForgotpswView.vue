@@ -14,7 +14,8 @@
                         <p class="mark">若未收到驗證碼，請點選重新發送</p>
                     </div>
                     <div class="vali_code">
-                        <div class="captcha"><img :src="captchaImage" alt="captcha" @click="refreshCaptcha"></div>
+                        <div class="captcha"><img src="/image/login/code.png"></div>
+                        <!-- <div class="captcha"><img :src="captchaImage" alt="captcha" @click="refreshCaptcha"></div> -->
                         <button type="button" @click="refreshCaptcha">重新發送</button>
                     </div>
                 </div>
@@ -38,15 +39,15 @@ export default {
         // this.refreshCaptcha();
     },
     methods: {
-        refreshCaptcha() {
-        // 向後端請求生成驗證碼
-        fetch('')
-        .then(response => response.json())
-        .then(data => {
-            this.realCaptcha = data.captcha;
-            this.captchaImage = `data:image/svg+xml;utf8,${encodeURIComponent(data.captcha)}`;
-        })
-    },
+    //     refreshCaptcha() {
+    //     // 向後端請求生成驗證碼
+    //     fetch('')
+    //     .then(response => response.json())
+    //     .then(data => {
+    //         this.realCaptcha = data.captcha;
+    //         this.captchaImage = `data:image/svg+xml;utf8,${encodeURIComponent(data.captcha)}`;
+    //     })
+    // },
     // submit() {
     //     // 在這裡向後端發送用戶輸入的驗證碼以及真實的驗證碼進行比對
     //     if (this.userInput === this.realCaptcha) {

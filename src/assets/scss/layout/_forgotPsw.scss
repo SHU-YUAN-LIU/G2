@@ -1,7 +1,7 @@
 @mixin forgotpsw {
     max-width: 1200px;
     width: 80%;
-    height: 900px;
+    // height: 900px;
     display: flex;
     margin: 200px auto;
     justify-content: center;
@@ -68,11 +68,13 @@
         }
     }
     @media (max-width: 778px) { 
-
-    }
-    @media (max-width: 375px) {
         height: auto;
         margin: 150px auto 100px auto;
+        form {
+            padding: 50px 60px;
+        }
+    }
+    @media (max-width: 375px) {
         form {
             height: auto;
             padding: 50px 30px;
@@ -82,6 +84,7 @@
             h1 {
                 @include title_4;
                 padding-bottom: 30px;
+                letter-spacing: 10px;
             }
             .btn {
                 width: 200px;
@@ -90,9 +93,9 @@
                 margin: 20px auto;
             }
             .forgot_email {
-                width: 298px;
+                margin: 0 auto;
                 input {
-                    width: 240px;
+                    width: 200px;
                     height: 30px;
                     font-size: 12px;
                 }
@@ -109,7 +112,7 @@
                     flex-direction: column;
                     align-items: flex-start;
                     input {
-                        width: 240px;
+                        width: 200px;
                         height: 30px;
                         font-size: 12px;
                     }
