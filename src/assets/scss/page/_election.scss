@@ -177,13 +177,19 @@
 
     .bookmark {
         margin-top: 50px;
+        height: 500px;
+
+        @media screen and (max-width:414px) {
+            height: 750px;
+        }
 
         .election_policy {
             display: flex;
             justify-content: center;
 
             .policy_title {
-                @include title_2;
+                font-family: $font_family_2;
+                font-size: 45px;
             }
         }
 

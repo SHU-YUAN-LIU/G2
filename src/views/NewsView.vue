@@ -1,6 +1,7 @@
 <template>
   <div class="news_wrap">
     <div class="news_banner">
+      <img src="/src/assets/image/news/news_banner.png" alt="">
       <h1>最新消息</h1>
     </div>
 

@@ -90,6 +90,11 @@
         background-color: #ccc;
         position: relative;
         margin-top: 120px;
+        
+        .member_profile_pic {
+            width: 210px;
+            border-radius: 50%;
+        }
 
         .edit_icon {
             position: absolute;

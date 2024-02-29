@@ -203,7 +203,7 @@
     max-width: 100%;
 
     @media screen and (max-width:768px) {
-        display: none;
+        // display: block;
     }
 
 
@@ -218,15 +218,22 @@
         @media screen and (max-width:1280px) {
             font-size: 40px;
             bottom: -24px;
-            // text-align: center;
-            // margin: 0 0 75px 150px;
+        }
+
+        @media screen and (max-width:768px) {
+            bottom: -50px;
+        }
+
+        @media screen and (max-width:414px) {
+            font-size: 40px;
+            bottom: -230px;
         }
 
 
         span {
             color: #000;
 
-            @media screen and (min-width:1201px) {
+            @media screen and (min-width:1200px) {
                 font-size: 40px;
                 text-align: center;
             }
@@ -235,6 +242,11 @@
         div {
             span:first-child {
                 @include title_3;
+
+                @media screen and (max-width:768px) {
+                    font-size: 30px;
+                    text-align: center;
+                }
             }
         }
     }
