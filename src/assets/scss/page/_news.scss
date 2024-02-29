@@ -1,15 +1,25 @@
 .news_wrap {
-    padding-bottom: 100px;
+    margin-top: 85px;
     position: relative;
 }
 .news_banner {
-    height: 300px;
-    background-image: url('/src/assets/image/news/news_banner.png');
-    background-size: cover;
-    color: #ffffff;
-    text-align: center;
-    line-height: 300px;
-    margin-top: 85px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    h1 {
+        @include title_1;
+        color: $white;
+        font-weight: initial;
+        letter-spacing: 10px;
+        position: absolute;
+        text-align: center;
+    }
+    img {
+        width: 100%;
+        vertical-align: middle;
+        // display: block;
+    }
 }
 .news_banner h1 {
     font-weight: inherit;
@@ -87,12 +97,15 @@
     box-sizing: border-box;
     a {
         color: black;
+        display: block;
+        width: 400px;
     }
 }
 
 .news_card {
     display: flex;
-    margin: 25px 50px;
+    // margin: 25px 50px;
+    margin: auto;
     border: 1px solid #d7d5d5;
     max-width: 1200px;
     width: 90%;
@@ -220,11 +233,13 @@
         padding: 30px;
     }
 }
-@media (max-width: 860px) {
+@media (max-width: 859px) {
     .news_cards {
         justify-content: center;
         .news_card {
             width: 400px;
+            margin: 30px 10px;
+            height: auto;
         }
     }
 }
@@ -245,21 +260,25 @@
         padding: 0;
     }
 }
-@media (max-width: 780px) {
+@media (max-width: 770px) {
     .news_banner {
-        background-image: url('/src/assets/image/news/news_banner_m.png');
+        h1{
+            font-size: 36px;
+        }
     }
 }
 @media (max-width: 414px) {
-    .news_banner {
-        background-image: url('/src/assets/image/news/news_banner_s.png');
-    }
     .news_banner h1 {
         @include title_2;
     }
     .news_cards {
+        margin: 0;
+        a {
+            width: 300px;
+        }
         .news_card {
-            width: 350px;
+            width: 300px;
+            height: auto;
         }
     }
 }
@@ -268,7 +287,6 @@
         flex-direction: column;
     }
     .news_content {
-        padding: 10px 20px;
         h3 {
             @include title_8;
             margin: 10px 0;
