@@ -1812,7 +1812,7 @@ footer {
   margin-top: 60px; /* 根據需求設定合適的值 */
   margin-top: 0; /* 將 margin-top 設為 0，讓台灣價值的區塊與決策三原則相鄰 */
 }
-@media (width < 769px) {
+@media (width < 1400px) {
   .Three {
     margin: auto;
     display: block;
@@ -4583,16 +4583,16 @@ form .register_read p {
   align-items: center;
   margin: auto;
   box-sizing: border-box;
+  padding-bottom: 100px;
 }
 .news_cards a {
   color: black;
   display: block;
-  width: 400px;
 }
 
 .news_card {
   display: flex;
-  margin: auto;
+  margin: 25px 50px;
   border: 1px solid #d7d5d5;
   max-width: 1200px;
   width: 90%;
@@ -4675,7 +4675,7 @@ form .register_read p {
   }
   .news_card {
     width: 400px;
-    height: 700px;
+    height: 650px;
     flex-direction: column;
     margin: 25px;
   }
@@ -4694,6 +4694,10 @@ form .register_read p {
   }
   .news_cards {
     padding: 20px 30px;
+  }
+  .news_cards a {
+    display: block;
+    width: 400px;
   }
 }
 @media (max-width: 960px) {
@@ -4728,7 +4732,7 @@ form .register_read p {
   }
   .news_cards .news_card {
     width: 400px;
-    margin: 30px 10px;
+    margin: 30px 0;
     height: auto;
   }
 }
@@ -6590,10 +6594,9 @@ form .register_read p {
   }
 }
 .member_wrap .membercontent {
-  width: 100%;
+  width: 90%;
   margin: auto;
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding: 30px;
 }
 .member_wrap .membercontent .contentwrap {
   display: flex;
@@ -6623,6 +6626,13 @@ form .register_read p {
   gap: 20px;
   align-items: center;
   position: relative;
+}
+.member_wrap .membercontent .searchbar .orderdatesearch {
+  width: 420px;
+  padding: 0 10px;
+}
+.member_wrap .membercontent .searchbar .orderdatesearch input {
+  padding: 0;
 }
 @media screen and (max-width: 768px) {
   .member_wrap .membercontent .searchbar {
@@ -6728,6 +6738,8 @@ form .register_read p {
   font-size: 16px;
   border: none;
   cursor: pointer;
+  margin: 0;
+  letter-spacing: 0;
 }
 .member_wrap input {
   max-width: 400px;
@@ -6784,7 +6796,7 @@ form .register_read p {
   overflow: hidden;
   letter-spacing: 1.5px;
   border-radius: 10px;
-  padding: 10px;
+  padding: 40px 10px;
   gap: 20px;
   line-height: 1.5;
 }
@@ -6807,6 +6819,12 @@ form .register_read p {
 }
 .memberorder .orderleft div {
   margin: 7px;
+}
+.memberorder .orderleft .orderstatus {
+  margin: 7px 0;
+}
+.memberorder .orderleft .orderstatus span {
+  padding: 5px 2px;
 }
 .memberorder .orderleft span {
   font-weight: 500;
@@ -6848,7 +6866,7 @@ form .register_read p {
 .orderdatesearch {
   display: flex;
   position: absolute;
-  gap: 20px;
+  gap: 10px;
   align-items: center;
   right: 0;
   border-radius: 10px;
@@ -6856,6 +6874,7 @@ form .register_read p {
 .orderdatesearch .searchbtn {
   margin-right: 0;
   cursor: pointer;
+  width: 100px;
 }
 
 .member_idno .member_idno_text {

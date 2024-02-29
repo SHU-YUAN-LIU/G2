@@ -1,16 +1,17 @@
 <template>
-    <a href="#">
+    
         <div class="goToTop">
-            <img src="/image/home/toTop_img.png" alt="">
-            <div class="goToTop_content">
-                <span class="material-symbols-outlined">
-                expand_less
-                </span>
-                <span>TOP</span>
-            </div>
-            
+            <img src="/image/home/toTop_img.svg" alt="">
+            <a href="#">
+                <div class="goToTop_content">
+                    <span class="material-symbols-outlined">
+                    expand_less
+                    </span>
+                    <span>TOP</span>
+                </div>
+            </a>
         </div>
-    </a>
+    
 </template>
   
 <script>
@@ -33,7 +34,7 @@ export default {
     color: white;
     position: fixed;
     z-index: 10;
-    right: 50px;
+    right: 60px;
     bottom: 50px;
     transition: bottom 0.3s ease-in-out;
 
@@ -53,6 +54,7 @@ export default {
     z-index: 10;
     background-color: rgba(255, 107, 0, 1);
     border-radius: 50%;
+    color: #fff;
 }
 
 .goToTop_content span:last-child {
@@ -78,6 +80,10 @@ img{
 .goToTop:hover img{
     opacity: 1;
     top: -80px;
+}
+
+@media (width <= 768px){
+
 }
 </style>
   

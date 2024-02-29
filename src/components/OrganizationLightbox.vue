@@ -88,10 +88,11 @@ export default {
   .Organbox_container {
     width: 1228px;
     @media (width<1400px){
-      width: 70%;
-      height: 70%;
+      width: 80%;
+      height: 80%;
+      overflow: auto;
     }
-    height: 740px;
+    height: 750px;
     margin: auto;
     background-color: $white;
     border: #ff892e solid 6px;
@@ -108,13 +109,15 @@ export default {
       height: 50px;
       top: -25px;
       right: -25px;
-      @media (width<1300px) {
-        top: -25px;
-        right: -10px;
+      @media (width<1400px) {
+        width: 20px;
+      height: 20px;
+        top: 10px;
+        right: 55px;
       }
       cursor: pointer;
       position: absolute;
-      z-index: 3;
+      z-index: 4;
     }
   }
 }
