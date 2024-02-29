@@ -909,7 +909,7 @@ body {
 }
 @media screen and (max-width: 1280px) {
   .rotate_button {
-    margin: 3% 0 3%;
+    margin: 4% 0 3%;
   }
 }
 .rotate_button #rotateLeftBtn,
@@ -5755,7 +5755,7 @@ form .register_read p {
 }
 @media screen and (max-width: 1280px) {
   .election .election_policy_container {
-    height: 500px;
+    height: 680px;
   }
 }
 @media screen and (max-width: 768px) {
@@ -5799,15 +5799,6 @@ form .register_read p {
 @media screen and (max-width: 1280px) {
   .election .election_background .background {
     bottom: -150px;
-  }
-}
-
-.election_footer {
-  margin-top: 130px;
-}
-@media screen and (max-width: 1280px) {
-  .election_footer {
-    margin-top: 55px;
   }
 }
 
