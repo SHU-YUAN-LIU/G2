@@ -4,7 +4,7 @@
         <div class="ThreeBookMark_tab">
             <ul>
                 <li class="" v-for="(tab, index) in tabs" :class="{ active_tab: currentIndex == index }"
-                    :style="{ ...getTabStyle(tab), width: '230px' }" @click="currentIndex = index">
+                    :style="{ ...getTabStyle(tab), width: '400px' }" @click="currentIndex = index">
                     {{ tab }}
                 </li>
             </ul>
@@ -67,6 +67,7 @@ export default {
         width: 100%;    
         margin: auto;
         gap: 15px;
+
     }
 }
 
@@ -77,6 +78,7 @@ export default {
     justify-content: center;
     font-size: 36px;
     font-weight: 600;
+    /* width: 100%; */
 }
 
 .ThreeBookMark_content ul {
@@ -84,7 +86,7 @@ export default {
     display: flex;
     justify-content: center;
     font-size: 20px;
-    font-weight: 600;
+    font-weight: 600;   
 }
 
 .ThreeBookMark_tab li {
@@ -108,6 +110,7 @@ export default {
     background-color: #fff;
     border-radius: 10px;
     padding: 30px;
-    height: 250px;
+    /* height: 250px; */
+    /* overflow: auto; 或者 overflow: hidden; */
 }
 </style>
