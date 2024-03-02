@@ -15,7 +15,7 @@ export default {
         }
     },
     mounted() {
-        mapboxgl.accessToken = 'pk.eyJ1IjoiYW5kcmVhMDIwOSIsImEiOiJjbHNpczk3cWsyZXV0MmxvNXcydjJwaTFwIn0.G2_Hwk0DPeqNnuq3Wr4mDw';
+        mapboxgl.accessToken = 'sk.eyJ1IjoiYW5kcmVhMDIwOSIsImEiOiJjbHQ5ZzdiNnAxNDk1MnBtOXIyYnNqNDBmIn0.Q2AFVJ-d0kB43salvdLd-A';
         this.map = new mapboxgl.Map({
             container: 'map',
             zoom: 3,
