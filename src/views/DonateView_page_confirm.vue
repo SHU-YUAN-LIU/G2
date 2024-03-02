@@ -122,7 +122,7 @@ export default {
         handleClick() {
             // this.donatePayment;
             this.checkInputs();
-            this.submitData()
+            
         },
         // 輸入信用卡卡號時，自動跳下一個輸入格
         doChange(index) {
@@ -191,7 +191,7 @@ export default {
                 // localStorage.removeItem('donateAmount');
                 // localStorage.removeItem('donate_num');
                 // localStorage.removeItem('donatePoint');
-
+                this.submitData()
             }
         },
         // 將捐款資料存到資料庫
