@@ -4146,6 +4146,7 @@ form {
   background: white;
   box-sizing: border-box;
   justify-content: center;
+  cursor: pointer;
   font-family: "Noto Sans TC", sans-serif;
   font-size: 16px;
 }
