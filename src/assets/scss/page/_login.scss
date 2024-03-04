@@ -96,6 +96,7 @@ form {
     background: white;
     box-sizing: border-box;
     justify-content: center;
+    cursor: pointer;
     @include title_10;
     .profile {
         width: 200px;
