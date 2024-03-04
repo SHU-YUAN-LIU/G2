@@ -1,4 +1,7 @@
 <template>
+    <button style="position: fixed;
+    top: 50%;
+    z-index: 100000;"  @click="remove">刪除怪東西</button>
     <div class="elecion_journey">
         <!-- banner -->
         <!-- <banner :bannerTitle="bannerTitle" :bannerPic="bannerPic" /> -->
@@ -91,6 +94,15 @@ export default {
         mapbox,
     },
     methods: {
+        remove(){
+            axios.get(`${import.meta.env.VITE_PHP_URL}/front_campaign_delete.php`)
+                .then(response => {
+                    console.log(response.data)
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+        },
         //(手機版) 切換行程標題
         getPicUrl(index) {
             return `${import.meta.env.VITE_IMG_URL}/campaign/` + index + `?${Date.now()}`;
