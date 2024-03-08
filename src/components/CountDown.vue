@@ -29,7 +29,7 @@ import moment from 'moment'
 export default {
     data() {
         return {
-            electionTime:'2024-04-08',
+            electionTime:'2024-05-08',
             day:'',
             hr:'',
             min:'',
